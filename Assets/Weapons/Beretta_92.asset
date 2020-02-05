@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87de742872fd1da459466c44b5f290ac, type: 3}
   m_Name: Beretta_92
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Berretta 92
   Sprite: {fileID: 0}
   Bullet: {fileID: 8545840750463579405, guid: 9f8353e442b040444bdc558cc269d08c, type: 3}
-  firePoint: {x: 0, y: 0.2, z: 0}
+  BulletSpeed: {x: 10, y: 10}
+  FirePoint: {fileID: 5576019397071786146, guid: 689bdac7d20972a418677002d37bd281,
+    type: 3}
   Ammo: 16
   Range: 50
   Damage: 30

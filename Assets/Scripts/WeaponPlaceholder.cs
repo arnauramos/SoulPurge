@@ -4,10 +4,30 @@ using UnityEngine;
 
 public class WeaponPlaceholder : MonoBehaviour
 {
-    public Weapon[] ArrWeapon;
+	public Weapon[] ArrWeapon;
 
-    private void Start()
-    {
-       // ArrWeapon[0].Ammo;
-    }
+	public static Weapon[] ArrayWeapon;
+
+	public void Awake()
+	{
+		ArrayWeapon = ArrayWeapon;
+	}
+
+	//public WeaponArray_Test[] ArrWeaponTest;
+
+
+	//void Awake()
+	//{
+	//    for (int i = 0; i < ArrWeaponTest.Length; i++)
+	//    {
+	//        ArrWeapon[i].Name = ArrWeaponTest[i].Name;
+	//        ArrWeapon[i].Sprite = ArrWeaponTest[i].Sprite;
+	//        ArrWeapon[i].Bullet = ArrWeaponTest[i].Bullet;
+	//        ArrWeapon[i].firePoint = ArrWeaponTest[i].firePoint;
+	//        ArrWeapon[i].Ammo = ArrWeaponTest[i].Ammo;
+	//        ArrWeapon[i].Range = ArrWeaponTest[i].Range;
+	//        ArrWeapon[i].Damage = ArrWeaponTest[i].Damage;
+	//        ArrWeapon[i].FireRate = ArrWeaponTest[i].FireRate;
+	//    }
+	//}
 }
