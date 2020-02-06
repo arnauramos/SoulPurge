@@ -10,7 +10,7 @@ public class WeaponPlaceholder : MonoBehaviour
 
 	public void Awake()
 	{
-		ArrayWeapon = ArrayWeapon;
+		ArrayWeapon = ArrWeapon;
 	}
 
 	//public WeaponArray_Test[] ArrWeaponTest;

@@ -9,8 +9,8 @@ public class Weapon : ScriptableObject
 	public Sprite Sprite;
 	public GameObject Bullet;
 	public Vector2 BulletSpeed;
-	//public Vector3 FirePoint;
-	public Transform FirePoint;
+	//public Transform FirePoint;
+	public Vector3 FirePoint;
 	public int Ammo;
 	public float Range;
 	public float Damage;

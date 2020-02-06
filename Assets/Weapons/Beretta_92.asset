@@ -16,9 +16,8 @@ MonoBehaviour:
   Sprite: {fileID: 0}
   Bullet: {fileID: 8545840750463579405, guid: 9f8353e442b040444bdc558cc269d08c, type: 3}
   BulletSpeed: {x: 10, y: 10}
-  FirePoint: {fileID: 5576019397071786146, guid: 689bdac7d20972a418677002d37bd281,
-    type: 3}
+  FirePoint: {x: 0.2, y: 0.2, z: 0}
   Ammo: 16
-  Range: 50
+  Range: 0.4
   Damage: 30
-  FireRate: 10
+  FireRate: 7

@@ -7,7 +7,6 @@ public class Player : MonoBehaviour
 	private Vector2 mousePosition;
 	private Vector2 Movement;
 	private Rigidbody2D rb2d;
-	private Rigidbody2D rb2dBullet;
 
 	//private float delta;
 	private float fixedDelta;
@@ -15,40 +14,32 @@ public class Player : MonoBehaviour
 	private float AuxSpeed;
 	public float Sprint = 0.2f;
 
-	//  VARIABLES FOR GUNS -- DEPRECATED
+	//  VARIABLES FOR GUNS
+	private Rigidbody2D rb2dBullet;
 	private GameObject bulletObject;
-	//public Transform firePoint;
-	//private Vector2 BulletSpeed;
-	public float initialBulletTime;
-	//private float deltaBulletTime;
-	public float Counter;
+	private float initialBulletTime;
+	private float Counter;
 
-	// VARAIBLES FOR GUNS
-	GameObject WeaponPlaceholderClass;
 	public int weaponSelected = 0;
+	public Transform firePoint;
 	private static Weapon[] ArrayWeapon;
-	private Weapon weaponUsing;
-	//private WeaponArray_Test weaponUsing;
+	public Weapon weaponUsing;
 
-	private void Awake()
-	{
-	}
 	void Start()
 	{
 		rb2d = GetComponent<Rigidbody2D>();
 		Movement = Vector2.zero;
 		AuxSpeed = Speed;
-		//initialBulletTime = 0;
-		//deltaBulletTime = 3f;
 
 		//	SET WEAPON STATS TO AUXILIARS
 		ArrayWeapon = WeaponPlaceholder.ArrayWeapon;
-
-		//WeaponPlaceholderClass = GameObject.Find("WeaponPlaceholder");
-		//ArrayWeapon = GameObject.Find("WeaponPlaceholder").GetComponent<WeaponPlaceholder>().ArrWeapon;
-		weaponSelected = 1;
 		weaponUsing = ArrayWeapon[weaponSelected];
 	}
+
+	//private void Update()
+	//{
+	//	//	SET WEAPON STATS TO AUXILIARS
+	//}
 
 	private void FixedUpdate()
 	{
@@ -61,11 +52,6 @@ public class Player : MonoBehaviour
 			Shooting();
 			initialBulletTime = Counter + weaponUsing.FireRate;
 		}
-	}
-
-	void Update()
-	{
-		//delta = Time.deltaTime * 1000;     
 	}
 
 	void PlayerMovement()
@@ -87,9 +73,9 @@ public class Player : MonoBehaviour
 	}
 	void Shooting()
 	{
-		bulletObject = Instantiate(weaponUsing.Bullet, weaponUsing.FirePoint.position,Quaternion.identity);
+		bulletObject = Instantiate(weaponUsing.Bullet, firePoint.position, firePoint.rotation);
 		rb2dBullet = bulletObject.GetComponent<Rigidbody2D>();
-		rb2dBullet.velocity = weaponUsing.BulletSpeed * weaponUsing.FirePoint.up * fixedDelta;
-		Destroy(bulletObject, weaponUsing.FireRate);
+		rb2dBullet.AddForce(firePoint.up * weaponUsing.BulletSpeed, ForceMode2D.Impulse);
+		Destroy(bulletObject, weaponUsing.Range);
 	}
 }
