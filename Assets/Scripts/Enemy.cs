@@ -8,7 +8,8 @@ public class Enemy : MonoBehaviour
     private Vector2 Direction;
     private Rigidbody2D rb2d;
     private GameObject Player;
-    float rbx, rby;
+    private float rbx, rby;
+    private float angle;
 
     void Start()
     {
@@ -25,12 +26,19 @@ public class Enemy : MonoBehaviour
     {
         Direction.x = Player.transform.position.x - transform.position.x;
         Direction.y = Player.transform.position.y - transform.position.y;
-        rb2d.AddForce(Direction.normalized * Speed * Time.fixedDeltaTime,ForceMode2D.Impulse);
+        angle = Mathf.Atan2(Direction.y, Direction.x) * Mathf.Rad2Deg - 90f;
+        rb2d.rotation = angle;
+
 
         rbx = Mathf.Clamp(rb2d.velocity.x, -Speed, Speed);
         rby = Mathf.Clamp(rb2d.velocity.y, -Speed, Speed);
 
-        rb2d.velocity = new Vector2(rbx, rby); 
+        rb2d.velocity = new Vector2(rbx, rby);
+        rb2d.AddForce(transform.up * Speed * Time.fixedDeltaTime, ForceMode2D.Impulse);
 
     }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    angle = 0f;
+    //}
 }
