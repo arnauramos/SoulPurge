@@ -59,8 +59,10 @@ public class Player : MonoBehaviour
 		Movement.x = Input.GetAxis("Horizontal");
 		Movement.y = Input.GetAxis("Vertical");
 		if (Input.GetKey(KeyCode.LeftShift)) Speed = Sprint;
-		else Speed = AuxSpeed; 
-		rb2d.velocity = Movement * Speed * fixedDelta;
+		else Speed = AuxSpeed;
+
+		if (rb2d.velocity.x > Speed || rb2d.velocity.x < Speed) rb2d.velocity = new Vector2 (0, 0);
+		rb2d.AddForce(Movement * Speed * fixedDelta, ForceMode2D.Impulse);
 	}
 	void PlayerAim()
 	{
