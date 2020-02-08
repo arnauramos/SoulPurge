@@ -7,6 +7,8 @@ TagManager:
   - Section
   - Wall
   - Door
+  - Block
+  - Free_Block
   layers:
   - Default
   - TransparentFX
