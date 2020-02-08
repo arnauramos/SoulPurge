@@ -8,12 +8,23 @@ public class Door_Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb2d = GetComponent<Rigidbody2D>();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            transform.eulerAngles = Vector3.forward * 90;
+        }
     }
+    // Update is called once per frame
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Player")
+    //    {
+    //        animator.SetTrigger("Die");
+    //        float delaytoload = 1.25f;
+    //        Invoke("GoToScene", delaytoload);
+    //    }
+    //}
 }
