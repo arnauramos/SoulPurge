@@ -1,24 +1,33 @@
-﻿//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-//public class WeaponPlaceholder : MonoBehaviour
-//{
-//    public struct Weapon
-//    {
-//        public Sprite Sprite;
-//        public GameObject Bullet;
-//        public Transform firePoint;
-//        public int Ammo;
-//        public float Range;
-//        public float Damage;
-//        public float FireRate;
+public class WeaponPlaceholder : MonoBehaviour
+{
+	public Weapon[] ArrWeapon;
 
-//        public Weapon(Sprite _Sprite, GameObject _Bullet, Transform _firePoint, int _Ammo, float _Range, float _Damage, float _FireRate)
-//        {
+	public static Weapon[] ArrayWeapon;
 
-//        }
-//    }
+	public void Awake()
+	{
+		ArrayWeapon = ArrWeapon;
+	}
 
-//    Weapon Weapon1 = new Weapon();
-//}
+	//public WeaponArray_Test[] ArrWeaponTest;
+
+
+	//void Awake()
+	//{
+	//    for (int i = 0; i < ArrWeaponTest.Length; i++)
+	//    {
+	//        ArrWeapon[i].Name = ArrWeaponTest[i].Name;
+	//        ArrWeapon[i].Sprite = ArrWeaponTest[i].Sprite;
+	//        ArrWeapon[i].Bullet = ArrWeaponTest[i].Bullet;
+	//        ArrWeapon[i].firePoint = ArrWeaponTest[i].firePoint;
+	//        ArrWeapon[i].Ammo = ArrWeaponTest[i].Ammo;
+	//        ArrWeapon[i].Range = ArrWeaponTest[i].Range;
+	//        ArrWeapon[i].Damage = ArrWeaponTest[i].Damage;
+	//        ArrWeapon[i].FireRate = ArrWeaponTest[i].FireRate;
+	//    }
+	//}
+}
