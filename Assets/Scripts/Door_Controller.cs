@@ -9,12 +9,18 @@ public class Door_Controller : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        
     }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
             transform.eulerAngles = Vector3.forward * 90;
+       
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            transform.eulerAngles = Vector3.forward * 0;
         }
     }
     // Update is called once per frame
