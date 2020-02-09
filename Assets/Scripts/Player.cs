@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public int weaponSelected;
     public GameObject[] Weapon;
     private GameObject weaponUsing;
+    public int keys = 0;
     //private WeaponPlaceholder weaponPlaceholder;
     //private float delta;
     private float fixedDelta;
@@ -33,24 +34,25 @@ public class Player : MonoBehaviour
         weaponUsing = Weapon[weaponSelected];
         //weaponPlaceholder = weaponUsing.GetComponent<WeaponPlaceholder>();
     }
-    /*
+
     private void FixedUpdate()
     {
-        fixedDelta = Time.fixedDeltaTime * 1000;
+        fixedDelta = Time.fixedDeltaTime * 10;
         Counter = Time.time * fixedDelta;
         PlayerMovement();
         PlayerAim();
         if (Counter >= initialBulletTime && Input.GetMouseButton(0))
-        {  
+        {
             Shooting();
             initialBulletTime = Counter + deltaBulletTime;
         }
 
     }
-    */
+
     void Update()
     {
-        //delta = Time.deltaTime * 1000;     
+        //delta = Time.deltaTime * 1000;
+    
     }
 
     void PlayerMovement()
@@ -77,4 +79,5 @@ public class Player : MonoBehaviour
         rb2dBullet.velocity = BulletSpeed * firePoint.up * fixedDelta;
         Destroy(bulletObject,2f /*weaponPlaceholder.weaponRange*/);
     }
+    
 }
