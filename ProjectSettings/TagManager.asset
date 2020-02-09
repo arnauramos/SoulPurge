@@ -9,7 +9,6 @@ TagManager:
   - Door
   - Block
   - Free_Block
-  - Key
   layers:
   - Default
   - TransparentFX
