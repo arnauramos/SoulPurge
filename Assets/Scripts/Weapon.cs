@@ -11,7 +11,9 @@ public class Weapon : ScriptableObject
 	public Vector2 BulletSpeed;
 	//public Transform FirePoint;
 	public Vector3 FirePoint;
-	public int Ammo;
+    public int Rounds;
+    public int Magazines;
+    public int Ammo;
 	public float Range;
 	public float Damage;
 	public float FireRate;

@@ -251,6 +251,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 0.1
   Sprint: 0.2
+  health: 100
+  dmgCounter: 0
   weaponSelected: 0
   firePoint: {fileID: 1925108884}
   weaponUsing: {fileID: 0}
