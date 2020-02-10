@@ -5,11 +5,12 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float Speed = 1f;
-    private Vector2 Direction;
+    public Vector2 Direction;
     private Rigidbody2D rb2d;
     private GameObject Player;
     private float rbx, rby;
     private float angle;
+    public float LookRange = 30f;
 
     void Start()
     {
@@ -19,17 +20,17 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Movement();
+        Direction.x = Player.transform.position.x - transform.position.x;
+        Direction.y = Player.transform.position.y - transform.position.y;
+        if (Direction.x < LookRange && Direction.x > -LookRange && Direction.y < LookRange && Direction.y > -LookRange) { Movement(); }
     }
 
     void Movement()
     {
-        Direction.x = Player.transform.position.x - transform.position.x;
-        Direction.y = Player.transform.position.y - transform.position.y;
         angle = Mathf.Atan2(Direction.y, Direction.x) * Mathf.Rad2Deg - 90f;
         rb2d.rotation = angle;
 
-
+    
         rbx = Mathf.Clamp(rb2d.velocity.x, -Speed, Speed);
         rby = Mathf.Clamp(rb2d.velocity.y, -Speed, Speed);
 
