@@ -133,6 +133,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6442436820314790460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7756234333604984448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 543e8d94382c454489b6930ce5524440, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb2d: {fileID: 8898606383993618565}
+  interior: {fileID: 21300000, guid: 0910017a74f4370409666c90ab67b4d1, type: 3}
 --- !u!50 &4103364747126917734
 Rigidbody2D:
   serializedVersion: 4
@@ -200,12 +214,12 @@ PrefabInstance:
     - target: {fileID: 2480441892866534810, guid: dac41853b2da991448e6e68e25e3e09c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.311
+      value: -0.41
       objectReference: {fileID: 0}
     - target: {fileID: 2480441892866534810, guid: dac41853b2da991448e6e68e25e3e09c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.879
+      value: -0.877
       objectReference: {fileID: 0}
     - target: {fileID: 2480441892866534810, guid: dac41853b2da991448e6e68e25e3e09c,
         type: 3}
@@ -260,7 +274,7 @@ PrefabInstance:
     - target: {fileID: 2200648152611150858, guid: dac41853b2da991448e6e68e25e3e09c,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6255312760755095476, guid: dac41853b2da991448e6e68e25e3e09c,
         type: 3}
@@ -499,7 +513,7 @@ PrefabInstance:
     - target: {fileID: 206957853049527522, guid: dc12ed1c17f6fd441b0f7ff855338c10,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.7142
+      value: 0.66395
       objectReference: {fileID: 0}
     - target: {fileID: 206957853049527522, guid: dc12ed1c17f6fd441b0f7ff855338c10,
         type: 3}
@@ -559,7 +573,7 @@ PrefabInstance:
     - target: {fileID: 206957853049527522, guid: dc12ed1c17f6fd441b0f7ff855338c10,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.54922426
+      value: 0.64963406
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc12ed1c17f6fd441b0f7ff855338c10, type: 3}

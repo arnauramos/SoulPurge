@@ -5,14 +5,11 @@ using UnityEngine;
 public class Door_Controller : MonoBehaviour
 {
     public Rigidbody2D rb2d;
-    public GameObject inside;
-    public Sprite S_inside;
     //public bool dooropened;
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        inside = GameObject.FindGameObjectWithTag("Inside");
         //dooropened = false;
         
     }
@@ -20,13 +17,17 @@ public class Door_Controller : MonoBehaviour
     {
      
     }
+    private void close()
+    {
+        transform.eulerAngles = Vector3.forward * 0;
+    }
     // Update is called once per frame
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             transform.eulerAngles = Vector3.forward * 90;
-            inside.GetComponent<SpriteRenderer>().sprite = S_inside;
+            Invoke("close", 5.0f);
             //inside.transform.position = new Vector3(inside.transform.position.x, inside.transform.position.y, 0);
             //dooropened = true;
         }
