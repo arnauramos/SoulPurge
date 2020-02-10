@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     private float rbx, rby;
     private float angle;
     public float LookRange = 30f;
+    public float dmg = 1f;
+    public float AttackRate = 10f;
 
     void Start()
     {
