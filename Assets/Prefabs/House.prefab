@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3362106995261421258}
   - component: {fileID: 8211626108921103975}
+  - component: {fileID: 839705708563312902}
   m_Layer: 0
   m_Name: House
   m_TagString: Section
@@ -86,6 +87,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &839705708563312902
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561411414486611993}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.56, y: 2.56}
+    newSize: {x: 2.56, y: 2.56}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.56, y: 2.56}
+  m_EdgeRadius: 0
 --- !u!50 &8898606383993618565
 Rigidbody2D:
   serializedVersion: 4
@@ -146,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb2d: {fileID: 8898606383993618565}
-  interior: {fileID: 21300000, guid: 0910017a74f4370409666c90ab67b4d1, type: 3}
+  inside: {fileID: 0}
 --- !u!50 &4103364747126917734
 Rigidbody2D:
   serializedVersion: 4
@@ -274,7 +301,7 @@ PrefabInstance:
     - target: {fileID: 2200648152611150858, guid: dac41853b2da991448e6e68e25e3e09c,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6255312760755095476, guid: dac41853b2da991448e6e68e25e3e09c,
         type: 3}
