@@ -11,6 +11,7 @@ TagManager:
   - Free_Block
   - Inside
   - Enemy
+  - Background
   layers:
   - Default
   - TransparentFX
