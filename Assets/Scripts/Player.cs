@@ -86,15 +86,15 @@ public class Player : MonoBehaviour
 		rb2dBullet.AddForce(firePoint.up * weaponUsing.BulletSpeed, ForceMode2D.Impulse);
 		Destroy(bulletObject, weaponUsing.Range);
 	}
-    private void OnTriggerEnter2D(Collider2D collision) //pillar objetos (Albert)
+    private void OnTriggerStay2D(Collider2D collision) //pillar objetos (Albert)
     {
-        if (collision.gameObject.tag == "Object") //de momento object solo sera vendas, asi que sumara vida cuando se pille
+        if (collision.gameObject.tag == "Object" && Input.GetKey(KeyCode.E)) //de momento object solo sera vendas, asi que sumara vida cuando se pille
         {
             health++;
             Destroy(Object);
         }
 
-        if (collision.gameObject.tag == "Key_Object") 
+        if (collision.gameObject.tag == "Key_Object" && Input.GetKey(KeyCode.E)) 
         {
             keys++;
             Destroy(Key);

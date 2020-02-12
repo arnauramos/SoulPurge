@@ -8,6 +8,8 @@ public class Door_Controller : MonoBehaviour
     public Sprite inside;
     public Sprite outside;
     public GameObject Inside;
+    public GameObject Object;
+    public GameObject Key;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,8 +30,8 @@ public class Door_Controller : MonoBehaviour
         {
             transform.eulerAngles = Vector3.forward * 90;
             Inside.gameObject.GetComponent<SpriteRenderer>().sprite = inside;
-            
-
+            Object.gameObject.GetComponent<SpriteRenderer>().color = Color.cyan;
+            Key.gameObject.GetComponent<SpriteRenderer>().color = Color.green;
         }
         if (Input.GetKey(KeyCode.E) && collision.gameObject.tag == "Player")
         {
