@@ -12,6 +12,8 @@ TagManager:
   - Inside
   - Enemy
   - Background
+  - Object
+  - Key_Object
   layers:
   - Default
   - TransparentFX
