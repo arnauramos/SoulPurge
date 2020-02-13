@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1830870186
 Transform:
   m_ObjectHideFlags: 0
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1830870185}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -2}
-  m_LocalScale: {x: 155, y: 155, z: 3.5059497}
+  m_LocalScale: {x: 75, y: 75, z: 3.5059497}
   m_Children: []
   m_Father: {fileID: 2428528593272821111}
   m_RootOrder: 1
@@ -69,7 +69,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8b529a0a2e9ce794dba2fb3639fa0831, type: 3}
-  m_Color: {r: 0.97985977, g: 1, b: 0.5424528, a: 1}
+  m_Color: {r: 1, g: 0.14372842, b: 0, a: 0.1882353}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -225,9 +225,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 500
   Direction: {x: 0, y: 0}
+  Idle: {x: 75, y: 75, z: 1}
+  LookingPlayer: {x: 75, y: 75, z: 1}
   LookRange: 3
   dmg: 1
   AttackRate: 10
+  AreaOfVision: {fileID: 1830870185}
 --- !u!1 &2428528595052404134
 GameObject:
   m_ObjectHideFlags: 0
