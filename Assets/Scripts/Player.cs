@@ -32,9 +32,12 @@ public class Player : MonoBehaviour
     public int health = 5;
     public int keys = 0;
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> parent of 692eb0d... aasdasd
     void Start()
 	{
 		rb2d = GetComponent<Rigidbody2D>();
@@ -44,12 +47,7 @@ public class Player : MonoBehaviour
 		//	SET WEAPON STATS TO AUXILIARS
 		ArrayWeapon = WeaponPlaceholder.ArrayWeapon;
 		weaponUsing = ArrayWeapon[weaponSelected];
-
-        //animator = GetComponent<Animator>();
-        //openParamID = Animator.StringToHash("Opening");
-
-        //safedoor.gameObject.GetComponent<Animator>();
-    }
+	}
 
 	//private void Update()
 	//{
@@ -103,13 +101,15 @@ public class Player : MonoBehaviour
             Destroy(Object);
         }
 
-        if (collision.gameObject.tag == "Key_Object" && Input.GetKey(KeyCode.E))
+        if (collision.gameObject.tag == "Key_Object" && Input.GetKey(KeyCode.E)) 
         {
             keys++;
             Destroy(Key);
         }
 
+
     }
+<<<<<<< HEAD
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Safe_Door" && keys == 3)
@@ -118,4 +118,6 @@ public class Player : MonoBehaviour
         }
 
     }
+=======
+>>>>>>> parent of 692eb0d... aasdasd
 }
