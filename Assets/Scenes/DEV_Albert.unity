@@ -919,7 +919,6 @@ Transform:
   - {fileID: 820559828}
   - {fileID: 698864669}
 <<<<<<< HEAD
-<<<<<<< HEAD
   - {fileID: 2022762357}
   - {fileID: 1365546876}
   - {fileID: 1276301365}
@@ -936,9 +935,6 @@ Transform:
   - {fileID: 1315591036}
 =======
   - {fileID: 1276301365}
-=======
-  - {fileID: 1276301365}
->>>>>>> parent of ce1f1d7... mapa 0.3.6
   - {fileID: 4259082170488428731}
   - {fileID: 1766891735}
   - {fileID: 106847401}
@@ -951,9 +947,6 @@ Transform:
   - {fileID: 1315591036}
   - {fileID: 901627933}
   - {fileID: 1428158462}
-<<<<<<< HEAD
->>>>>>> parent of ce1f1d7... mapa 0.3.6
-=======
 >>>>>>> parent of ce1f1d7... mapa 0.3.6
   - {fileID: 252176635}
   - {fileID: 1959854441}
