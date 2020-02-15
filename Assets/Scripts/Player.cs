@@ -14,6 +14,9 @@ public class Player : MonoBehaviour
 	private float AuxSpeed;
 	public float Sprint = 0.2f;
 
+	//	VARIABLES FOR HEALTH
+	public float health = 100f;
+
 	//  VARIABLES FOR GUNS
 	private Rigidbody2D rb2dBullet;
 	private GameObject bulletObject;
@@ -36,11 +39,6 @@ public class Player : MonoBehaviour
 		weaponUsing = ArrayWeapon[weaponSelected];
 	}
 
-	//private void Update()
-	//{
-	//	//	SET WEAPON STATS TO AUXILIARS
-	//}
-
 	private void FixedUpdate()
 	{
 		fixedDelta = Time.fixedDeltaTime * 1000;
@@ -52,6 +50,7 @@ public class Player : MonoBehaviour
 			Shooting();
 			initialBulletTime = Counter + weaponUsing.FireRate;
 		}
+		PlayerHealth();
 	}
 
 	void PlayerMovement()
@@ -64,6 +63,7 @@ public class Player : MonoBehaviour
 		if (rb2d.velocity.x > Speed || rb2d.velocity.x < Speed) rb2d.velocity = new Vector2 (0, 0);
 		rb2d.AddForce(Movement * Speed * fixedDelta, ForceMode2D.Impulse);
 	}
+
 	void PlayerAim()
 	{
 		mousePosition = Input.mousePosition;
@@ -73,6 +73,7 @@ public class Player : MonoBehaviour
 		float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
 		rb2d.rotation = angle;
 	}
+
 	void Shooting()
 	{
 		bulletObject = Instantiate(weaponUsing.Bullet, firePoint.position, firePoint.rotation);
@@ -80,4 +81,5 @@ public class Player : MonoBehaviour
 		rb2dBullet.AddForce(firePoint.up * weaponUsing.BulletSpeed, ForceMode2D.Impulse);
 		Destroy(bulletObject, weaponUsing.Range);
 	}
+
 }
