@@ -44,8 +44,6 @@ public class Player : MonoBehaviour
 
 		//	SET WEAPON STATS TO AUXILIARS
 		ArrayWeapon = WeaponPlaceholder.ArrayWeapon;
-		weaponUsing = ArrayWeapon[weaponSelected];
-        AuxRounds = weaponUsing.Rounds;
 
 		//	SET WEAPON USING VARIABLES
 		Magazines = weaponUsing.Magazines;
@@ -60,12 +58,17 @@ public class Player : MonoBehaviour
         if (health <= 0) Destroy(gameObject);
 
 		// UPDATE WEAPON USING VARIABLES
+		weaponUsing = ArrayWeapon[weaponSelected];
+
 		Rounds = weaponUsing.Rounds;
         Magazines = weaponUsing.Magazines;
+		AuxRounds = weaponUsing.MaxRounds;
 
 
 		Reloading();
-    }
+		GunsSwap();
+
+	}
 
 	private void FixedUpdate()
 	{
@@ -111,6 +114,13 @@ public class Player : MonoBehaviour
     void Reloading()
     {
 		if (ReservedAmmo <= 0 && weaponUsing.Magazines <= 0) return;
+
+		if (ReservedAmmo >= weaponUsing.MaxRounds)
+		{
+			weaponUsing.Magazines += (int)(ReservedAmmo / weaponUsing.MaxRounds);
+			ReservedAmmo -= (weaponUsing.MaxRounds * (int)(ReservedAmmo / weaponUsing.MaxRounds));
+		}
+
 		if ((Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Return)) && weaponUsing.Magazines >= 0 && weaponUsing.Rounds < weaponUsing.MaxRounds)
 		{
 			Debug.Log("Reloading: Manual;");
@@ -143,7 +153,37 @@ public class Player : MonoBehaviour
 		}
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+	void GunsSwap()
+	{
+		string InputKey = Input.inputString;
+		if (InputKey == "1" || InputKey == "2" || InputKey == "3")
+		{
+			if (ArrayWeapon[int.Parse(InputKey) - 1] == null) return;
+
+			Debug.Log("Gun Swap to: " + InputKey);
+
+			switch (InputKey)
+			{
+				case "1":
+					weaponSelected = 0;
+					//weaponUsing = ArrayWeapon[weaponSelected];
+					break;
+				case "2":
+					weaponSelected = 1;
+					//weaponUsing = ArrayWeapon[weaponSelected];
+					break;
+				case "3":
+					weaponSelected = 2;
+					//weaponUsing = ArrayWeapon[weaponSelected];
+					break;
+				default:
+					break;
+			}
+		}
+		else return;
+	}
+
+	private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
