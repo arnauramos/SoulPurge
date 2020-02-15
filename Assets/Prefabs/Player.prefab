@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ArrWeapon:
   - {fileID: 11400000, guid: a3d78822e6885f241b00f22dde8721cf, type: 2}
+  - {fileID: 11400000, guid: 3f2376afe26d89d4ab8b45de2add6c7b, type: 2}
 --- !u!1 &1925108883
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,3 +257,6 @@ MonoBehaviour:
   weaponSelected: 0
   firePoint: {fileID: 1925108884}
   weaponUsing: {fileID: 0}
+  Rounds: 0
+  Magazines: 0
+  TotalAmmo: 0

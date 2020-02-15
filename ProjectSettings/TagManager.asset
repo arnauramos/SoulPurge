@@ -9,6 +9,7 @@ TagManager:
   - Door
   - Block
   - Free_Block
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
 
     public float health = 100f;
     public float dmgCounter = 100f;
-    private float initialDmgCounter;
+    private float initialDmgCounter = 0;
 
 	//  VARIABLES FOR GUNS
 	private Rigidbody2D rb2dBullet;
@@ -28,10 +28,13 @@ public class Player : MonoBehaviour
 	public Transform firePoint;
 	private static Weapon[] ArrayWeapon;
 	public Weapon weaponUsing;
+	private int AuxRounds;
+	public int ReservedAmmo;
 
-    public int Rounds;
-    private int AuxRounds;
+	//	SEE WEAPON USING VARIABLES
+	public int Rounds;
     public int Magazines;
+	public int TotalAmmo;
 
 	void Start()
 	{
@@ -43,16 +46,25 @@ public class Player : MonoBehaviour
 		ArrayWeapon = WeaponPlaceholder.ArrayWeapon;
 		weaponUsing = ArrayWeapon[weaponSelected];
         AuxRounds = weaponUsing.Rounds;
-        Rounds = AuxRounds;
+
+		//	SET WEAPON USING VARIABLES
+		Magazines = weaponUsing.Magazines;
+		Rounds = AuxRounds;
+		TotalAmmo = Magazines * Rounds;
+
 	}
 
     private void Update()
     {
-        //	//	SET WEAPON STATS TO AUXILIARS
+        //	//	UPDATE WEAPON STATS TO AUXILIARS
         if (health <= 0) Destroy(gameObject);
-        Rounds = weaponUsing.Rounds;
+
+		// UPDATE WEAPON USING VARIABLES
+		Rounds = weaponUsing.Rounds;
         Magazines = weaponUsing.Magazines;
-        Reloading();
+
+
+		Reloading();
     }
 
 	private void FixedUpdate()
@@ -63,6 +75,7 @@ public class Player : MonoBehaviour
 		PlayerAim();
 		if (Counter >= initialBulletTime && Input.GetMouseButton(0))
 		{
+			if (weaponUsing.Rounds <= 0) return;
 			Shooting();
 			initialBulletTime = Counter + weaponUsing.FireRate;
 		}
@@ -97,11 +110,37 @@ public class Player : MonoBehaviour
 	}
     void Reloading()
     {
-        if (Rounds <= 0 && Magazines > 0)
+		if (ReservedAmmo <= 0 && weaponUsing.Magazines <= 0) return;
+		if ((Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Return)) && weaponUsing.Magazines >= 0 && weaponUsing.Rounds < weaponUsing.MaxRounds)
+		{
+			Debug.Log("Reloading: Manual;");
+			if (weaponUsing.Magazines == 0)
+			{
+				int AuxRounds2 = weaponUsing.Rounds;
+				int AuxReservedAmmo = ReservedAmmo;
+				if (weaponUsing.Rounds + ReservedAmmo <= weaponUsing.MaxRounds)
+				{
+					weaponUsing.Rounds += ReservedAmmo;
+					ReservedAmmo = 0;
+				}
+				else
+				{
+					ReservedAmmo = (AuxRounds2 + AuxReservedAmmo) - weaponUsing.MaxRounds;
+					weaponUsing.Rounds = weaponUsing.MaxRounds;
+				}
+				return;
+			}
+			ReservedAmmo += weaponUsing.Rounds;
+			weaponUsing.Rounds = AuxRounds;
+			weaponUsing.Magazines--;
+			return;
+		}
+        if (weaponUsing.Rounds == 0 && weaponUsing.Magazines > 0)
         {
-            Rounds = AuxRounds;
-            Magazines--;
-        }
+			Debug.Log("Reloading: Automatic;");
+			weaponUsing.Rounds = AuxRounds;
+            weaponUsing.Magazines--;
+		}
     }
 
     private void OnCollisionStay2D(Collision2D collision)

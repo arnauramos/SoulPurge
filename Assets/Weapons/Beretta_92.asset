@@ -18,8 +18,8 @@ MonoBehaviour:
   BulletSpeed: {x: 10, y: 10}
   FirePoint: {x: 0.2, y: 0.2, z: 0}
   Rounds: 16
+  MaxRounds: 16
   Magazines: 3
-  Ammo: 32
   Range: 0.4
   Damage: 30
   FireRate: 7

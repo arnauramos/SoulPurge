@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
     private GameObject Player;
     private float rbx, rby;
     private float angle;
+    public float dmg = 10;
+    public float AttackRate = 0;
 
     void Start()
     {
