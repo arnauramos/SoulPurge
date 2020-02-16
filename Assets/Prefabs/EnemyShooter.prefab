@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cf7db5aa3b7c394fa90413de08ae96e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 1
+  Speed: 500
   Direction: {x: 0, y: 0}
   LookRange: 1.5
   dmg: 1

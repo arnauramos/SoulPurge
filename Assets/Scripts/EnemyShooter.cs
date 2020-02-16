@@ -15,9 +15,9 @@ public class EnemyShooter : MonoBehaviour
     private GameObject Player;
     private float rbx, rby;
     private float angle;
-    public float LookRange = 3.2f;
-    public float dmg = 1f;
-    public float AttackRate = 10f;
+    public float LookRange = 3;
+    public float StopRange = 2;
+    public float AttackRate = 3f;
     public GameObject AreaOfVision;
 
     //  VARIABLES FOR GUNS
@@ -26,7 +26,6 @@ public class EnemyShooter : MonoBehaviour
     private GameObject bulletObject;
     private float initialBulletTime;
     private float Counter;
-
     public int weaponSelected = 0;
     public Transform firePoint;
     private static Weapon[] ArrayWeapon;
@@ -47,40 +46,49 @@ public class EnemyShooter : MonoBehaviour
     private void FixedUpdate()
     {
         fixedDelta = Time.fixedDeltaTime * 1000;
+
+        // GET DISTANCE TO PLAYER
         Direction.x = Player.transform.position.x - transform.position.x;
         Direction.y = Player.transform.position.y - transform.position.y;
+
+        // MOOVING / IDLE 
         if (Direction.x < LookRange && Direction.x > -LookRange && Direction.y < LookRange && Direction.y > -LookRange)
         {
-            LookRange = 3.2f;
+            LookRange = 4.8f;
             AreaOfVision.transform.localScale = LookingPlayer;
             AOVsRenderer.color = red;
             Movement();
         }
         else
         {
-            LookRange = 2;
+            LookRange = 3;
             AreaOfVision.transform.localScale = Idle;
             AOVsRenderer.color = blue;
         }
+
+        // SHOOTING
         Counter = Time.time * fixedDelta;
         if (Counter >= initialBulletTime)
         {
             Shooting();
-            initialBulletTime = Counter + weaponUsing.FireRate*3;
+            initialBulletTime = Counter + weaponUsing.FireRate*AttackRate;
         }
     }
 
     void Movement()
     {
+        // LOOK AT PLAYER
         angle = Mathf.Atan2(Direction.y, Direction.x) * Mathf.Rad2Deg - 90f;
         rb2d.rotation = angle;
 
-
-        rbx = Mathf.Clamp(rb2d.velocity.x, -Speed, Speed);
-        rby = Mathf.Clamp(rb2d.velocity.y, -Speed, Speed);
-
-        rb2d.velocity = new Vector2(rbx, rby);
-        rb2d.AddForce(transform.up * Speed * Time.fixedDeltaTime, ForceMode2D.Impulse);
+        // MOVE IF FAR FROM PLAYER
+        if (Direction.x > StopRange || Direction.x < -StopRange || Direction.y > StopRange || Direction.y < -StopRange)
+        {
+            rbx = Mathf.Clamp(rb2d.velocity.x, -Speed, Speed);
+            rby = Mathf.Clamp(rb2d.velocity.y, -Speed, Speed);
+            rb2d.velocity = new Vector2(rbx, rby);
+            rb2d.AddForce(transform.up * Speed * Time.fixedDeltaTime, ForceMode2D.Impulse);
+        }
 
     }
     void Shooting()
