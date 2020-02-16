@@ -17,7 +17,9 @@ MonoBehaviour:
   Bullet: {fileID: 8545840750463579405, guid: 9f8353e442b040444bdc558cc269d08c, type: 3}
   BulletSpeed: {x: 10, y: 10}
   FirePoint: {x: 0.2, y: 0.2, z: 0}
-  Ammo: 16
+  Rounds: 16
+  MaxRounds: 16
+  Magazines: 3
   Range: 0.4
   Damage: 30
   FireRate: 7

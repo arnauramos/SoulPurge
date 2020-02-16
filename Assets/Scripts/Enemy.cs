@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
         Direction.x = Player.transform.position.x - transform.position.x;
         Direction.y = Player.transform.position.y - transform.position.y;
 
-        // MOOVING / IDLE 
+        // MOOVING / IDLE
         if (Direction.x < LookRange && Direction.x > -LookRange && Direction.y < LookRange && Direction.y > -LookRange)
         {
             LookRange = 2.5f;

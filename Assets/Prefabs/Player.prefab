@@ -41,10 +41,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8efed6f80e753874983b8eb9e27f1fcd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   ArrWeapon:
   - {fileID: 11400000, guid: a3d78822e6885f241b00f22dde8721cf, type: 2}
+  - {fileID: 11400000, guid: 3f2376afe26d89d4ab8b45de2add6c7b, type: 2}
 --- !u!1 &1925108883
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,10 +249,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84d10181a2ae8954d838e776a9c08c47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   Speed: 0.1
   Sprint: 0.2
+  health: 100
+  dmgCounter: 0
   weaponSelected: 0
   firePoint: {fileID: 1925108884}
   weaponUsing: {fileID: 0}
@@ -265,7 +268,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d68acc3dc36654049be6781f6dc52645, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: 
   rb2d: {fileID: 2730900608952511334}
   door: {fileID: 8359528355508521497, guid: dac41853b2da991448e6e68e25e3e09c, type: 3}
+  Rounds: 0
+  Magazines: 0
+  TotalAmmo: 0
