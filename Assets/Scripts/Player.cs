@@ -189,10 +189,10 @@ public class Player : MonoBehaviour
                 initialDmgCounter = dmgCounter + collision.gameObject.GetComponent<Enemy>().AttackRate;
             }
         }
-				if (collision.gameObject.tag == "Safe_Door" && keys == 3)
-				{
-						SceneManager.LoadScene("SafeZone");
-				}
+		if (collision.gameObject.tag == "Safe_Door" && keys == 3)
+		{
+				SceneManager.LoadScene("SafeZone");
+		}
     }
 		private void OnTriggerStay2D(Collider2D collision) //pillar objetos (Albert)
     {
