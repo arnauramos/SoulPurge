@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -25,7 +26,19 @@ public class Player : MonoBehaviour
 	private static Weapon[] ArrayWeapon;
 	public Weapon weaponUsing;
 
-	void Start()
+    //VARIABLES FOR OBJECTS
+    public GameObject Object;
+    public GameObject Key;
+    public int health = 5;
+    public int keys = 0;
+
+    //VARIABLES FOR DOOR TO SAFE ZONE
+    //public GameObject safedoor;
+    //private Animator animator;
+    //private int openParamID;
+
+
+    void Start()
 	{
 		rb2d = GetComponent<Rigidbody2D>();
 		Movement = Vector2.zero;
@@ -34,7 +47,12 @@ public class Player : MonoBehaviour
 		//	SET WEAPON STATS TO AUXILIARS
 		ArrayWeapon = WeaponPlaceholder.ArrayWeapon;
 		weaponUsing = ArrayWeapon[weaponSelected];
-	}
+
+        //animator = GetComponent<Animator>();
+        //openParamID = Animator.StringToHash("Opening");
+
+        //safedoor.gameObject.GetComponent<Animator>();
+    }
 
 	//private void Update()
 	//{
@@ -80,4 +98,27 @@ public class Player : MonoBehaviour
 		rb2dBullet.AddForce(firePoint.up * weaponUsing.BulletSpeed, ForceMode2D.Impulse);
 		Destroy(bulletObject, weaponUsing.Range);
 	}
+    private void OnTriggerStay2D(Collider2D collision) //pillar objetos (Albert)
+    {
+        if (collision.gameObject.tag == "Object" && Input.GetKey(KeyCode.E)) //de momento object solo sera vendas, asi que sumara vida cuando se pille
+        {
+            health++;
+            Destroy(Object);
+        }
+
+        if (collision.gameObject.tag == "Key_Object" && Input.GetKey(KeyCode.E))
+        {
+            keys++;
+            Destroy(Key);
+        }
+
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Safe_Door" && keys == 3)
+        {
+            SceneManager.LoadScene("SafeZone");
+        }
+
+    }
 }
