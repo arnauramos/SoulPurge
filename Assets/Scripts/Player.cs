@@ -166,15 +166,12 @@ public class Player : MonoBehaviour
 			{
 				case "1":
 					weaponSelected = 0;
-					//weaponUsing = ArrayWeapon[weaponSelected];
 					break;
 				case "2":
 					weaponSelected = 1;
-					//weaponUsing = ArrayWeapon[weaponSelected];
 					break;
 				case "3":
 					weaponSelected = 2;
-					//weaponUsing = ArrayWeapon[weaponSelected];
 					break;
 				default:
 					break;
