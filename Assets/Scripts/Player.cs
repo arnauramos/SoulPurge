@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -36,7 +37,17 @@ public class Player : MonoBehaviour
     public int Magazines;
 	public int TotalAmmo;
 
-	void Start()
+    //VARIABLES FOR OBJECTS
+    public GameObject Object;
+    public GameObject Key;
+    public int keys = 0;
+
+    //VARIABLES FOR DOOR TO SAFE ZONE
+    //public GameObject safedoor;
+    //private Animator animator;
+    //private int openParamID;
+
+    void Start()
 	{
 		rb2d = GetComponent<Rigidbody2D>();
 		Movement = Vector2.zero;
