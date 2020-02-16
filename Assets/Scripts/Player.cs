@@ -11,6 +11,9 @@ public class Player : MonoBehaviour
 
 	//private float delta;
 	private float fixedDelta;
+	
+	[Header("Variables for player:")]
+	[Space(5)]
 	public float Speed = 0.1f;
 	private float AuxSpeed;
 	public float Sprint = 0.2f;
@@ -25,20 +28,21 @@ public class Player : MonoBehaviour
 	private float initialBulletTime;
 	private float Counter;
 
+
+	[Header("Variables for guns:")]
+	[Space(10)]
 	public int weaponSelected = 0;
 	public Transform firePoint;
 	private static Weapon[] ArrayWeapon;
 	public Weapon weaponUsing;
 	private int AuxRounds;
-	public int ReservedAmmo;
-
-	//	SEE WEAPON USING VARIABLES
-	public int Rounds;
-    public int Magazines;
 	public int TotalAmmo;
+	public int Rounds;
 
     //VARIABLES FOR OBJECTS
-    public GameObject Object;
+	[Header("Variables for objects & keys:")]
+	[Space(10)]
+	public GameObject Object;
     public GameObject Key;
     public int keys = 0;
 
@@ -57,9 +61,7 @@ public class Player : MonoBehaviour
 		ArrayWeapon = WeaponPlaceholder.ArrayWeapon;
 
 		//	SET WEAPON USING VARIABLES
-		Magazines = weaponUsing.Magazines;
 		Rounds = AuxRounds;
-		TotalAmmo = Magazines * Rounds;
 
 	}
 
@@ -72,7 +74,7 @@ public class Player : MonoBehaviour
 		weaponUsing = ArrayWeapon[weaponSelected];
 
 		Rounds = weaponUsing.Rounds;
-        Magazines = weaponUsing.Magazines;
+		TotalAmmo = weaponUsing.TotalAmmo;
 		AuxRounds = weaponUsing.MaxRounds;
 
 
@@ -124,45 +126,30 @@ public class Player : MonoBehaviour
 	}
     void Reloading()
     {
-		if (ReservedAmmo <= 0 && weaponUsing.Magazines <= 0) return;
+		if (weaponUsing.Rounds <= 0 && weaponUsing.TotalAmmo <= 0) return;
 
-		if (ReservedAmmo >= weaponUsing.MaxRounds)
+		if ((Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Return)) && weaponUsing.TotalAmmo >= 0 && weaponUsing.Rounds < weaponUsing.MaxRounds)
 		{
-			weaponUsing.Magazines += (int)(ReservedAmmo / weaponUsing.MaxRounds);
-			ReservedAmmo -= (weaponUsing.MaxRounds * (int)(ReservedAmmo / weaponUsing.MaxRounds));
-		}
-
-		if ((Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Return)) && weaponUsing.Magazines >= 0 && weaponUsing.Rounds < weaponUsing.MaxRounds)
-		{
-			Debug.Log("Reloading: Manual;");
-			if (weaponUsing.Magazines == 0)
+			Debug.Log("Reloading: Manual;");		
+			weaponUsing.TotalAmmo += weaponUsing.Rounds;
+			if (weaponUsing.TotalAmmo < weaponUsing.MaxRounds)
 			{
-				int AuxRounds2 = weaponUsing.Rounds;
-				int AuxReservedAmmo = ReservedAmmo;
-				if (weaponUsing.Rounds + ReservedAmmo <= weaponUsing.MaxRounds)
-				{
-					weaponUsing.Rounds += ReservedAmmo;
-					ReservedAmmo = 0;
-				}
-				else
-				{
-					ReservedAmmo = (AuxRounds2 + AuxReservedAmmo) - weaponUsing.MaxRounds;
-					weaponUsing.Rounds = weaponUsing.MaxRounds;
-				}
-				return;
+				weaponUsing.Rounds = weaponUsing.TotalAmmo;
+				weaponUsing.TotalAmmo -= weaponUsing.Rounds;
 			}
-			ReservedAmmo += weaponUsing.Rounds;
-			weaponUsing.Rounds = AuxRounds;
-			weaponUsing.Magazines--;
-			return;
-		}
-        if (weaponUsing.Rounds == 0 && weaponUsing.Magazines > 0)
-        {
+			else
+			{
+				weaponUsing.Rounds = AuxRounds;
+				weaponUsing.TotalAmmo -= weaponUsing.Rounds;
+			}
+		} 
+		else if (weaponUsing.Rounds == 0 && weaponUsing.TotalAmmo > 0)
+		{
 			Debug.Log("Reloading: Automatic;");
 			weaponUsing.Rounds = AuxRounds;
-            weaponUsing.Magazines--;
+			weaponUsing.TotalAmmo -= weaponUsing.Rounds;
 		}
-    }
+	}
 
 	void GunsSwap()
 	{

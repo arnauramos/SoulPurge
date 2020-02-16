@@ -272,6 +272,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb2d: {fileID: 2730900608952511334}
   door: {fileID: 8359528355508521497, guid: dac41853b2da991448e6e68e25e3e09c, type: 3}
+  ReservedAmmo: 0
   Rounds: 0
   Magazines: 0
   TotalAmmo: 0
+  Object: {fileID: 0}
+  Key: {fileID: 0}
+  keys: 0

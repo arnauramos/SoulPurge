@@ -24,13 +24,13 @@ public class CameraController : MonoBehaviour
     private void FixedUpdate()
     {
         transform.position = new Vector3(Mathf.Clamp(player.transform.position.x, West.transform.position.x + (MainCamera.orthographicSize * MainCamera.aspect), East.transform.position.x - (MainCamera.orthographicSize * MainCamera.aspect)),
-            Mathf.Clamp(player.transform.position.y, South.transform.position.y + MainCamera.orthographicSize, North.transform.position.y - MainCamera.orthographicSize), 
+            Mathf.Clamp(player.transform.position.y, South.transform.position.y + MainCamera.orthographicSize, North.transform.position.y - MainCamera.orthographicSize),
             0);
         //CheckBorders();
     }
     //void CheckBorders()
     //{
-    //    if (transform.position.y+1.7 >= North.transform.position.y)
+    //    if (transform.position.y + 1.7 >= North.transform.position.y)
     //    {
     //    }
     //    else
