@@ -31,6 +31,10 @@ public class EnemyShooter : MonoBehaviour
     private static Weapon[] ArrayWeapon;
     public Weapon weaponUsing;
 
+    // VARIABLES FOR IDLE MOVEMENT
+    private float lastDirectionChangeTime = 0f;
+    private float directionChangeTime = 3.5f;
+    private Vector2 movementDirection;
 
     void Start()
     {
@@ -41,6 +45,9 @@ public class EnemyShooter : MonoBehaviour
         //	SET WEAPON STATS TO AUXILIARS
         ArrayWeapon = WeaponPlaceholder.ArrayWeapon;
         weaponUsing = ArrayWeapon[weaponSelected];
+
+        // CALCULATE FIRST IDLE MOVEMENT
+        NewIdleMovement();
     }
 
     private void FixedUpdate()
@@ -58,20 +65,28 @@ public class EnemyShooter : MonoBehaviour
             AreaOfVision.transform.localScale = LookingPlayer;
             AOVsRenderer.color = red;
             Movement();
+
+            // SHOOTING
+            Counter = Time.time * fixedDelta;
+            if (Counter >= initialBulletTime)
+            {
+                Shooting();
+                initialBulletTime = Counter + weaponUsing.FireRate * AttackRate;
+            }
         }
         else
         {
             LookRange = 3;
             AreaOfVision.transform.localScale = Idle;
             AOVsRenderer.color = blue;
+            IdleMovement();
         }
 
-        // SHOOTING
-        Counter = Time.time * fixedDelta;
-        if (Counter >= initialBulletTime)
+        //CALCULATE NEXT IDLE MOVEMENT
+        if (Time.time - lastDirectionChangeTime > directionChangeTime)
         {
-            Shooting();
-            initialBulletTime = Counter + weaponUsing.FireRate*AttackRate;
+            lastDirectionChangeTime = Time.time;
+            NewIdleMovement();
         }
     }
 
@@ -97,5 +112,21 @@ public class EnemyShooter : MonoBehaviour
         rb2dBullet = bulletObject.GetComponent<Rigidbody2D>();
         rb2dBullet.AddForce(firePoint.up * weaponUsing.BulletSpeed, ForceMode2D.Impulse);
         Destroy(bulletObject, weaponUsing.Range);
+    }
+    void NewIdleMovement()
+    {
+        //CHOOSE A NEW DIRECTION AND ROTATE
+        movementDirection = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)).normalized;
+        angle = Mathf.Atan2(movementDirection.x, movementDirection.y) * Mathf.Rad2Deg - 90f;
+    }
+    void IdleMovement()
+    {
+        // IDLE MOVE AND STOP 0.5 SECS BEFORE NEXT DIRECTION CHANGE
+        if (Time.time - lastDirectionChangeTime < directionChangeTime - 0.5f)
+        {
+            rb2d.rotation = angle;
+            rb2d.AddForce(transform.up * Speed * Time.fixedDeltaTime, ForceMode2D.Impulse);
+        }
+
     }
 }

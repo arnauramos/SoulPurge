@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &208393848
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 208393849}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &208393849
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208393848}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.368, z: -3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2428528593272821111}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1830870185
 GameObject:
   m_ObjectHideFlags: 0
@@ -26,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 1830870185}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -2}
-  m_LocalScale: {x: 75, y: 75, z: 3.5059497}
+  m_LocalScale: {x: 150, y: 150, z: 3.5059497}
   m_Children: []
   m_Father: {fileID: 2428528593272821111}
   m_RootOrder: 1
@@ -69,7 +99,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8b529a0a2e9ce794dba2fb3639fa0831, type: 3}
-  m_Color: {r: 1, g: 0.14372842, b: 0, a: 0.1882353}
+  m_Color: {r: 0, g: 0.63234663, b: 1, a: 0.1882353}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -171,6 +201,7 @@ Transform:
   - {fileID: 5434158819489084962}
   - {fileID: 130688984063580237}
   - {fileID: 763011786883880314}
+  - {fileID: 208393849}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -225,12 +256,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 500
   Direction: {x: 0, y: 0}
-  LookRange: 1.5
-  dmg: 1
-  AttackRate: 10
+  LookRange: 3
+  StopRange: 2
+  AttackRate: 3
   AreaOfVision: {fileID: 1830870185}
   weaponSelected: 0
-  firePoint: {fileID: 0}
+  firePoint: {fileID: 208393849}
   weaponUsing: {fileID: 0}
 --- !u!1 &2428528595052404134
 GameObject:
@@ -301,7 +332,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5a86c34ab24940e438fba10c49b4a28e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.50422525, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
