@@ -143,4 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb2d: {fileID: 8056699902545544267}
   inside: {fileID: 21300000, guid: 5915b816bae0b5f4fb78f69499ae3c0c, type: 3}
-  Inside: {fileID: 0}
+  outside: {fileID: 0}
+  Inside: {fileID: 3021564821137299436, guid: d41926d679670fe4c82c6f42e122a8b2, type: 3}
+  Object: {fileID: 4118946558783349060, guid: 7d27123a9b9dca0459a2d9dd0f2352a0, type: 3}
+  Key: {fileID: 4511480498105431435, guid: a0330ec6f0cf41243b67e807c0fe0879, type: 3}
