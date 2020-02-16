@@ -147,3 +147,4 @@ MonoBehaviour:
   Inside: {fileID: 3021564821137299436, guid: d41926d679670fe4c82c6f42e122a8b2, type: 3}
   Object: {fileID: 4118946558783349060, guid: 7d27123a9b9dca0459a2d9dd0f2352a0, type: 3}
   Key: {fileID: 4511480498105431435, guid: a0330ec6f0cf41243b67e807c0fe0879, type: 3}
+  Player: {fileID: 2730900608952511331, guid: 4d0c739e253d4e74b83f0ee740a84d70, type: 3}

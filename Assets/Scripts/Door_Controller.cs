@@ -10,14 +10,16 @@ public class Door_Controller : MonoBehaviour
     public GameObject Inside;
     public GameObject Object;
     public GameObject Key;
+    public GameObject Player;
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        Player playerscript = Player.GetComponent<Player>();
     }
     void Update()
     {
-     
+        
     }
     //private void close()
     //{
