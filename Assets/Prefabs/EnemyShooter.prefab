@@ -200,6 +200,7 @@ MonoBehaviour:
   StopRange: 2
   AttackRate: 3
   AreaOfVision: {fileID: 1830870185}
+  health: 90
   weaponSelected: 0
   firePoint: {fileID: 208393849}
   weaponUsing: {fileID: 0}

@@ -4,34 +4,41 @@ using UnityEngine;
 
 public class EnemyShooter : MonoBehaviour
 {
-    public float Speed = 500f;
-    public Vector2 Direction;
-    private Vector3 LookingPlayer = new Vector3(240, 240, 1);
-    private Vector3 Idle = new Vector3(150, 150, 1);
+    // VARIABLES FOR AREA OF VISION
     private Color blue = new Color(0, 0.5f, 1, 0.2f);
     private Color red = new Color(1, 0, 0, 0.2f);
-    private Rigidbody2D rb2d;
     private SpriteRenderer AOVsRenderer;
-    private GameObject Player;
-    private float rbx, rby;
-    private float angle;
-    public float LookRange = 3;
-    public float StopRange = 2;
-    public float AttackRate = 3f;
     public GameObject AreaOfVision;
+
+    // VARIABLES FOR HEALTH
+    public float health = 90f;
+    private Player PlayerScript;
 
     //  VARIABLES FOR GUNS
     private float fixedDelta;
     private Rigidbody2D rb2dBullet;
     private GameObject bulletObject;
     private float initialBulletTime;
+    public float AttackRate = 3f;
     private float Counter;
     public int weaponSelected = 0;
     public Transform firePoint;
     private static Weapon[] ArrayWeapon;
     public Weapon weaponUsing;
 
+    // VARIABLES FOR MOVEMENT TO PLAYER
+    public float Speed = 500f;
+    public Vector2 Direction;
+    private Vector3 LookingPlayer = new Vector3(240, 240, 1);
+    private Rigidbody2D rb2d;
+    private GameObject Player;
+    private float rbx, rby;
+    private float angle;
+    public float LookRange = 3;
+    public float StopRange = 2;
+
     // VARIABLES FOR IDLE MOVEMENT
+    private Vector3 Idle = new Vector3(150, 150, 1);
     private float lastDirectionChangeTime = 0f;
     private float directionChangeTime = 3.5f;
     private Vector2 movementDirection;
@@ -48,6 +55,16 @@ public class EnemyShooter : MonoBehaviour
 
         // CALCULATE FIRST IDLE MOVEMENT
         NewIdleMovement();
+
+        //CALCULATE NEXT IDLE MOVEMENT
+        if (Time.time - lastDirectionChangeTime > directionChangeTime)
+        {
+            lastDirectionChangeTime = Time.time;
+            NewIdleMovement();
+        }
+
+        // GET PLAYER SCRIPT TO KNOW HIS WEAPON
+        PlayerScript = Player.GetComponent<Player>();
     }
 
     private void FixedUpdate()
@@ -80,13 +97,6 @@ public class EnemyShooter : MonoBehaviour
             AreaOfVision.transform.localScale = Idle;
             AOVsRenderer.color = blue;
             IdleMovement();
-        }
-
-        //CALCULATE NEXT IDLE MOVEMENT
-        if (Time.time - lastDirectionChangeTime > directionChangeTime)
-        {
-            lastDirectionChangeTime = Time.time;
-            NewIdleMovement();
         }
     }
 
@@ -129,4 +139,16 @@ public class EnemyShooter : MonoBehaviour
         }
 
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            health -= PlayerScript.weaponUsing.Damage;
+            if (health <= 0f)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
 }
+

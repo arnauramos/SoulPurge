@@ -161,14 +161,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f068f2304000384d968d68112ed4110, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   Speed: 500
   Direction: {x: 0, y: 0}
   LookRange: 3
-  dmg: 1
+  dmg: 10
   AttackRate: 10
   AreaOfVision: {fileID: 1830870185}
+  health: 150
 --- !u!1 &2428528595052404134
 GameObject:
   m_ObjectHideFlags: 0
