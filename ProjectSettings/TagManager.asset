@@ -15,6 +15,7 @@ TagManager:
   - Object
   - Key_Object
   - Safe_Door
+  - Bullet
   layers:
   - Default
   - TransparentFX

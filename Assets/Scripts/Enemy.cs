@@ -4,23 +4,32 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float Speed = 500f;
-    public Vector2 Direction;
-    private Vector3 LookingPlayer = new Vector3(120, 120, 1);
-    private Vector3 Idle = new Vector3(75,75,1);
+    // VARIABLES FOR AREA OF VISION
     private Color blue = new Color(0, 0.5f, 1, 0.2f);
     private Color red = new Color(1, 0, 0, 0.2f);
-    private Rigidbody2D rb2d;
+    public GameObject AreaOfVision;
     private SpriteRenderer AOVsRenderer;
+
+    // VARIABLES FOR HEALTH
+    public float health = 150f;
+    private Player PlayerScript;
+
+    // VARIABLES FOR ATTACK
+    public float dmg = 10f;
+    public float AttackRate = 10f;
+
+    // VARIABLES FOR MOVEMENT TO PLAYER
     private GameObject Player;
+    public float Speed = 1000f;
+    public Vector2 Direction;
+    private Vector3 LookingPlayer = new Vector3(120, 120, 1);
+    private Rigidbody2D rb2d;
     private float rbx, rby;
     private float angle;
     public float LookRange = 1.5f;
-    public float dmg = 1f;
-    public float AttackRate = 10f;
-    public GameObject AreaOfVision;
 
     // VARIABLES FOR IDLE MOVEMENT
+    private Vector3 Idle = new Vector3(75, 75, 1);
     private float lastDirectionChangeTime = 0f;
     private float directionChangeTime = 3.5f;
     private Vector2 movementDirection;
@@ -33,6 +42,9 @@ public class Enemy : MonoBehaviour
 
         // CALCULATE FIRST IDLE MOVEMENT
         NewIdleMovement();
+
+        // GET PLAYER SCRIPT TO KNOW HIS WEAPON
+        PlayerScript = Player.GetComponent<Player>();
     }
 
     private void FixedUpdate()
@@ -95,5 +107,16 @@ public class Enemy : MonoBehaviour
             rb2d.AddForce(transform.up * Speed * Time.fixedDeltaTime, ForceMode2D.Impulse);
         }
 
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            health -= PlayerScript.weaponUsing.Damage;
+            if (health <= 0f)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }
