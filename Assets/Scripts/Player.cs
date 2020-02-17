@@ -62,7 +62,6 @@ public class Player : MonoBehaviour
 
 		//	SET WEAPON USING VARIABLES
 		Rounds = AuxRounds;
-
 	}
 
     private void Update()
