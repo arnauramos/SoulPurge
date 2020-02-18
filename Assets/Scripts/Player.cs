@@ -42,8 +42,6 @@ public class Player : MonoBehaviour
     //VARIABLES FOR OBJECTS
 	[Header("Variables for objects & keys:")]
 	[Space(10)]
-	public GameObject Object;
-    public GameObject Key;
     public int keys = 0;
 
     //VARIABLES FOR DOOR TO SAFE ZONE
@@ -198,12 +196,12 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Object" && Input.GetKey(KeyCode.E)) //de momento object solo sera vendas, asi que sumara vida cuando se pille
         {
             health++;
-            Destroy(Object);
+            Destroy(collision.gameObject);
         }
         if (collision.gameObject.tag == "Key_Object" && Input.GetKey(KeyCode.E))
         {
             keys++;
-            Destroy(Key);
+            Destroy(collision.gameObject);
         }
     }
 }
