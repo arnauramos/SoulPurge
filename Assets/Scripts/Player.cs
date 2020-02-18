@@ -195,7 +195,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Object" && Input.GetKey(KeyCode.E)) //de momento object solo sera vendas, asi que sumara vida cuando se pille
         {
-            health++;
+            health += 10;
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.tag == "Key_Object" && Input.GetKey(KeyCode.E))
