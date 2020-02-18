@@ -885,11 +885,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.2190529
       objectReference: {fileID: 0}
-    - target: {fileID: 5324123425755415184, guid: a0330ec6f0cf41243b67e807c0fe0879,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1196122150328700112, guid: a0330ec6f0cf41243b67e807c0fe0879,
         type: 3}
       propertyPath: m_Color.r
@@ -903,6 +898,11 @@ PrefabInstance:
     - target: {fileID: 1196122150328700112, guid: a0330ec6f0cf41243b67e807c0fe0879,
         type: 3}
       propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324123425755415184, guid: a0330ec6f0cf41243b67e807c0fe0879,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3105,6 +3105,27 @@ PrefabInstance:
       propertyPath: safedoor
       value: 
       objectReference: {fileID: 715352524}
+    - target: {fileID: 1407941183796576611, guid: 4d0c739e253d4e74b83f0ee740a84d70,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8103916e5619a994c9eea15f4f630271,
+        type: 3}
+    - target: {fileID: 1407941183796576611, guid: 4d0c739e253d4e74b83f0ee740a84d70,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407941183796576611, guid: 4d0c739e253d4e74b83f0ee740a84d70,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407941183796576611, guid: 4d0c739e253d4e74b83f0ee740a84d70,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5301396676740931225, guid: 4d0c739e253d4e74b83f0ee740a84d70, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4d0c739e253d4e74b83f0ee740a84d70, type: 3}
@@ -4523,11 +4544,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.2190529
       objectReference: {fileID: 0}
-    - target: {fileID: 5324123425755415184, guid: a0330ec6f0cf41243b67e807c0fe0879,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1196122150328700112, guid: a0330ec6f0cf41243b67e807c0fe0879,
         type: 3}
       propertyPath: m_Color.r
@@ -4541,6 +4557,11 @@ PrefabInstance:
     - target: {fileID: 1196122150328700112, guid: a0330ec6f0cf41243b67e807c0fe0879,
         type: 3}
       propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324123425755415184, guid: a0330ec6f0cf41243b67e807c0fe0879,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
