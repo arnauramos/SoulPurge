@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
 	[Space(10)]
     public int keys = 0;
 	public int DroppedSouls = 0;
+	private bool PickSoul = true;
 
 
     //VARIABLES FOR DOOR TO SAFE ZONE
@@ -75,7 +76,6 @@ public class Player : MonoBehaviour
 		Rounds = weaponUsing.Rounds;
 		TotalAmmo = weaponUsing.TotalAmmo;
 		AuxRounds = weaponUsing.MaxRounds;
-
 
 		Reloading();
 		GunsSwap();
@@ -201,13 +201,6 @@ public class Player : MonoBehaviour
 		{
 				SceneManager.LoadScene("SafeZone");
 		}
-
-		if (collision.gameObject.tag == "Soul")
-		{
-			Destroy(collision.gameObject);
-			DroppedSouls++;
-		}
-
 	}
 	private void OnTriggerStay2D(Collider2D collision) //pillar objetos (Albert)
     {
@@ -221,5 +214,10 @@ public class Player : MonoBehaviour
             keys++;
             Destroy(collision.gameObject);
         }
+		if (collision.gameObject.tag == "Soul" && PickSoul == true)
+		{
+			Destroy(collision.gameObject);
+			DroppedSouls++;
+		}
 	}
 }
