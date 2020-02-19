@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class EnemyShooter : MonoBehaviour
 {
     // VARIABLES FOR AREA OF VISION
@@ -43,6 +44,9 @@ public class EnemyShooter : MonoBehaviour
     private float directionChangeTime = 3.5f;
     private Vector2 movementDirection;
 
+    //public GameObject Soul;
+    private DropSouls DropingSoul = new DropSouls();
+    public GameObject Soul;
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -65,11 +69,16 @@ public class EnemyShooter : MonoBehaviour
 
         // GET PLAYER SCRIPT TO KNOW HIS WEAPON
         PlayerScript = Player.GetComponent<Player>();
+
     }
 
     private void Update()
     {
-        if (health <= 0f) Destroy(gameObject);
+        if (health <= 0f)
+        {
+            Destroy(gameObject);
+            DropingSoul.DropingSouls(gameObject, Soul);
+        }
     }
 
     private void FixedUpdate()
@@ -121,13 +130,6 @@ public class EnemyShooter : MonoBehaviour
         }
 
     }
-    void Shooting()
-    {
-        bulletObject = Instantiate(weaponUsing.Bullet, firePoint.position, firePoint.rotation);
-        rb2dBullet = bulletObject.GetComponent<Rigidbody2D>();
-        rb2dBullet.AddForce(firePoint.up * weaponUsing.BulletSpeed, ForceMode2D.Impulse);
-        Destroy(bulletObject, weaponUsing.Range);
-    }
     void NewIdleMovement()
     {
         //CHOOSE A NEW DIRECTION AND ROTATE
@@ -142,8 +144,15 @@ public class EnemyShooter : MonoBehaviour
             rb2d.rotation = angle;
             rb2d.AddForce(transform.up * Speed * Time.fixedDeltaTime, ForceMode2D.Impulse);
         }
-
     }
+    void Shooting()
+    {
+        bulletObject = Instantiate(weaponUsing.Bullet, firePoint.position, firePoint.rotation);
+        rb2dBullet = bulletObject.GetComponent<Rigidbody2D>();
+        rb2dBullet.AddForce(firePoint.up * weaponUsing.BulletSpeed, ForceMode2D.Impulse);
+        Destroy(bulletObject, weaponUsing.Range);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Bullet" && collision.gameObject.GetComponent<Bullet>().PlayerShoot)

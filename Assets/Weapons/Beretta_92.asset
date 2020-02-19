@@ -19,7 +19,7 @@ MonoBehaviour:
   FirePoint: {x: 0.2, y: 0.2, z: 0}
   Rounds: 16
   MaxRounds: 16
-  TotalAmmo: 64
+  TotalAmmo: 300000
   Range: 0.4
   Damage: 30
   FireRate: 7

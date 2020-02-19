@@ -96,7 +96,6 @@ public class Enemy : MonoBehaviour
 
         // MOVE THE ENEMY TOWARDS THE PLAYER
         rb2d.AddForce(transform.up * Speed * Time.fixedDeltaTime, ForceMode2D.Impulse);
-
     }
     void NewIdleMovement()
     {
@@ -112,7 +111,6 @@ public class Enemy : MonoBehaviour
             rb2d.rotation = angle;
             rb2d.AddForce(transform.up * Speed * Time.fixedDeltaTime, ForceMode2D.Impulse);
         }
-
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
