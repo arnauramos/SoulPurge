@@ -67,6 +67,11 @@ public class EnemyShooter : MonoBehaviour
         PlayerScript = Player.GetComponent<Player>();
     }
 
+    private void Update()
+    {
+        if (health <= 0f) Destroy(gameObject);
+    }
+
     private void FixedUpdate()
     {
         fixedDelta = Time.fixedDeltaTime * 1000;
@@ -141,13 +146,9 @@ public class EnemyShooter : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.tag == "Bullet" && collision.gameObject.GetComponent<Bullet>().PlayerShoot)
         {
             health -= PlayerScript.weaponUsing.Damage;
-            if (health <= 0f)
-            {
-                Destroy(gameObject);
-            }
         }
     }
 }

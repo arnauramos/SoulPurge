@@ -47,6 +47,12 @@ public class Enemy : MonoBehaviour
         PlayerScript = Player.GetComponent<Player>();
     }
 
+    private void Update()
+    {
+        if (health <= 0f) Destroy(gameObject);
+    }
+
+
     private void FixedUpdate()
     {
         // GET DISTANCE TO PLAYER
@@ -110,13 +116,9 @@ public class Enemy : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.tag == "Bullet" && collision.gameObject.GetComponent<Bullet>().PlayerShoot)
         {
             health -= PlayerScript.weaponUsing.Damage;
-            if (health <= 0f)
-            {
-                Destroy(gameObject);
-            }
         }
     }
 }
