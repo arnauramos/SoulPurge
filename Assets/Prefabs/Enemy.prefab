@@ -106,7 +106,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2428528593272821112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.4, y: 0, z: 0}
+  m_LocalPosition: {x: 3.4, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2428528595052404133}
@@ -170,7 +170,6 @@ MonoBehaviour:
   Speed: 500
   Direction: {x: 0, y: 0}
   LookRange: 3
-  Soul: {fileID: 1848012475432859064, guid: 6091511e0f025104d80bbd40fda042cd, type: 3}
 --- !u!1 &2428528595052404134
 GameObject:
   m_ObjectHideFlags: 0
