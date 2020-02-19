@@ -170,6 +170,7 @@ MonoBehaviour:
   Speed: 500
   Direction: {x: 0, y: 0}
   LookRange: 3
+  Soul: {fileID: 1848012475432859064, guid: 6091511e0f025104d80bbd40fda042cd, type: 3}
 --- !u!1 &2428528595052404134
 GameObject:
   m_ObjectHideFlags: 0

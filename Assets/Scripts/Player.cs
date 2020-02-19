@@ -14,9 +14,9 @@ public class Player : MonoBehaviour
 	
 	[Header("Variables for player:")]
 	[Space(5)]
-	public float Speed = 0.1f;
+	public float Speed = 0.07f;
 	private float AuxSpeed;
-	public float Sprint = 0.2f;
+	public float Sprint = 0.12f;
 
     public float health = 100f;
     public float dmgCounter = 100f;
