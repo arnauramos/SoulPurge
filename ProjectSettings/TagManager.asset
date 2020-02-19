@@ -16,6 +16,7 @@ TagManager:
   - Key_Object
   - Safe_Door
   - Bullet
+  - Soul
   layers:
   - Default
   - TransparentFX

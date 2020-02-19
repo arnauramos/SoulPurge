@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DropSouls : MonoBehaviour
 {
-    //public GameObject soul;
     public void DropingSouls(GameObject _enemy, GameObject _soul)
     {
         float RandX, RandY;

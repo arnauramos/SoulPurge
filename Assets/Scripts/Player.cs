@@ -43,6 +43,8 @@ public class Player : MonoBehaviour
 	[Header("Variables for objects & keys:")]
 	[Space(10)]
     public int keys = 0;
+	public int DroppedSouls = 0;
+
 
     //VARIABLES FOR DOOR TO SAFE ZONE
     //public GameObject safedoor;
@@ -199,8 +201,15 @@ public class Player : MonoBehaviour
 		{
 				SceneManager.LoadScene("SafeZone");
 		}
-    }
-		private void OnTriggerStay2D(Collider2D collision) //pillar objetos (Albert)
+
+		if (collision.gameObject.tag == "Soul")
+		{
+			Destroy(collision.gameObject);
+			DroppedSouls++;
+		}
+
+	}
+	private void OnTriggerStay2D(Collider2D collision) //pillar objetos (Albert)
     {
         if (collision.gameObject.tag == "Object" && Input.GetKey(KeyCode.E)) //de momento object solo sera vendas, asi que sumara vida cuando se pille
         {
@@ -212,5 +221,5 @@ public class Player : MonoBehaviour
             keys++;
             Destroy(collision.gameObject);
         }
-    }
+	}
 }

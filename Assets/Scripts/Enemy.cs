@@ -34,6 +34,9 @@ public class Enemy : MonoBehaviour
     private float directionChangeTime = 3.5f;
     private Vector2 movementDirection;
 
+    private DropSouls DropingSoul = new DropSouls();
+    public GameObject Soul;
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -49,7 +52,11 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (health <= 0f) Destroy(gameObject);
+        if (health <= 0f)
+        {
+            Destroy(gameObject);
+            DropingSoul.DropingSouls(gameObject, Soul);
+        }
     }
 
 

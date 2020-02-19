@@ -252,13 +252,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 0.1
   Sprint: 0.2
-  health: 100
+  health: 10000
   dmgCounter: 0
   weaponSelected: 0
   firePoint: {fileID: 1925108884}
   weaponUsing: {fileID: 0}
   TotalAmmo: 0
   Rounds: 0
-  Object: {fileID: 0}
-  Key: {fileID: 0}
   keys: 0
+  DroppedSouls: 0
