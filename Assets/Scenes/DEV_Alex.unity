@@ -188,6 +188,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2428528593272821112, guid: 30ccea11975f51d43b5a80869cde832d,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 2428528593272821111, guid: 30ccea11975f51d43b5a80869cde832d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -243,11 +248,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2428528593272821112, guid: 30ccea11975f51d43b5a80869cde832d,
-        type: 3}
-      propertyPath: m_Name
-      value: Enemy
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30ccea11975f51d43b5a80869cde832d, type: 3}
 --- !u!1001 &389814931
@@ -257,6 +257,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1039134559946375921, guid: 44148fe3521b39143bac02214964a8e7,
+        type: 3}
+      propertyPath: m_Name
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 23479800550660144, guid: 44148fe3521b39143bac02214964a8e7,
         type: 3}
       propertyPath: m_Enabled
@@ -286,11 +291,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1039134559946375921, guid: 44148fe3521b39143bac02214964a8e7,
-        type: 3}
-      propertyPath: m_Name
-      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 1858385161575485292, guid: 44148fe3521b39143bac02214964a8e7,
         type: 3}
@@ -430,6 +430,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2428528593272821112, guid: 4994d63c2fcc21f47b44019675d71597,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyShooter
+      objectReference: {fileID: 0}
     - target: {fileID: 2428528593272821111, guid: 4994d63c2fcc21f47b44019675d71597,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -484,11 +489,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2428528593272821112, guid: 4994d63c2fcc21f47b44019675d71597,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyShooter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4994d63c2fcc21f47b44019675d71597, type: 3}

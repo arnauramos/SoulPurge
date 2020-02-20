@@ -24,9 +24,10 @@ public class Player : MonoBehaviour
 
     public float Stamina = 200.0f;
     private float StaminaTimeRecover;
+    private bool OffSetSprint = false;
 
-	//  VARIABLES FOR GUNS
-	private Rigidbody2D rb2dBullet;
+    //  VARIABLES FOR GUNS
+    private Rigidbody2D rb2dBullet;
 	private GameObject bulletObject;
 	private float initialBulletTime;
 	private float Counter;
@@ -47,7 +48,7 @@ public class Player : MonoBehaviour
 	[Space(10)]
     public int keys = 0;
 	public int DroppedSouls = 0;
-	private bool PickSoul = true;
+    private bool PickSoul = true;
 
 
     //VARIABLES FOR ANIMATIONS
@@ -85,11 +86,20 @@ public class Player : MonoBehaviour
 		Reloading();
 		GunsSwap();
 
-	}
+        if (Counter >= StaminaTimeRecover && Stamina < 200f && OffSetSprint)
+        {
+            Stamina += 0.2f;
+            StaminaTimeRecover = Counter;
+        }
+        if (Counter >= StaminaTimeRecover + 80f && Stamina < 200f && !OffSetSprint)
+        {
+            OffSetSprint = true;
+        }
+    }
 
 	private void FixedUpdate()
 	{
-		fixedDelta = Time.fixedDeltaTime * 1000;
+		fixedDelta = Time.fixedDeltaTime * 1000.0f;
 		Counter = Time.time * fixedDelta;
 		PlayerMovement();
 		PlayerAim();
@@ -99,12 +109,6 @@ public class Player : MonoBehaviour
 			Shooting();
 			initialBulletTime = Counter + weaponUsing.FireRate;
 		}
-
-        if (Counter >= StaminaTimeRecover && Stamina < 200f)
-        {
-            Stamina+=2;
-            StaminaTimeRecover = Counter + 20f;
-        }
 	}
 
 	void PlayerMovement()
@@ -115,7 +119,8 @@ public class Player : MonoBehaviour
         if ((Input.GetKey(KeyCode.LeftShift) || (Input.GetKey(KeyCode.Keypad0))) && Stamina > 0 )
         {
             Speed = Sprint;
-            Stamina--;
+            OffSetSprint = false;
+            Stamina-=1.5f;
         }
         else Speed = AuxSpeed;
 
