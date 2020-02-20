@@ -178,28 +178,32 @@ public class Player : MonoBehaviour
 	}
 	void GunsSwap()
 	{
+        //float MouseInput = Input.GetAxis("Mouse ScrollWheel");
 		string InputKey = Input.inputString;
-		if (InputKey == "1" || InputKey == "2" || InputKey == "3")
-		{
-			if (ArrayWeapon[int.Parse(InputKey) - 1] == null) return;
+        if (InputKey == "1" || InputKey == "2" || InputKey == "3")
+        {
+            if (ArrayWeapon[int.Parse(InputKey) - 1] == null) return;
 
-			Debug.Log("Gun Swap to: " + InputKey);
+            Debug.Log("Gun Swap to: " + InputKey);
 
-			switch (InputKey)
-			{
-				case "1":
-					weaponSelected = 0;
-					break;
-				case "2":
-					weaponSelected = 1;
-					break;
-				case "3":
-					weaponSelected = 2;
-					break;
-				default:
-					break;
-			}
-		}
+            //if (InputKey == "1" || (MouseInput >= 0f || MouseInput <= 0.9f)) { weaponSelected = 0; }
+            //else if (InputKey == "2" || (MouseInput >= 1f || MouseInput <= 1.9f)) { weaponSelected = 1; }
+            //else if (InputKey == "3" || (MouseInput >= 2f || MouseInput <= 3.9f)) { weaponSelected = 2; }
+            switch (InputKey)
+            {
+                case "1":
+                    weaponSelected = 0;
+                    break;
+                case "2":
+                    weaponSelected = 1;
+                    break;
+                case "3":
+                    weaponSelected = 2;
+                    break;
+                default:
+                    break;
+            }
+        }
 		else return;
 	}
 
