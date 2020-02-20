@@ -17,6 +17,8 @@ TagManager:
   - Safe_Door
   - Bullet
   - Soul
+  - Ammo
+  - Bandage
   layers:
   - Default
   - TransparentFX
