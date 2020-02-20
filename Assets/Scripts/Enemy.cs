@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
     private float directionChangeTime = 3.5f;
     private Vector2 movementDirection;
 
-    private DropSouls DropingSoul = new DropSouls();
+    private DropSouls DropingSoul;
     public GameObject Soul;
 
     void Start()
@@ -48,6 +48,8 @@ public class Enemy : MonoBehaviour
 
         // GET PLAYER SCRIPT TO KNOW HIS WEAPON
         PlayerScript = Player.GetComponent<Player>();
+
+        DropingSoul = gameObject.AddComponent<DropSouls>();
     }
 
     private void Update()

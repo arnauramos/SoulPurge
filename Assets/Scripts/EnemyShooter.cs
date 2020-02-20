@@ -45,7 +45,7 @@ public class EnemyShooter : MonoBehaviour
     private Vector2 movementDirection;
 
     //public GameObject Soul;
-    private DropSouls DropingSoul = new DropSouls();
+    private DropSouls DropingSoul;
     public GameObject Soul;
     void Start()
     {
@@ -69,6 +69,8 @@ public class EnemyShooter : MonoBehaviour
 
         // GET PLAYER SCRIPT TO KNOW HIS WEAPON
         PlayerScript = Player.GetComponent<Player>();
+
+        DropingSoul = gameObject.AddComponent<DropSouls>();
 
     }
 
