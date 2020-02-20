@@ -53,11 +53,13 @@ public class Player : MonoBehaviour
 		rb2d = GetComponent<Rigidbody2D>();
 		Movement = Vector2.zero;
 		AuxSpeed = Speed;
+        // GET ANIMATOR COMPONENTS
+
+        animator = GetComponent<Animator>();
         moveParamID = Animator.StringToHash("Moving");
 
         //	SET WEAPON STATS TO AUXILIARS
         ArrayWeapon = WeaponPlaceholder.ArrayWeapon;
-
 		//	SET WEAPON USING VARIABLES
 		Rounds = AuxRounds;
 	}
@@ -103,7 +105,7 @@ public class Player : MonoBehaviour
 
         if (rb2d.velocity.x > Speed || rb2d.velocity.x < Speed)
         {
-            rb2d.velocity = new Vector2(0, 0);
+            rb2d.velocity = Vector2.zero;
             animator.SetBool("Moving", false);
         }
 		rb2d.AddForce(Movement * Speed * fixedDelta, ForceMode2D.Impulse);
