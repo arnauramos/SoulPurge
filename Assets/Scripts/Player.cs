@@ -22,6 +22,9 @@ public class Player : MonoBehaviour
     public float dmgCounter = 100f;
     private float initialDmgCounter = 0;
 
+    public float Stamina = 200.0f;
+    private float StaminaTimeRecover;
+
 	//  VARIABLES FOR GUNS
 	private Rigidbody2D rb2dBullet;
 	private GameObject bulletObject;
@@ -78,7 +81,7 @@ public class Player : MonoBehaviour
 		Rounds = weaponUsing.Rounds;
 		TotalAmmo = weaponUsing.TotalAmmo;
 		AuxRounds = weaponUsing.MaxRounds;
-
+         
 		Reloading();
 		GunsSwap();
 
@@ -96,13 +99,24 @@ public class Player : MonoBehaviour
 			Shooting();
 			initialBulletTime = Counter + weaponUsing.FireRate;
 		}
+
+        if (Counter >= StaminaTimeRecover && Stamina < 200f)
+        {
+            Stamina+=2;
+            StaminaTimeRecover = Counter + 20f;
+        }
 	}
 
 	void PlayerMovement()
 	{
 		Movement.x = Input.GetAxis("Horizontal");
 		Movement.y = Input.GetAxis("Vertical");
-        if (Input.GetKey(KeyCode.LeftShift) || (Input.GetKey(KeyCode.Keypad0))) Speed = Sprint;
+
+        if ((Input.GetKey(KeyCode.LeftShift) || (Input.GetKey(KeyCode.Keypad0))) && Stamina > 0 )
+        {
+            Speed = Sprint;
+            Stamina--;
+        }
         else Speed = AuxSpeed;
 
         if (rb2d.velocity.x > Speed || rb2d.velocity.x < Speed)
@@ -157,7 +171,6 @@ public class Player : MonoBehaviour
 			weaponUsing.TotalAmmo -= weaponUsing.Rounds;
 		}
 	}
-
 	void GunsSwap()
 	{
 		string InputKey = Input.inputString;
