@@ -47,20 +47,22 @@ public class Player : MonoBehaviour
 	private bool PickSoul = true;
 
 
-    //VARIABLES FOR DOOR TO SAFE ZONE
-    //public GameObject safedoor;
-    //private Animator animator;
-    //private int openParamID;
+    //VARIABLES FOR ANIMATIONS
+    private Animator animator;
+    private int moveParamID;
 
     void Start()
 	{
 		rb2d = GetComponent<Rigidbody2D>();
 		Movement = Vector2.zero;
 		AuxSpeed = Speed;
+        // GET ANIMATOR COMPONENTS
 
-		//	SET WEAPON STATS TO AUXILIARS
-		ArrayWeapon = WeaponPlaceholder.ArrayWeapon;
+        animator = GetComponent<Animator>();
+        moveParamID = Animator.StringToHash("Moving");
 
+        //	SET WEAPON STATS TO AUXILIARS
+        ArrayWeapon = WeaponPlaceholder.ArrayWeapon;
 		//	SET WEAPON USING VARIABLES
 		Rounds = AuxRounds;
 	}
@@ -103,9 +105,14 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) || (Input.GetKey(KeyCode.Keypad0))) Speed = Sprint;
         else Speed = AuxSpeed;
 
-		if (rb2d.velocity.x > Speed || rb2d.velocity.x < Speed) rb2d.velocity = new Vector2 (0, 0);
+        if (rb2d.velocity.x > Speed || rb2d.velocity.x < Speed)
+        {
+            rb2d.velocity = Vector2.zero;
+            animator.SetBool("Moving", false);
+        }
 		rb2d.AddForce(Movement * Speed * fixedDelta, ForceMode2D.Impulse);
-	}
+        animator.SetBool("Moving", true);
+    }
 	void PlayerAim()
 	{
 		mousePosition = Input.mousePosition;
