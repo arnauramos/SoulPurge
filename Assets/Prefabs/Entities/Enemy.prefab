@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 5373696679497120757}
   - component: {fileID: 7516500333107100805}
   - component: {fileID: 1199716021539192875}
+  - component: {fileID: 299858437431192554}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -171,6 +172,25 @@ MonoBehaviour:
   Direction: {x: 0, y: 0}
   LookRange: 3
   Soul: {fileID: 1848012475432859064, guid: 6091511e0f025104d80bbd40fda042cd, type: 3}
+--- !u!95 &299858437431192554
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2428528593272821112}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2381287eec936b141a46a2dd58dc23d9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2428528595052404134
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,7 +259,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5a86c34ab24940e438fba10c49b4a28e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b45f04e4e26750147b9b740015929835, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
