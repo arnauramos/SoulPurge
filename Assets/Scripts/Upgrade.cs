@@ -8,6 +8,4 @@ public class Upgrade : ScriptableObject
     public string Name;
     public Sprite Sprite;
     public float Value;
-    public bool Permanent;
-    public float Duration;
 }

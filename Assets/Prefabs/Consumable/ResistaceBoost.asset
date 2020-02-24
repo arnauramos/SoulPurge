@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23553a6a261f80e49a46cfe51dd24212, type: 3}
-  m_Name: SpeedBoost
+  m_Script: {fileID: 11500000, guid: 702a72d4070b0b24e959ca54a1f632d9, type: 3}
+  m_Name: Data
   m_EditorClassIdentifier: 
-  Name: SppedBoost
+  Name: 
   Sprite: {fileID: 0}
-  Value: 50
-  Permanent: 0
-  Duration: 15
+  Value: 0
+  Duration: 0

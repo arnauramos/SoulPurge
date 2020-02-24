@@ -8,4 +8,5 @@ public class Consumable : ScriptableObject
     public string Name;
     public Sprite Sprite;
     public float Value;
+    public float Duration;
 }
