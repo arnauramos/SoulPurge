@@ -37,6 +37,14 @@ public class Enemy : MonoBehaviour
     private DropSouls DropingSoul;
     public GameObject Soul;
 
+
+
+    private Component ArrTest;
+    private MonoBehaviour Test;
+
+    private GameObject Gol;
+
+          
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();

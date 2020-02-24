@@ -37,14 +37,20 @@ public class Player : MonoBehaviour
 	[Space(10)]
 	public int weaponSelected = 0;
 	public Transform firePoint;
-	private static Weapon[] ArrayWeapon;
+	private static Weapon[] PlayerArrayWeapon;
 	public Weapon weaponUsing;
 	private int AuxRounds;
 	public int TotalAmmo;
 	public int Rounds;
 
+    [Header("Variables for ArrayItems:")]
+    [Space(10)]
+    public int ItemSelected = 0;
+    public static InventorySlot[] PlayerArrayItem;
+    public InventorySlot itemUsing;
+
     //VARIABLES FOR OBJECTS
-	[Header("Variables for objects & keys:")]
+    [Header("Variables for objects & keys:")]
 	[Space(10)]
     public int keys = 0;
 	public int DroppedSouls = 0;
@@ -54,6 +60,7 @@ public class Player : MonoBehaviour
     //VARIABLES FOR ANIMATIONS
     private Animator animator;
     private int moveParamID;
+
 
     void Start()
 	{
@@ -66,25 +73,31 @@ public class Player : MonoBehaviour
         moveParamID = Animator.StringToHash("Moving");
 
         //	SET WEAPON STATS TO AUXILIARS
-        ArrayWeapon = WeaponPlaceholder.ArrayWeapon;
+        PlayerArrayWeapon = WeaponsArray.ArrayWeapon;
+        //	SET ITEM STATS TO AUXILIARS
+        PlayerArrayItem = ItemsArray.ArrayItemSlot;
 		//	SET WEAPON USING VARIABLES
 		Rounds = AuxRounds;
 	}
 
     private void Update()
     {
-        //	//	UPDATE WEAPON STATS TO AUXILIARS
         if (health <= 0) Destroy(gameObject);
 
-		// UPDATE WEAPON USING VARIABLES
-		weaponUsing = ArrayWeapon[weaponSelected];
+        // UPDATE WEAPON USING & WEAPON VARIABLES
+        GunsSwap();
+        weaponUsing = PlayerArrayWeapon[weaponSelected];
 
-		Rounds = weaponUsing.Rounds;
-		TotalAmmo = weaponUsing.TotalAmmo;
-		AuxRounds = weaponUsing.MaxRounds;
-         
-		Reloading();
-		GunsSwap();
+        Rounds = weaponUsing.Rounds;
+        TotalAmmo = weaponUsing.TotalAmmo;
+        AuxRounds = weaponUsing.MaxRounds;
+
+        //  RELOAD
+        Reloading();
+
+        //  UPDATE ITEM USING VARIABLES
+        ItemsSwap();
+        itemUsing = PlayerArrayItem[ItemSelected];
 
         if (Counter >= StaminaTimeRecover && Stamina < 200f && OffSetSprint)
         {
@@ -180,15 +193,12 @@ public class Player : MonoBehaviour
 	{
         //float MouseInput = Input.GetAxis("Mouse ScrollWheel");
 		string InputKey = Input.inputString;
-        if (InputKey == "1" || InputKey == "2" || InputKey == "3")
+        if (InputKey == "1" || InputKey == "2" || InputKey == "3" ||InputKey == "4")
         {
-            if (ArrayWeapon[int.Parse(InputKey) - 1] == null) return;
-
+            if (PlayerArrayWeapon[int.Parse(InputKey) - 1] == null) return;
+        
             Debug.Log("Gun Swap to: " + InputKey);
 
-            //if (InputKey == "1" || (MouseInput >= 0f || MouseInput <= 0.9f)) { weaponSelected = 0; }
-            //else if (InputKey == "2" || (MouseInput >= 1f || MouseInput <= 1.9f)) { weaponSelected = 1; }
-            //else if (InputKey == "3" || (MouseInput >= 2f || MouseInput <= 3.9f)) { weaponSelected = 2; }
             switch (InputKey)
             {
                 case "1":
@@ -200,14 +210,44 @@ public class Player : MonoBehaviour
                 case "3":
                     weaponSelected = 2;
                     break;
+                case "4":
+                    weaponSelected = 3;
+                    break;
                 default:
                     break;
             }
         }
 		else return;
 	}
+    void ItemsSwap()
+    {
+        string InputKey = Input.inputString;
+        if (InputKey == "5" || InputKey == "6" || InputKey == "7")
+        {
+            if (PlayerArrayWeapon[int.Parse(InputKey) - 1] == null) return;
 
-	private void OnCollisionStay2D(Collision2D collision)
+            Debug.Log("Item Slot Swap to: " + InputKey);
+            
+            switch (InputKey)
+            {
+                case "5":
+                    ItemSelected = 0;
+                    break;
+                case "6":
+                    ItemSelected = 1;
+                    break;
+                case "7":
+                    ItemSelected = 2;
+                    break;
+                default:
+                    break;
+            }
+        }
+        else return;
+    }
+
+
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {

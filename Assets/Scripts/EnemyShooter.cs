@@ -49,12 +49,13 @@ public class EnemyShooter : MonoBehaviour
     public GameObject Soul;
     void Start()
     {
+   
         rb2d = GetComponent<Rigidbody2D>();
         AOVsRenderer = AreaOfVision.GetComponent<SpriteRenderer>();
         Player = GameObject.Find("Player");
 
         //	SET WEAPON STATS TO AUXILIARS
-        ArrayWeapon = WeaponPlaceholder.ArrayWeapon;
+        ArrayWeapon = WeaponsArray.ArrayWeapon;
         weaponUsing = ArrayWeapon[weaponSelected];
 
         // CALCULATE FIRST IDLE MOVEMENT
