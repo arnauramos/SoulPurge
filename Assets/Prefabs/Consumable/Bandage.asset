@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 702a72d4070b0b24e959ca54a1f632d9, type: 3}
+  m_Script: {fileID: 11500000, guid: eda955c7ebcb562428a03f059b22c8ef, type: 3}
   m_Name: Bandage
   m_EditorClassIdentifier: 
-  Name: 
-  Sprite: {fileID: 0}
-  Value: 0
+  InventaryObject: {fileID: 1113921236613906558, guid: 57697304f62aece45b916cfd13963560,
+    type: 3}
+  Quantity: 10

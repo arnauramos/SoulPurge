@@ -37,18 +37,19 @@ public class Enemy : MonoBehaviour
     private DropSouls DropingSoul;
     public GameObject Soul;
 
-    // VARIABLES FOR ANIMATIONS
-    private Animator animator;
-    private int moveEnemyParamID;
 
+
+    private Component ArrTest;
+    private MonoBehaviour Test;
+
+    private GameObject Gol;
+
+          
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         AOVsRenderer = AreaOfVision.GetComponent<SpriteRenderer>();
         Player = GameObject.Find("Player");
-
-        animator = GetComponent<Animator>();
-        moveEnemyParamID = Animator.StringToHash("Enemy_Moving");
 
         // CALCULATE FIRST IDLE MOVEMENT
         NewIdleMovement();
@@ -82,7 +83,6 @@ public class Enemy : MonoBehaviour
             AreaOfVision.transform.localScale = LookingPlayer;
             AOVsRenderer.color = red;
             Movement();
-            animator.SetBool("Enemy_Moving", true);
         }
         else
         {
@@ -110,12 +110,9 @@ public class Enemy : MonoBehaviour
         rbx = Mathf.Clamp(rb2d.velocity.x, -Speed, Speed);
         rby = Mathf.Clamp(rb2d.velocity.y, -Speed, Speed);
         rb2d.velocity = new Vector2(rbx, rby);
-        
 
         // MOVE THE ENEMY TOWARDS THE PLAYER
         rb2d.AddForce(transform.up * Speed * Time.fixedDeltaTime, ForceMode2D.Impulse);
-        animator.SetBool("Enemy_Moving", true);
-
     }
     void NewIdleMovement()
     {

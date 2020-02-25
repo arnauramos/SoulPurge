@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponPlaceholder : MonoBehaviour
+public class WeaponsArray: MonoBehaviour
 {
 	public Weapon[] ArrWeapon;
 
