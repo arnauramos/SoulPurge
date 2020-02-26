@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8647939327813061072}
   - component: {fileID: 7248998369595458087}
   - component: {fileID: 3077009423887754755}
-  - component: {fileID: 1803402244470169460}
+  - component: {fileID: 779367806426460569}
   m_Layer: 0
   m_Name: AmmoGO
   m_TagString: Untagged
@@ -80,7 +80,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1803402244470169460
+--- !u!114 &779367806426460569
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,6 +89,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1169691150086465340}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d75ddc4d7fff234b9b9265fe125b201, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e24c93cedb24ae43becc8cd4f23ce8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  itemName: 
+  itemDescription: 
+  price: 0
+  ammount: 0
+  value: 0
+  doesExpire: 0
+  duration: 0
