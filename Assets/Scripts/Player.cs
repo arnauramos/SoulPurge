@@ -110,6 +110,7 @@ public class Player : MonoBehaviour
         {
             OffSetSprint = true;
         }
+        UseItem();
     }
 
 	private void FixedUpdate()
@@ -254,6 +255,14 @@ public class Player : MonoBehaviour
         else return;
     }
 
+    void UseItem()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            health += itemUsing.Use();
+            Debug.Log("Ha sido usado el item: " + ItemSelected);
+        }
+    }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
