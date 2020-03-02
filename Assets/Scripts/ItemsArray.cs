@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ItemsArray: MonoBehaviour
 {
-	public InventorySlot[] ArrItemSlot;
+	public Usable[] ArrItemSlot;
 
-	public static InventorySlot[] ArrayItemSlot;
+	public static Usable[] ArrayItemSlot;
 
 	public void Awake()
 	{

@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     private float initialDmgCounter = 0;
 
     public float Stamina = 200.0f;
+    private float AuxStamina;
     private float StaminaTimeRecover;
     private bool OffSetSprint = false;
 
@@ -46,8 +47,8 @@ public class Player : MonoBehaviour
     [Header("Variables for ArrayItems:")]
     [Space(10)]
     public int ItemSelected = 0;
-    public static InventorySlot[] PlayerArrayItem;
-    public InventorySlot itemUsing;
+    public static Usable[] PlayerArrayItem;
+    public Usable itemUsing;
 
     //VARIABLES FOR OBJECTS
     [Header("Variables for objects & keys:")]
@@ -67,6 +68,7 @@ public class Player : MonoBehaviour
 		rb2d = GetComponent<Rigidbody2D>();
 		Movement = Vector2.zero;
 		AuxSpeed = Speed;
+        AuxStamina = Stamina;
         // GET ANIMATOR COMPONENTS
 
         animator = GetComponent<Animator>();
@@ -99,12 +101,12 @@ public class Player : MonoBehaviour
         ItemsSwap();
         itemUsing = PlayerArrayItem[ItemSelected];
 
-        if (Counter >= StaminaTimeRecover && Stamina < 200f && OffSetSprint)
+        if (Counter >= StaminaTimeRecover && Stamina < AuxStamina && OffSetSprint)
         {
             Stamina += 0.2f;
             StaminaTimeRecover = Counter;
         }
-        if (Counter >= StaminaTimeRecover + 80f && Stamina < 200f && !OffSetSprint)
+        if (Counter >= StaminaTimeRecover + 80f && Stamina < AuxStamina && !OffSetSprint)
         {
             OffSetSprint = true;
         }
@@ -222,9 +224,9 @@ public class Player : MonoBehaviour
     void ItemsSwap()
     {
         string InputKey = Input.inputString;
-        if (InputKey == "5" || InputKey == "6" || InputKey == "7")
+        if (InputKey == "5" || InputKey == "6" || InputKey == "7" || InputKey == "8" || InputKey == "9")
         {
-            if (PlayerArrayWeapon[int.Parse(InputKey) - 1] == null) return;
+            if (PlayerArrayItem[int.Parse(InputKey) - 5] == null) return;
 
             Debug.Log("Item Slot Swap to: " + InputKey);
             
@@ -238,6 +240,12 @@ public class Player : MonoBehaviour
                     break;
                 case "7":
                     ItemSelected = 2;
+                    break;
+                case "8":
+                    ItemSelected = 3;
+                    break;
+                case "9":
+                    ItemSelected = 4;
                     break;
                 default:
                     break;
