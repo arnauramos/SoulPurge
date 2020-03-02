@@ -6,7 +6,8 @@ public class ShootingBoost : Usable
 {
     public override void Use()
     {
-
+        PlayerManager.Instance.shootingBoost += this.value;
+        PlayerManager.Instance.ResetShootingBoost();
     }
     void Start()
     {
@@ -15,7 +16,7 @@ public class ShootingBoost : Usable
         //this.itemDescription;
         //this.price;
         //this.ammount;
-        //this.value;
+        this.value = 0.25f;
         //this.doesExpire;
         //this.duration;
     }

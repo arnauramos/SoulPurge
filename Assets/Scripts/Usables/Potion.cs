@@ -6,7 +6,7 @@ public class Potion : Usable
 {
     public override void Use()
     {
-
+        PlayerManager.Instance.addHealth(this.value);
     }
     void Start()
     {
@@ -15,7 +15,7 @@ public class Potion : Usable
         //this.itemDescription;
         //this.price;
         //this.ammount;
-        //this.value;
+        this.value = 15;
         //this.doesExpire;
         //this.duration;
     }

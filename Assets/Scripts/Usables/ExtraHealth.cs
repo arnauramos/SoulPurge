@@ -6,7 +6,7 @@ public class ExtraHealth : Usable
 {
     public override void Use()
     {
-
+        PlayerManager.Instance.addExtraHealth(this.value);
     }
     void Start()
     {
@@ -15,7 +15,7 @@ public class ExtraHealth : Usable
         //this.itemDescription;
         //this.price;
         //this.ammount;
-        //this.value;
+        this.value = 25;
         //this.doesExpire;
         //this.duration;
     }

@@ -6,7 +6,8 @@ public class ResistanceBoost : Usable
 {
     public override void Use()
     {
-
+        PlayerManager.Instance.resistance += this.value;
+        PlayerManager.Instance.ResetResistance();
     }
     void Start()
     {
@@ -15,7 +16,7 @@ public class ResistanceBoost : Usable
         //this.itemDescription;
         //this.price;
         //this.ammount;
-        //this.value;
+        this.value = 0.25f;
         //this.doesExpire;
         //this.duration;
     }

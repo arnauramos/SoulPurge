@@ -6,7 +6,7 @@ public class Bandage : Usable
 {
     public override void Use()
     {
-       
+        PlayerManager.Instance.addHealth(this.value);
     }
     void Start()
     {
@@ -15,7 +15,7 @@ public class Bandage : Usable
         //this.itemDescription;
         //this.price;
         //this.ammount;
-        //this.value;
+        this.value = 5;
         //this.doesExpire;
         //this.duration;
     }

@@ -6,7 +6,8 @@ public class RegenerationBoost : Usable
 {
     public override void Use()
     {
-
+        PlayerManager.Instance.staminaRegeneration += this.value;
+        PlayerManager.Instance.ResetStaminaRegeneration();
     }
     void Start()
     {
@@ -15,7 +16,7 @@ public class RegenerationBoost : Usable
         //this.itemDescription;
         //this.price;
         //this.ammount;
-        //this.value;
+        this.value = 0.25f;
         //this.doesExpire;
         //this.duration;
     }

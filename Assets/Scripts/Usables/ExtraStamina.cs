@@ -6,7 +6,7 @@ public class ExtraStamina : Usable
 {
     public override void Use()
     {
-
+        PlayerManager.Instance.addExtraStamina(this.value);
     }
     void Start()
     {
@@ -15,7 +15,7 @@ public class ExtraStamina : Usable
         //this.itemDescription;
         //this.price;
         //this.ammount;
-        //this.value;
+        this.value = 50;
         //this.doesExpire;
         //this.duration;
     }

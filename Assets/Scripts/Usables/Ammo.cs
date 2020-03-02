@@ -6,7 +6,7 @@ public class Ammo : Usable
 {
     public override void Use()
     {
-
+        PlayerManager.Instance.addTotalAmmo((int)this.value);
     }
     void Start()
     {
@@ -15,7 +15,7 @@ public class Ammo : Usable
         //this.itemDescription;
         //this.price;
         //this.ammount;
-        //this.value;
+        this.value = 30;
         //this.doesExpire;
         //this.duration;
     }
