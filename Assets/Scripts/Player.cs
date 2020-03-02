@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
     private float StaminaTimeRecover;
     private bool OffSetSprint = false;
 
+    public int money;
+
     //  VARIABLES FOR GUNS
     private Rigidbody2D rb2dBullet;
 	private GameObject bulletObject;
@@ -259,7 +261,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            health += itemUsing.Use();
+            //health += itemUsing.Use();
             Debug.Log("Ha sido usado el item: " + ItemSelected);
         }
     }
@@ -287,7 +289,14 @@ public class Player : MonoBehaviour
 		{
 				SceneManager.LoadScene("SafeZone");
 		}
-	}
+
+        if (collision.gameObject.tag == "SoulsExchange")
+        {
+            SoulsExchange soulsExchange = collision.gameObject.AddComponent<SoulsExchange>();
+            money += soulsExchange.Exchange(DroppedSouls);
+            DroppedSouls = 0;
+        }
+    }
 	private void OnTriggerStay2D(Collider2D collision) //pillar objetos (Albert)
     {
         if (collision.gameObject.tag == "Object" && Input.GetKey(KeyCode.E)) //de momento object solo sera vendas, asi que sumara vida cuando se pille
