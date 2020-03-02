@@ -11,7 +11,7 @@ public class Ammo : Usable
     void Start()
     {
         //this.sprite;
-        //this.itemName;
+        this.itemName = "Ammo";
         //this.itemDescription;
         //this.price;
         //this.ammount;

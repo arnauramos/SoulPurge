@@ -6,7 +6,7 @@ public class Bandage : Usable
 {
     public override void Use()
     {
-
+       
     }
     void Start()
     {
