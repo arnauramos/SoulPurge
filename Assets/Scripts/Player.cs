@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -42,6 +43,7 @@ public class Player : MonoBehaviour
 	private int AuxRounds;
 	public int TotalAmmo;
 	public int Rounds;
+
 
     [Header("Variables for ArrayItems:")]
     [Space(10)]
@@ -120,7 +122,7 @@ public class Player : MonoBehaviour
 		{
 			if (weaponUsing.Rounds <= 0) return;
 			Shooting();
-			initialBulletTime = Counter + weaponUsing.FireRate;
+            initialBulletTime = Counter + weaponUsing.FireRate;
 		}
 	}
 
@@ -129,11 +131,14 @@ public class Player : MonoBehaviour
 		Movement.x = Input.GetAxis("Horizontal");
 		Movement.y = Input.GetAxis("Vertical");
 
-        if ((Input.GetKey(KeyCode.LeftShift) || (Input.GetKey(KeyCode.Keypad0))) && Stamina > 0 )
+        if ((Input.GetKey(KeyCode.LeftShift) || (Input.GetKey(KeyCode.Keypad0))) && Stamina > 0)
         {
-            Speed = Sprint;
-            OffSetSprint = false;
-            Stamina-=1.5f;
+            if ((Movement.x != 0 && Movement.y != 0) || Movement.y != 0)
+            {
+                Speed = Sprint;
+                OffSetSprint = false;
+                Stamina -= 1.5f;
+            }
         }
         else Speed = AuxSpeed;
 
@@ -145,7 +150,8 @@ public class Player : MonoBehaviour
 		rb2d.AddForce(Movement * Speed * fixedDelta, ForceMode2D.Impulse);
         animator.SetBool("Moving", true);
     }
-	void PlayerAim()
+
+    void PlayerAim()
 	{
 		mousePosition = Input.mousePosition;
 		mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
@@ -156,12 +162,12 @@ public class Player : MonoBehaviour
 	}
 	void Shooting()
 	{
-		bulletObject = Instantiate(weaponUsing.Bullet, firePoint.position, firePoint.rotation);
-        bulletObject.GetComponent<Bullet>().PlayerShoot = true;
-		rb2dBullet = bulletObject.GetComponent<Rigidbody2D>();
-		rb2dBullet.AddForce(firePoint.up * weaponUsing.BulletSpeed, ForceMode2D.Impulse);
-		Destroy(bulletObject, weaponUsing.Range);
-        weaponUsing.Rounds--;
+		//bulletObject = Instantiate(weaponUsing.Bullet, firePoint.position, firePoint.rotation);
+  //      bulletObject.GetComponent<Bullet>().PlayerShoot = true;
+		//rb2dBullet = bulletObject.GetComponent<Rigidbody2D>();
+		//rb2dBullet.AddForce(firePoint.up * weaponUsing.BulletSpeed, ForceMode2D.Impulse);
+		//Destroy(bulletObject, weaponUsing.Range);
+  //      weaponUsing.Rounds--;
 	}
     void Reloading()
     {
@@ -245,7 +251,6 @@ public class Player : MonoBehaviour
         }
         else return;
     }
-
 
     private void OnCollisionStay2D(Collision2D collision)
     {
