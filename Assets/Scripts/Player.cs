@@ -13,22 +13,13 @@ public class Player : MonoBehaviour
 	//private float delta;
 	private float fixedDelta;
 	
-	[Header("Variables for player:")]
+	[Header("Counters for player:")]
 	[Space(5)]
-	public float Speed = 0.07f;
-	private float AuxSpeed;
-	public float Sprint = 0.12f;
-
-    public float health = 100f;
     public float dmgCounter = 100f;
     private float initialDmgCounter = 0;
-
-    public float Stamina = 200.0f;
-    private float AuxStamina;
     private float StaminaTimeRecover;
-    private bool OffSetSprint = false;
 
-    public int money;
+    private bool OffSetSprint = false;
 
     //  VARIABLES FOR GUNS
     private Rigidbody2D rb2dBullet;
@@ -44,7 +35,7 @@ public class Player : MonoBehaviour
 	private static Weapon[] PlayerArrayWeapon;
 	public Weapon weaponUsing;
 	private int AuxRounds;
-	public int TotalAmmo;
+	//public int TotalAmmo;
 	public int Rounds;
 
 
@@ -58,7 +49,6 @@ public class Player : MonoBehaviour
     [Header("Variables for objects & keys:")]
 	[Space(10)]
     public int keys = 0;
-	public int DroppedSouls = 0;
     private bool PickSoul = true;
 
 
@@ -71,31 +61,31 @@ public class Player : MonoBehaviour
 	{
 		rb2d = GetComponent<Rigidbody2D>();
 		Movement = Vector2.zero;
-		AuxSpeed = Speed;
-        AuxStamina = Stamina;
-        // GET ANIMATOR COMPONENTS
 
+        // GET ANIMATOR COMPONENTS
         animator = GetComponent<Animator>();
         moveParamID = Animator.StringToHash("Moving");
 
         //	SET WEAPON STATS TO AUXILIARS
         PlayerArrayWeapon = WeaponsArray.ArrayWeapon;
+
         //	SET ITEM STATS TO AUXILIARS
         PlayerArrayItem = ItemsArray.ArrayItemSlot;
+
 		//	SET WEAPON USING VARIABLES
 		Rounds = AuxRounds;
 	}
 
     private void Update()
     {
-        if (health <= 0) Destroy(gameObject);
+        if (PlayerManager.Instance.health <= 0) Destroy(gameObject);
 
         // UPDATE WEAPON USING & WEAPON VARIABLES
         GunsSwap();
         weaponUsing = PlayerArrayWeapon[weaponSelected];
 
         Rounds = weaponUsing.Rounds;
-        TotalAmmo = weaponUsing.TotalAmmo;
+        //TotalAmmo = weaponUsing.TotalAmmo;
         AuxRounds = weaponUsing.MaxRounds;
 
         //  RELOAD
@@ -105,12 +95,12 @@ public class Player : MonoBehaviour
         ItemsSwap();
         itemUsing = PlayerArrayItem[ItemSelected];
 
-        if (Counter >= StaminaTimeRecover && Stamina < AuxStamina && OffSetSprint)
+        if (Counter >= StaminaTimeRecover && PlayerManager.Instance.stamina < PlayerManager.Instance.maxStamina && OffSetSprint)
         {
-            Stamina += 0.2f;
+            PlayerManager.Instance.addStamina(PlayerManager.Instance.staminaRegeneration);
             StaminaTimeRecover = Counter;
         }
-        if (Counter >= StaminaTimeRecover + 80f && Stamina < AuxStamina && !OffSetSprint)
+        if (Counter >= StaminaTimeRecover + 80f && PlayerManager.Instance.stamina < PlayerManager.Instance.maxStamina && !OffSetSprint)
         {
             OffSetSprint = true;
         }
@@ -136,23 +126,23 @@ public class Player : MonoBehaviour
 		Movement.x = Input.GetAxis("Horizontal");
 		Movement.y = Input.GetAxis("Vertical");
 
-        if ((Input.GetKey(KeyCode.LeftShift) || (Input.GetKey(KeyCode.Keypad0))) && Stamina > 0)
+        if ((Input.GetKey(KeyCode.LeftShift) || (Input.GetKey(KeyCode.Keypad0))) && PlayerManager.Instance.stamina > 0)
         {
             //if ((Movement.x != 0 && Movement.y != 0) || Movement.y != 0)
             //{
-                Speed = Sprint;
+                PlayerManager.Instance.changeSpeed(PlayerManager.Instance.sprint);
                 OffSetSprint = false;
-                Stamina -= 1.5f;
+                PlayerManager.Instance.substrStamina(1.5f);
             //}
         }
-        else Speed = AuxSpeed;
+        else PlayerManager.Instance.changeSpeed(PlayerManager.Instance.maxSpeed);
 
-        if (rb2d.velocity.x > Speed || rb2d.velocity.x < Speed)
+        if (rb2d.velocity.x > PlayerManager.Instance.speed || rb2d.velocity.x < PlayerManager.Instance.speed)
         {
             rb2d.velocity = Vector2.zero;
             animator.SetBool("Moving", false);
         }
-		rb2d.AddForce(Movement * Speed * fixedDelta, ForceMode2D.Impulse);
+		rb2d.AddForce(Movement * PlayerManager.Instance.speed * fixedDelta, ForceMode2D.Impulse);
         animator.SetBool("Moving", true);
     }
 
@@ -176,28 +166,28 @@ public class Player : MonoBehaviour
     }
     void Reloading()
     {
-		if (weaponUsing.Rounds <= 0 && weaponUsing.TotalAmmo <= 0) return;
+		if (weaponUsing.Rounds <= 0 && PlayerManager.Instance.totalAmmo <= 0) return;
 
-		if ((Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Return)) && weaponUsing.TotalAmmo >= 0 && weaponUsing.Rounds < weaponUsing.MaxRounds)
+		if ((Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Return)) && PlayerManager.Instance.totalAmmo >= 0 && weaponUsing.Rounds < weaponUsing.MaxRounds)
 		{
-			Debug.Log("Reloading: Manual;");		
-			weaponUsing.TotalAmmo += weaponUsing.Rounds;
-			if (weaponUsing.TotalAmmo < weaponUsing.MaxRounds)
-			{
-				weaponUsing.Rounds = weaponUsing.TotalAmmo;
-				weaponUsing.TotalAmmo -= weaponUsing.Rounds;
-			}
-			else
-			{
-				weaponUsing.Rounds = AuxRounds;
-				weaponUsing.TotalAmmo -= weaponUsing.Rounds;
-			}
-		} 
-		else if (weaponUsing.Rounds == 0 && weaponUsing.TotalAmmo > 0)
+			Debug.Log("Reloading: Manual;");
+            PlayerManager.Instance.addTotalAmmo(weaponUsing.Rounds);
+            if (PlayerManager.Instance.totalAmmo < weaponUsing.MaxRounds)
+            {
+                weaponUsing.Rounds = PlayerManager.Instance.totalAmmo;
+                PlayerManager.Instance.substrTotalAmmo(weaponUsing.Rounds);
+            }
+            else
+            {
+                weaponUsing.Rounds = AuxRounds;
+                PlayerManager.Instance.substrTotalAmmo(weaponUsing.Rounds);
+            }
+        } 
+		else if (weaponUsing.Rounds == 0 && PlayerManager.Instance.totalAmmo > 0)
 		{
 			Debug.Log("Reloading: Automatic;");
 			weaponUsing.Rounds = AuxRounds;
-			weaponUsing.TotalAmmo -= weaponUsing.Rounds;
+            PlayerManager.Instance.substrTotalAmmo(weaponUsing.Rounds);
 		}
 	}
 	void GunsSwap()
@@ -279,7 +269,7 @@ public class Player : MonoBehaviour
             dmgCounter = Time.time * fixedDelta;
             if (dmgCounter >= initialDmgCounter)
             {
-                health -= collision.gameObject.GetComponent<Enemy>().dmg;
+                PlayerManager.Instance.substrHealth(collision.gameObject.GetComponent<Enemy>().dmg);
                 initialDmgCounter = dmgCounter + collision.gameObject.GetComponent<Enemy>().AttackRate;
             }
         }
@@ -287,7 +277,8 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Bullet" && !collision.gameObject.GetComponent<Bullet>().PlayerShoot)
         {
             Destroy(collision.gameObject);
-            health -= weaponUsing.Damage;
+            PlayerManager.Instance.substrHealth(weaponUsing.Damage);
+
             Debug.Log("Player got shoot;");
         }
 
@@ -299,15 +290,15 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "SoulsExchange")
         {
             SoulsExchange soulsExchange = collision.gameObject.AddComponent<SoulsExchange>();
-            money += soulsExchange.Exchange(DroppedSouls);
-            DroppedSouls = 0;
+            PlayerManager.Instance.addMoney(soulsExchange.Exchange(PlayerManager.Instance.souls));
+            PlayerManager.Instance.souls = 0;
         }
     }
 	private void OnTriggerStay2D(Collider2D collision) //pillar objetos (Albert)
     {
         if (collision.gameObject.tag == "Object" && Input.GetKey(KeyCode.E)) //de momento object solo sera vendas, asi que sumara vida cuando se pille
         {
-            health += 10;
+            PlayerManager.Instance.addHealth(10);
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.tag == "Key_Object" && Input.GetKey(KeyCode.E))
@@ -318,7 +309,7 @@ public class Player : MonoBehaviour
 		if (collision.gameObject.tag == "Soul" && PickSoul == true)
 		{
 			Destroy(collision.gameObject);
-			DroppedSouls++;
+            PlayerManager.Instance.addSouls(1);
 		}
 	}
 }
