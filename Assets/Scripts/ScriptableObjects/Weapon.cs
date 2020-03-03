@@ -13,7 +13,7 @@ public class Weapon : ScriptableObject
 	public Vector3 FirePoint;
 	public int Rounds;
 	public int MaxRounds;
-	public int TotalAmmo;
+	//public int TotalAmmo;
 	public float Range;
 	public float Damage;
 	public float FireRate;

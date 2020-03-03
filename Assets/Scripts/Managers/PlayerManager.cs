@@ -6,20 +6,25 @@ public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager Instance { get; private set; }
     // RESET TIMER
-   
+
+    //public Player player;
+
     // VARIABLES
-    public float health;
+    [Header("Variables for player:")]
+    public float health;//
     public float maxHeath;
     public float resistance;
-    public float stamina;
-    public float maxStamina;
-    public float staminaRegeneration;
-    public float speed;
+    public float stamina;//
+    public float maxStamina;//
+    public float staminaRegeneration;//
+    public float speed;//
+    public float maxSpeed;//
+    public float sprint;//
     public float speedBoost;
     public float shootingBoost;
-    public int souls;
+    public int souls;//
     public int maxSouls;
-    public int money;
+    public int money;//
     public int totalAmmo;
 
     void Start()
@@ -58,6 +63,10 @@ public class PlayerManager : MonoBehaviour
             stamina += value;
         }
     }
+    public void changeSpeed(float value)
+    {
+        speed = value;
+    }
     public void addSouls(int value)
     {
         if (souls + value > maxSouls)
@@ -90,6 +99,22 @@ public class PlayerManager : MonoBehaviour
     public void addExtraSouls(int value)
     {
         maxSouls += value;
+    }
+
+    // SUBSTRACTS
+    public void substrHealth(float value)
+    {
+        health -= value;
+    }
+
+    public void substrStamina(float value)
+    {
+        stamina -= value;
+    }
+
+    public void substrTotalAmmo(int value)
+    {
+        totalAmmo -= value;
     }
 
     //RESET (work in progress)
