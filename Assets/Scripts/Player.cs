@@ -138,12 +138,12 @@ public class Player : MonoBehaviour
 
         if ((Input.GetKey(KeyCode.LeftShift) || (Input.GetKey(KeyCode.Keypad0))) && Stamina > 0)
         {
-            if ((Movement.x != 0 && Movement.y != 0) || Movement.y != 0)
-            {
+            //if ((Movement.x != 0 && Movement.y != 0) || Movement.y != 0)
+            //{
                 Speed = Sprint;
                 OffSetSprint = false;
                 Stamina -= 1.5f;
-            }
+            //}
         }
         else Speed = AuxSpeed;
 
