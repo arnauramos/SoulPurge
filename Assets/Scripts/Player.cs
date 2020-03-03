@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -23,8 +24,11 @@ public class Player : MonoBehaviour
     private float initialDmgCounter = 0;
 
     public float Stamina = 200.0f;
+    private float AuxStamina;
     private float StaminaTimeRecover;
     private bool OffSetSprint = false;
+
+    public int money;
 
     //  VARIABLES FOR GUNS
     private Rigidbody2D rb2dBullet;
@@ -43,11 +47,12 @@ public class Player : MonoBehaviour
 	public int TotalAmmo;
 	public int Rounds;
 
+
     [Header("Variables for ArrayItems:")]
     [Space(10)]
     public int ItemSelected = 0;
-    public static InventorySlot[] PlayerArrayItem;
-    public InventorySlot itemUsing;
+    public static Usable[] PlayerArrayItem;
+    public Usable itemUsing;
 
     //VARIABLES FOR OBJECTS
     [Header("Variables for objects & keys:")]
@@ -67,6 +72,7 @@ public class Player : MonoBehaviour
 		rb2d = GetComponent<Rigidbody2D>();
 		Movement = Vector2.zero;
 		AuxSpeed = Speed;
+        AuxStamina = Stamina;
         // GET ANIMATOR COMPONENTS
 
         animator = GetComponent<Animator>();
@@ -99,15 +105,16 @@ public class Player : MonoBehaviour
         ItemsSwap();
         itemUsing = PlayerArrayItem[ItemSelected];
 
-        if (Counter >= StaminaTimeRecover && Stamina < 200f && OffSetSprint)
+        if (Counter >= StaminaTimeRecover && Stamina < AuxStamina && OffSetSprint)
         {
             Stamina += 0.2f;
             StaminaTimeRecover = Counter;
         }
-        if (Counter >= StaminaTimeRecover + 80f && Stamina < 200f && !OffSetSprint)
+        if (Counter >= StaminaTimeRecover + 80f && Stamina < AuxStamina && !OffSetSprint)
         {
             OffSetSprint = true;
         }
+        UseItem();
     }
 
 	private void FixedUpdate()
@@ -120,7 +127,7 @@ public class Player : MonoBehaviour
 		{
 			if (weaponUsing.Rounds <= 0) return;
 			Shooting();
-			initialBulletTime = Counter + weaponUsing.FireRate;
+            initialBulletTime = Counter + weaponUsing.FireRate;
 		}
 	}
 
@@ -129,11 +136,14 @@ public class Player : MonoBehaviour
 		Movement.x = Input.GetAxis("Horizontal");
 		Movement.y = Input.GetAxis("Vertical");
 
-        if ((Input.GetKey(KeyCode.LeftShift) || (Input.GetKey(KeyCode.Keypad0))) && Stamina > 0 )
+        if ((Input.GetKey(KeyCode.LeftShift) || (Input.GetKey(KeyCode.Keypad0))) && Stamina > 0)
         {
-            Speed = Sprint;
-            OffSetSprint = false;
-            Stamina-=1.5f;
+            //if ((Movement.x != 0 && Movement.y != 0) || Movement.y != 0)
+            //{
+                Speed = Sprint;
+                OffSetSprint = false;
+                Stamina -= 1.5f;
+            //}
         }
         else Speed = AuxSpeed;
 
@@ -145,7 +155,8 @@ public class Player : MonoBehaviour
 		rb2d.AddForce(Movement * Speed * fixedDelta, ForceMode2D.Impulse);
         animator.SetBool("Moving", true);
     }
-	void PlayerAim()
+
+    void PlayerAim()
 	{
 		mousePosition = Input.mousePosition;
 		mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
@@ -156,13 +167,13 @@ public class Player : MonoBehaviour
 	}
 	void Shooting()
 	{
-		bulletObject = Instantiate(weaponUsing.Bullet, firePoint.position, firePoint.rotation);
+        bulletObject = Instantiate(weaponUsing.Bullet, firePoint.position, firePoint.rotation);
         bulletObject.GetComponent<Bullet>().PlayerShoot = true;
-		rb2dBullet = bulletObject.GetComponent<Rigidbody2D>();
-		rb2dBullet.AddForce(firePoint.up * weaponUsing.BulletSpeed, ForceMode2D.Impulse);
-		Destroy(bulletObject, weaponUsing.Range);
+        rb2dBullet = bulletObject.GetComponent<Rigidbody2D>();
+        rb2dBullet.AddForce(firePoint.up * weaponUsing.BulletSpeed, ForceMode2D.Impulse);
+        Destroy(bulletObject, weaponUsing.Range);
         weaponUsing.Rounds--;
-	}
+    }
     void Reloading()
     {
 		if (weaponUsing.Rounds <= 0 && weaponUsing.TotalAmmo <= 0) return;
@@ -222,9 +233,9 @@ public class Player : MonoBehaviour
     void ItemsSwap()
     {
         string InputKey = Input.inputString;
-        if (InputKey == "5" || InputKey == "6" || InputKey == "7")
+        if (InputKey == "5" || InputKey == "6" || InputKey == "7" || InputKey == "8" || InputKey == "9")
         {
-            if (PlayerArrayWeapon[int.Parse(InputKey) - 1] == null) return;
+            if (PlayerArrayItem[int.Parse(InputKey) - 5] == null) return;
 
             Debug.Log("Item Slot Swap to: " + InputKey);
             
@@ -239,6 +250,12 @@ public class Player : MonoBehaviour
                 case "7":
                     ItemSelected = 2;
                     break;
+                case "8":
+                    ItemSelected = 3;
+                    break;
+                case "9":
+                    ItemSelected = 4;
+                    break;
                 default:
                     break;
             }
@@ -246,6 +263,14 @@ public class Player : MonoBehaviour
         else return;
     }
 
+    void UseItem()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            //health += itemUsing.Use();
+            Debug.Log("Ha sido usado el item: " + ItemSelected);
+        }
+    }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -270,7 +295,14 @@ public class Player : MonoBehaviour
 		{
 				SceneManager.LoadScene("SafeZone");
 		}
-	}
+
+        if (collision.gameObject.tag == "SoulsExchange")
+        {
+            SoulsExchange soulsExchange = collision.gameObject.AddComponent<SoulsExchange>();
+            money += soulsExchange.Exchange(DroppedSouls);
+            DroppedSouls = 0;
+        }
+    }
 	private void OnTriggerStay2D(Collider2D collision) //pillar objetos (Albert)
     {
         if (collision.gameObject.tag == "Object" && Input.GetKey(KeyCode.E)) //de momento object solo sera vendas, asi que sumara vida cuando se pille

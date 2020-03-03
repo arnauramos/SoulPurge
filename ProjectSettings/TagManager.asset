@@ -19,6 +19,7 @@ TagManager:
   - Soul
   - Ammo
   - Bandage
+  - SoulsExchange
   layers:
   - Default
   - TransparentFX
