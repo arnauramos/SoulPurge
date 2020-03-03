@@ -6,7 +6,8 @@ public class SpeedBoost : Usable
 {
     public override void Use()
     {
-
+        PlayerManager.Instance.speedBoost += this.value;
+        PlayerManager.Instance.ResetSpeedBoost();
     }
     void Start()
     {
@@ -15,7 +16,7 @@ public class SpeedBoost : Usable
         //this.itemDescription;
         //this.price;
         //this.ammount;
-        //this.value;
+        this.value = 0.25f;
         //this.doesExpire;
         //this.duration;
     }
