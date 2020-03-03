@@ -128,12 +128,12 @@ public class Player : MonoBehaviour
 
         if ((Input.GetKey(KeyCode.LeftShift) || (Input.GetKey(KeyCode.Keypad0))) && PlayerManager.Instance.stamina > 0)
         {
-            //if ((Movement.x != 0 && Movement.y != 0) || Movement.y != 0)
-            //{
+            if (Movement.y != 0)
+            {
                 PlayerManager.Instance.changeSpeed(PlayerManager.Instance.sprint);
                 OffSetSprint = false;
                 PlayerManager.Instance.substrStamina(1.5f);
-            //}
+            }
         }
         else PlayerManager.Instance.changeSpeed(PlayerManager.Instance.maxSpeed);
 
