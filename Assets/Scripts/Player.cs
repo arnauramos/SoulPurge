@@ -167,13 +167,13 @@ public class Player : MonoBehaviour
 	}
 	void Shooting()
 	{
-		//bulletObject = Instantiate(weaponUsing.Bullet, firePoint.position, firePoint.rotation);
-  //      bulletObject.GetComponent<Bullet>().PlayerShoot = true;
-		//rb2dBullet = bulletObject.GetComponent<Rigidbody2D>();
-		//rb2dBullet.AddForce(firePoint.up * weaponUsing.BulletSpeed, ForceMode2D.Impulse);
-		//Destroy(bulletObject, weaponUsing.Range);
-  //      weaponUsing.Rounds--;
-	}
+        bulletObject = Instantiate(weaponUsing.Bullet, firePoint.position, firePoint.rotation);
+        bulletObject.GetComponent<Bullet>().PlayerShoot = true;
+        rb2dBullet = bulletObject.GetComponent<Rigidbody2D>();
+        rb2dBullet.AddForce(firePoint.up * weaponUsing.BulletSpeed, ForceMode2D.Impulse);
+        Destroy(bulletObject, weaponUsing.Range);
+        weaponUsing.Rounds--;
+    }
     void Reloading()
     {
 		if (weaponUsing.Rounds <= 0 && weaponUsing.TotalAmmo <= 0) return;
