@@ -113,7 +113,7 @@ public class Player : MonoBehaviour
 		Counter = Time.time * fixedDelta;
 		PlayerMovement();
 		PlayerAim();
-		if (Counter >= initialBulletTime && Input.GetMouseButton(0))
+		if (Counter >= initialBulletTime / PlayerManager.Instance.shootingBoost && Input.GetMouseButton(0))
 		{
 			if (weaponUsing.Rounds <= 0) return;
 			Shooting();
@@ -142,10 +142,9 @@ public class Player : MonoBehaviour
             rb2d.velocity = Vector2.zero;
             animator.SetBool("Moving", false);
         }
-		rb2d.AddForce(Movement * PlayerManager.Instance.speed * fixedDelta, ForceMode2D.Impulse);
+		rb2d.AddForce(Movement * PlayerManager.Instance.speed * PlayerManager.Instance.speedBoost * fixedDelta, ForceMode2D.Impulse);
         animator.SetBool("Moving", true);
     }
-
     void PlayerAim()
 	{
 		mousePosition = Input.mousePosition;
