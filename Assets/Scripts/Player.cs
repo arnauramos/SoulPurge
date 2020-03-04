@@ -134,6 +134,7 @@ public class Player : MonoBehaviour
                 OffSetSprint = false;
                 PlayerManager.Instance.substrStamina(1.5f);
             }
+            else PlayerManager.Instance.changeSpeed(PlayerManager.Instance.maxSpeed);
         }
         else PlayerManager.Instance.changeSpeed(PlayerManager.Instance.maxSpeed);
 
