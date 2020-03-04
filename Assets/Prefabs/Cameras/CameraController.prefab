@@ -59,18 +59,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3398680617142991054, guid: d63d0fbd7307eef49a34bcbef4920c50,
         type: 3}
-      propertyPath: far clip plane
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3398680617142991054, guid: d63d0fbd7307eef49a34bcbef4920c50,
-        type: 3}
       propertyPath: field of view
       value: 17.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3398680617142991054, guid: d63d0fbd7307eef49a34bcbef4920c50,
-        type: 3}
-      propertyPath: orthographic size
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5820216105583281145, guid: d63d0fbd7307eef49a34bcbef4920c50,
         type: 3}
@@ -126,6 +116,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6607718512939827466, guid: d63d0fbd7307eef49a34bcbef4920c50,
+        type: 3}
+      propertyPath: m_RefResolutionX
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 6607718512939827466, guid: d63d0fbd7307eef49a34bcbef4920c50,
+        type: 3}
+      propertyPath: m_RefResolutionY
+      value: 540
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d63d0fbd7307eef49a34bcbef4920c50, type: 3}
