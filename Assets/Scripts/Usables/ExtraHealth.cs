@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class ExtraHealth : Usable
 {
+    //void Start()
+    //{
+    //    //this.sprite;
+    //    //this.itemDescription;
+    //    //this.price;
+    //    //this.ammount;
+    //    //this.doesExpire;
+    //    //this.duration;
+    //}
+    protected override void CheckItem() { }
+
     public override void Use()
     {
+        this.itemName = "ExtraHealth";
+        this.value = 25;
+
         PlayerManager.Instance.addExtraHealth(this.value);
     }
-    void Start()
-    {
-        //this.sprite;
-        this.itemName = "ExtraHealth";
-        //this.itemDescription;
-        //this.price;
-        //this.ammount;
-        this.value = 25;
-        //this.doesExpire;
-        //this.duration;
-    }
-
 }

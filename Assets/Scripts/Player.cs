@@ -257,8 +257,8 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            //health += itemUsing.Use();
-            Debug.Log("Ha sido usado el item: " + ItemSelected);
+            itemUsing.Use();
+            Debug.Log("Ha sido usado el item: " + itemUsing.itemName + ". En la posición: " + ItemSelected + " del array");
         }
     }
 
