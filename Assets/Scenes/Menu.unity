@@ -355,6 +355,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 3398680617142991054, guid: d63d0fbd7307eef49a34bcbef4920c50,
+        type: 3}
+      propertyPath: orthographic size
+      value: 4.2605295
+      objectReference: {fileID: 0}
     - target: {fileID: 5820216105583281145, guid: d63d0fbd7307eef49a34bcbef4920c50,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2093,7 +2098,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -79.23, y: -14.2}
+  m_AnchoredPosition: {x: -79.23001, y: -14.199997}
   m_SizeDelta: {x: -15.84, y: -72.99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1520654282
@@ -2457,8 +2462,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1971445572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5}
-  m_LocalScale: {x: 0.012847584, y: 0.012847584, z: 0.012847584}
+  m_LocalPosition: {x: 0, y: 0, z: 80}
+  m_LocalScale: {x: 0.00788987, y: 0.00788987, z: 0.00788987}
   m_Children:
   - {fileID: 1387651325}
   - {fileID: 931966351}
@@ -2469,7 +2474,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 663.75, y: 336.25}
+  m_SizeDelta: {x: 1919.9999, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2018393721
 GameObject:
