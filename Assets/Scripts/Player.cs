@@ -31,11 +31,10 @@ public class Player : MonoBehaviour
 	[Header("Variables for guns:")]
 	[Space(10)]
 	public int weaponSelected = 0;
-	public Transform firePoint;
-	private static Weapon[] PlayerArrayWeapon;
-	public Weapon weaponUsing;
+	//public Transform firePoint;
+	//private static Weapon[] PlayerArrayWeapon;
+	public Item weaponUsing;
 	private int AuxRounds;
-	//public int TotalAmmo;
 	public int Rounds;
 
 
@@ -67,7 +66,7 @@ public class Player : MonoBehaviour
         moveParamID = Animator.StringToHash("Moving");
 
         //	SET WEAPON STATS TO AUXILIARS
-        PlayerArrayWeapon = WeaponsArray.ArrayWeapon;
+        //PlayerArrayWeapon = WeaponsArray.ArrayWeapon;
 
         //	SET ITEM STATS TO AUXILIARS
         PlayerArrayItem = ItemsArray.ArrayItemSlot;
@@ -82,11 +81,10 @@ public class Player : MonoBehaviour
 
         // UPDATE WEAPON USING & WEAPON VARIABLES
         GunsSwap();
-        weaponUsing = PlayerArrayWeapon[weaponSelected];
+        weaponUsing = PlayerManager.Instance.PlayerListItems[weaponSelected];
 
-        Rounds = weaponUsing.Rounds;
-        //TotalAmmo = weaponUsing.TotalAmmo;
-        AuxRounds = weaponUsing.MaxRounds;
+        //Rounds = weaponUsing.Rounds;
+        //AuxRounds = weaponUsing.MaxRounds;
 
         //  RELOAD
         Reloading();
@@ -115,9 +113,9 @@ public class Player : MonoBehaviour
 		PlayerAim();
 		if (Counter >= initialBulletTime / PlayerManager.Instance.shootingBoost && Input.GetMouseButton(0))
 		{
-			if (weaponUsing.Rounds <= 0) return;
+			//if (weaponUsing.Rounds <= 0) return;
 			Shooting();
-            initialBulletTime = Counter + weaponUsing.FireRate;
+            //initialBulletTime = Counter + weaponUsing.FireRate;
 		}
 	}
 
@@ -157,38 +155,38 @@ public class Player : MonoBehaviour
 	}
 	void Shooting()
 	{
-        bulletObject = Instantiate(weaponUsing.Bullet, firePoint.position, firePoint.rotation);
+       // bulletObject = Instantiate(weaponUsing.Bullet, firePoint.position, firePoint.rotation);
         bulletObject.GetComponent<Bullet>().PlayerShoot = true;
         rb2dBullet = bulletObject.GetComponent<Rigidbody2D>();
-        rb2dBullet.AddForce(firePoint.up * weaponUsing.BulletSpeed, ForceMode2D.Impulse);
-        Destroy(bulletObject, weaponUsing.Range);
-        weaponUsing.Rounds--;
+        //rb2dBullet.AddForce(firePoint.up * weaponUsing.BulletSpeed, ForceMode2D.Impulse);
+        //Destroy(bulletObject, weaponUsing.Range);
+        //weaponUsing.Rounds--;
     }
     void Reloading()
     {
-		if (weaponUsing.Rounds <= 0 && PlayerManager.Instance.totalAmmo <= 0) return;
+		//if (weaponUsing.Rounds <= 0 && PlayerManager.Instance.totalAmmo <= 0) return;
 
-		if ((Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Return)) && PlayerManager.Instance.totalAmmo >= 0 && weaponUsing.Rounds < weaponUsing.MaxRounds)
-		{
-			Debug.Log("Reloading: Manual;");
-            PlayerManager.Instance.addTotalAmmo(weaponUsing.Rounds);
-            if (PlayerManager.Instance.totalAmmo < weaponUsing.MaxRounds)
-            {
-                weaponUsing.Rounds = PlayerManager.Instance.totalAmmo;
-                PlayerManager.Instance.substrTotalAmmo(weaponUsing.Rounds);
-            }
-            else
-            {
-                weaponUsing.Rounds = AuxRounds;
-                PlayerManager.Instance.substrTotalAmmo(weaponUsing.Rounds);
-            }
-        } 
-		else if (weaponUsing.Rounds == 0 && PlayerManager.Instance.totalAmmo > 0)
-		{
-			Debug.Log("Reloading: Automatic;");
-			weaponUsing.Rounds = AuxRounds;
-            PlayerManager.Instance.substrTotalAmmo(weaponUsing.Rounds);
-		}
+		//if ((Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Return)) && PlayerManager.Instance.totalAmmo >= 0 && weaponUsing.Rounds < weaponUsing.MaxRounds)
+		//{
+		//	Debug.Log("Reloading: Manual;");
+  //          PlayerManager.Instance.addTotalAmmo(weaponUsing.Rounds);
+  //          if (PlayerManager.Instance.totalAmmo < weaponUsing.MaxRounds)
+  //          {
+  //              weaponUsing.Rounds = PlayerManager.Instance.totalAmmo;
+  //              PlayerManager.Instance.substrTotalAmmo(weaponUsing.Rounds);
+  //          }
+  //          else
+  //          {
+  //              weaponUsing.Rounds = AuxRounds;
+  //              PlayerManager.Instance.substrTotalAmmo(weaponUsing.Rounds);
+  //          }
+  //      }
+  //      else if (weaponUsing.Rounds == 0 && PlayerManager.Instance.totalAmmo > 0)
+  //      {
+		//	Debug.Log("Reloading: Automatic;");
+  //          weaponUsing.Rounds = AuxRounds;
+  //          PlayerManager.Instance.substrTotalAmmo(weaponUsing.Rounds);
+  //      }
 	}
 	void GunsSwap()
 	{
@@ -196,7 +194,7 @@ public class Player : MonoBehaviour
 		string InputKey = Input.inputString;
         if (InputKey == "1" || InputKey == "2" || InputKey == "3" ||InputKey == "4")
         {
-            if (PlayerArrayWeapon[int.Parse(InputKey) - 1] == null) return;
+           // if (PlayerArrayWeapon[int.Parse(InputKey) - 1] == null) return;
         
             Debug.Log("Gun Swap to: " + InputKey);
 
@@ -277,7 +275,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Bullet" && !collision.gameObject.GetComponent<Bullet>().PlayerShoot)
         {
             Destroy(collision.gameObject);
-            PlayerManager.Instance.substrHealth(weaponUsing.Damage);
+            //PlayerManager.Instance.substrHealth(weaponUsing.Damage);
 
             Debug.Log("Player got shoot;");
         }

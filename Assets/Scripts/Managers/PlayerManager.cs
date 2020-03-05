@@ -28,6 +28,7 @@ public class PlayerManager : MonoBehaviour
     public int totalAmmo;//
 
     public List<Item> PlayerListItems;
+    public int wepoanSelected;
 
     void Start()
     {
