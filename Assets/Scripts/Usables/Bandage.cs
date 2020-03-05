@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class Bandage : Usable
 {
+    //void Start()
+    //{
+    //    //this.sprite;
+    //    //this.itemDescription;
+    //    //this.price;
+    //    //this.ammount;
+    //    //this.doesExpire;
+    //    //this.duration;
+    //}
+    protected override void CheckItem()
+    {
+        if (ammount <= 0) return;
+        ammount--;
+    }
     public override void Use()
     {
+        this.itemName = "Bandage";
+        this.value = 5;
+
+        CheckItem();
         PlayerManager.Instance.addHealth(this.value);
     }
-    void Start()
-    {
-        //this.sprite;
-        this.itemName = "Bandage";
-        //this.itemDescription;
-        //this.price;
-        //this.ammount;
-        this.value = 5;
-        //this.doesExpire;
-        //this.duration;
-    }
-
 }

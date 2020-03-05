@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class Potion : Usable
 {
+    //void Start()
+    //{
+    //    //this.sprite;
+    //    //this.itemDescription;
+    //    //this.price;
+    //    //this.ammount;
+    //    //this.doesExpire;
+    //    //this.duration;
+    //}
+    protected override void CheckItem()
+    {
+        if (ammount <= 0) return;
+        ammount--;
+    }
     public override void Use()
     {
+        this.itemName = "Potion";
+        this.value = 15;
+
+        CheckItem();
         PlayerManager.Instance.addHealth(this.value);
     }
-    void Start()
-    {
-        //this.sprite;
-        this.itemName = "Potion";
-        //this.itemDescription;
-        //this.price;
-        //this.ammount;
-        this.value = 15;
-        //this.doesExpire;
-        //this.duration;
-    }
-
 }

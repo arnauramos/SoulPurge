@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class ExtraStamina : Usable
 {
+    //void Start()
+    //{
+    //    //this.sprite;
+    //    //this.itemDescription;
+    //    //this.price;
+    //    //this.ammount;
+    //    //this.doesExpire;
+    //    //this.duration;
+    //}
+    protected override void CheckItem() { }
     public override void Use()
     {
+        this.itemName = "ExtraStamina";
+        this.value = 50;
+
         PlayerManager.Instance.addExtraStamina(this.value);
     }
-    void Start()
-    {
-        //this.sprite;
-        this.itemName = "ExtraStamina";
-        //this.itemDescription;
-        //this.price;
-        //this.ammount;
-        this.value = 50;
-        //this.doesExpire;
-        //this.duration;
-    }
-
 }
