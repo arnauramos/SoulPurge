@@ -25,7 +25,9 @@ public class PlayerManager : MonoBehaviour
     public int souls;//
     public int maxSouls;
     public int money;//
-    public int totalAmmo;
+    public int totalAmmo;//
+
+    public List<Item> PlayerListItems;
 
     void Start()
     {
