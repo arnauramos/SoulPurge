@@ -253,36 +253,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6986015133244722176, guid: 758d1748a7e78934499300895e915dd1,
-        type: 3}
-      propertyPath: m_AssetsPPU
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 6986015133244722176, guid: 758d1748a7e78934499300895e915dd1,
-        type: 3}
-      propertyPath: m_StretchFill
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6986015133244722176, guid: 758d1748a7e78934499300895e915dd1,
-        type: 3}
-      propertyPath: m_UpscaleRT
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6986015133244722176, guid: 758d1748a7e78934499300895e915dd1,
-        type: 3}
-      propertyPath: m_PixelSnapping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6986015133244722176, guid: 758d1748a7e78934499300895e915dd1,
-        type: 3}
-      propertyPath: m_RefResolutionX
-      value: 1920
-      objectReference: {fileID: 0}
-    - target: {fileID: 6986015133244722176, guid: 758d1748a7e78934499300895e915dd1,
-        type: 3}
-      propertyPath: m_RefResolutionY
-      value: 1080
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 758d1748a7e78934499300895e915dd1, type: 3}
 --- !u!1 &715556321
@@ -323,7 +293,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.0625, y: 0.0625}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -646,21 +616,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 5848693773747216444, guid: 90f614f191cc1f24286754e58e31b4e6,
-        type: 3}
-      propertyPath: PlayerArrayWeapon.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5848693773747216444, guid: 90f614f191cc1f24286754e58e31b4e6,
-        type: 3}
-      propertyPath: shootingBoost
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5848693773747216444, guid: 90f614f191cc1f24286754e58e31b4e6,
-        type: 3}
-      propertyPath: speedBoost
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5848693773747216445, guid: 90f614f191cc1f24286754e58e31b4e6,
         type: 3}
@@ -1294,27 +1249,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1135678843328151462, guid: 4d0c739e253d4e74b83f0ee740a84d70,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1135678843328151462, guid: 4d0c739e253d4e74b83f0ee740a84d70,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1135678843328151462, guid: 4d0c739e253d4e74b83f0ee740a84d70,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1407941183796576611, guid: 4d0c739e253d4e74b83f0ee740a84d70,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 5ad904b10c971b1459b1932f7f11bf24,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d0c739e253d4e74b83f0ee740a84d70, type: 3}
 --- !u!1001 &8062191598466216258
