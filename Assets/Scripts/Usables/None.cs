@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExtraHealth : Usable
+public class None : Usable
 {
     //void Start()
     //{
@@ -13,13 +13,17 @@ public class ExtraHealth : Usable
     //    //this.doesExpire;
     //    //this.duration;
     //}
-    protected override void CheckItem() { }
-
+    protected override void CheckItem()
+    {
+        if (ammount <= 0) return;
+        ammount--;
+    }
     public override void Use()
     {
-        this.itemName = "ExtraHealth";
-        this.value = 25;
+        this.itemName = "Potion";
+        this.value = 15;
 
-        PlayerManager.Instance.addExtraHealth(this.value);
+        CheckItem();
+        PlayerManager.Instance.addHealth(this.value);
     }
 }

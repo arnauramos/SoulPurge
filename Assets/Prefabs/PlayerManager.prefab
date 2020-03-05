@@ -52,9 +52,10 @@ MonoBehaviour:
   speed: 0.07
   maxSpeed: 0.07
   sprint: 0.12
-  speedBoost: 2
-  shootingBoost: 0
+  speedBoost: 1
+  shootingBoost: 1
   souls: 0
   maxSouls: 100
   money: 0
   totalAmmo: 300
+  PlayerListItems: []

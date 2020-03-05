@@ -113,7 +113,7 @@ public class Player : MonoBehaviour
 		Counter = Time.time * fixedDelta;
 		PlayerMovement();
 		PlayerAim();
-		if (Counter >= initialBulletTime && Input.GetMouseButton(0))
+		if (Counter >= initialBulletTime / PlayerManager.Instance.shootingBoost && Input.GetMouseButton(0))
 		{
 			if (weaponUsing.Rounds <= 0) return;
 			Shooting();
@@ -134,6 +134,7 @@ public class Player : MonoBehaviour
                 OffSetSprint = false;
                 PlayerManager.Instance.substrStamina(1.5f);
             }
+            else PlayerManager.Instance.changeSpeed(PlayerManager.Instance.maxSpeed);
         }
         else PlayerManager.Instance.changeSpeed(PlayerManager.Instance.maxSpeed);
 
@@ -142,10 +143,9 @@ public class Player : MonoBehaviour
             rb2d.velocity = Vector2.zero;
             animator.SetBool("Moving", false);
         }
-		rb2d.AddForce(Movement * PlayerManager.Instance.speed * fixedDelta, ForceMode2D.Impulse);
+		rb2d.AddForce(Movement * PlayerManager.Instance.speed * PlayerManager.Instance.speedBoost * fixedDelta, ForceMode2D.Impulse);
         animator.SetBool("Moving", true);
     }
-
     void PlayerAim()
 	{
 		mousePosition = Input.mousePosition;
@@ -257,8 +257,8 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            //health += itemUsing.Use();
-            Debug.Log("Ha sido usado el item: " + ItemSelected);
+            itemUsing.Use();
+            Debug.Log("Ha sido usado el item: " + itemUsing.itemName + ". En la posición: " + ItemSelected + " del array");
         }
     }
 

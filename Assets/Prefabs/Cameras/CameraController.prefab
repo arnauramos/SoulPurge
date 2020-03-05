@@ -52,15 +52,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4269442382975566206}
     m_Modifications:
-    - target: {fileID: 2072873540283257827, guid: d63d0fbd7307eef49a34bcbef4920c50,
-        type: 3}
-      propertyPath: m_Name
-      value: Main Camera
-      objectReference: {fileID: 0}
     - target: {fileID: 3398680617142991054, guid: d63d0fbd7307eef49a34bcbef4920c50,
         type: 3}
       propertyPath: field of view
       value: 17.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2072873540283257827, guid: d63d0fbd7307eef49a34bcbef4920c50,
+        type: 3}
+      propertyPath: m_Name
+      value: Main Camera
       objectReference: {fileID: 0}
     - target: {fileID: 5820216105583281145, guid: d63d0fbd7307eef49a34bcbef4920c50,
         type: 3}

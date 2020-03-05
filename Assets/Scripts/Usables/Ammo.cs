@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class Ammo : Usable
 {
+    //void Start()
+    //{
+    //    //this.sprite;
+    //    //this.itemDescription;
+    //    //this.price;
+    //    //this.ammount;
+    //    //this.doesExpire;
+    //    //this.duration;
+    //}
+    protected override void CheckItem() { }
     public override void Use()
     {
-        PlayerManager.Instance.addTotalAmmo((int)this.value);
+        this.itemName = "None";
+        this.value = 0;
     }
-    void Start()
-    {
-        //this.sprite;
-        this.itemName = "Ammo";
-        //this.itemDescription;
-        //this.price;
-        //this.ammount;
-        this.value = 30;
-        //this.doesExpire;
-        //this.duration;
-    }
-
 }
