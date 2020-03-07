@@ -13,17 +13,13 @@ public class RegenerationBoost : Usable
     //    //this.doesExpire;
     //    //this.duration;
     //}
-    protected override void CheckItem()
-    {
-        if (ammount <= 0) return;
-        ammount--;
-    }
     public override void Use()
     {
         this.itemName = "RegenerationBoost";
         this.value = 0.25f;
 
-        CheckItem();
+        if (!CheckItem()) return;
+
         PlayerManager.Instance.staminaRegeneration += this.value;
         PlayerManager.Instance.ResetStaminaRegeneration();
     }

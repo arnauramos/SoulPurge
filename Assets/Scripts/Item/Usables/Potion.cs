@@ -13,17 +13,14 @@ public class Potion : Usable
     //    //this.doesExpire;
     //    //this.duration;
     //}
-    protected override void CheckItem()
-    {
-        if (ammount <= 0) return;
-        ammount--;
-    }
+
     public override void Use()
     {
         this.itemName = "Potion";
         this.value = 15;
 
-        CheckItem();
+        if (!CheckItem()) return;
+
         PlayerManager.Instance.addHealth(this.value);
     }
 }

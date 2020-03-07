@@ -13,7 +13,6 @@ public class Ammo : Usable
     //    //this.doesExpire;
     //    //this.duration;
     //}
-    protected override void CheckItem() { }
     public override void Use()
     {
         this.itemName = "None";

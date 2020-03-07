@@ -13,11 +13,12 @@ public class ExtraStamina : Usable
     //    //this.doesExpire;
     //    //this.duration;
     //}
-    protected override void CheckItem() { }
     public override void Use()
     {
         this.itemName = "ExtraStamina";
         this.value = 50;
+
+        if (!CheckItem()) return;
 
         PlayerManager.Instance.addExtraStamina(this.value);
     }

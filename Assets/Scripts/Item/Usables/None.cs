@@ -13,17 +13,5 @@ public class None : Usable
     //    //this.doesExpire;
     //    //this.duration;
     //}
-    protected override void CheckItem()
-    {
-        if (ammount <= 0) return;
-        ammount--;
-    }
-    public override void Use()
-    {
-        this.itemName = "Potion";
-        this.value = 15;
-
-        CheckItem();
-        PlayerManager.Instance.addHealth(this.value);
-    }
+    public override void Use() {}
 }

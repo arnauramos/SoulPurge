@@ -93,10 +93,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
-  itemName: 
+  itemName: Bandage
   itemDescription: 
   price: 0
-  ammount: 0
-  value: 0
+  ammount: 3
+  value: 5
   doesExpire: 0
   duration: 0

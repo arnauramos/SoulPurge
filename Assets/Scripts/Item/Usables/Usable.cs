@@ -6,7 +6,12 @@ public abstract class Usable : Item
 {
     public abstract void Use();
 
-    protected abstract void CheckItem(); 
+    protected bool CheckItem()
+    {
+        if (ammount <= 0) return false;
+        ammount--;
+        return true;
+    }
 
     public int ammount;
     public float value;
