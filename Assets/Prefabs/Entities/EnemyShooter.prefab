@@ -196,10 +196,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AreaOfVision: {fileID: 1830870185}
   health: 90
+  weaponUsing: {fileID: 7374682507282849064, guid: 051b8153a3208ce4a855d3e13926eec9,
+    type: 3}
   AttackRate: 3
-  weaponSelected: 0
   firePoint: {fileID: 208393849}
-  weaponUsing: {fileID: 0}
   Speed: 500
   Direction: {x: 0, y: 0}
   LookRange: 3

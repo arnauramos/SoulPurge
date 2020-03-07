@@ -15,16 +15,16 @@ public class EnemyShooter : MonoBehaviour
     public float health = 90f;
 
     //  VARIABLES FOR GUNS
+    public Gun weaponUsing;
+
     private float fixedDelta;
     private Rigidbody2D rb2dBullet;
     private GameObject bulletObject;
     private float initialBulletTime;
     public float AttackRate = 3f;
     private float Counter;
-    public int weaponSelected = 0;
     public Transform firePoint;
-    private static Weapon[] ArrayWeapon;
-    public Weapon weaponUsing;
+
 
     // VARIABLES FOR MOVEMENT TO PLAYER
     public float Speed = 500f;
@@ -51,10 +51,6 @@ public class EnemyShooter : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         AOVsRenderer = AreaOfVision.GetComponent<SpriteRenderer>();
         Player = GameObject.Find("Player");
-
-        //	SET WEAPON STATS TO AUXILIARS
-        ArrayWeapon = WeaponsArray.ArrayWeapon;
-        weaponUsing = ArrayWeapon[weaponSelected];
 
         // CALCULATE FIRST IDLE MOVEMENT
         NewIdleMovement();
