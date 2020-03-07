@@ -146,7 +146,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5ad904b10c971b1459b1932f7f11bf24, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 40eb2670981476f4ea43ade9d89f41c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -245,11 +245,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmgCounter: 0
-  weaponSelected: 0
   firePoint: {fileID: 1925108884}
   weaponUsing: {fileID: 0}
   Rounds: 0
-  ItemSelected: 0
   itemUsing: {fileID: 0}
   keys: 0
 --- !u!95 &1186505984

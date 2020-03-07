@@ -13,7 +13,6 @@ public class EnemyShooter : MonoBehaviour
 
     // VARIABLES FOR HEALTH
     public float health = 90f;
-    private Player PlayerScript;
 
     //  VARIABLES FOR GUNS
     private float fixedDelta;
@@ -44,7 +43,6 @@ public class EnemyShooter : MonoBehaviour
     private float directionChangeTime = 3.5f;
     private Vector2 movementDirection;
 
-    //public GameObject Soul;
     private DropSouls DropingSoul;
     public GameObject Soul;
     void Start()
@@ -68,11 +66,7 @@ public class EnemyShooter : MonoBehaviour
             NewIdleMovement();
         }
 
-        // GET PLAYER SCRIPT TO KNOW HIS WEAPON
-        PlayerScript = Player.GetComponent<Player>();
-
         DropingSoul = gameObject.AddComponent<DropSouls>();
-
     }
 
     private void Update()
@@ -160,7 +154,7 @@ public class EnemyShooter : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet" && collision.gameObject.GetComponent<Bullet>().PlayerShoot)
         {
-            health -= PlayerScript.weaponUsing.Damage;
+            health -= PlayerManager.Instance.PlayerGunList[PlayerManager.Instance.weaponSelected].Damage;
         }
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Gun : Item
 {
+    public GameObject Bullet;
     public Vector2 BulletSpeed;
     //public Transform FirePoint;
     public Vector3 FirePoint;

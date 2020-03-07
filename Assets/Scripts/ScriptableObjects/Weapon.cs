@@ -17,5 +17,4 @@ public class Weapon : ScriptableObject
 	public float Range;
 	public float Damage;
 	public float FireRate;
-
 }

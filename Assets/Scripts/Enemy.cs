@@ -12,7 +12,6 @@ public class Enemy : MonoBehaviour
 
     // VARIABLES FOR HEALTH
     public float health = 150f;
-    private Player PlayerScript;
 
     // VARIABLES FOR ATTACK
     public float dmg = 10f;
@@ -39,11 +38,10 @@ public class Enemy : MonoBehaviour
 
 
 
-    private Component ArrTest;
-    private MonoBehaviour Test;
+    //private Component ArrTest;
+    //private MonoBehaviour Test;
 
-    private GameObject Gol;
-
+    //private GameObject Gol;
           
     void Start()
     {
@@ -53,9 +51,6 @@ public class Enemy : MonoBehaviour
 
         // CALCULATE FIRST IDLE MOVEMENT
         NewIdleMovement();
-
-        // GET PLAYER SCRIPT TO KNOW HIS WEAPON
-        PlayerScript = Player.GetComponent<Player>();
 
         DropingSoul = gameObject.AddComponent<DropSouls>();
     }
@@ -133,7 +128,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet" && collision.gameObject.GetComponent<Bullet>().PlayerShoot)
         {
-            health -= PlayerScript.weaponUsing.Damage;
-        }
+            health -= PlayerManager.Instance.PlayerGunList[PlayerManager.Instance.weaponSelected].Damage;
+            }
     }
 }
