@@ -10,6 +10,7 @@ public class SettingsMenu : MonoBehaviour
     public AudioMixer audioMixer;
     public TMP_Dropdown resolutionsSelector;
     public Resolution[] resolutions;
+    public Toggle fullscreenSelector;
     void Start()
     {
         resolutions = Screen.resolutions;
@@ -29,6 +30,7 @@ public class SettingsMenu : MonoBehaviour
         resolutionsSelector.AddOptions(options);
         resolutionsSelector.value = CurrentResolution;
         resolutionsSelector.RefreshShownValue();
+        fullscreenSelector.isOn = Screen.fullScreen;
     }
     public void ChangeVolume(float volume)
     {

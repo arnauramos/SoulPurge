@@ -5226,6 +5226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 6bcee963805fd184c9e37663baf76533, type: 2}
   resolutionsSelector: {fileID: 639873135}
+  fullscreenSelector: {fileID: 602305605}
 --- !u!1 &1765117042
 GameObject:
   m_ObjectHideFlags: 0
