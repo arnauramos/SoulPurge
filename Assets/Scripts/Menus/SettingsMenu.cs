@@ -16,7 +16,7 @@ public class SettingsMenu : MonoBehaviour
         resolutionsSelector.ClearOptions();
         List<string> options = new List<string>();
         int CurrentResolution = 0;
-        for (int i = 0; i < resolutions.Length; i++)
+        for (int i = resolutions.Length-1; i > -1; i--)
         {
             string option = resolutions[i].width + " x " +resolutions[i].height;
             options.Add(option);
