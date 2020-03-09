@@ -117,7 +117,7 @@ public class Player : MonoBehaviour
             Shooting();
 
 			initialBulletTime = Counter + weaponUsing.FireRate;
-			ReloadingCounter = Counter + 30f;
+			ReloadingCounter = Counter + weaponUsing.reloadTime;
 		}
 	}
 

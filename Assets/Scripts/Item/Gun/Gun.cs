@@ -13,4 +13,5 @@ public class Gun : Item
     public float Range;
     public float Damage;
     public float FireRate;
+    public float reloadTime;
 }
