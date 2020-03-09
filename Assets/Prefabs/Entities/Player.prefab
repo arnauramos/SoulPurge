@@ -197,9 +197,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmgCounter: 0
   firePoint: {fileID: 1925108884}
-  weapon: {fileID: 0}
+  weaponGraphicsObject: {fileID: 9036098868648592568}
   weaponUsing: {fileID: 0}
   Rounds: 0
+  reloading: 0
   itemUsing: {fileID: 0}
   keys: 0
 --- !u!95 &1186505984

@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
 	[Header("Variables for guns:")]
 	[Space(10)]
 	public Transform firePoint;
-    public GameObject weapon;
+    public GameObject weaponGraphicsObject;
     private SpriteRenderer weaponGraphics;
 	public Gun weaponUsing;
 	private int AuxRounds;
@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
 		animator = GetComponent<Animator>();
 		moveParamID = Animator.StringToHash("Moving");
 
-        weaponGraphics = weapon.GetComponent<SpriteRenderer>();
+        weaponGraphics = weaponGraphicsObject.GetComponent<SpriteRenderer>();
 		//	SET WEAPON USING VARIABLES
 		Rounds = AuxRounds;
         reloading = false;

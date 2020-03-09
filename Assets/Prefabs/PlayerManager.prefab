@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5848693773747216435}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5728385, y: 0.41407263, z: -0.010810167}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -49,22 +49,26 @@ MonoBehaviour:
   stamina: 200
   maxStamina: 200
   staminaRegeneration: 0.2
-  speed: 0.07
-  maxSpeed: 0.07
-  sprint: 0.12
+  speed: 1
+  maxSpeed: 1
+  sprint: 1.5
   speedBoost: 1
   shootingBoost: 1
   souls: 0
   maxSouls: 100
   money: 0
   totalAmmo: 300
-  PlayerListItems:
+  AuxGO: 0
+  PlayerGunList:
+  - {fileID: 7374682507282849064, guid: 051b8153a3208ce4a855d3e13926eec9, type: 3}
+  - {fileID: 7623003998104024053, guid: 0a94eaa9a23a61540b280ec95a904064, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7374682507282849064, guid: fa7f4397d3933ea42b48e4303b8c462d, type: 3}
+  weaponSelected: 0
+  PlayerUsableList:
+  - {fileID: 1899690134435696296, guid: b6c60540fcb88b84799f06a4f3bed5a2, type: 3}
+  - {fileID: 849823829463427254, guid: 70916b83866b819499e769821f90c3d1, type: 3}
+  - {fileID: 1800492538339270007, guid: a423af20254d2854ca97008dc81e0f27, type: 3}
+  - {fileID: 6824315219144930151, guid: 021aebafb6a445147a9b17a79d7c07f6, type: 3}
+  - {fileID: 6637160798309307144, guid: 1401f0b573f9bb04dac86f04bc2f6501, type: 3}
+  usableSelected: 0
