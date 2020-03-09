@@ -34,8 +34,11 @@ public class Player : MonoBehaviour
 	private int AuxRounds;
 	public int Rounds;
 
+    public bool reloading;
+    private float ReloadingCounter;
 
-	[Header("Variables for ArrayItems:")]
+
+    [Header("Variables for ArrayItems:")]
 	[Space(10)]
 	public Usable itemUsing;
 
@@ -60,6 +63,7 @@ public class Player : MonoBehaviour
         weaponGraphics = weapon.GetComponent<SpriteRenderer>();
 		//	SET WEAPON USING VARIABLES
 		Rounds = AuxRounds;
+        reloading = false;
 	}
 
 	private void Update()
@@ -79,8 +83,8 @@ public class Player : MonoBehaviour
 		Rounds = weaponUsing.Rounds;
 		AuxRounds = weaponUsing.MaxRounds;
 
-		//  RELOAD
-		Reloading();
+        //  RELOAD
+        Reloading();
 
 		if (Counter >= StaminaTimeRecover && PlayerManager.Instance.stamina < PlayerManager.Instance.maxStamina && OffSetSprint)
 		{
@@ -101,11 +105,19 @@ public class Player : MonoBehaviour
 		Counter = Time.time * fixedDelta;
 		PlayerMovement();
 		PlayerAim();
-		if (Counter >= initialBulletTime / PlayerManager.Instance.shootingBoost && Input.GetMouseButton(0))
-		{
-			if (weaponUsing.Rounds <= 0) return;
-			Shooting();
+        if (Counter >= initialBulletTime / PlayerManager.Instance.shootingBoost && Input.GetMouseButton(0))
+        {
+            if (weaponUsing.Rounds <= 0) return;
+            if (reloading == true)
+            {
+                if (Counter >= ReloadingCounter) reloading = false;
+                else return;
+            }
+
+            Shooting();
+
 			initialBulletTime = Counter + weaponUsing.FireRate;
+			ReloadingCounter = Counter + 30f;
 		}
 	}
 
@@ -156,7 +168,7 @@ public class Player : MonoBehaviour
 	{
 		if (weaponUsing.Rounds <= 0 && PlayerManager.Instance.totalAmmo <= 0) return;
 
-		if ((Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Return)) && PlayerManager.Instance.totalAmmo >= 0 && weaponUsing.Rounds < weaponUsing.MaxRounds)
+        if ((Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Return)) && PlayerManager.Instance.totalAmmo >= 0 && weaponUsing.Rounds < weaponUsing.MaxRounds)
 		{
 			Debug.Log("Reloading: Manual;");
 			PlayerManager.Instance.addTotalAmmo(weaponUsing.Rounds);
@@ -170,14 +182,16 @@ public class Player : MonoBehaviour
 				weaponUsing.Rounds = AuxRounds;
 				PlayerManager.Instance.substrTotalAmmo(weaponUsing.Rounds);
 			}
-		}
+            reloading = true;
+        }
 		else if (weaponUsing.Rounds == 0 && PlayerManager.Instance.totalAmmo > 0)
 		{
 			Debug.Log("Reloading: Automatic;");
 			weaponUsing.Rounds = AuxRounds;
 			PlayerManager.Instance.substrTotalAmmo(weaponUsing.Rounds);
-		}
-	}
+            reloading = true;
+        }
+    }
 	void GunsSwap()
 	{
 		//float MouseInput = Input.GetAxis("Mouse ScrollWheel");
