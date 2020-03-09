@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
 	[Header("Variables for guns:")]
 	[Space(10)]
 	public Transform firePoint;
+    public GameObject weapon;
+    private SpriteRenderer weaponGraphics;
 	public Gun weaponUsing;
 	private int AuxRounds;
 	public int Rounds;
@@ -55,6 +57,7 @@ public class Player : MonoBehaviour
 		animator = GetComponent<Animator>();
 		moveParamID = Animator.StringToHash("Moving");
 
+        weaponGraphics = weapon.GetComponent<SpriteRenderer>();
 		//	SET WEAPON USING VARIABLES
 		Rounds = AuxRounds;
 	}
@@ -66,6 +69,7 @@ public class Player : MonoBehaviour
 		// UPDATE WEAPON USING
 		GunsSwap();
 		weaponUsing = PlayerManager.Instance.PlayerGunList[PlayerManager.Instance.weaponSelected];
+        weaponGraphics.sprite = weaponUsing.sprite;
 
 		//  UPDATE ITEM USING VARIABLES
 		ItemsSwap();
