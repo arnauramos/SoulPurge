@@ -27,8 +27,8 @@ public class PlayerManager : MonoBehaviour
 	public int maxSouls;
 	public int money;//
 	public int totalAmmo;//
-
 	public int AuxGO;
+	public bool usePriority;
 
 	public List<Gun> PlayerGunList;
 	public int weaponSelected = 0;
