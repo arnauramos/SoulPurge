@@ -46,12 +46,12 @@ MonoBehaviour:
   health: 100
   maxHeath: 100
   resistance: 0
-  stamina: 200
-  maxStamina: 200
+  stamina: 400
+  maxStamina: 400
   staminaRegeneration: 0.2
-  speed: 1
-  maxSpeed: 1
-  sprint: 1.5
+  speed: 1.25
+  maxSpeed: 1.25
+  sprint: 2
   speedBoost: 1
   shootingBoost: 1
   souls: 0

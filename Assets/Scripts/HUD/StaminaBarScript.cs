@@ -17,7 +17,7 @@ public class StaminaBarScript : MonoBehaviour
     {
         if (staminaSize.x > .01f)
         {
-            staminaFloat = PlayerManager.Instance.stamina / 200;
+            staminaFloat = PlayerManager.Instance.stamina / PlayerManager.Instance.maxStamina;
             if (staminaFloat < 0) staminaFloat = 0;
             staminaSize.x = staminaFloat;
             transform.localScale = staminaSize;

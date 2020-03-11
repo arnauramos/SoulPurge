@@ -16,7 +16,7 @@ public class HealthBarScript : MonoBehaviour
     {
         if (healthSize.x > .01f)
         {
-            healthFloat = PlayerManager.Instance.health / 100;
+            healthFloat = PlayerManager.Instance.health / PlayerManager.Instance.maxHeath;
             if (healthFloat < 0) healthFloat = 0;
             healthSize.x = healthFloat;
             transform.localScale = healthSize;
