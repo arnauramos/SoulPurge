@@ -255,7 +255,7 @@ public class Player : MonoBehaviour
 
 	void UseItem()
 	{
-		if (Input.GetKeyDown(KeyCode.E))
+		if (Input.GetKeyDown(KeyCode.E) && itemUsing.ammount > 0)
 		{
 			itemUsing.Use();
 			Debug.Log("Ha sido usado el item: " + itemUsing.itemName + ". En la posición: " + PlayerManager.Instance.usableSelected + " del array");
