@@ -11,10 +11,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 677b582b7a96ae049a19a51d0ab6f4da
+  - enabled: 0
+    path: Assets/Scenes/SafeZone.unity
+    guid: 883b4ecbfdd06e3459df0456b993cce3
   - enabled: 1
+    path: Assets/Scenes/TileMap_Scenes/DEV_TileMap-ZonaSegura.unity
+    guid: 452b096aff2b55549ad8d9aac48b9c6f
+  - enabled: 0
     path: Assets/Scenes/DEV_Albert.unity
     guid: 3fa1f87cb2c66424dad252c06be08acd
   - enabled: 1
-    path: Assets/Scenes/SafeZone.unity
-    guid: 883b4ecbfdd06e3459df0456b993cce3
+    path: Assets/Scenes/TileMap_Scenes/DEV_TileMap-ZonaHostil.unity
+    guid: 3f5424545f580204ab1b7f2028bbd5c6
   m_configObjects: {}

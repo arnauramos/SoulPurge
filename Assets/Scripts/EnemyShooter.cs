@@ -19,7 +19,7 @@ public class EnemyShooter : MonoBehaviour
 
     private float fixedDelta;
     private Rigidbody2D rb2dBullet;
-    private GameObject bulletObject;
+    public GameObject bulletObject;
     private float initialBulletTime;
     public float AttackRate = 3f;
     private float Counter;
@@ -63,6 +63,8 @@ public class EnemyShooter : MonoBehaviour
         }
 
         DropingSoul = gameObject.AddComponent<DropSouls>();
+
+        bulletObject = weaponUsing.Bullet;
     }
 
     private void Update()
@@ -85,7 +87,7 @@ public class EnemyShooter : MonoBehaviour
         // MOOVING / IDLE 
         if (Direction.x < LookRange && Direction.x > -LookRange && Direction.y < LookRange && Direction.y > -LookRange)
         {
-            LookRange = 4.8f;
+            LookRange = 5f;
             AreaOfVision.transform.localScale = LookingPlayer;
             AOVsRenderer.color = red;
             Movement();
@@ -100,7 +102,7 @@ public class EnemyShooter : MonoBehaviour
         }
         else
         {
-            LookRange = 3;
+            LookRange = 6f;
             AreaOfVision.transform.localScale = Idle;
             AOVsRenderer.color = blue;
             IdleMovement();
@@ -143,7 +145,7 @@ public class EnemyShooter : MonoBehaviour
         bulletObject = Instantiate(weaponUsing.Bullet, firePoint.position, firePoint.rotation);
         rb2dBullet = bulletObject.GetComponent<Rigidbody2D>();
         rb2dBullet.AddForce(firePoint.up * weaponUsing.BulletSpeed, ForceMode2D.Impulse);
-        Destroy(bulletObject, weaponUsing.Range);
+        Destroy(bulletObject, weaponUsing.Range * 2);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

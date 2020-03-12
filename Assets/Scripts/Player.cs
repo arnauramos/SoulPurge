@@ -284,10 +284,17 @@ public class Player : MonoBehaviour
 			Debug.Log("Player got shoot;");
 		}
 
-		if (collision.gameObject.tag == "Safe_Door" && keys == 3)
+		if (collision.gameObject.tag == "Safe_Door" /*&& keys == 3*/)
 		{
-				SceneManager.LoadScene("SafeZone");
-		}
+            if (collision.gameObject.name == "SafeDoor_Left")
+            {
+                PlayerSceneManager.Instance.goBackScene(PlayerSceneManager.Instance.getActualScene());
+            }
+            else if (collision.gameObject.name == "SafeDoor_Right")
+            {
+                PlayerSceneManager.Instance.goFrontScene(PlayerSceneManager.Instance.getActualScene());
+            }
+        }
 
 		//USE PRIORITY SETTING
 		if (collision.gameObject.tag == "SoulsExchange") PlayerManager.Instance.usePriority = true;
@@ -317,11 +324,11 @@ public class Player : MonoBehaviour
 			Destroy(collision.gameObject);
 			PlayerManager.Instance.addSouls(1);
 		}
-		if (collision.gameObject.tag == "SoulsExchange" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)
-		{
-			SoulsExchange soulsExchange = collision.gameObject.AddComponent<SoulsExchange>();
-			PlayerManager.Instance.addMoney(soulsExchange.Exchange(PlayerManager.Instance.souls));
-			PlayerManager.Instance.souls = 0;
-		}
+		//if (collision.gameObject.tag == "SoulsExchange" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)
+		//{
+		//	SoulsExchange soulsExchange = collision.gameObject.AddComponent<SoulsExchange>();
+		//	PlayerManager.Instance.addMoney(soulsExchange.Exchange(PlayerManager.Instance.souls));
+		//	PlayerManager.Instance.souls = 0;
+		//}
 	}
 }
