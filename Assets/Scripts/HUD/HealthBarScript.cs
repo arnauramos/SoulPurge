@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealthBarScript : MonoBehaviour
 {
     Vector2 healthSize = new Vector2(1f, 1f);
-    float healthFloat = 1;
+    float healthFloat = 1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +14,7 @@ public class HealthBarScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (healthSize.x > .01f)
+        if (healthSize.x > .001f)
         {
             healthFloat = PlayerManager.Instance.health / PlayerManager.Instance.maxHeath;
             if (healthFloat < 0) healthFloat = 0;

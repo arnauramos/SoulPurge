@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db84b471b8050b040922955deafdc89f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 50
   maxHeath: 100
   resistance: 0
   stamina: 400
@@ -57,8 +57,9 @@ MonoBehaviour:
   souls: 0
   maxSouls: 100
   money: 0
-  totalAmmo: 300
+  totalAmmo: 600
   AuxGO: 0
+  usePriority: 0
   PlayerGunList:
   - {fileID: 7374682507282849064, guid: 051b8153a3208ce4a855d3e13926eec9, type: 3}
   - {fileID: 7623003998104024053, guid: 0a94eaa9a23a61540b280ec95a904064, type: 3}

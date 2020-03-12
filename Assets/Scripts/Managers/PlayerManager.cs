@@ -8,7 +8,6 @@ public class PlayerManager : MonoBehaviour
 	public static PlayerManager Instance { get; private set; }
 	// RESET TIMER
 
-	//public Player player;
 
 	// VARIABLES
 	[Header("Variables for player:")]
@@ -165,37 +164,4 @@ public class PlayerManager : MonoBehaviour
 	{
 		//shootingBoost = 1;
 	}
-
-	/*public int CompareItems( int _GunOrUsable, int _itemSelected)
-	{
-		if (_GunOrUsable == 0)
-		{
-			foreach (Items AuxItems in PlayerItemsList)
-			{
-				int AAItems = (int)AuxItems - 1;
-
-					if ((int)AuxItems == AllGunsList[AAItems].IdItem)
-					{
-						if (_itemSelected == AllGunsList[AAItems].posInventory)
-						{
-							AuxGO = AAItems;
-
-						}
-					}
-
-			}
-		}
-
-		//else if (_GunOrUsable == 1)
-		//{
-		//	foreach (Usable AuxUsable in AllItemsList)
-		//	{
-		//		if (AuxUsable.IdItem == (int)_itemSelected)
-		//		{
-		//		}
-		//	}
-		//}
-		return AuxGO;
-	}
-	*/
 }

@@ -96,7 +96,7 @@ MonoBehaviour:
   itemName: Bandage
   itemDescription: 
   price: 0
-  ammount: 5
+  ammount: 50
   value: 5
   doesExpire: 0
   duration: 0

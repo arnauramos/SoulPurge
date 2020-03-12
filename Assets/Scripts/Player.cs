@@ -295,17 +295,6 @@ public class Player : MonoBehaviour
                 PlayerSceneManager.Instance.goFrontScene(PlayerSceneManager.Instance.getActualScene());
             }
         }
-
-		//USE PRIORITY SETTING
-		if (collision.gameObject.tag == "SoulsExchange") PlayerManager.Instance.usePriority = true;
-
-		if (collision.gameObject.tag == "SoulsExchange" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)
-		{
-			SoulsExchange soulsExchange = collision.gameObject.AddComponent<SoulsExchange>();
-			PlayerManager.Instance.addMoney(soulsExchange.Exchange(PlayerManager.Instance.souls));
-			PlayerManager.Instance.souls = 0;
-		}
-
 	}
 	private void OnTriggerStay2D(Collider2D collision) //pillar objetos (Albert)
 	{
@@ -324,11 +313,14 @@ public class Player : MonoBehaviour
 			Destroy(collision.gameObject);
 			PlayerManager.Instance.addSouls(1);
 		}
-		//if (collision.gameObject.tag == "SoulsExchange" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)
-		//{
-		//	SoulsExchange soulsExchange = collision.gameObject.AddComponent<SoulsExchange>();
-		//	PlayerManager.Instance.addMoney(soulsExchange.Exchange(PlayerManager.Instance.souls));
-		//	PlayerManager.Instance.souls = 0;
-		//}
+
+		//USE PRIORITY SETTING
+		if (collision.gameObject.tag == "SoulsExchange") PlayerManager.Instance.usePriority = true;
+
+		if (collision.gameObject.tag == "SoulsExchange" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)
+		{
+			PlayerManager.Instance.addMoney(InteractionManager.Instance.SoulsExchange(PlayerManager.Instance.souls));
+			PlayerManager.Instance.souls = 0;
+		}
 	}
 }
