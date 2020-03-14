@@ -22,6 +22,7 @@ public class InteractionManager : MonoBehaviour
         }
     }
 
+    //  SOULER / SOUL EXCHANGER
     public int SoulsExchange(int _souls)
     {
         moneyToGive = _souls * 10;

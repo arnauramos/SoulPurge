@@ -11,21 +11,21 @@ public class PlayerManager : MonoBehaviour
 
 	// VARIABLES
 	[Header("Variables for player:")]
-	public float health;//
+	public float health;
 	public float maxHeath;
-	public float resistance;
-	public float stamina;//
-	public float maxStamina;//
-	public float staminaRegeneration;//
-	public float speed;//
-	public float maxSpeed;//
-	public float sprint;//
-	public float speedBoost;
-	public float shootingBoost;
-	public int souls;//
+	public float resistance;//
+	public float stamina;
+	public float maxStamina;
+	public float staminaRegeneration;
+	public float speed;
+	public float maxSpeed;
+	public float sprint;
+	public float speedBoost;//
+	public float shootingBoost;//
+	public int souls;
 	public int maxSouls;
-	public int money;//
-	public int totalAmmo;//
+	public int money;
+	public int totalAmmo;
 	public int AuxGO;
 	public bool usePriority;
 

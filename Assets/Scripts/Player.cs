@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
 
 	private void Update()
 	{
-		if (PlayerManager.Instance.health <= 0) Destroy(gameObject);
+		if (PlayerManager.Instance.health <= 0 && !PlayerManager.Instance.IMMORTAL) Destroy(gameObject);
 
 		// UPDATE WEAPON USING
 		GunsSwap();

@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db84b471b8050b040922955deafdc89f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IMMORTAL: 0
   health: 50
   maxHeath: 100
   resistance: 0
