@@ -24,6 +24,16 @@ public class HUDScript : MonoBehaviour
     public GameObject MoneyCounter;
     private TextMeshProUGUI MoneyText;
 
+    // AMMO
+    public GameObject RoundsCounter;
+    private TextMeshProUGUI RoundsText;
+    public GameObject TotalAmmoCounter;
+    private TextMeshProUGUI TotalAmmoText;
+
+    // PLAYER
+    private GameObject player;
+    private Player playerScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +42,14 @@ public class HUDScript : MonoBehaviour
 
         // MONEY
         MoneyText = MoneyCounter.GetComponent<TextMeshProUGUI>();
+
+        // AMMO
+        RoundsText = RoundsCounter.GetComponent<TextMeshProUGUI>();
+        TotalAmmoText = TotalAmmoCounter.GetComponent<TextMeshProUGUI>();
+
+        // PLAYER
+        player = GameObject.Find("Player");
+        playerScript = player.GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -41,6 +59,7 @@ public class HUDScript : MonoBehaviour
         Health();
         Souls();
         Money();
+        Ammo();
     }
     private void Stamina() {
         if (staminaSize.x > .001f)
@@ -71,5 +90,10 @@ public class HUDScript : MonoBehaviour
     }
     private void Money() {
         MoneyText.text = PlayerManager.Instance.money.ToString();
+    }
+    private void Ammo()
+    {
+        RoundsText.text = playerScript.Rounds.ToString();
+        TotalAmmoText.text = PlayerManager.Instance.totalAmmo.ToString();
     }
 }
