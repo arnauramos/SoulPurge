@@ -121,6 +121,8 @@ public class Player : MonoBehaviour
 			initialBulletTime = Counter + weaponUsing.FireRate;
 			ReloadingCounter = Counter + weaponUsing.reloadTime;
 		}
+
+		Debug.Log(SpawnerManager.Instance.CheckRawPosition());
 	}
 
 	void PlayerMovement()
