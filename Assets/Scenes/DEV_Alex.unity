@@ -539,6 +539,11 @@ PrefabInstance:
       propertyPath: maxHeath
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 5848693773747216444, guid: 90f614f191cc1f24286754e58e31b4e6,
+        type: 3}
+      propertyPath: IMMORTAL
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5848693773747216445, guid: 90f614f191cc1f24286754e58e31b4e6,
         type: 3}
       propertyPath: m_LocalPosition.x

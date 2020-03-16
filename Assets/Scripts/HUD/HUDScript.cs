@@ -85,7 +85,10 @@ public class HUDScript : MonoBehaviour
     }
     private void Ammo()
     {
-        RoundsText.text = playerScript.Rounds.ToString();
-        TotalAmmoText.text = PlayerManager.Instance.totalAmmo.ToString();
+        if (!PlayerManager.Instance.reloading)
+        {
+            RoundsText.text = playerScript.Rounds.ToString();
+            TotalAmmoText.text = PlayerManager.Instance.totalAmmo.ToString();
+        }
     }
 }

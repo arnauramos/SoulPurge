@@ -98,6 +98,7 @@ public class Player : MonoBehaviour
 
 		UseItem();
 
+		PlayerManager.Instance.reloading = reloading;
 		PlayerManager.Instance.usePriority = false;
 	}
 
@@ -106,23 +107,25 @@ public class Player : MonoBehaviour
 		fixedDelta = Time.fixedDeltaTime * 1000.0f;
 		Counter = Time.time * fixedDelta;
 		PlayerMovement();
+		PlayerManager.Instance.SetPlayerPosition(transform.position);
 		PlayerAim();
-        if (Counter >= initialBulletTime / PlayerManager.Instance.shootingBoost && Input.GetMouseButton(0))
-        {
-            if (weaponUsing.Rounds <= 0) return;
-            if (reloading == true)
-            {
-                if (Counter >= ReloadingCounter) reloading = false;
-                else return;
-            }
+		SpawnerManager.Instance.CheckRawPosition();
 
-            Shooting();
+		if (Counter >= ReloadingCounter && reloading == true) reloading = false;
+		else
+		{
+			if (Counter >= initialBulletTime / PlayerManager.Instance.shootingBoost && Input.GetMouseButton(0))
+			{
+				if (weaponUsing.Rounds <= 0) return;
 
-			initialBulletTime = Counter + weaponUsing.FireRate;
-			ReloadingCounter = Counter + weaponUsing.reloadTime;
+				if (reloading == true) return;
+
+				Shooting();
+
+				initialBulletTime = Counter + weaponUsing.FireRate;
+				ReloadingCounter = Counter + weaponUsing.reloadTime;
+			}
 		}
-
-		Debug.Log(SpawnerManager.Instance.CheckRawPosition());
 	}
 
 	void PlayerMovement()
@@ -170,7 +173,7 @@ public class Player : MonoBehaviour
 	}
 	void Reloading()
 	{
-		if (weaponUsing.Rounds <= 0 && PlayerManager.Instance.totalAmmo <= 0) return;
+		if (weaponUsing.Rounds <= 0 && PlayerManager.Instance.totalAmmo <= 0) { PlayerManager.Instance.totalAmmo = 0; return; }
 
         if ((Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Return)) && PlayerManager.Instance.totalAmmo >= 0 && weaponUsing.Rounds < weaponUsing.MaxRounds)
 		{

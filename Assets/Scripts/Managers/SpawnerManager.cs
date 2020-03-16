@@ -35,20 +35,24 @@ public class SpawnerManager : MonoBehaviour
         {
             Debug.Log("Error: Duplicated " + this + "in the scene");
         }
+
         //  Get Map Bounties
-        MapTopLeftLimit = GameObject.Find("Top-Left").transform.position;
-        MapBotRightLimit = GameObject.Find("Bot-Right").transform.position;
+        MapTopLeftLimit = new Vector2(GameObject.Find("West_Wall").transform.position.x, GameObject.Find("North_Wall").transform.position.y);
+        MapBotRightLimit = new Vector2(GameObject.Find("East_Wall").transform.position.x, GameObject.Find("South_Wall").transform.position.y);
+
         //  Get Camera Bounties
-        CameraTopLeftLimit = new Vector2 (Camera.main.transform.position.x - Camera.main.aspect * Camera.main.orthographicSize, Camera.main.transform.position.y + Camera.main.orthographicSize) * 1.5f;
-        CameraBotRightLimit = new Vector2(Camera.main.transform.position.x + Camera.main.aspect * Camera.main.orthographicSize, Camera.main.transform.position.y - Camera.main.orthographicSize) * 1.5f;
-        //CameraTopLeftLimit = new Vector2(-12,12);
-        //CameraBotRightLimit = new Vector2(12,-12);
+        CameraTopLeftLimit = new Vector2 (Camera.main.transform.position.x - Camera.main.aspect * Camera.main.orthographicSize, Camera.main.transform.position.y + Camera.main.orthographicSize);
+        CameraBotRightLimit = new Vector2(Camera.main.transform.position.x + Camera.main.aspect * Camera.main.orthographicSize, Camera.main.transform.position.y - Camera.main.orthographicSize);
     }
 
     private void Update()
     {
-        CameraTopLeftLimit = new Vector2(Camera.main.transform.position.x - Camera.main.aspect * Camera.main.orthographicSize, Camera.main.transform.position.y + Camera.main.orthographicSize) * 1.5f;
-        CameraBotRightLimit = new Vector2(Camera.main.transform.position.x + Camera.main.aspect * Camera.main.orthographicSize, Camera.main.transform.position.y - Camera.main.orthographicSize) * 1.5f;
+        MapTopLeftLimit = new Vector2(GameObject.Find("West_Wall").transform.position.x, GameObject.Find("North_Wall").transform.position.y);
+        MapBotRightLimit = new Vector2(GameObject.Find("East_Wall").transform.position.x, GameObject.Find("South_Wall").transform.position.y);
+
+
+        CameraTopLeftLimit = new Vector2(Camera.main.transform.position.x - Camera.main.aspect * Camera.main.orthographicSize, Camera.main.transform.position.y + Camera.main.orthographicSize);
+        CameraBotRightLimit = new Vector2(Camera.main.transform.position.x + Camera.main.aspect * Camera.main.orthographicSize, Camera.main.transform.position.y - Camera.main.orthographicSize);
     }
 
     private Vector2 GenerateRawPosition()
@@ -74,6 +78,7 @@ public class SpawnerManager : MonoBehaviour
         if (EnemyToSpawn == 0) Instantiate(AuxEnemy, NetPosition, Quaternion.identity);
         else Instantiate(AuxEnemyShooter, NetPosition, Quaternion.identity);
 
+        Debug.Log(NetPosition);
         return NetPosition;
     }
 }

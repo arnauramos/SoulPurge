@@ -29,6 +29,9 @@ public class PlayerManager : MonoBehaviour
 	public int totalAmmo;
 	public int AuxGO;
 	public bool usePriority;
+	public bool reloading;
+
+	public Vector2 PlayerPosition;
 
 	public List<Gun> PlayerGunList;
 	public int weaponSelected = 0;
@@ -164,5 +167,15 @@ public class PlayerManager : MonoBehaviour
 	public void ResetShootingBoost()
 	{
 		//shootingBoost = 1;
+	}
+
+	public void SetPlayerPosition(Vector2 position)
+	{
+		PlayerPosition = position;
+	}
+
+	public Vector2 GetPlayerPosition()
+	{
+		return PlayerPosition;
 	}
 }
