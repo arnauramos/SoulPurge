@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e9f90f4c00be0449800f876de72a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 174cc97c34e5c15488a85a65d4de18e0, type: 3}
   itemName: Bandage
   itemDescription: 
   price: 0
