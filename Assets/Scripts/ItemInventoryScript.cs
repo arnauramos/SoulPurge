@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ItemInventoryScript : MonoBehaviour
 {
+    // SLOTS
     public List<GameObject> Slots;
     private Image Border;
     private SpriteRenderer Spriter;
     private Sprite auxSprite;
-    private int auxAmmount;
     private int Selected;
+
+    // SLOTS AMMOUNTS
+    public List<TextMeshProUGUI> SlotsAmmounts;
+    private int auxAmmount;
 
     // Update is called once per frame
     void Update()
@@ -42,6 +47,18 @@ public class ItemInventoryScript : MonoBehaviour
             else
             {
                 Border.color = Color.white;
+            }
+
+            // CHANGE SLOTS AMMOUNTS
+            if (auxAmmount > 0)
+            {
+                SlotsAmmounts[i].text = auxAmmount.ToString();
+                SlotsAmmounts[i].enabled = true;
+            }
+            else
+            {
+                SlotsAmmounts[i].text = "0";
+                SlotsAmmounts[i].enabled = false;
             }
         }
 
