@@ -96,7 +96,7 @@ MonoBehaviour:
   itemName: 
   itemDescription: 
   price: 0
-  ammount: 0
+  ammount: 50
   value: 0
   doesExpire: 0
   duration: 0
