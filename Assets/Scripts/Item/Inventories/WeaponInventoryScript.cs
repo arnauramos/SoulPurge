@@ -18,7 +18,15 @@ public class WeaponInventoryScript : MonoBehaviour
         for (int i = 0; i < Slots.Count; i++)
         {
             // GETTING COMPONENTS AND DATA
-            auxSprite = PlayerManager.Instance.PlayerGunList[i].sprite;
+            if (PlayerManager.Instance.PlayerGunList[i] != null)
+            {
+                auxSprite = PlayerManager.Instance.PlayerGunList[i].sprite;
+            }
+            else
+            {
+                auxSprite = null;
+            }
+            
             Border = Slots[i].GetComponent<Image>();
             Spriter = Slots[i].transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
 
