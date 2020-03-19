@@ -19,7 +19,7 @@ public class SettingsMenu : MonoBehaviour
         int CurrentResolution = 0;
         for (int i = resolutions.Length-1; i > -1; i--)
         {
-            string option = resolutions[i].width + " x " +resolutions[i].height;
+            string option = resolutions[i].width + " x " + resolutions[i].height + " @ " + resolutions[i].refreshRate + "Hz";
             options.Add(option);
 
             if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
@@ -28,7 +28,7 @@ public class SettingsMenu : MonoBehaviour
             }
         }
         resolutionsSelector.AddOptions(options);
-        resolutionsSelector.value = CurrentResolution;
+        resolutionsSelector.value = resolutions.Length - 1 - CurrentResolution;
         resolutionsSelector.RefreshShownValue();
         fullscreenSelector.isOn = Screen.fullScreen;
     }
@@ -42,6 +42,7 @@ public class SettingsMenu : MonoBehaviour
     }
     public void ChangeResolution(int resolution)
     {
-        Screen.SetResolution(resolutions[resolution].width, resolutions[resolution].height, Screen.fullScreen);
+        int i = resolutions.Length - 1 - resolution;
+        Screen.SetResolution(resolutions[i].width, resolutions[i].height, Screen.fullScreen);
     }
 }
