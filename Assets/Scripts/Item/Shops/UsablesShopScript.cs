@@ -92,8 +92,7 @@ public class UsablesShopScript : MonoBehaviour
         if (PlayerManager.Instance.money >= Prices[i])
         {
             // GIVE ITEMS
-            bool Bought = false;
-            Bought = PlayerManager.Instance.addUsable(ItemsList[i], Ammounts[i]);
+            bool Bought = PlayerManager.Instance.addUsable(ItemsList[i], Ammounts[i]);
             if (Bought)
             {
                 // DECREASE MONEY
