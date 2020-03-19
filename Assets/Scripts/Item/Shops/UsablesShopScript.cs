@@ -7,6 +7,7 @@ public class UsablesShopScript : MonoBehaviour
 {
     // SHOP GAMEOBJECTS
     public List<GameObject> Slots;
+    public TextMeshProUGUI Money;
     private SpriteRenderer Spriter;
     private TextMeshProUGUI Name;
     private TextMeshProUGUI Price;
@@ -40,7 +41,7 @@ public class UsablesShopScript : MonoBehaviour
             Prices.Add(ItemsList[i].price);
             // ADD ITEM PRICE
             Price.text = Prices[i].ToString();
-            // GET NAME
+            // GET NAME COMPONENT
             Name = Slots[i].transform.GetChild(3).GetComponent<TextMeshProUGUI>();
             // ADD ITEM NAME
             Name.text = ItemsList[i].itemName.ToString();
@@ -64,6 +65,8 @@ public class UsablesShopScript : MonoBehaviour
                 // Paint Prices
                 Prices[i] = ItemsList[i].price * Ammounts[i];
                 Price.text = Prices[i].ToString();
+                // Update player money
+                Money.text = PlayerManager.Instance.money.ToString();
             }
         }
     }
