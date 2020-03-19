@@ -17,6 +17,7 @@ public class InteractionManager : MonoBehaviour
     private GameObject UsablesShopper;
     private GameObject shop;
     public bool UsablesShopping;
+    public bool OpenUsablesShop;
 
     void Start()
     {
@@ -57,6 +58,7 @@ public class InteractionManager : MonoBehaviour
         shop.transform.position = CameraController.transform.position;
         // HABILITAR USABLES SHOPPING
         UsablesShopping = true; 
+        OpenUsablesShop = true; 
     }
 
     public void CloseUsablesShop()

@@ -12,6 +12,8 @@ public class UsablesShopScript : MonoBehaviour
     private TextMeshProUGUI Name;
     private TextMeshProUGUI Price;
     private TextMeshProUGUI Ammount;
+    // TEXT
+    public TextMeshProUGUI Text;
     // ITEMS
     public List<Usable> ItemsList;
     public List<int> Ammounts;
@@ -19,7 +21,7 @@ public class UsablesShopScript : MonoBehaviour
     private Sprite auxSprite;
 
     void Start()
-    {   
+    {
         for (int i = 0; i < Slots.Capacity; i++)
         {
             // CHOOSE RANDOM ITEM
@@ -48,12 +50,20 @@ public class UsablesShopScript : MonoBehaviour
             // ADD AMMOUNT
             Ammounts.Add(1);
         }
+
     }
 
     void Update()
     {
         if (InteractionManager.Instance.UsablesShopping)
-        {
+        {  
+            if (InteractionManager.Instance.OpenUsablesShop)
+            {
+                //WELCOME MESSAGE
+                StopAllCoroutines();
+                StartCoroutine(sayWelcome());
+                InteractionManager.Instance.OpenUsablesShop = false;
+            }
             for (int i = 0; i < Slots.Count; i++)
             {
                 // Get Ammount
@@ -92,25 +102,83 @@ public class UsablesShopScript : MonoBehaviour
 
     public void BuyItem(int i)
     {
-        if (PlayerManager.Instance.money >= Prices[i])
+        // CHECK IF AMMOUNT TO BUY IS > 0
+        if (Ammounts[i] > 0)
         {
-            // GIVE ITEMS
-            bool Bought = PlayerManager.Instance.addUsable(ItemsList[i], Ammounts[i]);
-            if (Bought)
+            if (PlayerManager.Instance.money >= Prices[i])
             {
-                // DECREASE MONEY
-                PlayerManager.Instance.money -= Prices[i];
+                // GIVE ITEMS
+                bool Bought = PlayerManager.Instance.addUsable(ItemsList[i], Ammounts[i]);
+                if (Bought)
+                {
+                    // DECREASE MONEY
+                    PlayerManager.Instance.money -= Prices[i];
+                    StopAllCoroutines();
+                    StartCoroutine(sayBought(i));
+                }
+                else
+                {
+                    // NO SPACE
+                    StopAllCoroutines();
+                    StartCoroutine(sayNoSpace());
+                }
             }
             else
             {
-                // NO SPACE
+                StopAllCoroutines();
+                StartCoroutine(sayNoMoney(i));
+                // NO MONEY
             }
         }
-        else
+    }
+    IEnumerator sayNoMoney(int i)
+    {
+        string n = ItemsList[i].itemName;
+        if (Ammounts[i] > 1)
         {
-            // NO MONEY
+            n += "s";
+        }
+        string say = "You don't have enough money to buy " + Ammounts[i] + " " + n;
+        Text.text = " ";
+        for (int x = 0; x < say.Length; x++)
+        {
+            Text.text += say[x];
+            yield return null;
         }
     }
-
-
+    IEnumerator sayNoSpace()
+    {
+        string say = "You don't have enough space in your inventory";
+        Text.text = " ";
+        for (int x = 0; x < say.Length; x++)
+        {
+            Text.text += say[x];
+            yield return null;
+        }
+    }
+    IEnumerator sayBought(int i)
+    {
+        string n = ItemsList[i].itemName;
+        if (Ammounts[i] > 1)
+        {
+            n += "s";
+        }
+        string say = "You have bought " + Ammounts[i] + " " + n +" for "+ Prices[i]  + " coins";
+        Text.text = " ";
+        for (int x = 0; x < say.Length; x++)
+        {
+            Text.text += say[x];
+            yield return null;
+        }
+    }
+    IEnumerator sayWelcome()
+    {
+        string say = "Welcome to the Items Shop, how can I help you?";
+        Text.text = " ";
+        for (int x = 0; x < say.Length; x++)
+        {
+            Text.text += say[x];
+            yield return null;
+        }
+    }
 }
