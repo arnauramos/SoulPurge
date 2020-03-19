@@ -30,6 +30,7 @@ public class PlayerManager : MonoBehaviour
 	public int AuxGO;
 	public bool usePriority;
 	public bool reloading;
+	public bool playerDisabled;
 
 	public Vector2 PlayerPosition;
 

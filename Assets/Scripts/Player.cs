@@ -99,8 +99,8 @@ public class Player : MonoBehaviour
 		UseItem();
 
 		PlayerManager.Instance.reloading = reloading;
-		PlayerManager.Instance.usePriority = false;
-	}
+        PlayerManager.Instance.usePriority = false;
+    }
 
 	private void FixedUpdate()
 	{
@@ -130,6 +130,10 @@ public class Player : MonoBehaviour
 
 	void PlayerMovement()
 	{
+        if (PlayerManager.Instance.playerDisabled) {
+            rb2d.velocity = Vector2.zero;
+            return;
+        }
 		Movement.x = Input.GetAxis("Horizontal");
 		Movement.y = Input.GetAxis("Vertical");
 
@@ -155,6 +159,10 @@ public class Player : MonoBehaviour
 	}
 	void PlayerAim()
 	{
+        if (PlayerManager.Instance.playerDisabled)
+        {
+            return;
+        }
 		mousePosition = Input.mousePosition;
 		mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
@@ -164,7 +172,11 @@ public class Player : MonoBehaviour
 	}
 	void Shooting()
 	{
-		bulletObject = Instantiate(weaponUsing.Bullet, firePoint.position, firePoint.rotation);
+        if (PlayerManager.Instance.playerDisabled)
+        {
+            return;
+        }
+        bulletObject = Instantiate(weaponUsing.Bullet, firePoint.position, firePoint.rotation);
 		bulletObject.GetComponent<Bullet>().PlayerShoot = true;
 		rb2dBullet = bulletObject.GetComponent<Rigidbody2D>();
 		rb2dBullet.AddForce(firePoint.up * weaponUsing.BulletSpeed, ForceMode2D.Impulse);
@@ -173,7 +185,11 @@ public class Player : MonoBehaviour
 	}
 	void Reloading()
 	{
-		if (weaponUsing.Rounds <= 0 && PlayerManager.Instance.totalAmmo <= 0) { PlayerManager.Instance.totalAmmo = 0; return; }
+        if (PlayerManager.Instance.playerDisabled)
+        {
+            return;
+        }
+        if (weaponUsing.Rounds <= 0 && PlayerManager.Instance.totalAmmo <= 0) { PlayerManager.Instance.totalAmmo = 0; return; }
 
         if ((Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Return)) && PlayerManager.Instance.totalAmmo >= 0 && weaponUsing.Rounds < weaponUsing.MaxRounds)
 		{
@@ -201,8 +217,12 @@ public class Player : MonoBehaviour
     }
 	void GunsSwap()
 	{
-		//float MouseInput = Input.GetAxis("Mouse ScrollWheel");
-		string InputKey = Input.inputString;
+        if (PlayerManager.Instance.playerDisabled)
+        {
+            return;
+        }
+        //float MouseInput = Input.GetAxis("Mouse ScrollWheel");
+        string InputKey = Input.inputString;
 		if (InputKey == "1" || InputKey == "2" || InputKey == "3" ||InputKey == "4")
 		{
 		    if (PlayerManager.Instance.PlayerGunList[int.Parse(InputKey) - 1] == null) return;
@@ -230,7 +250,11 @@ public class Player : MonoBehaviour
 	}
 	void ItemsSwap()
 	{
-		string InputKey = Input.inputString;
+        if (PlayerManager.Instance.playerDisabled)
+        {
+            return;
+        }
+        string InputKey = Input.inputString;
 		if (InputKey == "5" || InputKey == "6" || InputKey == "7" || InputKey == "8" || InputKey == "9")
 		{
 			if (PlayerManager.Instance.PlayerUsableList[int.Parse(InputKey) - 5] == null) return;
@@ -261,7 +285,11 @@ public class Player : MonoBehaviour
 	}
 	void UseItem()
 	{
-		if (Input.GetKeyDown(KeyCode.E) && PlayerManager.Instance.usePriority == false)
+        if (PlayerManager.Instance.playerDisabled)
+        {
+            return;
+        }
+        if (Input.GetKeyDown(KeyCode.E) && PlayerManager.Instance.usePriority == false)
 		{
 			if (itemUsing.ammount <= 0) { Debug.Log("Cantidad: " + itemUsing.ammount); return; }
 			itemUsing.Use();
@@ -320,12 +348,18 @@ public class Player : MonoBehaviour
 		}
 
 		//USE PRIORITY SETTING
-		if (collision.gameObject.tag == "SoulsExchange") PlayerManager.Instance.usePriority = true;
+		if (collision.gameObject.tag == "SoulsExchange" || collision.gameObject.tag == "UsablesShop") PlayerManager.Instance.usePriority = true;
 
+        // SOULS EXCHANGE
 		if (collision.gameObject.tag == "SoulsExchange" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)
 		{
-			PlayerManager.Instance.addMoney(InteractionManager.Instance.SoulsExchange(PlayerManager.Instance.souls));
-			PlayerManager.Instance.souls = 0;
+			InteractionManager.Instance.SoulsExchange(PlayerManager.Instance.souls);
 		}
-	}
+
+        // USABLES SHOP
+        if (collision.gameObject.tag == "UsablesShop" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)
+        {
+            InteractionManager.Instance.UsablesShop(collision.gameObject);
+        }
+    }
 }

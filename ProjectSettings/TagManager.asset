@@ -20,6 +20,7 @@ TagManager:
   - Ammo
   - Bandage
   - SoulsExchange
+  - UsablesShop
   layers:
   - Default
   - TransparentFX
