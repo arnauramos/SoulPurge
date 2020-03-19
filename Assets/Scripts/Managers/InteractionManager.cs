@@ -31,20 +31,6 @@ public class InteractionManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (UsablesShopping)
-        {
-            // CAPTURAR ACCIONES JUGADOR
-
-            // Cliquear usables, seleccionar cantidad, comprar, confirmar...
-
-            // INTERCAMBIO DE DINERO / USABLES
-
-            // COMPRAR MÁS?
-        }
-    }
-
     //  SOULER / SOUL EXCHANGER
     public void SoulsExchange(int _souls)
     {

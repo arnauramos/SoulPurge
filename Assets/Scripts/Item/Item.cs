@@ -7,5 +7,5 @@ public abstract class Item : MonoBehaviour
     public Sprite sprite;
     public string itemName;
     public string itemDescription;
-    public float price;
+    public int price;
 }

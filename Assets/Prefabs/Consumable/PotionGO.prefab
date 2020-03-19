@@ -93,9 +93,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: faf824268ee3032468f6153eeed974b4, type: 3}
-  itemName: 
+  itemName: Potion
   itemDescription: 
-  price: 0
+  price: 65
   ammount: 50
   value: 0
   doesExpire: 0

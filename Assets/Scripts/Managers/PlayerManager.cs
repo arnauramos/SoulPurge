@@ -122,6 +122,44 @@ public class PlayerManager : MonoBehaviour
 		}
 	}
 
+    // ADD USABLE
+    public bool addUsable(Usable _new, int ammount)
+    {
+        bool Bought = false;
+        // CHECK INVENTORY
+        for (int i = 0; i < PlayerUsableList.Count; i++)
+        {
+            if (PlayerUsableList[i] == _new)
+            {
+                if (PlayerUsableList[i].ammount + ammount <= 99)
+                {
+                    // ADD ITEMS
+                    PlayerUsableList[i].ammount += ammount;
+                    Bought = true;
+                    break;
+                }
+            }       
+        }
+        //if (!Bought)
+        //{
+        //    for (int x = 0; x < PlayerUsableList.Count; x++)
+        //    {
+        //        if (PlayerUsableList[x] == null)
+        //        {
+        //            // ADD ITEMS
+        //            PlayerUsableList[x] = _new;
+        //            Bought = true;
+        //            break;
+        //        }
+        //    }
+        //}
+        if (!Bought)
+        {
+            // NO SPACE
+        }
+        return Bought;
+    }
+
 	//EXTRA MAX
 	public void addExtraHealth(float value)
 	{
