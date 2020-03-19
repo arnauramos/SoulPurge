@@ -14,8 +14,8 @@ public class InteractionManager : MonoBehaviour
     public int moneyToGive;
 
     // SHOPS
-    public GameObject shop;
-    public GameObject exitButton;
+    private GameObject UsablesShopper;
+    private GameObject shop;
     public bool UsablesShopping;
 
     void Start()
@@ -39,17 +39,9 @@ public class InteractionManager : MonoBehaviour
 
             // Cliquear usables, seleccionar cantidad, comprar, confirmar...
 
-            // Botón de salir
-
             // INTERCAMBIO DE DINERO / USABLES
 
             // COMPRAR MÁS?
-
-            // HABILITAR MOVIMIENTO, APUNTADO, DISPARAR Y OBJETOS DEL JUGADOR 
-                //shop.SetActive(false);
-                //PlayerManager.Instance.playerDisabled = false;
-                //UsablesShopping = false;
-                //return;
         }
     }
 
@@ -66,11 +58,10 @@ public class InteractionManager : MonoBehaviour
         // DESHABILITAR MOVIMIENTO, APUNTADO, DISPARAR Y OBJETOS DEL JUGADOR
         PlayerManager.Instance.playerDisabled = true;
         // GET CAMERA MANAGER
-        CameraController = GameObject.Find("CameraController");
+        Instance.CameraController = GameObject.Find("CameraController");
         // ENCONTRAR GAMEOBJECTS TIENDA
-        shop = FindChild(Shopper, "UsablesShopMenu");
-        // GET EXIT BUTTON
-        exitButton = FindChild(shop, "UsablesShopExit");
+        UsablesShopper = GameObject.Find("UsablesShop");
+        shop = UsablesShopper.transform.GetChild(1).gameObject;
         // GET HUD
         HUD = CameraController.transform.GetChild(0).GetChild(0).gameObject;
         // DESHABILITAR HUD
@@ -80,6 +71,36 @@ public class InteractionManager : MonoBehaviour
         shop.transform.position = CameraController.transform.position;
         // HABILITAR USABLES SHOPPING
         UsablesShopping = true; 
+    }
+
+    public void CloseUsablesShop()
+    {
+        CloseShop();
+
+        //DESHABILITAR USABLES SHOP
+        UsablesShopper = GameObject.Find("UsablesShop");
+        shop = UsablesShopper.transform.GetChild(1).gameObject;
+        shop.SetActive(false);
+        Debug.Log("5");
+    }
+
+    private void CloseShop()
+    {
+        Debug.Log("1");
+
+        // DESHABILITAR USABLES SHOPPING
+        UsablesShopping = false;
+        Debug.Log("2");
+
+        // HABILITAR MOVIMIENTO, APUNTADO, DISPARAR Y OBJETOS DEL JUGADOR 
+        PlayerManager.Instance.playerDisabled = false;
+        Debug.Log("3");
+
+        // MOSTRAR HUD
+        CameraController = GameObject.Find("CameraController");
+        HUD = CameraController.transform.GetChild(0).GetChild(0).gameObject;
+        HUD.SetActive(true);
+        Debug.Log("4");
     }
 
     private GameObject FindChild(GameObject Parent, string Name)
