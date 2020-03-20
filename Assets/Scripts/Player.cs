@@ -353,8 +353,9 @@ public class Player : MonoBehaviour
         // SOULS EXCHANGE
 		if (collision.gameObject.tag == "SoulsExchange" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)
 		{
-			InteractionManager.Instance.SoulsExchange(PlayerManager.Instance.souls);
-		}
+            InteractionManager.Instance.SoulsShop(collision.gameObject);
+            //InteractionManager.Instance.SoulsExchange(PlayerManager.Instance.souls);
+        }
 
         // USABLES SHOP
         if (collision.gameObject.tag == "UsablesShop" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)

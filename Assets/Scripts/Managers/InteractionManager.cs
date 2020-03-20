@@ -16,11 +16,14 @@ public class InteractionManager : MonoBehaviour
     // SHOPS
     private GameObject UsablesShopper;
     private GameObject WeaponsShopper;
+    private GameObject SoulsShopper;
     private GameObject shop;
     public bool UsablesShopping;
     public bool WeaponsShopping;
+    public bool SoulsShopping;
     public bool OpenUsablesShop;
     public bool OpenWeaponsShop;
+    public bool OpenSoulsShop;
 
     void Start()
     {
@@ -36,10 +39,31 @@ public class InteractionManager : MonoBehaviour
     }
 
     //  SOULER / SOUL EXCHANGER
-    public void SoulsExchange(int _souls)
+    public void SoulsExchange(int _souls, int _price)
     {
         PlayerManager.Instance.souls -= _souls;
-        PlayerManager.Instance.addMoney(_souls * 10);
+        PlayerManager.Instance.addMoney(_souls * _price);
+    }
+    // SOULS SHOP
+    public void SoulsShop(GameObject Shopper)
+    {
+        // DESHABILITAR MOVIMIENTO, APUNTADO, DISPARAR Y OBJETOS DEL JUGADOR
+        PlayerManager.Instance.playerDisabled = true;
+        // GET CAMERA MANAGER
+        Instance.CameraController = GameObject.Find("CameraController");
+        // ENCONTRAR GAMEOBJECTS TIENDA
+        SoulsShopper = GameObject.Find("SoulsExchange");
+        shop = SoulsShopper.transform.GetChild(1).gameObject;
+        // GET HUD
+        HUD = CameraController.transform.GetChild(0).GetChild(0).gameObject;
+        // DESHABILITAR HUD
+        HUD.SetActive(false);
+        // MOSTRAR TIENDA
+        shop.SetActive(true);
+        shop.transform.position = CameraController.transform.position;
+        // HABILITAR USABLES SHOPPING
+        SoulsShopping = true;
+        OpenSoulsShop = true;
     }
 
     //  USABLES SHOP
@@ -79,11 +103,21 @@ public class InteractionManager : MonoBehaviour
         // MOSTRAR TIENDA
         shop.SetActive(true);
         shop.transform.position = CameraController.transform.position;
-        // HABILITAR USABLES SHOPPING
+        // HABILITAR WEAPON SHOPPING
         WeaponsShopping = true;
         OpenWeaponsShop = true;
     }
 
+    public void CloseSoulsShop()
+    {
+        CloseShop();
+
+        //DESHABILITAR SOULS SHOP
+        SoulsShopper = GameObject.Find("SoulsExchange");
+        shop = SoulsShopper.transform.GetChild(1).gameObject;
+        shop.SetActive(false);
+        Debug.Log("5");
+    }
     public void CloseUsablesShop()
     {
         CloseShop();
