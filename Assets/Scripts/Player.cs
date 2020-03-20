@@ -348,7 +348,7 @@ public class Player : MonoBehaviour
 		}
 
 		//USE PRIORITY SETTING
-		if (collision.gameObject.tag == "SoulsExchange" || collision.gameObject.tag == "UsablesShop") PlayerManager.Instance.usePriority = true;
+		if (collision.gameObject.tag == "SoulsExchange" || collision.gameObject.tag == "UsablesShop" || collision.gameObject.tag == "WeaponsShop") PlayerManager.Instance.usePriority = true;
 
         // SOULS EXCHANGE
 		if (collision.gameObject.tag == "SoulsExchange" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)
@@ -360,6 +360,12 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "UsablesShop" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)
         {
             InteractionManager.Instance.UsablesShop(collision.gameObject);
+        }
+
+        // WEAPONS SHOP
+        if (collision.gameObject.tag == "WeaponsShop" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)
+        {
+            InteractionManager.Instance.WeaponsShop(collision.gameObject);
         }
     }
 }

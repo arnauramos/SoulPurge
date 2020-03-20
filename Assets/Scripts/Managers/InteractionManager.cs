@@ -15,9 +15,12 @@ public class InteractionManager : MonoBehaviour
 
     // SHOPS
     private GameObject UsablesShopper;
+    private GameObject WeaponsShopper;
     private GameObject shop;
     public bool UsablesShopping;
+    public bool WeaponsShopping;
     public bool OpenUsablesShop;
+    public bool OpenWeaponsShop;
 
     void Start()
     {
@@ -60,6 +63,26 @@ public class InteractionManager : MonoBehaviour
         UsablesShopping = true; 
         OpenUsablesShop = true; 
     }
+    public void WeaponsShop(GameObject Shopper)
+    {
+        // DESHABILITAR MOVIMIENTO, APUNTADO, DISPARAR Y OBJETOS DEL JUGADOR
+        PlayerManager.Instance.playerDisabled = true;
+        // GET CAMERA MANAGER
+        Instance.CameraController = GameObject.Find("CameraController");
+        // ENCONTRAR GAMEOBJECTS TIENDA
+        WeaponsShopper = GameObject.Find("WeaponsShop");
+        shop = WeaponsShopper.transform.GetChild(1).gameObject;
+        // GET HUD
+        HUD = CameraController.transform.GetChild(0).GetChild(0).gameObject;
+        // DESHABILITAR HUD
+        HUD.SetActive(false);
+        // MOSTRAR TIENDA
+        shop.SetActive(true);
+        shop.transform.position = CameraController.transform.position;
+        // HABILITAR USABLES SHOPPING
+        WeaponsShopping = true;
+        OpenWeaponsShop = true;
+    }
 
     public void CloseUsablesShop()
     {
@@ -68,6 +91,16 @@ public class InteractionManager : MonoBehaviour
         //DESHABILITAR USABLES SHOP
         UsablesShopper = GameObject.Find("UsablesShop");
         shop = UsablesShopper.transform.GetChild(1).gameObject;
+        shop.SetActive(false);
+        Debug.Log("5");
+    }
+    public void CloseWeaponsShop()
+    {
+        CloseShop();
+
+        //DESHABILITAR WEAPONS SHOP
+        WeaponsShopper = GameObject.Find("WeaponsShop");
+        shop = WeaponsShopper.transform.GetChild(1).gameObject;
         shop.SetActive(false);
         Debug.Log("5");
     }

@@ -46,9 +46,8 @@ MonoBehaviour:
   sprite: {fileID: 0}
   itemName: Axe
   itemDescription: 
-  price: 20
-  IdItem: 9
-  posInventory: 3
+  price: 25
+  Bullet: {fileID: 0}
   BulletSpeed: {x: 10, y: 10}
   FirePoint: {x: 0.2, y: 0.2, z: 0}
   Rounds: 0
@@ -56,3 +55,4 @@ MonoBehaviour:
   Range: 0.1
   Damage: 70
   FireRate: 15
+  reloadTime: 0

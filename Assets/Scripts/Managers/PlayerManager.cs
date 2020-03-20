@@ -102,15 +102,25 @@ public class PlayerManager : MonoBehaviour
 
 	//  MANAGE ITEMS
 
-	public void addGun(Gun _new)
+	public int addGun(Gun _new)
 	{
-		int i = 0;
-		foreach (Gun AuxGun in PlayerGunList)
-		{
-			if (AuxGun == null) PlayerGunList[i] = _new;
-			i++;
-		}
-	}
+        for (int i = 0; i < PlayerGunList.Count; i++)
+        {
+            if (PlayerGunList[i] == _new)
+            {
+                return -1;
+            }
+        }
+        for (int i = 0; i < PlayerGunList.Count; i++)
+        {
+            if (PlayerGunList[i] == null)
+            {
+                PlayerGunList[i] = _new;
+                return 0;
+            }
+        }
+        return -2;
+    }
 
 	public void addGun(Gun _original, Gun _new)
 	{
@@ -120,7 +130,7 @@ public class PlayerManager : MonoBehaviour
 			if (AuxGun == _original) PlayerGunList[i] = _new;
 			i++;
 		}
-	}
+    }
 
     // ADD USABLE
     public bool addUsable(Usable _new, int ammount)

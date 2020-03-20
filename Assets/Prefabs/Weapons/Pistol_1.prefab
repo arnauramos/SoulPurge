@@ -46,7 +46,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 04fe6c371a66b28448701ac5b37b78ee, type: 3}
   itemName: Pistol 1
   itemDescription: 
-  price: 50
+  price: 45
   Bullet: {fileID: 8545840750463579405, guid: 9f8353e442b040444bdc558cc269d08c, type: 3}
   BulletSpeed: {x: 12, y: 12}
   FirePoint: {x: 0.2, y: 0.2, z: 0}

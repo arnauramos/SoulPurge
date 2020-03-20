@@ -21,6 +21,7 @@ TagManager:
   - Bandage
   - SoulsExchange
   - UsablesShop
+  - WeaponsShop
   layers:
   - Default
   - TransparentFX
