@@ -65,11 +65,14 @@ public class SoulsShopScript : MonoBehaviour
     {
         if (PlayerManager.Instance.souls >= SoulsAmmount)
         {
-            // SELL
-            InteractionManager.Instance.SoulsExchange(SoulsAmmount, SoulsPrice);
-            // SOLD
-            StopAllCoroutines();
-            StartCoroutine(saySold());
+            if (SoulsAmmount > 0)
+            {
+                // SELL
+                InteractionManager.Instance.SoulsExchange(SoulsAmmount, SoulsPrice);
+                // SOLD
+                StopAllCoroutines();
+                StartCoroutine(saySold());
+            }
         }
         else
         {
