@@ -11,7 +11,13 @@ public class DataManager : MonoBehaviour
     public int BulletsShot;
     public int ObtainedSouls;
     public int MoneySpent;
+    public float DistanceTravelled = 0;
 
+
+    // AUX DATA
+    private Vector2 OldPosition;
+    private Vector2 PositionsDif;
+    private float NewDistanceTravelled;
 
     void Start()
     {
@@ -24,5 +30,17 @@ public class DataManager : MonoBehaviour
         {
             Debug.Log("Error: Duplicated " + this + "in the scene");
         }
+    }
+    public void TrackDistance(Vector2 NewPosition) {
+        if (DistanceTravelled == 0)
+        {
+            OldPosition = NewPosition;
+            DistanceTravelled = 0.00001f;
+        }
+        PositionsDif.x = Mathf.Abs(OldPosition.x - NewPosition.x);
+        PositionsDif.y = Mathf.Abs(OldPosition.y - NewPosition.y);
+        NewDistanceTravelled = Mathf.Sqrt(Mathf.Pow(PositionsDif.x, 2) + Mathf.Pow(PositionsDif.y, 2));
+        DistanceTravelled += NewDistanceTravelled;
+        OldPosition = NewPosition;
     }
 }

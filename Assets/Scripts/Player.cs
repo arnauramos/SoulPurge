@@ -156,6 +156,7 @@ public class Player : MonoBehaviour
 		}
 		rb2d.AddForce(Movement * PlayerManager.Instance.speed * PlayerManager.Instance.speedBoost * fixedDelta, ForceMode2D.Impulse);
 		animator.SetBool("Moving", true);
+        DataManager.Instance.TrackDistance(transform.position);
 	}
 	void PlayerAim()
 	{
