@@ -182,6 +182,7 @@ public class Player : MonoBehaviour
 		rb2dBullet.AddForce(firePoint.up * weaponUsing.BulletSpeed, ForceMode2D.Impulse);
 		Destroy(bulletObject, weaponUsing.Range);
 		weaponUsing.Rounds--;
+        DataManager.Instance.BulletsShot += 1;
 	}
 	void Reloading()
 	{

@@ -30,6 +30,14 @@ public class SoulsShopScript : MonoBehaviour
         // Get ammount
         Ammount = Slots[0].transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
         // Paint ammount
+        if (PlayerManager.Instance.souls > 0)
+        {
+            SoulsAmmount = 1;
+        }
+        else
+        {
+            SoulsAmmount = 0;
+        }
         Ammount.text = SoulsAmmount.ToString();
         // Check souls
         if (SoulsAmmount > PlayerManager.Instance.souls)

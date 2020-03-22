@@ -83,6 +83,7 @@ public class WeaponsShopScript : MonoBehaviour
                 case 0:
                     // BOUGHT
                     PlayerManager.Instance.money -= WeaponsList[i].price;
+                    DataManager.Instance.MoneySpent += WeaponsList[i].price;
                     StopAllCoroutines();
                     StartCoroutine(sayBought(i));
                     break;

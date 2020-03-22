@@ -113,6 +113,7 @@ public class UsablesShopScript : MonoBehaviour
                 {
                     // DECREASE MONEY
                     PlayerManager.Instance.money -= Prices[i];
+                    DataManager.Instance.MoneySpent += Prices[i];
                     StopAllCoroutines();
                     StartCoroutine(sayBought(i));
                 }

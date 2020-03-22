@@ -89,6 +89,7 @@ public class PlayerManager : MonoBehaviour
 		else
 		{
 			souls += value;
+            DataManager.Instance.ObtainedSouls += value;
 		}
 	}
 	public void addMoney(int value)
