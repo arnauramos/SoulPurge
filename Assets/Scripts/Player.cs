@@ -100,6 +100,7 @@ public class Player : MonoBehaviour
 		}
 
 		UseItem();
+		SpawnerManager.Instance.EnemyChecker();
 
 		PlayerManager.Instance.reloading = reloading;
         PlayerManager.Instance.usePriority = false;
@@ -118,7 +119,8 @@ public class Player : MonoBehaviour
 		PlayerMovement();
 		PlayerManager.Instance.SetPlayerPosition(transform.position);
 		PlayerAim();
-		SpawnerManager.Instance.CheckRawPosition();
+
+		SpawnerManager.Instance.Spawner();
 
 		if (Counter >= ReloadingCounter && reloading == true) reloading = false;
 		else

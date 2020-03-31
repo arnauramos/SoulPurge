@@ -198,6 +198,7 @@ MonoBehaviour:
   health: 90
   weaponUsing: {fileID: 7374682507282849064, guid: 051b8153a3208ce4a855d3e13926eec9,
     type: 3}
+  bulletObject: {fileID: 0}
   AttackRate: 3
   firePoint: {fileID: 208393849}
   Speed: 500
@@ -230,7 +231,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2428528595052404134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2428528593272821111}

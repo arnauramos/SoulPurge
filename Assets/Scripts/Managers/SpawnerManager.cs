@@ -24,6 +24,12 @@ public class SpawnerManager : MonoBehaviour
     public Enemy AuxEnemy;
     public EnemyShooter AuxEnemyShooter;
 
+    [Header("Enemy Waves:")]
+    public int ActualRound = 0;
+    bool RoundSpawnComplete;
+    public Vector2Int[] EnemyTypePerRound;
+    public EnemyWaves HostileZoneWaves;
+
     void Start()
     {
         if (Instance == null)
@@ -43,6 +49,9 @@ public class SpawnerManager : MonoBehaviour
         //  Get Camera Bounties
         CameraTopLeftLimit = new Vector2 (Camera.main.transform.position.x - Camera.main.aspect * Camera.main.orthographicSize, Camera.main.transform.position.y + Camera.main.orthographicSize);
         CameraBotRightLimit = new Vector2(Camera.main.transform.position.x + Camera.main.aspect * Camera.main.orthographicSize, Camera.main.transform.position.y - Camera.main.orthographicSize);
+
+        //EnemyTypePerRound = HostileZoneWaves.EnemyTypePerRound;
+        //AuxActualRound = ActualRound;
     }
 
     private void Update()
@@ -74,11 +83,44 @@ public class SpawnerManager : MonoBehaviour
         NetPosition = RawPosition;
 
         //  Enemy Randomize
-        int EnemyToSpawn = Random.Range(0, 1);
-        if (EnemyToSpawn == 0) Instantiate(AuxEnemy, NetPosition, Quaternion.identity);
-        else Instantiate(AuxEnemyShooter, NetPosition, Quaternion.identity);
+        //int EnemyToSpawn = Random.Range(0, 2);
+        //if (EnemyToSpawn == 0) Instantiate(AuxEnemy, NetPosition, Quaternion.identity);
+        //else Instantiate(AuxEnemyShooter, NetPosition, Quaternion.identity);
 
-        Debug.Log(NetPosition);
+        //Debug.Log(NetPosition);
         return NetPosition;
+    }
+
+    public void Spawner()
+    {
+        if (RoundSpawnComplete) return;
+
+        // Enemy Spawn
+        int EnemiesToSpawn = HostileZoneWaves.EnemyTypePerRound[ActualRound].x;
+        for (int m = 0; m < EnemiesToSpawn; m++)
+        {
+            NetPosition = CheckRawPosition();
+            Instantiate(AuxEnemy, NetPosition, Quaternion.identity);
+        }
+        EnemiesToSpawn = HostileZoneWaves.EnemyTypePerRound[ActualRound].y;
+        for (int r = 0; r < EnemiesToSpawn; r++)
+        {
+            NetPosition = CheckRawPosition();
+            Instantiate(AuxEnemyShooter, NetPosition, Quaternion.identity);
+        }
+
+        RoundSpawnComplete = true;
+    }
+
+    public void EnemyChecker()
+    {
+        int MeleeEnemies = GameObject.FindObjectsOfType<Enemy>().Length;
+        int RangedEnemies = GameObject.FindObjectsOfType<EnemyShooter>().Length;
+
+        if (MeleeEnemies == 0 && RangedEnemies == 0)
+        {
+            ActualRound++;
+            RoundSpawnComplete = false;
+        }
     }
 }
