@@ -51,6 +51,9 @@ public class Player : MonoBehaviour
 	private Animator animator;
 	private int moveParamID;
 
+    // VARIABLES FOR DIALOGUE
+    private DialogueScript dialoguescript;
+
 	void Start()
 	{
 		rb2d = GetComponent<Rigidbody2D>();
@@ -356,7 +359,7 @@ public class Player : MonoBehaviour
 		}
 
 		//USE PRIORITY SETTING
-		if (collision.gameObject.tag == "SoulsExchange" || collision.gameObject.tag == "UsablesShop" || collision.gameObject.tag == "WeaponsShop") PlayerManager.Instance.usePriority = true;
+		if (collision.gameObject.tag == "SoulsExchange" || collision.gameObject.tag == "UsablesShop" || collision.gameObject.tag == "WeaponsShop" || collision.gameObject.tag == "Person") PlayerManager.Instance.usePriority = true;
 
         // SOULS EXCHANGE
 		if (collision.gameObject.tag == "SoulsExchange" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)
@@ -375,6 +378,13 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "WeaponsShop" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)
         {
             InteractionManager.Instance.WeaponsShop(collision.gameObject);
+        }
+
+        // PERSON
+        if (collision.gameObject.tag == "Person" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)
+        {
+            dialoguescript = collision.gameObject.GetComponent<DialogueScript>();
+            dialoguescript.playDialogue();
         }
     }
 }

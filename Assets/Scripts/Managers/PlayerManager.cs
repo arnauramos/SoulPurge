@@ -40,6 +40,8 @@ public class PlayerManager : MonoBehaviour
 	public List<Usable> PlayerUsableList;
 	public int usableSelected = 0;
 
+    //public bool tutorialDone = false; 
+
 	void Start()
 	{
 		if (Instance == null)

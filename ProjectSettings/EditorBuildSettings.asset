@@ -14,19 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TileMap_Scenes/ZonaSegura_Inicial.unity
     guid: d8ff7ae7186313a419ba4bc7c0d1ce11
-  - enabled: 0
-    path: Assets/Scenes/SafeZone.unity
-    guid: 883b4ecbfdd06e3459df0456b993cce3
-  - enabled: 1
-    path: Assets/Scenes/TileMap_Scenes/DEV_TileMap-ZonaSegura.unity
-    guid: 452b096aff2b55549ad8d9aac48b9c6f
-  - enabled: 0
-    path: Assets/Scenes/DEV_Albert.unity
-    guid: 3fa1f87cb2c66424dad252c06be08acd
   - enabled: 1
     path: Assets/Scenes/TileMap_Scenes/DEV_TileMap-ZonaHostil.unity
     guid: 3f5424545f580204ab1b7f2028bbd5c6
   - enabled: 1
-    path: Assets/Scenes/GameOver.unity
-    guid: b286a08611617474bbf02f4d0dc3e87f
+    path: Assets/Scenes/TileMap_Scenes/DEV_TileMap-ZonaSegura.unity
+    guid: 452b096aff2b55549ad8d9aac48b9c6f
   m_configObjects: {}
