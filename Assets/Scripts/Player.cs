@@ -75,16 +75,33 @@ public class Player : MonoBehaviour
 
 		// UPDATE WEAPON USING
 		GunsSwap();
-		weaponUsing = PlayerManager.Instance.PlayerGunList[PlayerManager.Instance.weaponSelected];
-        weaponGraphics.sprite = weaponUsing.sprite;
+        if (PlayerManager.Instance.weaponSelected < 0)
+        {
+            weaponUsing = null;
+            weaponGraphics.sprite = null;
+        }
+        else
+        {
+            weaponUsing = PlayerManager.Instance.PlayerGunList[PlayerManager.Instance.weaponSelected];
+            weaponGraphics.sprite = weaponUsing.sprite;
+        }
 
-		//  UPDATE ITEM USING VARIABLES
-		ItemsSwap();
+        //  UPDATE ITEM USING VARIABLES
+        ItemsSwap();
 		itemUsing = PlayerManager.Instance.PlayerUsableList[PlayerManager.Instance.usableSelected];
 
-		// WEAPON VARIABLES
-		Rounds = weaponUsing.Rounds;
-		AuxRounds = weaponUsing.MaxRounds;
+        // WEAPON VARIABLES
+        if (weaponUsing == null)
+        {
+            Rounds = 0;
+            AuxRounds = 0;
+        }
+        else
+        {
+            Rounds = weaponUsing.Rounds;
+            AuxRounds = weaponUsing.MaxRounds;
+        }
+
 
         //  RELOAD
         Reloading();
@@ -120,6 +137,7 @@ public class Player : MonoBehaviour
 		PlayerAim();
 		SpawnerManager.Instance.CheckRawPosition();
 
+        if (weaponUsing == null) return;
 		if (Counter >= ReloadingCounter && reloading == true) reloading = false;
 		else
 		{
@@ -196,7 +214,7 @@ public class Player : MonoBehaviour
 	}
 	void Reloading()
 	{
-        if (PlayerManager.Instance.playerDisabled)
+        if (PlayerManager.Instance.playerDisabled || weaponUsing == null)
         {
             return;
         }

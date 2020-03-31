@@ -134,6 +134,23 @@ public class PlayerManager : MonoBehaviour
 			i++;
 		}
     }
+    public int removeGun(int i)
+    {
+        PlayerGunList[i] = null;
+        // update inventory
+        for (int x = 0; x < PlayerGunList.Capacity; x++)
+        {
+            if (PlayerGunList[x] != null)
+            {
+                weaponSelected = x;
+            }
+        }
+        if (weaponSelected == i)
+        {
+            weaponSelected = -1;
+        }
+        return 0;
+    }
 
     // ADD USABLE
     public bool addUsable(Usable _new, int ammount)
