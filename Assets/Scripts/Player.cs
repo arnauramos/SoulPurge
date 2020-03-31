@@ -67,6 +67,8 @@ public class Player : MonoBehaviour
 		//	SET WEAPON USING VARIABLES
 		Rounds = AuxRounds;
         reloading = false;
+
+		PlayerSceneManager.Instance.isSceneSecure();
 	}
 
 	private void Update()

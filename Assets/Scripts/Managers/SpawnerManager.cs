@@ -6,7 +6,7 @@ public class SpawnerManager : MonoBehaviour
 {
     public static SpawnerManager Instance { get; private set; }
 
-    public bool START;
+    public bool STOP;
 
     [Header("Map Bounties:")]
     public Vector2 MapTopLeftLimit;
@@ -73,7 +73,7 @@ public class SpawnerManager : MonoBehaviour
     {
         Vector2 RawPosition = GenerateRawPosition();
 
-        if (!START) return RawPosition;
+        if (STOP) return RawPosition;
 
         if ((RawPosition.x >= CameraTopLeftLimit.x && RawPosition.x <= CameraBotRightLimit.x ) && (RawPosition.y >= CameraBotRightLimit.y && RawPosition.y <= CameraTopLeftLimit.y))
         {
@@ -93,7 +93,7 @@ public class SpawnerManager : MonoBehaviour
 
     public void Spawner()
     {
-        if (RoundSpawnComplete) return;
+        if (RoundSpawnComplete || PlayerSceneManager.Instance.ZoneIsSecure) return;
 
         // Enemy Spawn
         int EnemiesToSpawn = HostileZoneWaves.EnemyTypePerRound[ActualRound].x;
@@ -117,7 +117,7 @@ public class SpawnerManager : MonoBehaviour
         int MeleeEnemies = GameObject.FindObjectsOfType<Enemy>().Length;
         int RangedEnemies = GameObject.FindObjectsOfType<EnemyShooter>().Length;
 
-        if (MeleeEnemies == 0 && RangedEnemies == 0)
+        if ((MeleeEnemies == 0 && RangedEnemies == 0) && !PlayerSceneManager.Instance.ZoneIsSecure)
         {
             ActualRound++;
             RoundSpawnComplete = false;
