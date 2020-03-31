@@ -230,4 +230,28 @@ public class PlayerManager : MonoBehaviour
 	{
 		return PlayerPosition;
 	}
+
+    // RESET VARIABLES
+    public void reset()
+    {
+        health = 100;
+        maxHeath = 100;
+        resistance = 0;
+        stamina = 400;
+        maxStamina = 400;
+        staminaRegeneration = 0.2f;
+        speed = 1.25f;
+        maxSpeed = 1.25f;
+        sprint = 2;
+        speedBoost = 1;
+        shootingBoost = 1;
+        souls = 0;
+        maxSouls = 100;
+        money = 0;
+        totalAmmo = 600;
+        AuxGO = 0;
+        usePriority = false;
+        reloading = false;
+        playerDisabled = false;
+    }
 }

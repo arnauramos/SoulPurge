@@ -43,4 +43,15 @@ public class DataManager : MonoBehaviour
         DistanceTravelled += NewDistanceTravelled;
         OldPosition = NewPosition;
     }
+
+    // RESET VARIABLES
+
+    public void reset()
+    {
+    // DATA
+    BulletsShot = 0;
+    ObtainedSouls = 0;
+    MoneySpent = 0;
+    DistanceTravelled = 0;
+    }
 }

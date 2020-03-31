@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
 
 	private void Update()
 	{
-		if (PlayerManager.Instance.health <= 0 && !PlayerManager.Instance.IMMORTAL) Destroy(gameObject);
+		if (PlayerManager.Instance.health <= 0 && !PlayerManager.Instance.IMMORTAL) playerDie();
 
 		// UPDATE WEAPON USING
 		GunsSwap();
@@ -102,7 +102,13 @@ public class Player : MonoBehaviour
         PlayerManager.Instance.usePriority = false;
     }
 
-	private void FixedUpdate()
+    private void playerDie()
+    {
+        Destroy(gameObject);
+        PlayerSceneManager.Instance.goLastScene();
+    }
+
+    private void FixedUpdate()
 	{
 		fixedDelta = Time.fixedDeltaTime * 1000.0f;
 		Counter = Time.time * fixedDelta;

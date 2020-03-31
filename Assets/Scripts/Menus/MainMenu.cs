@@ -7,6 +7,8 @@ public class MainMenu : MonoBehaviour
 {
     public void Play()
     {
+        PlayerManager.Instance.reset();
+        DataManager.Instance.reset();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void Exit()

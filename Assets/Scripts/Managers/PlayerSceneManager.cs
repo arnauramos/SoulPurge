@@ -40,4 +40,8 @@ public class PlayerSceneManager : MonoBehaviour
         if (value + 1 >= SceneManager.sceneCountInBuildSettings) return; // CHECKS IF THERE'S AN ACTUAL SCENE
         SceneManager.LoadScene(value + 1);
     }
+    public void goLastScene()
+    {
+        SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings - 1);
+    }
 }
