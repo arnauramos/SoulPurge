@@ -88,8 +88,14 @@ public class Player : MonoBehaviour
 
         //  UPDATE ITEM USING VARIABLES
         ItemsSwap();
-		itemUsing = PlayerManager.Instance.PlayerUsableList[PlayerManager.Instance.usableSelected];
-
+        if (PlayerManager.Instance.usableSelected < 0)
+        {
+            itemUsing = null;
+        }
+        else
+        {
+            itemUsing = PlayerManager.Instance.PlayerUsableList[PlayerManager.Instance.usableSelected];
+        }
         // WEAPON VARIABLES
         if (weaponUsing == null)
         {
@@ -320,6 +326,10 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E) && PlayerManager.Instance.usePriority == false)
 		{
+            if (itemUsing == null)
+            {
+                return;
+            }
 			if (itemUsing.ammount <= 0) { Debug.Log("Cantidad: " + itemUsing.ammount); return; }
 			itemUsing.Use();
 			Debug.Log("Ha sido usado el item: " + itemUsing.itemName + ". En la posición: " + PlayerManager.Instance.usableSelected + " del array");

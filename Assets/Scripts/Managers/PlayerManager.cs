@@ -180,6 +180,7 @@ public class PlayerManager : MonoBehaviour
                 {
                     // ADD ITEMS
                     PlayerUsableList[x] = _new;
+                    PlayerUsableList[x].ammount = ammount;
                     Bought = true;
                     break;
                 }
@@ -191,9 +192,34 @@ public class PlayerManager : MonoBehaviour
         }
         return Bought;
     }
+    public int removeUsable(int i, int ammount)
+    {
+        PlayerUsableList[i].ammount -= ammount;
+        if (PlayerUsableList[i].ammount <= 0)
+        {
+            PlayerUsableList[i] = null;
+        }
+        // update inventory
+        if (PlayerUsableList[i] == null)
+        {
+            for (int x = 0; x < PlayerUsableList.Capacity; x++)
+            {
+                if (PlayerUsableList[x] != null)
+                {
+                    usableSelected = x;
+                }
+            }
+            if (usableSelected == i)
+            {
+                usableSelected = -1;
+            }
+        }
+        return 0;
+    }
 
-	//EXTRA MAX
-	public void addExtraHealth(float value)
+
+    //EXTRA MAX
+    public void addExtraHealth(float value)
 	{
 		maxHeath += value;
 	}
