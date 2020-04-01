@@ -368,18 +368,31 @@ public class Player : MonoBehaviour
             }
         }
 	}
-	private void OnTriggerStay2D(Collider2D collision) //pillar objetos (Albert)
+    // PICK UP OBJECTS 
+    private void OnTriggerStay2D(Collider2D collision)
 	{
-		if (collision.gameObject.tag == "Object" && Input.GetKey(KeyCode.E)) //de momento object solo sera vendas, asi que sumara vida cuando se pille
+        // PICK UP USABLE
+		if (collision.gameObject.tag == "Usable") 
 		{
-			PlayerManager.Instance.addHealth(10);
-			Destroy(collision.gameObject);
+            int id = -1;
+            for (int i = 0; i < ItemsManager.Instance.UsablesList.Capacity; i++)
+            {
+                if (collision.gameObject.GetComponent<Usable>().itemName == ItemsManager.Instance.UsablesList[i].itemName)
+                {
+                    id = i;
+                    break;
+                } 
+            }
+            PlayerManager.Instance.addUsableById(id, 1);
+            Destroy(collision.gameObject);
 		}
-		if (collision.gameObject.tag == "Key_Object" && Input.GetKey(KeyCode.E))
+        // PICK UP KEY
+		if (collision.gameObject.tag == "Key_Object")
 		{
 			keys++;
 			Destroy(collision.gameObject);
 		}
+        // PICK UP SOUL
 		if (collision.gameObject.tag == "Soul" && PickSoul == true)
 		{
 			Destroy(collision.gameObject);

@@ -190,7 +190,51 @@ public class PlayerManager : MonoBehaviour
         {
             // NO SPACE
         }
-        return Bought;
+        return Found;
+    }
+    public bool addUsableById(int _id, int ammount)
+    {
+        bool Bought = false;
+        bool Found = false;
+        if (_id < 0)
+        {
+            // NULL ID
+            return false;
+        }
+        // CHECK INVENTORY
+        for (int i = 0; i < PlayerUsableList.Count; i++)
+        {
+            if (PlayerUsableList[i] == ItemsManager.Instance.UsablesList[_id])
+            {
+                Found = true;
+                if (PlayerUsableList[i].ammount + ammount <= 99)
+                {
+                    // ADD ITEMS
+                    PlayerUsableList[i].ammount += ammount;
+                    Bought = true;
+                    break;
+                }
+            }
+        }
+        if (!Found)
+        {
+            for (int x = 0; x < PlayerUsableList.Count; x++)
+            {
+                if (PlayerUsableList[x] == null)
+                {
+                    // ADD ITEMS
+                    PlayerUsableList[x] = ItemsManager.Instance.UsablesList[_id];
+                    PlayerUsableList[x].ammount = ammount;
+                    Bought = true;
+                    break;
+                }
+            }
+        }
+        if (!Bought)
+        {
+            // NO SPACE
+        }
+        return Found;
     }
     public int removeUsable(int i, int ammount)
     {
