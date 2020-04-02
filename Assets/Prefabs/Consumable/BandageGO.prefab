@@ -96,7 +96,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 174cc97c34e5c15488a85a65d4de18e0, type: 3}
   itemName: Bandage
   itemDescription: 
-  price: 86
+  price: 95
   ammount: 50
   value: 5
   doesExpire: 0

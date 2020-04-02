@@ -39,6 +39,7 @@ public class DialogueScript : MonoBehaviour
         TextBox.SetActive(false);
         PlayerManager.Instance.usePriority = false;
         PlayerManager.Instance.playerDisabled = false;
+        dialogueFinished = false;
     }
 
     IEnumerator sayText()

@@ -56,3 +56,4 @@ MonoBehaviour:
   Damage: 5
   FireRate: 1
   reloadTime: 30
+  icon: {fileID: 21300000, guid: d5e3b4123223cf5428e67cd97bf73f9b, type: 3}

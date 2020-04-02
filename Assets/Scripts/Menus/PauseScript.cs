@@ -8,6 +8,8 @@ public class PauseScript : MonoBehaviour
     public static bool GamePaused = false;
     public GameObject PauseMenu;
 
+    public GameObject PausedOptions;
+    public GameObject ControlsOptions;
     // Update is called once per frame
     void Update()
     {
@@ -25,6 +27,8 @@ public class PauseScript : MonoBehaviour
     }
     public void ResumeGame()
     {
+        PausedOptions.SetActive(true);
+        ControlsOptions.SetActive(false);
         PauseMenu.SetActive(false);
         Time.timeScale = 1f;
         GamePaused = false;

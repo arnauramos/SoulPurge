@@ -25,7 +25,7 @@ public class WeaponsShopScript : MonoBehaviour
             WeaponsList[i] = ItemsManager.Instance.GetRandomGun();
             // GET ITEM SPRITE
             Spriter = Slots[i].transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
-            auxSprite = WeaponsList[i].sprite;
+            auxSprite = WeaponsList[i].icon;
             // ADD SPRITE TO SPRITER
             if (auxSprite != null)
             {

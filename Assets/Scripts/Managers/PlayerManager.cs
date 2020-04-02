@@ -14,15 +14,11 @@ public class PlayerManager : MonoBehaviour
 	[Header("Variables for player:")]
 	public float health;
 	public float maxHeath;
-	public float resistance;//
 	public float stamina;
 	public float maxStamina;
-	public float staminaRegeneration;
-	public float speed;
+    public float speed;
 	public float maxSpeed;
 	public float sprint;
-	public float speedBoost;//
-	public float shootingBoost;//
 	public int souls;
 	public int maxSouls;
 	public int money;
@@ -31,8 +27,9 @@ public class PlayerManager : MonoBehaviour
 	public bool usePriority;
 	public bool reloading;
 	public bool playerDisabled;
+    public int keys = 0;
 
-	public Vector2 PlayerPosition;
+    public Vector2 PlayerPosition;
 
 	public List<Gun> PlayerGunList;
 	public int weaponSelected = 0;
@@ -41,6 +38,35 @@ public class PlayerManager : MonoBehaviour
 	public int usableSelected = 0;
 
     public bool tutorialDone = false;
+
+    // BOOSTS
+    public float resistance;
+    public float staminaRegeneration;
+    public float speedBoost;
+    public float shootingBoost;
+
+    private bool resistanceActive = false;
+    private bool staminaRegenerationActive = false;
+    private bool speedBoostActive = false;
+    private bool shootingBoostActive = false;
+
+    private float resistanceSeconds = 0;
+    private float staminaRegenerationSeconds = 0;
+    private float speedBoostSeconds = 0;
+    private float shootingBoostSeconds = 0;
+
+    private float resistanceActualSeconds = 0;
+    private float staminaRegenerationActualSeconds = 0;
+    private float speedBoostActualSeconds = 0;
+    private float shootingBoostActualSeconds = 0;
+
+    private float resistanceValue = 0;
+    private float staminaRegenerationValue = 0;
+    private float speedBoostValue = 0;
+    private float shootingBoostValue = 0;
+
+
+
 
     void Start()
 	{
@@ -55,8 +81,73 @@ public class PlayerManager : MonoBehaviour
 		}
 	}
 
-	// ADD
-	public void addHealth(float value)
+    private void Update()
+    {
+        if (resistanceActive)
+        {
+            if (resistanceActualSeconds < resistanceSeconds)
+            {
+                resistanceActualSeconds += Time.deltaTime;
+            }
+            else
+            {
+                resistanceActive = false;
+                resistance -= resistanceValue;
+                resistanceActualSeconds = 0;
+                resistanceSeconds = 0;
+                resistanceValue = 0;
+            }
+        }
+        if (staminaRegenerationActive)
+        {
+            if (staminaRegenerationActualSeconds < staminaRegenerationSeconds)
+            {
+                staminaRegenerationActualSeconds += Time.deltaTime;
+            }
+            else
+            {
+                staminaRegenerationActive = false;
+                staminaRegeneration -= staminaRegenerationValue;
+                staminaRegenerationActualSeconds = 0;
+                staminaRegenerationSeconds = 0;
+                staminaRegenerationValue = 0;
+            }
+        }
+        if (speedBoostActive)
+        {
+            if (speedBoostActualSeconds < speedBoostSeconds)
+            {
+                speedBoostActualSeconds += Time.deltaTime;
+            }
+            else
+            {
+                speedBoostActive = false;
+                speedBoost -= speedBoostValue;
+                speedBoostActualSeconds = 0;
+                speedBoostSeconds = 0;
+                speedBoostValue = 0;
+            }
+        }
+        if (shootingBoostActive)
+        {
+            if (shootingBoostActualSeconds < shootingBoostSeconds)
+            {
+                shootingBoostActualSeconds += Time.deltaTime;
+            }
+            else
+            {
+                shootingBoostActive = false;
+                shootingBoost -= shootingBoostValue;
+                shootingBoostActualSeconds = 0;
+                shootingBoostSeconds = 0;
+                shootingBoostValue = 0;
+            }
+        }
+    }
+
+
+    // ADD
+    public void addHealth(float value)
 	{
 		if (health + value > maxHeath)
 		{
@@ -190,7 +281,7 @@ public class PlayerManager : MonoBehaviour
         {
             // NO SPACE
         }
-        return Found;
+        return Bought;
     }
     public bool addUsableById(int _id, int ammount)
     {
@@ -280,11 +371,19 @@ public class PlayerManager : MonoBehaviour
 	public void substrHealth(float value)
 	{
 		health -= value;
+        if (health < 0)
+        {
+            health = 0;
+        }
 	}
 
 	public void substrStamina(float value)
 	{
 		stamina -= value;
+        if (stamina < 0)
+        {
+            stamina = 0;
+        }
 	}
 
 	public void substrTotalAmmo(int value)
@@ -293,22 +392,63 @@ public class PlayerManager : MonoBehaviour
 	}
 
 	//RESET (work in progress)
-	public void ResetResistance()
+	public void UseResistance(float seconds, float value)
 	{
-		//resistance = 1;
-	}
-	public void ResetStaminaRegeneration()
+        if (!resistanceActive)
+        {
+            resistance += value;
+            resistanceActive = true;
+            resistanceSeconds = seconds;
+            resistanceValue = value;
+        }
+        else
+        {
+            resistanceActualSeconds = 0;
+        }
+    }
+    public void UseStaminaRegeneration(float seconds, float value)
 	{
-		//staminaRegeneration = 1;
-	}
-	public void ResetSpeedBoost()
+        if (!staminaRegenerationActive)
+        {
+            staminaRegeneration += value;
+            staminaRegenerationActive = true;
+            staminaRegenerationSeconds = seconds;
+            staminaRegenerationValue = value;
+        }
+        else
+        {
+            staminaRegenerationActualSeconds = 0;
+        }
+
+    }
+	public void UseSpeedBoost(float seconds, float value)
 	{
-		//speedBoost = 1;
-	}
-	public void ResetShootingBoost()
+        if (!speedBoostActive)
+        {
+            speedBoost += value;
+            speedBoostActive = true;
+            speedBoostSeconds = seconds;
+            speedBoostValue = value;
+        }
+        else
+        {
+            speedBoostActualSeconds = 0;
+        }
+    }
+    public void UseShootingBoost(float seconds, float value)
 	{
-		//shootingBoost = 1;
-	}
+        if (!shootingBoostActive)
+        {
+            shootingBoost += value;
+            shootingBoostActive = true;
+            shootingBoostSeconds = seconds;
+            shootingBoostValue = value;
+        }
+        else
+        {
+            shootingBoostActualSeconds = 0;
+        }
+    }
 
 	public void SetPlayerPosition(Vector2 position)
 	{
@@ -325,15 +465,11 @@ public class PlayerManager : MonoBehaviour
     {
         health = 100;
         maxHeath = 100;
-        resistance = 0;
         stamina = 400;
         maxStamina = 400;
-        staminaRegeneration = 0.2f;
         speed = 1.25f;
         maxSpeed = 1.25f;
         sprint = 2;
-        speedBoost = 1;
-        shootingBoost = 1;
         souls = 0;
         maxSouls = 100;
         money = 0;
@@ -342,5 +478,37 @@ public class PlayerManager : MonoBehaviour
         usePriority = false;
         reloading = false;
         playerDisabled = false;
+        keys = 0;
+
+    // BOOSTS
+    resetBoosts();
+    }
+
+    private void resetBoosts()
+    {
+        resistance = 0;
+        staminaRegeneration = 0.2f;
+        speedBoost = 1f;
+        shootingBoost = 1f;
+
+        resistanceActive = false;
+        staminaRegenerationActive = false;
+        speedBoostActive = false;
+        shootingBoostActive = false;
+
+        resistanceSeconds = 0;
+        staminaRegenerationSeconds = 0;
+        speedBoostSeconds = 0;
+        shootingBoostSeconds = 0;
+
+        resistanceActualSeconds = 0;
+        staminaRegenerationActualSeconds = 0;
+        speedBoostActualSeconds = 0;
+        shootingBoostActualSeconds = 0;
+
+        resistanceValue = 0;
+        staminaRegenerationValue = 0;
+        speedBoostValue = 0;
+        shootingBoostValue = 0;
     }
 }

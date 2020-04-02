@@ -44,7 +44,6 @@ public class Player : MonoBehaviour
 
 	[Header("Variables for objects & keys:")]
 	[Space(10)]
-	public int keys = 0;
 	private bool PickSoul = true;
 
 	//VARIABLES FOR ANIMATIONS
@@ -151,7 +150,7 @@ public class Player : MonoBehaviour
 		if (Counter >= ReloadingCounter && reloading == true) reloading = false;
 		else
 		{
-			if (Counter >= initialBulletTime / PlayerManager.Instance.shootingBoost && Input.GetMouseButton(0))
+			if (Counter >= initialBulletTime && Input.GetMouseButton(0))
 			{
 				if (weaponUsing.Rounds <= 0) return;
 
@@ -159,7 +158,7 @@ public class Player : MonoBehaviour
 
 				Shooting();
 
-				initialBulletTime = Counter + weaponUsing.FireRate;
+				initialBulletTime = Counter + (weaponUsing.FireRate / PlayerManager.Instance.shootingBoost);
 				ReloadingCounter = Counter + weaponUsing.reloadTime;
 			}
 		}
@@ -176,7 +175,7 @@ public class Player : MonoBehaviour
 
 		if ((Input.GetKey(KeyCode.LeftShift) || (Input.GetKey(KeyCode.Keypad0))) && PlayerManager.Instance.stamina > 0)
 		{
-			if (Movement.y != 0)
+			if (Movement.y != 0 || Movement.x != 0)
 			{
 				PlayerManager.Instance.changeSpeed(PlayerManager.Instance.sprint);
 				OffSetSprint = false;
@@ -249,8 +248,16 @@ public class Player : MonoBehaviour
 		else if (weaponUsing.Rounds == 0 && PlayerManager.Instance.totalAmmo > 0)
 		{
 			Debug.Log("Reloading: Automatic;");
-			weaponUsing.Rounds = AuxRounds;
-			PlayerManager.Instance.substrTotalAmmo(weaponUsing.Rounds);
+            if (PlayerManager.Instance.totalAmmo < weaponUsing.MaxRounds)
+            {
+                weaponUsing.Rounds = PlayerManager.Instance.totalAmmo;
+                PlayerManager.Instance.substrTotalAmmo(weaponUsing.Rounds);
+            }
+            else
+            {
+                weaponUsing.Rounds = AuxRounds;
+                PlayerManager.Instance.substrTotalAmmo(weaponUsing.Rounds);
+            }
             reloading = true;
         }
     }
@@ -347,7 +354,8 @@ public class Player : MonoBehaviour
 			dmgCounter = Time.time * fixedDelta;
 			if (dmgCounter >= initialDmgCounter)
 			{
-				PlayerManager.Instance.substrHealth(collision.gameObject.GetComponent<Enemy>().dmg);
+                float Dmg = collision.gameObject.GetComponent<Enemy>().dmg;
+                PlayerManager.Instance.substrHealth(Dmg - (Dmg * PlayerManager.Instance.resistance));
 				initialDmgCounter = dmgCounter + collision.gameObject.GetComponent<Enemy>().AttackRate;
 			}
 		}
@@ -355,7 +363,8 @@ public class Player : MonoBehaviour
 		if (collision.gameObject.tag == "Bullet" && !collision.gameObject.GetComponent<Bullet>().PlayerShoot)
 		{
 			Destroy(collision.gameObject);
-			PlayerManager.Instance.substrHealth(weaponUsing.Damage);
+            float gunDmg = ItemsManager.Instance.GunsList[0].Damage;
+            PlayerManager.Instance.substrHealth(gunDmg - (gunDmg * PlayerManager.Instance.resistance));
 
 			Debug.Log("Player got shoot;");
 		}
@@ -393,7 +402,7 @@ public class Player : MonoBehaviour
         // PICK UP KEY
 		if (collision.gameObject.tag == "Key_Object")
 		{
-			keys++;
+            PlayerManager.Instance.keys++;
 			Destroy(collision.gameObject);
 		}
         // PICK UP SOUL

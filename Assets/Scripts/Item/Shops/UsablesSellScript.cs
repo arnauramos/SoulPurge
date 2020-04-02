@@ -8,6 +8,7 @@ public class UsablesSellScript : MonoBehaviour
     // SHOP GAMEOBJECTS
     public List<GameObject> Slots;
     public List<GameObject> Buttons;
+    public List<TextMeshProUGUI> CurrentAmmounts;
     private SpriteRenderer Spriter;
     private TextMeshProUGUI Name;
     private TextMeshProUGUI Price;
@@ -102,6 +103,8 @@ public class UsablesSellScript : MonoBehaviour
                 Spriter.sprite = null;
                 // SELL BUTTON = FALSE
                 Buttons[i].SetActive(false);
+                // CURRENT AMMOUNT = " "
+                CurrentAmmounts[i].text = " ";
             }
             // IF NOT NULL
             else
@@ -125,6 +128,8 @@ public class UsablesSellScript : MonoBehaviour
                 Spriter.sprite = ItemsList[i].sprite;
                 // SELL BUTTON = TRUE
                 Buttons[i].SetActive(true);
+                // CURRENT AMMOUNT
+                CurrentAmmounts[i].text = ItemsList[i].ammount.ToString();
             }
         }
     }
