@@ -380,9 +380,13 @@ public class Player : MonoBehaviour
                 PlayerSceneManager.Instance.goFrontScene(PlayerSceneManager.Instance.getActualScene());
             }
         }
+		if (collision.gameObject.tag == "Door")
+		{
+			EnviromentManager.Instance.manageDoor(collision.gameObject);
+		}
 	}
-    // PICK UP OBJECTS 
-    private void OnTriggerStay2D(Collider2D collision)
+	// PICK UP OBJECTS 
+	private void OnTriggerStay2D(Collider2D collision)
 	{
         // PICK UP USABLE
 		if (collision.gameObject.tag == "Usable") 
@@ -440,5 +444,17 @@ public class Player : MonoBehaviour
             dialoguescript = collision.gameObject.GetComponent<DialogueScript>();
             dialoguescript.playDialogue();
         }
-    }
+
+		if (collision.gameObject.tag == "Inside")
+		{
+			EnviromentManager.Instance.openRoof();
+		}
+	}
+	private void OnTriggerExit2D(Collider2D collision)
+	{
+		if (collision.gameObject.tag == "Inside")
+		{
+			EnviromentManager.Instance.closeRoof();
+		}
+	}
 }
