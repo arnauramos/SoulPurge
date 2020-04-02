@@ -21,6 +21,15 @@ EditorBuildSettings:
     path: Assets/Scenes/TileMap_Scenes/DEV_TileMap-ZonaSegura.unity
     guid: 452b096aff2b55549ad8d9aac48b9c6f
   - enabled: 1
+    path: Assets/Scenes/TileMap_Scenes/DEV_TileMap-ZonaHostil-2.unity
+    guid: 10044883b62d4914c8f811211e674243
+  - enabled: 1
+    path: Assets/Scenes/TileMap_Scenes/DEV_TileMap-ZonaSegura-2.unity
+    guid: 1bcb28166ac30044d8a9d8a8e4e40273
+  - enabled: 1
+    path: Assets/Scenes/TileMap_Scenes/DEV_TileMap-ZonaHostil-3.unity
+    guid: 6dd28953b72dd7243b853436632242d6
+  - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: b286a08611617474bbf02f4d0dc3e87f
   m_configObjects: {}

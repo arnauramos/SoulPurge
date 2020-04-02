@@ -52,7 +52,7 @@ public class PlayerSceneManager : MonoBehaviour
     public void isSceneHostile()
     {
         string SceneName = SceneManager.GetActiveScene().name;
-        if (SceneName == "DEV_TileMap-ZonaHostil" ) ZoneIsHostile = true;
+        if (SceneName == "DEV_TileMap-ZonaHostil" || SceneName == "DEV_TileMap-ZonaHostil-2" || SceneName == "DEV_TileMap-ZonaHostil-3") ZoneIsHostile = true;
         else ZoneIsHostile = false;
     }
 }
