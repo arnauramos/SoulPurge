@@ -10,11 +10,15 @@ public class HUDScript : MonoBehaviour
     public GameObject StaminaBar;
     private Image StaminaImage;
     private float staminaFloat = 1f;
+    // STAMINA TEXT
+    public TextMeshProUGUI StaminaText;
 
     // HEALTH
     public GameObject HealthBar;
     private Image HealthImage;
     private float healthFloat = 1f;
+    // HEALTH TEXT
+    public TextMeshProUGUI HealthText;
 
     // SOULS
     public GameObject SoulsCounter;
@@ -71,11 +75,13 @@ public class HUDScript : MonoBehaviour
         staminaFloat = PlayerManager.Instance.stamina / PlayerManager.Instance.maxStamina;
         if (staminaFloat < 0) staminaFloat = 0;
         StaminaImage.fillAmount = staminaFloat;
+        StaminaText.text = ((int)PlayerManager.Instance.stamina).ToString() + " / " + PlayerManager.Instance.maxStamina.ToString();
     }
     private void Health() {
         healthFloat = PlayerManager.Instance.health / PlayerManager.Instance.maxHeath;
         if (healthFloat < 0) healthFloat = 0;
         HealthImage.fillAmount = healthFloat;
+        HealthText.text = ((int)PlayerManager.Instance.health).ToString() + " / " + PlayerManager.Instance.maxHeath.ToString();
     }
     private void Souls() {
         SoulsText.text = PlayerManager.Instance.souls.ToString();

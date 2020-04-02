@@ -9,8 +9,16 @@ public abstract class Usable : Item
     protected bool CheckItem()
     {
         if (ammount <= 0) return false;
-        ammount--;
-        return true;
+        // DELETE FROM INVENTORY
+        for (int i = 0; i < PlayerManager.Instance.PlayerUsableList.Capacity; i++)
+        {
+            if (this == PlayerManager.Instance.PlayerUsableList[i])
+            {
+                PlayerManager.Instance.removeUsable(i, 1);
+                return true;
+            }
+        }
+        return false;
     }
 
     public int ammount;
