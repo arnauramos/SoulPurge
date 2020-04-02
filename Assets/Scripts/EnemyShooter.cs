@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class EnemyShooter : MonoBehaviour
 {
-    // VARIABLES FOR AREA OF VISION
-    private Color blue = new Color(0, 0.5f, 1, 0.2f);
-    private Color red = new Color(1, 0, 0, 0.2f);
-    private SpriteRenderer AOVsRenderer;
-    public GameObject AreaOfVision;
+    //// VARIABLES FOR AREA OF VISION
+    //private Color blue = new Color(0, 0.5f, 1, 0.2f);
+    //private Color red = new Color(1, 0, 0, 0.2f);
+    //private SpriteRenderer AOVsRenderer;
+    //public GameObject AreaOfVision;
 
     // VARIABLES FOR HEALTH
     public float health = 90f;
@@ -27,15 +27,15 @@ public class EnemyShooter : MonoBehaviour
 
 
     // VARIABLES FOR MOVEMENT TO PLAYER
-    public float Speed = 500f;
+    public float Speed = 1000f;
     public Vector2 Direction;
     private Vector3 LookingPlayer = new Vector3(240, 240, 1);
     private Rigidbody2D rb2d;
     private GameObject Player;
     private float rbx, rby;
     private float angle;
-    public float LookRange = 3;
-    public float StopRange = 2;
+    public float LookRange = 6f;
+    public float StopRange = 2f;
 
     // VARIABLES FOR IDLE MOVEMENT
     private Vector3 Idle = new Vector3(150, 150, 1);
@@ -49,7 +49,7 @@ public class EnemyShooter : MonoBehaviour
     {
    
         rb2d = GetComponent<Rigidbody2D>();
-        AOVsRenderer = AreaOfVision.GetComponent<SpriteRenderer>();
+        //AOVsRenderer = AreaOfVision.GetComponent<SpriteRenderer>();
         Player = GameObject.Find("Player");
 
         // CALCULATE FIRST IDLE MOVEMENT
@@ -71,6 +71,7 @@ public class EnemyShooter : MonoBehaviour
     {
         if (health <= 0f)
         {
+            SoundManager.Instance.PlaySound(SoundManager.Sounds.EnemyDie);
             Destroy(gameObject);
             DropingSoul.DropingSouls(gameObject, Soul);
         }
@@ -87,9 +88,9 @@ public class EnemyShooter : MonoBehaviour
         // MOOVING / IDLE 
         if (Direction.x < LookRange && Direction.x > -LookRange && Direction.y < LookRange && Direction.y > -LookRange)
         {
-            LookRange = 5f;
-            AreaOfVision.transform.localScale = LookingPlayer;
-            AOVsRenderer.color = red;
+            LookRange = 8f;
+            //AreaOfVision.transform.localScale = LookingPlayer;
+            //AOVsRenderer.color = red;
             Movement();
 
             // SHOOTING
@@ -103,8 +104,8 @@ public class EnemyShooter : MonoBehaviour
         else
         {
             LookRange = 6f;
-            AreaOfVision.transform.localScale = Idle;
-            AOVsRenderer.color = blue;
+            //AreaOfVision.transform.localScale = Idle;
+            //AOVsRenderer.color = blue;
             IdleMovement();
         }
     }
@@ -145,6 +146,7 @@ public class EnemyShooter : MonoBehaviour
         bulletObject = Instantiate(weaponUsing.Bullet, firePoint.position, firePoint.rotation);
         rb2dBullet = bulletObject.GetComponent<Rigidbody2D>();
         rb2dBullet.AddForce(firePoint.up * weaponUsing.BulletSpeed, ForceMode2D.Impulse);
+        SoundManager.Instance.PlaySound(SoundManager.Sounds.EnemyShooting);
         Destroy(bulletObject, weaponUsing.Range * 2);
     }
 
@@ -153,6 +155,8 @@ public class EnemyShooter : MonoBehaviour
         if (collision.gameObject.tag == "Bullet" && collision.gameObject.GetComponent<Bullet>().PlayerShoot)
         {
             health -= PlayerManager.Instance.PlayerGunList[PlayerManager.Instance.weaponSelected].Damage;
+            SoundManager.Instance.PlaySound(SoundManager.Sounds.EnemyDamage);
+            return;
         }
     }
 }

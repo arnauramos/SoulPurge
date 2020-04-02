@@ -131,7 +131,9 @@ public class Player : MonoBehaviour
 
     private void playerDie()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Sounds.PlayerDie);
         Destroy(gameObject);
+        MusicManager.Instance.PlaySong(MusicManager.Songs.GameOver);
         PlayerSceneManager.Instance.goLastScene();
     }
 
@@ -217,7 +219,8 @@ public class Player : MonoBehaviour
 		bulletObject.GetComponent<Bullet>().PlayerShoot = true;
 		rb2dBullet = bulletObject.GetComponent<Rigidbody2D>();
 		rb2dBullet.AddForce(firePoint.up * weaponUsing.BulletSpeed, ForceMode2D.Impulse);
-		Destroy(bulletObject, weaponUsing.Range);
+        SoundManager.Instance.PlaySound(SoundManager.Sounds.Shooting);
+        Destroy(bulletObject, weaponUsing.Range);
 		weaponUsing.Rounds--;
         DataManager.Instance.BulletsShot += 1;
 	}
@@ -243,6 +246,7 @@ public class Player : MonoBehaviour
 				weaponUsing.Rounds = AuxRounds;
 				PlayerManager.Instance.substrTotalAmmo(weaponUsing.Rounds);
 			}
+            SoundManager.Instance.PlaySound(SoundManager.Sounds.Reloading);
             reloading = true;
         }
 		else if (weaponUsing.Rounds == 0 && PlayerManager.Instance.totalAmmo > 0)
@@ -258,10 +262,11 @@ public class Player : MonoBehaviour
                 weaponUsing.Rounds = AuxRounds;
                 PlayerManager.Instance.substrTotalAmmo(weaponUsing.Rounds);
             }
+            SoundManager.Instance.PlaySound(SoundManager.Sounds.Reloading);
             reloading = true;
         }
     }
-	void GunsSwap()
+    void GunsSwap()
 	{
         if (PlayerManager.Instance.playerDisabled)
         {
@@ -357,7 +362,10 @@ public class Player : MonoBehaviour
                 float Dmg = collision.gameObject.GetComponent<Enemy>().dmg;
                 PlayerManager.Instance.substrHealth(Dmg - (Dmg * PlayerManager.Instance.resistance));
 				initialDmgCounter = dmgCounter + collision.gameObject.GetComponent<Enemy>().AttackRate;
-			}
+                if (PlayerManager.Instance.health <= 0) SoundManager.Instance.PlaySound(SoundManager.Sounds.PlayerDie);
+                SoundManager.Instance.PlaySound(SoundManager.Sounds.PlayerDamage);
+
+            }
 		}
 
 		if (collision.gameObject.tag == "Bullet" && !collision.gameObject.GetComponent<Bullet>().PlayerShoot)
@@ -365,12 +373,23 @@ public class Player : MonoBehaviour
 			Destroy(collision.gameObject);
             float gunDmg = ItemsManager.Instance.GunsList[0].Damage;
             PlayerManager.Instance.substrHealth(gunDmg - (gunDmg * PlayerManager.Instance.resistance));
-
-			Debug.Log("Player got shoot;");
+            if (PlayerManager.Instance.health <= 0) SoundManager.Instance.PlaySound(SoundManager.Sounds.PlayerDie);
+            SoundManager.Instance.PlaySound(SoundManager.Sounds.PlayerDamage);
+            Debug.Log("Player got shoot;");
 		}
 
-		if (collision.gameObject.tag == "Safe_Door" && ((PlayerManager.Instance.keys == 3 && SpawnerManager.Instance.ActualRound == 5 && PlayerSceneManager.Instance.ZoneIsHostile) || !PlayerSceneManager.Instance.ZoneIsHostile))
+		if (collision.gameObject.tag == "Safe_Door" && ((PlayerManager.Instance.keys >= 3 && SpawnerManager.Instance.ActualRound >= 5 && PlayerSceneManager.Instance.ZoneIsHostile) || !PlayerSceneManager.Instance.ZoneIsHostile))
 		{
+            if (PlayerSceneManager.Instance.ZoneIsHostile)
+            {
+                PlayerManager.Instance.keys -= 3;
+                MusicManager.Instance.PlaySong(MusicManager.Songs.SafeZone);
+
+            }
+            else
+            {
+                MusicManager.Instance.PlaySong(MusicManager.Songs.HostileZone);
+            }
             if (collision.gameObject.name == "SafeDoor_Left")
             {
                 PlayerSceneManager.Instance.goBackScene(PlayerSceneManager.Instance.getActualScene());

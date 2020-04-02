@@ -473,15 +473,18 @@ public class PlayerManager : MonoBehaviour
         souls = 0;
         maxSouls = 100;
         money = 0;
-        totalAmmo = 600;
         AuxGO = 0;
         usePriority = false;
         reloading = false;
         playerDisabled = false;
         keys = 0;
 
-    // BOOSTS
-    resetBoosts();
+        // BOOSTS
+        resetBoosts();
+        // WEAPON INVENTORY
+        resetWeaponsInventory();
+        // USABLES INVENTORY
+        resetUsablesInventory();
     }
 
     private void resetBoosts()
@@ -511,4 +514,39 @@ public class PlayerManager : MonoBehaviour
         speedBoostValue = 0;
         shootingBoostValue = 0;
     }
+    private void resetWeaponsInventory()
+    {
+        // START WITH A GUN
+        totalAmmo = 160;
+        for (int i = 0; i < ItemsManager.Instance.GunsList.Capacity; i++)
+        {
+            ItemsManager.Instance.GunsList[i].Rounds = ItemsManager.Instance.GunsList[i].MaxRounds;
+        }
+        for (int i = 0; i < PlayerGunList.Capacity; i++)
+        {
+            if (i == 0)
+            {
+                PlayerGunList[i] = ItemsManager.Instance.GunsList[i];
+                PlayerGunList[i].Rounds = PlayerGunList[0].MaxRounds;
+            }
+            else
+            {
+                PlayerGunList[i] = null;
+            }
+        }
+        weaponSelected = 0;
+    }
+    private void resetUsablesInventory()
+    {
+        for (int i = 0; i < ItemsManager.Instance.UsablesList.Capacity; i++)
+        {
+            ItemsManager.Instance.UsablesList[i].ammount = 0;
+        }
+        for (int i = 0; i < PlayerUsableList.Capacity; i++)
+        {
+            PlayerUsableList[i] = null;
+        }
+        usableSelected = -1;
+    }
+
 }
