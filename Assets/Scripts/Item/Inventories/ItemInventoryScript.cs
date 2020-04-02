@@ -27,12 +27,25 @@ public class ItemInventoryScript : MonoBehaviour
     {
         for (int i = 0; i < Slots.Count; i++)
         {
-            // GETTING COMPONENTS AND DATA
-            auxSprite = PlayerManager.Instance.PlayerUsableList[i].sprite;
-            auxAmmount = PlayerManager.Instance.PlayerUsableList[i].ammount;
+            // GETTING COMPONENTS
             Border = Slots[i].GetComponent<Image>();
             BG = Slots[i].transform.GetChild(0).GetComponent<Image>();
             Spriter = Slots[i].transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
+
+            if (PlayerManager.Instance.PlayerUsableList[i] == null || PlayerManager.Instance.PlayerUsableList[i].ammount <= 0)
+            {
+                auxSprite = null;
+                auxAmmount = 0;
+                Border.color = Color.white;
+                BG.color = DarkYellow;
+                Spriter.sprite = null;
+                SlotsAmmounts[i].text = "0";
+                SlotsAmmounts[i].enabled = false;
+                continue;
+            }
+            // GETTING DATA
+            auxSprite = PlayerManager.Instance.PlayerUsableList[i].sprite;
+            auxAmmount = PlayerManager.Instance.PlayerUsableList[i].ammount;
 
             // RENDERING INVENTORY SPRITES
             if (auxSprite != null && auxAmmount > 0)

@@ -40,9 +40,9 @@ public class PlayerManager : MonoBehaviour
 	public List<Usable> PlayerUsableList;
 	public int usableSelected = 0;
 
-    //public bool tutorialDone = false; 
+    public bool tutorialDone = false;
 
-	void Start()
+    void Start()
 	{
 		if (Instance == null)
 		{
@@ -134,6 +134,23 @@ public class PlayerManager : MonoBehaviour
 			i++;
 		}
     }
+    public int removeGun(int i)
+    {
+        PlayerGunList[i] = null;
+        // update inventory
+        for (int x = 0; x < PlayerGunList.Capacity; x++)
+        {
+            if (PlayerGunList[x] != null)
+            {
+                weaponSelected = x;
+            }
+        }
+        if (weaponSelected == i)
+        {
+            weaponSelected = -1;
+        }
+        return 0;
+    }
 
     // ADD USABLE
     public bool addUsable(Usable _new, int ammount)
@@ -163,6 +180,7 @@ public class PlayerManager : MonoBehaviour
                 {
                     // ADD ITEMS
                     PlayerUsableList[x] = _new;
+                    PlayerUsableList[x].ammount = ammount;
                     Bought = true;
                     break;
                 }
@@ -172,11 +190,80 @@ public class PlayerManager : MonoBehaviour
         {
             // NO SPACE
         }
-        return Bought;
+        return Found;
+    }
+    public bool addUsableById(int _id, int ammount)
+    {
+        bool Bought = false;
+        bool Found = false;
+        if (_id < 0)
+        {
+            // NULL ID
+            return false;
+        }
+        // CHECK INVENTORY
+        for (int i = 0; i < PlayerUsableList.Count; i++)
+        {
+            if (PlayerUsableList[i] == ItemsManager.Instance.UsablesList[_id])
+            {
+                Found = true;
+                if (PlayerUsableList[i].ammount + ammount <= 99)
+                {
+                    // ADD ITEMS
+                    PlayerUsableList[i].ammount += ammount;
+                    Bought = true;
+                    break;
+                }
+            }
+        }
+        if (!Found)
+        {
+            for (int x = 0; x < PlayerUsableList.Count; x++)
+            {
+                if (PlayerUsableList[x] == null)
+                {
+                    // ADD ITEMS
+                    PlayerUsableList[x] = ItemsManager.Instance.UsablesList[_id];
+                    PlayerUsableList[x].ammount = ammount;
+                    Bought = true;
+                    break;
+                }
+            }
+        }
+        if (!Bought)
+        {
+            // NO SPACE
+        }
+        return Found;
+    }
+    public int removeUsable(int i, int ammount)
+    {
+        PlayerUsableList[i].ammount -= ammount;
+        if (PlayerUsableList[i].ammount <= 0)
+        {
+            PlayerUsableList[i] = null;
+        }
+        // update inventory
+        if (PlayerUsableList[i] == null)
+        {
+            for (int x = 0; x < PlayerUsableList.Capacity; x++)
+            {
+                if (PlayerUsableList[x] != null)
+                {
+                    usableSelected = x;
+                }
+            }
+            if (usableSelected == i)
+            {
+                usableSelected = -1;
+            }
+        }
+        return 0;
     }
 
-	//EXTRA MAX
-	public void addExtraHealth(float value)
+
+    //EXTRA MAX
+    public void addExtraHealth(float value)
 	{
 		maxHeath += value;
 	}

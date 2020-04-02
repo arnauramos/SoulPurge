@@ -77,16 +77,39 @@ public class Player : MonoBehaviour
 
 		// UPDATE WEAPON USING
 		GunsSwap();
-		weaponUsing = PlayerManager.Instance.PlayerGunList[PlayerManager.Instance.weaponSelected];
-        weaponGraphics.sprite = weaponUsing.sprite;
+        if (PlayerManager.Instance.weaponSelected < 0)
+        {
+            weaponUsing = null;
+            weaponGraphics.sprite = null;
+        }
+        else
+        {
+            weaponUsing = PlayerManager.Instance.PlayerGunList[PlayerManager.Instance.weaponSelected];
+            weaponGraphics.sprite = weaponUsing.sprite;
+        }
 
-		//  UPDATE ITEM USING VARIABLES
-		ItemsSwap();
-		itemUsing = PlayerManager.Instance.PlayerUsableList[PlayerManager.Instance.usableSelected];
+        //  UPDATE ITEM USING VARIABLES
+        ItemsSwap();
+        if (PlayerManager.Instance.usableSelected < 0)
+        {
+            itemUsing = null;
+        }
+        else
+        {
+            itemUsing = PlayerManager.Instance.PlayerUsableList[PlayerManager.Instance.usableSelected];
+        }
+        // WEAPON VARIABLES
+        if (weaponUsing == null)
+        {
+            Rounds = 0;
+            AuxRounds = 0;
+        }
+        else
+        {
+            Rounds = weaponUsing.Rounds;
+            AuxRounds = weaponUsing.MaxRounds;
+        }
 
-		// WEAPON VARIABLES
-		Rounds = weaponUsing.Rounds;
-		AuxRounds = weaponUsing.MaxRounds;
 
         //  RELOAD
         Reloading();
@@ -124,6 +147,7 @@ public class Player : MonoBehaviour
 
 		SpawnerManager.Instance.Spawner();
 
+        if (weaponUsing == null) return;
 		if (Counter >= ReloadingCounter && reloading == true) reloading = false;
 		else
 		{
@@ -200,7 +224,7 @@ public class Player : MonoBehaviour
 	}
 	void Reloading()
 	{
-        if (PlayerManager.Instance.playerDisabled)
+        if (PlayerManager.Instance.playerDisabled || weaponUsing == null)
         {
             return;
         }
@@ -306,6 +330,10 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E) && PlayerManager.Instance.usePriority == false)
 		{
+            if (itemUsing == null)
+            {
+                return;
+            }
 			if (itemUsing.ammount <= 0) { Debug.Log("Cantidad: " + itemUsing.ammount); return; }
 			itemUsing.Use();
 			Debug.Log("Ha sido usado el item: " + itemUsing.itemName + ". En la posición: " + PlayerManager.Instance.usableSelected + " del array");
@@ -344,18 +372,31 @@ public class Player : MonoBehaviour
             }
         }
 	}
-	private void OnTriggerStay2D(Collider2D collision) //pillar objetos (Albert)
+    // PICK UP OBJECTS 
+    private void OnTriggerStay2D(Collider2D collision)
 	{
-		if (collision.gameObject.tag == "Object" && Input.GetKey(KeyCode.E)) //de momento object solo sera vendas, asi que sumara vida cuando se pille
+        // PICK UP USABLE
+		if (collision.gameObject.tag == "Usable") 
 		{
-			PlayerManager.Instance.addHealth(10);
-			Destroy(collision.gameObject);
+            int id = -1;
+            for (int i = 0; i < ItemsManager.Instance.UsablesList.Capacity; i++)
+            {
+                if (collision.gameObject.GetComponent<Usable>().itemName == ItemsManager.Instance.UsablesList[i].itemName)
+                {
+                    id = i;
+                    break;
+                } 
+            }
+            PlayerManager.Instance.addUsableById(id, 1);
+            Destroy(collision.gameObject);
 		}
-		if (collision.gameObject.tag == "Key_Object" && Input.GetKey(KeyCode.E))
+        // PICK UP KEY
+		if (collision.gameObject.tag == "Key_Object")
 		{
 			keys++;
 			Destroy(collision.gameObject);
 		}
+        // PICK UP SOUL
 		if (collision.gameObject.tag == "Soul" && PickSoul == true)
 		{
 			Destroy(collision.gameObject);

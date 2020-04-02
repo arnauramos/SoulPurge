@@ -23,6 +23,7 @@ TagManager:
   - UsablesShop
   - WeaponsShop
   - Person
+  - Usable
   layers:
   - Default
   - TransparentFX

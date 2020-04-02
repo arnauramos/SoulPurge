@@ -300,11 +300,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 346289117, guid: 06c84296957be104883d618ed4fe73a9, type: 3}
-      propertyPath: HostileZoneWaves
-      value: 
-      objectReference: {fileID: 11400000, guid: eb79ea98550497a4491bfaee58ffd3d0,
-        type: 2}
+    - target: {fileID: 4263313350195357156, guid: 06c84296957be104883d618ed4fe73a9,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemySpawner
+      objectReference: {fileID: 0}
     - target: {fileID: 4263313350195357155, guid: 06c84296957be104883d618ed4fe73a9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -360,11 +360,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4263313350195357156, guid: 06c84296957be104883d618ed4fe73a9,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemySpawner
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06c84296957be104883d618ed4fe73a9, type: 3}
 --- !u!1001 &4050740345591872755
@@ -374,6 +369,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4050740345382105468, guid: a4e0ec7e0e120fe448317710e9cba97b,
+        type: 3}
+      propertyPath: m_Name
+      value: ItemsManager
+      objectReference: {fileID: 0}
     - target: {fileID: 4050740345382105442, guid: a4e0ec7e0e120fe448317710e9cba97b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -429,11 +429,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4050740345382105468, guid: a4e0ec7e0e120fe448317710e9cba97b,
-        type: 3}
-      propertyPath: m_Name
-      value: ItemsManager
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4e0ec7e0e120fe448317710e9cba97b, type: 3}
 --- !u!1001 &4180423386811790472
@@ -443,6 +438,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7707022960243546871, guid: 0be0cfaf686bcf2408b80e6da1aa0963,
+        type: 3}
+      propertyPath: m_Name
+      value: DataManager
+      objectReference: {fileID: 0}
     - target: {fileID: 6475086541599412748, guid: 0be0cfaf686bcf2408b80e6da1aa0963,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -498,11 +498,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7707022960243546871, guid: 0be0cfaf686bcf2408b80e6da1aa0963,
-        type: 3}
-      propertyPath: m_Name
-      value: DataManager
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0be0cfaf686bcf2408b80e6da1aa0963, type: 3}
 --- !u!1001 &5848693772452132852
@@ -516,11 +511,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 5848693773747216444, guid: 90f614f191cc1f24286754e58e31b4e6,
-        type: 3}
-      propertyPath: PlayerGunList.Array.data[2]
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5848693773747216445, guid: 90f614f191cc1f24286754e58e31b4e6,
         type: 3}
@@ -576,6 +566,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5848693773747216444, guid: 90f614f191cc1f24286754e58e31b4e6,
+        type: 3}
+      propertyPath: PlayerGunList.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5848693773747216444, guid: 90f614f191cc1f24286754e58e31b4e6,
+        type: 3}
+      propertyPath: PlayerUsableList.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5848693773747216444, guid: 90f614f191cc1f24286754e58e31b4e6,
+        type: 3}
+      propertyPath: PlayerUsableList.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5848693773747216444, guid: 90f614f191cc1f24286754e58e31b4e6,
+        type: 3}
+      propertyPath: PlayerUsableList.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5848693773747216444, guid: 90f614f191cc1f24286754e58e31b4e6,
+        type: 3}
+      propertyPath: PlayerUsableList.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5848693773747216444, guid: 90f614f191cc1f24286754e58e31b4e6,
+        type: 3}
+      propertyPath: PlayerUsableList.Array.data[4]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5848693773747216444, guid: 90f614f191cc1f24286754e58e31b4e6,
+        type: 3}
+      propertyPath: PlayerGunList.Array.data[3]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f614f191cc1f24286754e58e31b4e6, type: 3}
