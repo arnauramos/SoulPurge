@@ -41,21 +41,17 @@ public class SpawnerManager : MonoBehaviour
         {
             Debug.Log("Error: Duplicated " + this + "in the scene");
         }
-
-        //  Get Map Bounties
-        MapTopLeftLimit = new Vector2(GameObject.Find("West_Wall").transform.position.x, GameObject.Find("North_Wall").transform.position.y);
-        MapBotRightLimit = new Vector2(GameObject.Find("East_Wall").transform.position.x, GameObject.Find("South_Wall").transform.position.y);
-
-        //  Get Camera Bounties
-        CameraTopLeftLimit = new Vector2 (Camera.main.transform.position.x - Camera.main.aspect * Camera.main.orthographicSize, Camera.main.transform.position.y + Camera.main.orthographicSize);
-        CameraBotRightLimit = new Vector2(Camera.main.transform.position.x + Camera.main.aspect * Camera.main.orthographicSize, Camera.main.transform.position.y - Camera.main.orthographicSize);
-
-        //EnemyTypePerRound = HostileZoneWaves.EnemyTypePerRound;
-        //AuxActualRound = ActualRound;
-    }
+    //EnemyTypePerRound = HostileZoneWaves.EnemyTypePerRound;
+    //AuxActualRound = ActualRound;
+}
 
     private void Update()
     {
+        if (!PlayerSceneManager.Instance.ZoneIsHostile)
+        {
+            ActualRound = 0;
+            return;
+        }
         MapTopLeftLimit = new Vector2(GameObject.Find("West_Wall").transform.position.x, GameObject.Find("North_Wall").transform.position.y);
         MapBotRightLimit = new Vector2(GameObject.Find("East_Wall").transform.position.x, GameObject.Find("South_Wall").transform.position.y);
 
@@ -63,7 +59,6 @@ public class SpawnerManager : MonoBehaviour
         CameraTopLeftLimit = new Vector2(Camera.main.transform.position.x - Camera.main.aspect * Camera.main.orthographicSize, Camera.main.transform.position.y + Camera.main.orthographicSize);
         CameraBotRightLimit = new Vector2(Camera.main.transform.position.x + Camera.main.aspect * Camera.main.orthographicSize, Camera.main.transform.position.y - Camera.main.orthographicSize);
     }
-
     private Vector2 GenerateRawPosition()
     {
         return new Vector2(Random.Range(MapTopLeftLimit.x, MapBotRightLimit.x), Random.Range(MapBotRightLimit.y, MapTopLeftLimit.y));
@@ -93,7 +88,7 @@ public class SpawnerManager : MonoBehaviour
 
     public void Spawner()
     {
-        if (RoundSpawnComplete || PlayerSceneManager.Instance.ZoneIsSecure) return;
+        if (RoundSpawnComplete || !PlayerSceneManager.Instance.ZoneIsHostile) return;
 
         // Enemy Spawn
         int EnemiesToSpawn = HostileZoneWaves.EnemyTypePerRound[ActualRound].x;
@@ -117,7 +112,7 @@ public class SpawnerManager : MonoBehaviour
         int MeleeEnemies = GameObject.FindObjectsOfType<Enemy>().Length;
         int RangedEnemies = GameObject.FindObjectsOfType<EnemyShooter>().Length;
 
-        if ((MeleeEnemies == 0 && RangedEnemies == 0) && !PlayerSceneManager.Instance.ZoneIsSecure)
+        if ((MeleeEnemies == 0 && RangedEnemies == 0) && PlayerSceneManager.Instance.ZoneIsHostile)
         {
             ActualRound++;
             RoundSpawnComplete = false;

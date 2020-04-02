@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
 		Rounds = AuxRounds;
         reloading = false;
 
-		PlayerSceneManager.Instance.isSceneSecure();
+		PlayerSceneManager.Instance.isSceneHostile();
 	}
 
 	private void Update()
@@ -125,7 +125,6 @@ public class Player : MonoBehaviour
 		}
 
 		UseItem();
-		SpawnerManager.Instance.EnemyChecker();
 
 		PlayerManager.Instance.reloading = reloading;
         PlayerManager.Instance.usePriority = false;
@@ -146,8 +145,9 @@ public class Player : MonoBehaviour
 		PlayerAim();
 
 		SpawnerManager.Instance.Spawner();
+		SpawnerManager.Instance.EnemyChecker();
 
-        if (weaponUsing == null) return;
+		if (weaponUsing == null) return;
 		if (Counter >= ReloadingCounter && reloading == true) reloading = false;
 		else
 		{

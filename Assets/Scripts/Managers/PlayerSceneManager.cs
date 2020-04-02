@@ -9,7 +9,7 @@ public class PlayerSceneManager : MonoBehaviour
     public static PlayerSceneManager Instance { get; private set; }
 
     public int ActualIndexScene;
-    public bool ZoneIsSecure;
+    public bool ZoneIsHostile;
 
     void Start()
     {
@@ -22,14 +22,13 @@ public class PlayerSceneManager : MonoBehaviour
         {
             Debug.Log("Error: Duplicated " + this + "in the scene");
         }
-        ZoneIsSecure = true;
     }
 
     public int getActualScene()
     {
         ActualIndexScene = SceneManager.GetActiveScene().buildIndex;
 
-        isSceneSecure();
+        isSceneHostile();
 
         return ActualIndexScene;
     }
@@ -50,10 +49,10 @@ public class PlayerSceneManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings - 1);
     }
 
-    public void isSceneSecure()
+    public void isSceneHostile()
     {
         string SceneName = SceneManager.GetActiveScene().name;
-        if (SceneName == "DEV_TileMap-ZonaSegura" || SceneName == "ZonaSegura_Inicial") ZoneIsSecure = true;
-        else ZoneIsSecure = false;
+        if (SceneName == "DEV_TileMap-ZonaHostil" ) ZoneIsHostile = true;
+        else ZoneIsHostile = false;
     }
 }
