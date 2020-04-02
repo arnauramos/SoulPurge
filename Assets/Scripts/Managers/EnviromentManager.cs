@@ -44,7 +44,7 @@ public class EnviromentManager : MonoBehaviour
 	}
 	public void closeDoor(Transform door)
 	{
-		if (Input.GetKeyDown(KeyCode.E))
+		if (Input.GetKeyDown(KeyCode.E) || PlayerManager.Instance.speed == PlayerManager.Instance.sprint)
 		{
 			door.eulerAngles = Vector3.forward * 0;
 		}
