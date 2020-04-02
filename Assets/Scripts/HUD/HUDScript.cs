@@ -6,6 +6,8 @@ using TMPro;
 
 public class HUDScript : MonoBehaviour
 {
+    // HOSTILE HUD
+    public GameObject HostileHud;
     // SCENE
     private ThisScene thisScene;
     // STAMINA
@@ -77,6 +79,7 @@ public class HUDScript : MonoBehaviour
         Money();
         Keys();
         Ammo();
+        HostileHUD();
     }
     private void Stamina() {
         staminaFloat = PlayerManager.Instance.stamina / PlayerManager.Instance.maxStamina;
@@ -122,6 +125,17 @@ public class HUDScript : MonoBehaviour
         {
             RoundsText.text = playerScript.Rounds.ToString();
             TotalAmmoText.text = PlayerManager.Instance.totalAmmo.ToString();
+        }
+    }
+    private void HostileHUD()
+    {
+        if (thisScene.scene == ThisScene.Scene.HOSTILEZONE)
+        {
+            HostileHud.SetActive(true);
+        }
+        else
+        {
+            HostileHud.SetActive(false);
         }
     }
 }
