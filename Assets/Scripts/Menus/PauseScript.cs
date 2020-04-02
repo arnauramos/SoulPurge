@@ -44,7 +44,6 @@ public class PauseScript : MonoBehaviour
         PauseMenu.SetActive(false);
         Time.timeScale = 1f;
         GamePaused = false;
-        MusicManager.Instance.PlaySong(MusicManager.Songs.Menu);
         SceneManager.LoadScene(1);
     }
 }

@@ -6,6 +6,10 @@ using System.IO;
 
 public class MainMenu : MonoBehaviour
 {
+    private void Start()
+    {
+        MusicManager.Instance.PlaySong(MusicManager.Songs.Menu);
+    }
     public void Play()
     {
         if (!PlayerManager.Instance.tutorialDone)
