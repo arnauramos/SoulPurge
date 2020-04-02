@@ -434,7 +434,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2763289168256511880, guid: 1ec6812883bec554eb4ec8055dc8b0bd,
+        type: 3}
+      propertyPath: mixer
+      value: 
+      objectReference: {fileID: 24300002, guid: 6bcee963805fd184c9e37663baf76533,
+        type: 2}
+    m_RemovedComponents:
+    - {fileID: 4643129781299297106, guid: 1ec6812883bec554eb4ec8055dc8b0bd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1ec6812883bec554eb4ec8055dc8b0bd, type: 3}
 --- !u!1001 &4050740345591872755
 PrefabInstance:
@@ -691,7 +698,7 @@ PrefabInstance:
     - target: {fileID: 5302133187796410207, guid: bdfc31d4c69803e43ae0a8f593a5dbab,
         type: 3}
       propertyPath: m_Volume
-      value: 0.5
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 5302133187796410207, guid: bdfc31d4c69803e43ae0a8f593a5dbab,
         type: 3}
