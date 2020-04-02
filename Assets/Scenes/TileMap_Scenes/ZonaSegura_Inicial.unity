@@ -423,6 +423,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4269442383254433015, guid: 758d1748a7e78934499300895e915dd1,
+        type: 3}
+      propertyPath: m_Name
+      value: Continue
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 758d1748a7e78934499300895e915dd1, type: 3}
 --- !u!20 &367471468 stripped
@@ -433,7 +438,7 @@ Camera:
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &367471469 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1302520760, guid: 758d1748a7e78934499300895e915dd1,
+  m_CorrespondingSourceObject: {fileID: 4269442383518756530, guid: 758d1748a7e78934499300895e915dd1,
     type: 3}
   m_PrefabInstance: {fileID: 367471467}
   m_PrefabAsset: {fileID: 0}
@@ -445,7 +450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!1 &367471470 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 284460665, guid: 758d1748a7e78934499300895e915dd1,
+  m_CorrespondingSourceObject: {fileID: 4269442384547777395, guid: 758d1748a7e78934499300895e915dd1,
     type: 3}
   m_PrefabInstance: {fileID: 367471467}
   m_PrefabAsset: {fileID: 0}
@@ -3954,7 +3959,7 @@ PrefabInstance:
     - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
         type: 3}
       propertyPath: dialogue
-      value: "You\u2019re so brave! those demons are really scary. "
+      value: I've heard that all the lost keys can be found in the hostile zones.
       objectReference: {fileID: 0}
     - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
         type: 3}
@@ -4074,3 +4079,77 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1001 &1492304117947273430
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1492304117525349279, guid: 3c1c0efdc56cae144b4f61a01b2f0ab9,
+        type: 3}
+      propertyPath: m_Name
+      value: ThisScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492304117525349277, guid: 3c1c0efdc56cae144b4f61a01b2f0ab9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.5354632
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492304117525349277, guid: 3c1c0efdc56cae144b4f61a01b2f0ab9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.8130089
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492304117525349277, guid: 3c1c0efdc56cae144b4f61a01b2f0ab9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.10495155
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492304117525349277, guid: 3c1c0efdc56cae144b4f61a01b2f0ab9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492304117525349277, guid: 3c1c0efdc56cae144b4f61a01b2f0ab9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492304117525349277, guid: 3c1c0efdc56cae144b4f61a01b2f0ab9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492304117525349277, guid: 3c1c0efdc56cae144b4f61a01b2f0ab9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492304117525349277, guid: 3c1c0efdc56cae144b4f61a01b2f0ab9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492304117525349277, guid: 3c1c0efdc56cae144b4f61a01b2f0ab9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492304117525349277, guid: 3c1c0efdc56cae144b4f61a01b2f0ab9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492304117525349277, guid: 3c1c0efdc56cae144b4f61a01b2f0ab9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492304117525349276, guid: 3c1c0efdc56cae144b4f61a01b2f0ab9,
+        type: 3}
+      propertyPath: scene
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3c1c0efdc56cae144b4f61a01b2f0ab9, type: 3}

@@ -6,6 +6,8 @@ using TMPro;
 
 public class HUDScript : MonoBehaviour
 {
+    // SCENE
+    private ThisScene thisScene;
     // STAMINA
     public GameObject StaminaBar;
     private Image StaminaImage;
@@ -25,8 +27,12 @@ public class HUDScript : MonoBehaviour
     private TextMeshProUGUI SoulsText;
 
     // MONEY
-    public GameObject MoneyCounter;
-    private TextMeshProUGUI MoneyText;
+    public GameObject MoneyUI;
+    public TextMeshProUGUI MoneyText;
+
+    // KEYS
+    public GameObject KeysUI;
+    public TextMeshProUGUI KeysText;
 
     // AMMO
     public GameObject RoundsCounter;
@@ -41,6 +47,9 @@ public class HUDScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // SCENE
+        thisScene = GameObject.Find("ThisScene").GetComponent<ThisScene>();
+
         // HEALTH
         HealthImage = HealthBar.GetComponent<Image>();
 
@@ -49,9 +58,6 @@ public class HUDScript : MonoBehaviour
 
         // SOULS
         SoulsText = SoulsCounter.GetComponent<TextMeshProUGUI>();
-
-        // MONEY
-        MoneyText = MoneyCounter.GetComponent<TextMeshProUGUI>();
 
         // AMMO
         RoundsText = RoundsCounter.GetComponent<TextMeshProUGUI>();
@@ -69,6 +75,7 @@ public class HUDScript : MonoBehaviour
         Health();
         Souls();
         Money();
+        Keys();
         Ammo();
     }
     private void Stamina() {
@@ -87,7 +94,27 @@ public class HUDScript : MonoBehaviour
         SoulsText.text = PlayerManager.Instance.souls.ToString();
     }
     private void Money() {
-        MoneyText.text = PlayerManager.Instance.money.ToString();
+        if (thisScene.scene == ThisScene.Scene.SAFEZONE)
+        {
+            MoneyUI.SetActive(true);
+            MoneyText.text = PlayerManager.Instance.money.ToString();
+        }
+        else
+        {
+            MoneyUI.SetActive(false);
+        }
+    }
+    private void Keys()
+    {
+        if (thisScene.scene == ThisScene.Scene.HOSTILEZONE)
+        {
+            KeysUI.SetActive(true);
+            KeysText.text = PlayerManager.Instance.keys.ToString();
+        }
+        else
+        {
+            KeysUI.SetActive(false);
+        }
     }
     private void Ammo()
     {

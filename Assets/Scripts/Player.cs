@@ -44,7 +44,6 @@ public class Player : MonoBehaviour
 
 	[Header("Variables for objects & keys:")]
 	[Space(10)]
-	public int keys = 0;
 	private bool PickSoul = true;
 
 	//VARIABLES FOR ANIMATIONS
@@ -403,7 +402,7 @@ public class Player : MonoBehaviour
         // PICK UP KEY
 		if (collision.gameObject.tag == "Key_Object")
 		{
-			keys++;
+            PlayerManager.Instance.keys++;
 			Destroy(collision.gameObject);
 		}
         // PICK UP SOUL

@@ -18,7 +18,6 @@ public class Safe_Door_Controller : MonoBehaviour
         animator = GetComponent<Animator>();
         player = GameObject.Find("Player");
         Player p = player.GetComponent<Player>();
-        player_keys = p.keys;
         openParamID = Animator.StringToHash("Opening");
     }
 
@@ -30,7 +29,7 @@ public class Safe_Door_Controller : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (player_keys== 3 && collision.gameObject.tag == "Player")
+        if (PlayerManager.Instance.keys >= 3 && collision.gameObject.tag == "Player")
         {
 
             animator.SetBool("Opening", true);

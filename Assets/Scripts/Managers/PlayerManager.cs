@@ -27,8 +27,9 @@ public class PlayerManager : MonoBehaviour
 	public bool usePriority;
 	public bool reloading;
 	public bool playerDisabled;
+    public int keys = 0;
 
-	public Vector2 PlayerPosition;
+    public Vector2 PlayerPosition;
 
 	public List<Gun> PlayerGunList;
 	public int weaponSelected = 0;
@@ -280,7 +281,7 @@ public class PlayerManager : MonoBehaviour
         {
             // NO SPACE
         }
-        return Found;
+        return Bought;
     }
     public bool addUsableById(int _id, int ammount)
     {
@@ -477,9 +478,10 @@ public class PlayerManager : MonoBehaviour
         usePriority = false;
         reloading = false;
         playerDisabled = false;
+        keys = 0;
 
-        // BOOSTS
-        resetBoosts();
+    // BOOSTS
+    resetBoosts();
     }
 
     private void resetBoosts()

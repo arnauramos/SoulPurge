@@ -24,7 +24,7 @@ public class WeaponInventoryScript : MonoBehaviour
             // GETTING COMPONENTS AND DATA
             if (PlayerManager.Instance.PlayerGunList[i] != null)
             {
-                auxSprite = PlayerManager.Instance.PlayerGunList[i].sprite;
+                auxSprite = PlayerManager.Instance.PlayerGunList[i].icon;
             }
             else
             {
