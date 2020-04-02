@@ -45,10 +45,10 @@ public class PlayerManager : MonoBehaviour
     public float speedBoost;
     public float shootingBoost;
 
-    private bool resistanceActive = false;
-    private bool staminaRegenerationActive = false;
-    private bool speedBoostActive = false;
-    private bool shootingBoostActive = false;
+    public bool resistanceActive = false;
+    public bool staminaRegenerationActive = false;
+    public bool speedBoostActive = false;
+    public bool shootingBoostActive = false;
 
     private float resistanceSeconds = 0;
     private float staminaRegenerationSeconds = 0;
