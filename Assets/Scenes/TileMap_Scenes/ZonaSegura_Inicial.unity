@@ -3344,9 +3344,101 @@ Transform:
   - {fileID: 809269340}
   - {fileID: 658764841}
   - {fileID: 31001130}
+  - {fileID: 1459662203}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1459662202
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1376257461}
+    m_Modifications:
+    - target: {fileID: 7239981030104206630, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: m_Name
+      value: Person (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.70647603
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.707737
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -89.898
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: dialogue
+      value: To leave the hostile zone, you either reach the 6th wave and find the
+        3 keys, or DIE, and death is FOREVER!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: TextBox
+      value: 
+      objectReference: {fileID: 367471470}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: Text
+      value: 
+      objectReference: {fileID: 367471469}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dcf78b71bbc13e444add3ec6994f4b8f, type: 3}
+--- !u!4 &1459662203 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1459662202}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1640077070
 GameObject:
   m_ObjectHideFlags: 0
@@ -3798,12 +3890,12 @@ PrefabInstance:
     - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.0955105
+      value: 2.41
       objectReference: {fileID: 0}
     - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.6141877
+      value: 2.04
       objectReference: {fileID: 0}
     - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
         type: 3}
@@ -3823,12 +3915,12 @@ PrefabInstance:
     - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.7071068
+      value: -0.31477007
       objectReference: {fileID: 0}
     - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.949168
       objectReference: {fileID: 0}
     - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
         type: 3}
@@ -3848,7 +3940,7 @@ PrefabInstance:
     - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -90
+      value: -36.694
       objectReference: {fileID: 0}
     - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
         type: 3}
