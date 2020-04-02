@@ -59,6 +59,7 @@ public class Enemy : MonoBehaviour
     {
         if (health <= 0f)
         {
+            SoundManager.Instance.PlaySound(SoundManager.Sounds.EnemyDie);
             Destroy(gameObject);
             DropingSoul.DropingSouls(gameObject, Soul);
         }
@@ -129,6 +130,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag == "Bullet" && collision.gameObject.GetComponent<Bullet>().PlayerShoot)
         {
             health -= PlayerManager.Instance.PlayerGunList[PlayerManager.Instance.weaponSelected].Damage;
-            }
+            SoundManager.Instance.PlaySound(SoundManager.Sounds.EnemyDamage);
+        }
     }
 }

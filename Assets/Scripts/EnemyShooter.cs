@@ -71,6 +71,7 @@ public class EnemyShooter : MonoBehaviour
     {
         if (health <= 0f)
         {
+            SoundManager.Instance.PlaySound(SoundManager.Sounds.EnemyDie);
             Destroy(gameObject);
             DropingSoul.DropingSouls(gameObject, Soul);
         }
@@ -145,6 +146,7 @@ public class EnemyShooter : MonoBehaviour
         bulletObject = Instantiate(weaponUsing.Bullet, firePoint.position, firePoint.rotation);
         rb2dBullet = bulletObject.GetComponent<Rigidbody2D>();
         rb2dBullet.AddForce(firePoint.up * weaponUsing.BulletSpeed, ForceMode2D.Impulse);
+        SoundManager.Instance.PlaySound(SoundManager.Sounds.EnemyShooting);
         Destroy(bulletObject, weaponUsing.Range * 2);
     }
 
@@ -153,6 +155,8 @@ public class EnemyShooter : MonoBehaviour
         if (collision.gameObject.tag == "Bullet" && collision.gameObject.GetComponent<Bullet>().PlayerShoot)
         {
             health -= PlayerManager.Instance.PlayerGunList[PlayerManager.Instance.weaponSelected].Damage;
+            SoundManager.Instance.PlaySound(SoundManager.Sounds.EnemyDamage);
+            return;
         }
     }
 }
