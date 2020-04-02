@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // VARIABLES FOR AREA OF VISION
-    private Color blue = new Color(0, 0.5f, 1, 0.2f);
-    private Color red = new Color(1, 0, 0, 0.2f);
-    public GameObject AreaOfVision;
-    private SpriteRenderer AOVsRenderer;
+    //// VARIABLES FOR AREA OF VISION
+    //private Color blue = new Color(0, 0.5f, 1, 0.2f);
+    //private Color red = new Color(1, 0, 0, 0.2f);
+    //public GameObject AreaOfVision;
+    //private SpriteRenderer AOVsRenderer;
 
     // VARIABLES FOR HEALTH
     public float health = 150f;
@@ -19,13 +19,13 @@ public class Enemy : MonoBehaviour
 
     // VARIABLES FOR MOVEMENT TO PLAYER
     private GameObject Player;
-    public float Speed = 1000f;
+    public float Speed = 2000f;
     public Vector2 Direction;
     private Vector3 LookingPlayer = new Vector3(120, 120, 1);
     private Rigidbody2D rb2d;
     private float rbx, rby;
     private float angle;
-    public float LookRange = 1.5f;
+    public float LookRange = 6f;
 
     // VARIABLES FOR IDLE MOVEMENT
     private Vector3 Idle = new Vector3(75, 75, 1);
@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        AOVsRenderer = AreaOfVision.GetComponent<SpriteRenderer>();
+        //AOVsRenderer = AreaOfVision.GetComponent<SpriteRenderer>();
         Player = GameObject.Find("Player");
 
         // CALCULATE FIRST IDLE MOVEMENT
@@ -74,16 +74,16 @@ public class Enemy : MonoBehaviour
         // MOOVING / IDLE
         if (Direction.x < LookRange && Direction.x > -LookRange && Direction.y < LookRange && Direction.y > -LookRange)
         {
-            LookRange = 2.5f;
-            AreaOfVision.transform.localScale = LookingPlayer;
-            AOVsRenderer.color = red;
+            LookRange = 8f;
+            //AreaOfVision.transform.localScale = LookingPlayer;
+            //AOVsRenderer.color = red;
             Movement();
         }
         else
         {
-            LookRange = 1.5f;
-            AreaOfVision.transform.localScale = Idle;
-            AOVsRenderer.color = blue;
+            LookRange = 6f;
+            //AreaOfVision.transform.localScale = Idle;
+            //AOVsRenderer.color = blue;
             IdleMovement();
         }
 

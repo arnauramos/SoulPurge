@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1830870186
 Transform:
   m_ObjectHideFlags: 0
@@ -164,11 +164,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f068f2304000384d968d68112ed4110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AreaOfVision: {fileID: 1830870185}
   health: 150
   dmg: 10
   AttackRate: 10
-  Speed: 500
+  Speed: 2000
   Direction: {x: 0, y: 0}
   LookRange: 3
   Soul: {fileID: 1848012475432859064, guid: 6091511e0f025104d80bbd40fda042cd, type: 3}

@@ -46,31 +46,40 @@ MonoBehaviour:
   IMMORTAL: 0
   health: 50
   maxHeath: 100
-  resistance: 0
   stamina: 400
   maxStamina: 400
-  staminaRegeneration: 0.2
   speed: 1.25
   maxSpeed: 1.25
   sprint: 2
-  speedBoost: 1
-  shootingBoost: 1
   souls: 0
   maxSouls: 100
   money: 0
   totalAmmo: 600
   AuxGO: 0
   usePriority: 0
+  reloading: 0
+  playerDisabled: 0
+  keys: 0
+  PlayerPosition: {x: 0, y: 0}
   PlayerGunList:
   - {fileID: 7374682507282849064, guid: 051b8153a3208ce4a855d3e13926eec9, type: 3}
   - {fileID: 7623003998104024053, guid: 0a94eaa9a23a61540b280ec95a904064, type: 3}
   - {fileID: 0}
-  - {fileID: 7374682507282849064, guid: fa7f4397d3933ea42b48e4303b8c462d, type: 3}
+  - {fileID: 0}
   weaponSelected: 0
   PlayerUsableList:
-  - {fileID: 1899690134435696296, guid: b6c60540fcb88b84799f06a4f3bed5a2, type: 3}
-  - {fileID: 849823829463427254, guid: 70916b83866b819499e769821f90c3d1, type: 3}
-  - {fileID: 1800492538339270007, guid: a423af20254d2854ca97008dc81e0f27, type: 3}
-  - {fileID: 6824315219144930151, guid: 021aebafb6a445147a9b17a79d7c07f6, type: 3}
-  - {fileID: 6637160798309307144, guid: 1401f0b573f9bb04dac86f04bc2f6501, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   usableSelected: 0
+  tutorialDone: 0
+  resistance: 0
+  staminaRegeneration: 0.2
+  speedBoost: 1
+  shootingBoost: 1
+  resistanceActive: 0
+  staminaRegenerationActive: 0
+  speedBoostActive: 0
+  shootingBoostActive: 0

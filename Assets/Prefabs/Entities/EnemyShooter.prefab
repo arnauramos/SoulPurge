@@ -46,7 +46,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1830870186
 Transform:
   m_ObjectHideFlags: 0
@@ -194,14 +194,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cf7db5aa3b7c394fa90413de08ae96e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AreaOfVision: {fileID: 1830870185}
   health: 90
   weaponUsing: {fileID: 7374682507282849064, guid: 051b8153a3208ce4a855d3e13926eec9,
     type: 3}
   bulletObject: {fileID: 0}
   AttackRate: 3
   firePoint: {fileID: 208393849}
-  Speed: 500
+  Speed: 1000
   Direction: {x: 0, y: 0}
   LookRange: 3
   StopRange: 2
