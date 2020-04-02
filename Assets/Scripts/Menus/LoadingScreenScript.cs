@@ -9,6 +9,7 @@ public class LoadingScreenScript : MonoBehaviour
     void Start()
     {
         SceneManager.LoadScene(1);
+        MusicManager.Instance.PlaySong(MusicManager.Songs.Menu);
     }
 
 }

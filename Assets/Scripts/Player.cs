@@ -132,6 +132,7 @@ public class Player : MonoBehaviour
     private void playerDie()
     {
         Destroy(gameObject);
+        MusicManager.Instance.PlaySong(MusicManager.Songs.GameOver);
         PlayerSceneManager.Instance.goLastScene();
     }
 
@@ -369,8 +370,18 @@ public class Player : MonoBehaviour
 			Debug.Log("Player got shoot;");
 		}
 
-		if (collision.gameObject.tag == "Safe_Door" && ((PlayerManager.Instance.keys == 3 && SpawnerManager.Instance.ActualRound == 5 && PlayerSceneManager.Instance.ZoneIsHostile) || !PlayerSceneManager.Instance.ZoneIsHostile))
+		if (collision.gameObject.tag == "Safe_Door" && ((PlayerManager.Instance.keys >= 3 && SpawnerManager.Instance.ActualRound >= 5 && PlayerSceneManager.Instance.ZoneIsHostile) || !PlayerSceneManager.Instance.ZoneIsHostile))
 		{
+            if (PlayerSceneManager.Instance.ZoneIsHostile)
+            {
+                PlayerManager.Instance.keys -= 3;
+                MusicManager.Instance.PlaySong(MusicManager.Songs.SafeZone);
+
+            }
+            else
+            {
+                MusicManager.Instance.PlaySong(MusicManager.Songs.HostileZone);
+            }
             if (collision.gameObject.name == "SafeDoor_Left")
             {
                 PlayerSceneManager.Instance.goBackScene(PlayerSceneManager.Instance.getActualScene());
