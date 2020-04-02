@@ -27,6 +27,7 @@ public class SpawnerManager : MonoBehaviour
 	[Header("Enemy Waves:")]
 	public int ActualRound = 0;
 	bool RoundSpawnComplete;
+	public int TotalEnemies;
 	public EnemyWaves HostileZoneWaves;
 
 	public float Counter;
@@ -151,6 +152,8 @@ public class SpawnerManager : MonoBehaviour
 	{
 		int MeleeEnemies = GameObject.FindObjectsOfType<Enemy>().Length;
 		int RangedEnemies = GameObject.FindObjectsOfType<EnemyShooter>().Length;
+
+		TotalEnemies = MeleeEnemies + RangedEnemies;
 
 		if ((MeleeEnemies == 0 && RangedEnemies == 0) && PlayerSceneManager.Instance.ZoneIsHostile && !FirstTime)
 		{
