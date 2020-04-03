@@ -21,7 +21,7 @@ public class SoulsShopScript : MonoBehaviour
     void Start()
     {
         // Set price
-        SoulsPrice = Random.Range(2, 7);
+        SoulsPrice = Random.Range(9, 16);
         // Get price
         Price = Slots[0].transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>();
         // Paint Price

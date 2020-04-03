@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TileMap_Scenes/DEV_TileMap-ZonaHostil-3.unity
     guid: 6dd28953b72dd7243b853436632242d6
   - enabled: 1
+    path: Assets/Scenes/Victory.unity
+    guid: 3095f4eb1c3b08040a71848d65996141
+  - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: b286a08611617474bbf02f4d0dc3e87f
   m_configObjects: {}
