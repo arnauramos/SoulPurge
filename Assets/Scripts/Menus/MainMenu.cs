@@ -18,6 +18,7 @@ public class MainMenu : MonoBehaviour
         }
         PlayerManager.Instance.reset();
         DataManager.Instance.reset();
+        SpawnerManager.Instance.reset();
         MusicManager.Instance.PlaySong(MusicManager.Songs.SafeZone);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

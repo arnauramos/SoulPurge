@@ -53,10 +53,7 @@ public class SpawnerManager : MonoBehaviour
 	{
 		if (!PlayerSceneManager.Instance.ZoneIsHostile)
 		{
-			PlayerManager.Instance.keys = 0;
-			ActualRound = 0;
-			FirstTime = true;
-			return;
+            reset();
 		}
 		MapTopLeftLimit = new Vector2(GameObject.Find("West_Wall").transform.position.x, GameObject.Find("North_Wall").transform.position.y);
 		MapBotRightLimit = new Vector2(GameObject.Find("East_Wall").transform.position.x, GameObject.Find("South_Wall").transform.position.y);
@@ -123,12 +120,12 @@ public class SpawnerManager : MonoBehaviour
 
 		if (FirstTime)
 		{
-			if (Counter >= 400f)
+            Counter++;
+            if (Counter >= 400f)
 			{
 				FirstTime = false;
 				Counter = 0;
 			}
-			Counter++;
 			return;
 		}
 
@@ -167,4 +164,12 @@ public class SpawnerManager : MonoBehaviour
 			Counter +=1f;
 		}
 	}
+
+    public void reset()
+    {
+        RoundSpawnComplete = false;
+        ActualRound = 0;
+        Counter = 0;
+        FirstTime = true;
+    }
 }
