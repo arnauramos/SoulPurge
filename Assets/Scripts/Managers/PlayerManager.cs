@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -143,9 +144,16 @@ public class PlayerManager : MonoBehaviour
                 shootingBoostValue = 0;
             }
         }
+        if (SceneManager.GetActiveScene().name == "DEV_TileMap-ZonaHostil-3" && SpawnerManager.Instance.ActualRound >= 5)
+        {
+            Victory();
+        }
     }
 
-
+    private void Victory()
+    {
+        PlayerSceneManager.Instance.goFrontScene(SceneManager.GetActiveScene().buildIndex);
+    }
     // ADD
     public void addHealth(float value)
 	{
