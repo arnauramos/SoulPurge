@@ -53,6 +53,7 @@ public class SpawnerManager : MonoBehaviour
 	{
 		if (!PlayerSceneManager.Instance.ZoneIsHostile)
 		{
+			PlayerManager.Instance.keys = 0;
 			ActualRound = 0;
 			FirstTime = true;
 			return;
