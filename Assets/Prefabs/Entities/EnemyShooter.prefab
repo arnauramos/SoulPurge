@@ -200,7 +200,7 @@ MonoBehaviour:
   bulletObject: {fileID: 0}
   AttackRate: 3
   firePoint: {fileID: 208393849}
-  Speed: 1000
+  Speed: 750
   Direction: {x: 0, y: 0}
   LookRange: 3
   StopRange: 2

@@ -246,7 +246,10 @@ public class Player : MonoBehaviour
 				weaponUsing.Rounds = AuxRounds;
 				PlayerManager.Instance.substrTotalAmmo(weaponUsing.Rounds);
 			}
-            SoundManager.Instance.PlaySound(SoundManager.Sounds.Reloading);
+            if (weaponUsing.gameObject.GetComponent<Gun>().itemName != "Axe")
+            {
+                SoundManager.Instance.PlaySound(SoundManager.Sounds.Reloading);
+            }
             reloading = true;
         }
 		else if (weaponUsing.Rounds == 0 && PlayerManager.Instance.totalAmmo > 0)
@@ -262,7 +265,10 @@ public class Player : MonoBehaviour
                 weaponUsing.Rounds = AuxRounds;
                 PlayerManager.Instance.substrTotalAmmo(weaponUsing.Rounds);
             }
-            SoundManager.Instance.PlaySound(SoundManager.Sounds.Reloading);
+            if (weaponUsing.gameObject.GetComponent<Gun>().itemName != "Axe")
+            {
+                SoundManager.Instance.PlaySound(SoundManager.Sounds.Reloading);
+            }
             reloading = true;
         }
     }
