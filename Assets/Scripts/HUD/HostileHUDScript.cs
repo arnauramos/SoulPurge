@@ -9,6 +9,7 @@ public class HostileHUDScript : MonoBehaviour
     public TextMeshProUGUI EnemiesTitle;
     public TextMeshProUGUI WaveCounter;
     public TextMeshProUGUI EnemiesCounter;
+    public TextMeshProUGUI NextSafeZone;
     private int nextWave = 0;
     private bool changedNextWave = false;
     // Update is called once per frame
@@ -39,6 +40,18 @@ public class HostileHUDScript : MonoBehaviour
             EnemiesCounter.enabled = true;
             WaveTitle.text = "CURRENT WAVE: ";
             WaveCounter.enabled = true;
+        }
+        if (SpawnerManager.Instance.ActualRound >= 5 && PlayerManager.Instance.keys < 3)
+        {
+            NextSafeZone.text = "You need more keys to go to the next safezone";
+        }
+        else if (SpawnerManager.Instance.ActualRound >= 5 && PlayerManager.Instance.keys >= 3)
+        {
+            NextSafeZone.text = "You can go to the next safezone";
+        }
+        else
+        {
+            NextSafeZone.text = " ";
         }
     }
 }

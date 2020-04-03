@@ -37,9 +37,9 @@ public class EnviromentManager : MonoBehaviour
 
 	public void openDoor(Transform door)
 	{
-		if (Input.GetKeyDown(KeyCode.E) || PlayerManager.Instance.speed == PlayerManager.Instance.sprint)
-		{
-			door.eulerAngles = Vector3.forward * 90;
+        if (Input.GetKeyDown(KeyCode.E) || PlayerManager.Instance.speed == PlayerManager.Instance.maxSpeed || PlayerManager.Instance.speed == PlayerManager.Instance.sprint)
+        {
+            door.eulerAngles = Vector3.forward * 90;
 		}
 	}
 	public void closeDoor(Transform door)
