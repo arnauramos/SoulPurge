@@ -58,6 +58,6 @@ public class EnviromentManager : MonoBehaviour
 	public void closeRoof()
 	{
 		RoofTilemapTransform = GameObject.Find("Roof-Tilemap").transform;
-		RoofTilemapTransform.position = new Vector3(RoofTilemapTransform.position.x, RoofTilemapTransform.position.y,-1f);
+		RoofTilemapTransform.position = new Vector3(RoofTilemapTransform.position.x, RoofTilemapTransform.position.y, -3f);
 	}
 }
