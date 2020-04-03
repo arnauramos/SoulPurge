@@ -209,15 +209,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2564503740719001351, guid: 053bb0045e6438946a6ada086d46f48d,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.005584717
-      objectReference: {fileID: 0}
     - target: {fileID: 3836084547015198667, guid: 053bb0045e6438946a6ada086d46f48d,
         type: 3}
       propertyPath: m_Name
       value: SoulsExchange
+      objectReference: {fileID: 0}
+    - target: {fileID: 2564503740719001351, guid: 053bb0045e6438946a6ada086d46f48d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.005584717
       objectReference: {fileID: 0}
     - target: {fileID: 4329635609497602374, guid: 053bb0045e6438946a6ada086d46f48d,
         type: 3}
@@ -898,6 +898,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3836084547015198667, guid: 81f3ec6d456ffca46835e544f0d23970,
+        type: 3}
+      propertyPath: m_Name
+      value: UsablesShop
+      objectReference: {fileID: 0}
     - target: {fileID: 1407539222, guid: 81f3ec6d456ffca46835e544f0d23970, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -906,11 +911,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 367471468}
-    - target: {fileID: 3836084547015198667, guid: 81f3ec6d456ffca46835e544f0d23970,
-        type: 3}
-      propertyPath: m_Name
-      value: UsablesShop
-      objectReference: {fileID: 0}
     - target: {fileID: 4534462963184029055, guid: 81f3ec6d456ffca46835e544f0d23970,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1031,8 +1031,8 @@ PrefabInstance:
     - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
         type: 3}
       propertyPath: dialogue
-      value: To leave the hostile zone, you either reach the 6th wave and find the
-        3 keys, or DIE, and death is FOREVER!
+      value: To leave the hostile zone, you either find the 3 keys, or DIE, and death
+        is FOREVER!
       objectReference: {fileID: 0}
     - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
         type: 3}
@@ -1162,6 +1162,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1508,6 +1510,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1716,6 +1720,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6535600128617621739, guid: a5e8f6f790b123140ba0a300ee3420d0,
+        type: 3}
+      propertyPath: m_Name
+      value: Map_Sequeleton-ZonaSegura
+      objectReference: {fileID: 0}
     - target: {fileID: 6535600128617621738, guid: a5e8f6f790b123140ba0a300ee3420d0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1770,11 +1779,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6535600128617621739, guid: a5e8f6f790b123140ba0a300ee3420d0,
-        type: 3}
-      propertyPath: m_Name
-      value: Map_Sequeleton-ZonaSegura
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5e8f6f790b123140ba0a300ee3420d0, type: 3}
@@ -1975,6 +1979,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1492304117525349279, guid: 3c1c0efdc56cae144b4f61a01b2f0ab9,
+        type: 3}
+      propertyPath: m_Name
+      value: ThisScene
+      objectReference: {fileID: 0}
     - target: {fileID: 1492304117525349276, guid: 3c1c0efdc56cae144b4f61a01b2f0ab9,
         type: 3}
       propertyPath: scene
@@ -2034,11 +2043,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1492304117525349279, guid: 3c1c0efdc56cae144b4f61a01b2f0ab9,
-        type: 3}
-      propertyPath: m_Name
-      value: ThisScene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c1c0efdc56cae144b4f61a01b2f0ab9, type: 3}

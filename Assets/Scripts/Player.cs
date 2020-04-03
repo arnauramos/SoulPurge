@@ -384,7 +384,7 @@ public class Player : MonoBehaviour
             Debug.Log("Player got shoot;");
 		}
 
-		if (collision.gameObject.tag == "Safe_Door" && ((PlayerManager.Instance.keys >= 3 && SpawnerManager.Instance.ActualRound >= 5 && PlayerSceneManager.Instance.ZoneIsHostile) || !PlayerSceneManager.Instance.ZoneIsHostile))
+		if (collision.gameObject.tag == "Safe_Door" && ((PlayerManager.Instance.keys >= 3 && PlayerSceneManager.Instance.ZoneIsHostile) || !PlayerSceneManager.Instance.ZoneIsHostile))
 		{
             if (PlayerSceneManager.Instance.ZoneIsHostile)
             {

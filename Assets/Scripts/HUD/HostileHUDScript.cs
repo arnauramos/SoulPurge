@@ -41,11 +41,7 @@ public class HostileHUDScript : MonoBehaviour
             WaveTitle.text = "CURRENT WAVE: ";
             WaveCounter.enabled = true;
         }
-        if (SpawnerManager.Instance.ActualRound >= 5 && PlayerManager.Instance.keys < 3)
-        {
-            NextSafeZone.text = "You need more keys to go to the next safezone";
-        }
-        else if (SpawnerManager.Instance.ActualRound >= 5 && PlayerManager.Instance.keys >= 3)
+        if (PlayerManager.Instance.keys >= 3)
         {
             NextSafeZone.text = "You can go to the next safezone";
         }
