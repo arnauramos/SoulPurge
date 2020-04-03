@@ -124,6 +124,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Person (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: dialogue
+      value: 'Finally, the purger has arrived! Have fun killing demons. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: TextBox
+      value: 
+      objectReference: {fileID: 367471470}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: Text
+      value: 
+      objectReference: {fileID: 367471469}
     - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -179,21 +194,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: dialogue
-      value: 'Finally, the purger has arrived! Have fun killing demons. '
-      objectReference: {fileID: 0}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: TextBox
-      value: 
-      objectReference: {fileID: 367471470}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: Text
-      value: 
-      objectReference: {fileID: 367471469}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcf78b71bbc13e444add3ec6994f4b8f, type: 3}
 --- !u!4 &31001130 stripped
@@ -209,10 +209,40 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2564503740719001351, guid: 053bb0045e6438946a6ada086d46f48d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.005584717
+      objectReference: {fileID: 0}
     - target: {fileID: 3836084547015198667, guid: 053bb0045e6438946a6ada086d46f48d,
         type: 3}
       propertyPath: m_Name
       value: SoulsExchange
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329635609497602374, guid: 053bb0045e6438946a6ada086d46f48d,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329635609497602374, guid: 053bb0045e6438946a6ada086d46f48d,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329635609497602374, guid: 053bb0045e6438946a6ada086d46f48d,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329635609497602374, guid: 053bb0045e6438946a6ada086d46f48d,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329635609497602374, guid: 053bb0045e6438946a6ada086d46f48d,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4534462963184029055, guid: 053bb0045e6438946a6ada086d46f48d,
         type: 3}
@@ -269,56 +299,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8691805986622246159, guid: 053bb0045e6438946a6ada086d46f48d,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8691805986622246159, guid: 053bb0045e6438946a6ada086d46f48d,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8691805986622246159, guid: 053bb0045e6438946a6ada086d46f48d,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8691805986622246159, guid: 053bb0045e6438946a6ada086d46f48d,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8691805986622246159, guid: 053bb0045e6438946a6ada086d46f48d,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4329635609497602374, guid: 053bb0045e6438946a6ada086d46f48d,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4329635609497602374, guid: 053bb0045e6438946a6ada086d46f48d,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4329635609497602374, guid: 053bb0045e6438946a6ada086d46f48d,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4329635609497602374, guid: 053bb0045e6438946a6ada086d46f48d,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4329635609497602374, guid: 053bb0045e6438946a6ada086d46f48d,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5571632664204577104, guid: 053bb0045e6438946a6ada086d46f48d,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -343,16 +323,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2564503740719001351, guid: 053bb0045e6438946a6ada086d46f48d,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.005584717
       objectReference: {fileID: 0}
     - target: {fileID: 7019959527425770800, guid: 053bb0045e6438946a6ada086d46f48d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.00048828125
+      objectReference: {fileID: 0}
+    - target: {fileID: 8691805986622246159, guid: 053bb0045e6438946a6ada086d46f48d,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8691805986622246159, guid: 053bb0045e6438946a6ada086d46f48d,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8691805986622246159, guid: 053bb0045e6438946a6ada086d46f48d,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8691805986622246159, guid: 053bb0045e6438946a6ada086d46f48d,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8691805986622246159, guid: 053bb0045e6438946a6ada086d46f48d,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 053bb0045e6438946a6ada086d46f48d, type: 3}
@@ -406,7 +406,7 @@ PrefabInstance:
     - target: {fileID: 4269442382975566206, guid: 758d1748a7e78934499300895e915dd1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4269442382975566206, guid: 758d1748a7e78934499300895e915dd1,
         type: 3}
@@ -449,95 +449,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 367471467}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &374490791
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6535600128617621739, guid: b52256623962e334e933278674f52b73,
-        type: 3}
-      propertyPath: m_Name
-      value: Map_Sequeleton
-      objectReference: {fileID: 0}
-    - target: {fileID: 2973766389075582487, guid: b52256623962e334e933278674f52b73,
-        type: 3}
-      propertyPath: m_Name
-      value: SafeDoor_Left
-      objectReference: {fileID: 0}
-    - target: {fileID: 6535600128617621738, guid: b52256623962e334e933278674f52b73,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6535600128617621738, guid: b52256623962e334e933278674f52b73,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6535600128617621738, guid: b52256623962e334e933278674f52b73,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6535600128617621738, guid: b52256623962e334e933278674f52b73,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6535600128617621738, guid: b52256623962e334e933278674f52b73,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6535600128617621738, guid: b52256623962e334e933278674f52b73,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6535600128617621738, guid: b52256623962e334e933278674f52b73,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6535600128617621738, guid: b52256623962e334e933278674f52b73,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6535600128617621738, guid: b52256623962e334e933278674f52b73,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6535600128617621738, guid: b52256623962e334e933278674f52b73,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6535600128617621738, guid: b52256623962e334e933278674f52b73,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6535600128617621738, guid: b52256623962e334e933278674f52b73,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.276
-      objectReference: {fileID: 0}
-    - target: {fileID: 6535600128617621738, guid: b52256623962e334e933278674f52b73,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.335
-      objectReference: {fileID: 0}
-    - target: {fileID: 6535600128705097693, guid: b52256623962e334e933278674f52b73,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b52256623962e334e933278674f52b73, type: 3}
 --- !u!1001 &658764840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -550,6 +461,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Person (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: dialogue
+      value: "Don\u2019t forget to pick up souls when killing demons. Souls are very
+        valuable! "
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: TextBox
+      value: 
+      objectReference: {fileID: 367471470}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: Text
+      value: 
+      objectReference: {fileID: 367471469}
     - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -605,22 +532,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: dialogue
-      value: "Don\u2019t forget to pick up souls when killing demons. Souls are very
-        valuable! "
-      objectReference: {fileID: 0}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: TextBox
-      value: 
-      objectReference: {fileID: 367471470}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: Text
-      value: 
-      objectReference: {fileID: 367471469}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcf78b71bbc13e444add3ec6994f4b8f, type: 3}
 --- !u!4 &658764841 stripped
@@ -685,6 +596,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Person (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: dialogue
+      value: "You can buy a lot of things in the safe zones! I wanted to buy a gun,
+        but I\u2019m not legally allowed... "
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: TextBox
+      value: 
+      objectReference: {fileID: 367471470}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: Text
+      value: 
+      objectReference: {fileID: 367471469}
     - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -750,22 +677,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: dialogue
-      value: "You can buy a lot of things in the safe zones! I wanted to buy a gun,
-        but I\u2019m not legally allowed... "
-      objectReference: {fileID: 0}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: TextBox
-      value: 
-      objectReference: {fileID: 367471470}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: Text
-      value: 
-      objectReference: {fileID: 367471469}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcf78b71bbc13e444add3ec6994f4b8f, type: 3}
 --- !u!4 &809269340 stripped
@@ -786,6 +697,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Person (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: dialogue
+      value: 'Be careful! The hostile zone is really dangerous '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: TextBox
+      value: 
+      objectReference: {fileID: 367471470}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: Text
+      value: 
+      objectReference: {fileID: 367471469}
     - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -841,21 +767,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: dialogue
-      value: 'Be careful! The hostile zone is really dangerous '
-      objectReference: {fileID: 0}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: TextBox
-      value: 
-      objectReference: {fileID: 367471470}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: Text
-      value: 
-      objectReference: {fileID: 367471469}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcf78b71bbc13e444add3ec6994f4b8f, type: 3}
 --- !u!4 &867603061 stripped
@@ -3075,6 +2986,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Person
       objectReference: {fileID: 0}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: Text
+      value: 
+      objectReference: {fileID: 367471469}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: TextBox
+      value: 
+      objectReference: {fileID: 367471470}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: dialogue
+      value: "I\u2019m supposed to tell you how to walk\u2026 I guess you already
+        know how"
+      objectReference: {fileID: 0}
     - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3129,22 +3056,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -22.808
-      objectReference: {fileID: 0}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: Text
-      value: 
-      objectReference: {fileID: 367471469}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: TextBox
-      value: 
-      objectReference: {fileID: 367471470}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: dialogue
-      value: "I\u2019m supposed to tell you how to walk\u2026 I guess you already
-        know how"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcf78b71bbc13e444add3ec6994f4b8f, type: 3}
@@ -3204,7 +3115,7 @@ PrefabInstance:
     - target: {fileID: 4534462963184029055, guid: 40d26d1756d891b489692e647b4103a0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4534462963184029055, guid: 40d26d1756d891b489692e647b4103a0,
         type: 3}
@@ -3230,6 +3141,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1407539222, guid: 81f3ec6d456ffca46835e544f0d23970, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407539226, guid: 81f3ec6d456ffca46835e544f0d23970, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 367471468}
     - target: {fileID: 3836084547015198667, guid: 81f3ec6d456ffca46835e544f0d23970,
         type: 3}
       propertyPath: m_Name
@@ -3290,14 +3209,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1407539222, guid: 81f3ec6d456ffca46835e544f0d23970, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1407539226, guid: 81f3ec6d456ffca46835e544f0d23970, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 367471468}
     - target: {fileID: 6274040828368116362, guid: 81f3ec6d456ffca46835e544f0d23970,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3360,6 +3271,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Person (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: dialogue
+      value: To leave the hostile zone, you either reach the 6th wave and find the
+        3 keys, or DIE, and death is FOREVER!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: TextBox
+      value: 
+      objectReference: {fileID: 367471470}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: Text
+      value: 
+      objectReference: {fileID: 367471469}
     - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3415,22 +3342,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -89.898
       objectReference: {fileID: 0}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: dialogue
-      value: To leave the hostile zone, you either reach the 6th wave and find the
-        3 keys, or DIE, and death is FOREVER!
-      objectReference: {fileID: 0}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: TextBox
-      value: 
-      objectReference: {fileID: 367471470}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: Text
-      value: 
-      objectReference: {fileID: 367471469}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcf78b71bbc13e444add3ec6994f4b8f, type: 3}
 --- !u!4 &1459662203 stripped
@@ -3494,8 +3405,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3773,8 +3682,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3887,6 +3794,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Person (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: dialogue
+      value: 'Use the mouse to aim and press the left mouse button to shoot, good
+        luck! '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: TextBox
+      value: 
+      objectReference: {fileID: 367471470}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: Text
+      value: 
+      objectReference: {fileID: 367471469}
     - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3952,22 +3875,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: dialogue
-      value: 'Use the mouse to aim and press the left mouse button to shoot, good
-        luck! '
-      objectReference: {fileID: 0}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: TextBox
-      value: 
-      objectReference: {fileID: 367471470}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: Text
-      value: 
-      objectReference: {fileID: 367471469}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcf78b71bbc13e444add3ec6994f4b8f, type: 3}
 --- !u!4 &1910341017 stripped
@@ -3976,6 +3883,75 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1910341016}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1933374056
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6535600128617621738, guid: a5e8f6f790b123140ba0a300ee3420d0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535600128617621738, guid: a5e8f6f790b123140ba0a300ee3420d0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535600128617621738, guid: a5e8f6f790b123140ba0a300ee3420d0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535600128617621738, guid: a5e8f6f790b123140ba0a300ee3420d0,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535600128617621738, guid: a5e8f6f790b123140ba0a300ee3420d0,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535600128617621738, guid: a5e8f6f790b123140ba0a300ee3420d0,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535600128617621738, guid: a5e8f6f790b123140ba0a300ee3420d0,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535600128617621738, guid: a5e8f6f790b123140ba0a300ee3420d0,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535600128617621738, guid: a5e8f6f790b123140ba0a300ee3420d0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535600128617621738, guid: a5e8f6f790b123140ba0a300ee3420d0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535600128617621738, guid: a5e8f6f790b123140ba0a300ee3420d0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535600128617621739, guid: a5e8f6f790b123140ba0a300ee3420d0,
+        type: 3}
+      propertyPath: m_Name
+      value: Map_Sequeleton-ZonaSegura
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a5e8f6f790b123140ba0a300ee3420d0, type: 3}
 --- !u!1001 &2011781196
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3988,6 +3964,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Person (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: dialogue
+      value: I've heard that all the lost keys can be found in the hostile zones.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: TextBox
+      value: 
+      objectReference: {fileID: 367471470}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: Text
+      value: 
+      objectReference: {fileID: 367471469}
     - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4043,21 +4034,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: dialogue
-      value: I've heard that all the lost keys can be found in the hostile zones.
-      objectReference: {fileID: 0}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: TextBox
-      value: 
-      objectReference: {fileID: 367471470}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: Text
-      value: 
-      objectReference: {fileID: 367471469}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcf78b71bbc13e444add3ec6994f4b8f, type: 3}
 --- !u!4 &2011781197 stripped
@@ -4173,10 +4149,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1492304117525349279, guid: 3c1c0efdc56cae144b4f61a01b2f0ab9,
+    - target: {fileID: 1492304117525349276, guid: 3c1c0efdc56cae144b4f61a01b2f0ab9,
         type: 3}
-      propertyPath: m_Name
-      value: ThisScene
+      propertyPath: scene
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1492304117525349277, guid: 3c1c0efdc56cae144b4f61a01b2f0ab9,
         type: 3}
@@ -4233,10 +4209,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1492304117525349276, guid: 3c1c0efdc56cae144b4f61a01b2f0ab9,
+    - target: {fileID: 1492304117525349279, guid: 3c1c0efdc56cae144b4f61a01b2f0ab9,
         type: 3}
-      propertyPath: scene
-      value: 2
+      propertyPath: m_Name
+      value: ThisScene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c1c0efdc56cae144b4f61a01b2f0ab9, type: 3}
