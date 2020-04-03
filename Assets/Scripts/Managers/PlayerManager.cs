@@ -525,7 +525,7 @@ public class PlayerManager : MonoBehaviour
     private void resetWeaponsInventory()
     {
         // START WITH A GUN
-        totalAmmo = 160;
+        totalAmmo = 260;
         for (int i = 0; i < ItemsManager.Instance.GunsList.Capacity; i++)
         {
             ItemsManager.Instance.GunsList[i].Rounds = ItemsManager.Instance.GunsList[i].MaxRounds;
