@@ -167,7 +167,7 @@ MonoBehaviour:
   health: 150
   dmg: 10
   AttackRate: 10
-  Speed: 2000
+  Speed: 1500
   Direction: {x: 0, y: 0}
   LookRange: 3
   Soul: {fileID: 1848012475432859064, guid: 6091511e0f025104d80bbd40fda042cd, type: 3}
