@@ -60,7 +60,8 @@ public class WeaponSellScript : MonoBehaviour
             // GET ITEM PRICE
             Price = Slots[i].transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
             // ADD ITEM PRICE
-            Price.text = WeaponsList[i].price.ToString();
+            int price = (int)(WeaponsList[i].price * 0.95f);
+            Price.text = price.ToString();
             // GET NAME COMPONENT
             Name = Slots[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>();
             // ADD ITEM NAME
@@ -75,7 +76,7 @@ public class WeaponSellScript : MonoBehaviour
             StopAllCoroutines();
             StartCoroutine(saySold(i));
             // REMOVE ITEM
-            int price = PlayerManager.Instance.PlayerGunList[i].price;
+            int price = (int)(PlayerManager.Instance.PlayerGunList[i].price * 0.95f);
             PlayerManager.Instance.removeGun(i);
             // GIVE MONEY
             PlayerManager.Instance.addMoney(price);
