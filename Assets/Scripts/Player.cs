@@ -125,8 +125,6 @@ public class Player : MonoBehaviour
 			OffSetSprint = true;
 		}
 
-		UseItem();
-
 		PlayerManager.Instance.reloading = reloading;
         PlayerManager.Instance.usePriority = false;
     }
@@ -373,27 +371,32 @@ public class Player : MonoBehaviour
             return;
         }
         string InputKey = Input.inputString;
-		if (InputKey == "5" || InputKey == "6" || InputKey == "7" || InputKey == "8" || InputKey == "9")
+		if (InputKey == "1" || InputKey == "2" || InputKey == "3" || InputKey == "4" || InputKey == "5")
 		{
-			if (PlayerManager.Instance.PlayerUsableList[int.Parse(InputKey) - 5] == null) return;
+			if (PlayerManager.Instance.PlayerUsableList[int.Parse(InputKey) - 1] == null) return;
 
 			Debug.Log("Item Slot Swap to: " + InputKey);
 			switch (InputKey)
 			{
-				case "5":
+				case "1":
 					PlayerManager.Instance.usableSelected = 0;
+                    UseItem();
 					break;
-				case "6":
+				case "2":
 					PlayerManager.Instance.usableSelected = 1;
-					break;
-				case "7":
+                    UseItem();
+                    break;
+				case "3":
 					PlayerManager.Instance.usableSelected = 2;
+                    UseItem();
 					break;
-				case "8":
+				case "4":
 					PlayerManager.Instance.usableSelected = 3;
+                    UseItem();
 					break;
-				case "9":
+				case "5":
 					PlayerManager.Instance.usableSelected = 4;
+                    UseItem();
 					break;
 				default:
 					break;
@@ -407,8 +410,9 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        if (Input.GetKeyDown(KeyCode.E) && PlayerManager.Instance.usePriority == false)
+        if (PlayerManager.Instance.usePriority == false)
 		{
+            itemUsing = PlayerManager.Instance.PlayerUsableList[PlayerManager.Instance.usableSelected];
             if (itemUsing == null)
             {
                 return;
