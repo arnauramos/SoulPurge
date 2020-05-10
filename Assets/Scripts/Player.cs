@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
 	public Transform firePoint;
     public GameObject weaponGraphicsObject;
     private SpriteRenderer weaponGraphics;
+    public int weaponUsingINT;
 	public Gun weaponUsing;
 	private int AuxRounds;
 	public int Rounds;
@@ -66,8 +67,9 @@ public class Player : MonoBehaviour
 		//	SET WEAPON USING VARIABLES
 		Rounds = AuxRounds;
         reloading = false;
+        weaponUsingINT = PlayerManager.Instance.weaponSelected;
 
-		PlayerSceneManager.Instance.isSceneHostile();
+        PlayerSceneManager.Instance.isSceneHostile();
 	}
 
 	private void Update()
@@ -278,33 +280,92 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        //float MouseInput = Input.GetAxis("Mouse ScrollWheel");
-        string InputKey = Input.inputString;
-		if (InputKey == "1" || InputKey == "2" || InputKey == "3" ||InputKey == "4")
-		{
-		    if (PlayerManager.Instance.PlayerGunList[int.Parse(InputKey) - 1] == null) return;
-		
-			Debug.Log("Gun Swap to: " + InputKey);
-			switch (InputKey)
-			{
-				case "1":
-					PlayerManager.Instance.weaponSelected = 0;
-					break;
-				case "2":
-					PlayerManager.Instance.weaponSelected = 1;
-					break;
-				case "3":
-					PlayerManager.Instance.weaponSelected = 2;
-					break;
-				case "4":
-					PlayerManager.Instance.weaponSelected = 3;
-					break;
-				default:
-					break;
-			}
-		}
-		else return;
-	}
+
+        // CHECK IF PLAYER HAS ANY WEAPON
+        bool weaponFound = false;
+        for (int i = 0; i < PlayerManager.Instance.PlayerGunList.Capacity; i++)
+        {
+            if (PlayerManager.Instance.PlayerGunList[i] != null)
+            {
+                weaponFound = true;
+            }
+        }
+        if (!weaponFound)
+        {
+            return;
+        }
+
+
+        float MouseInput = Input.GetAxis("Mouse ScrollWheel");
+        // SCROLLWHEEL UP
+        if (MouseInput > 0f)
+        {
+            if (weaponUsingINT >= PlayerManager.Instance.PlayerGunList.Capacity - 1)
+            {
+                weaponUsingINT = 0;
+            }
+            else
+            {
+                weaponUsingINT++;
+            }
+            while (PlayerManager.Instance.PlayerGunList[weaponUsingINT] == null)
+            {
+                weaponUsingINT++;
+                if (weaponUsingINT > PlayerManager.Instance.PlayerGunList.Capacity - 1)
+                {
+                    weaponUsingINT = 0;
+                }
+            }
+            PlayerManager.Instance.weaponSelected = weaponUsingINT;
+        }
+        // SCROLLWHEEL DOWN
+        if (MouseInput < 0f)
+        {
+            if (weaponUsingINT <= 0)
+            {
+                weaponUsingINT = PlayerManager.Instance.PlayerGunList.Capacity - 1;
+            }
+            else
+            {
+                weaponUsingINT--;
+            }
+            while (PlayerManager.Instance.PlayerGunList[weaponUsingINT] == null)
+            {
+                weaponUsingINT--;
+                if (weaponUsingINT < 0)
+                {
+                    weaponUsingINT = PlayerManager.Instance.PlayerGunList.Capacity - 1;
+                }
+            }
+            PlayerManager.Instance.weaponSelected = weaponUsingINT;
+        }
+
+        //string InputKey = Input.inputString;
+        //if (InputKey == "1" || InputKey == "2" || InputKey == "3" ||InputKey == "4")
+        //{
+        //    if (PlayerManager.Instance.PlayerGunList[int.Parse(InputKey) - 1] == null) return;
+
+        //	Debug.Log("Gun Swap to: " + InputKey);
+        //	switch (InputKey)
+        //	{
+        //		case "1":
+        //			PlayerManager.Instance.weaponSelected = 0;
+        //			break;
+        //		case "2":
+        //			PlayerManager.Instance.weaponSelected = 1;
+        //			break;
+        //		case "3":
+        //			PlayerManager.Instance.weaponSelected = 2;
+        //			break;
+        //		case "4":
+        //			PlayerManager.Instance.weaponSelected = 3;
+        //			break;
+        //		default:
+        //			break;
+        //	}
+        //}
+        //else return;
+    }
 	void ItemsSwap()
 	{
         if (PlayerManager.Instance.playerDisabled)
