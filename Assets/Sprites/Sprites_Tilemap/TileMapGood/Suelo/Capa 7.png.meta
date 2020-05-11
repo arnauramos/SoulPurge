@@ -6,6 +6,11 @@ TextureImporter:
     21300002: Capa 7_1
     21300004: Capa 7_2
     21300006: Capa 7_3
+    21300008: Capa 7_4
+    21300010: Capa 7_5
+    21300012: Capa 7_6
+    21300014: Capa 7_7
+    21300016: Capa 7_8
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -103,9 +108,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 23
-        width: 23
-        height: 23
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -113,7 +118,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e2de027112891f4584d16cb71cfa20c
+      spriteID: 2f776cacba8a9e4498b470f9d14f5c16
       vertices: []
       indices: 
       edges: []
@@ -122,10 +127,10 @@ TextureImporter:
       name: Capa 7_1
       rect:
         serializedVersion: 2
-        x: 23
-        y: 23
-        width: 23
-        height: 23
+        x: 16
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,7 +138,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07864b1ed61923844940a465a6c2f49c
+      spriteID: 606f79c7a798b7a408c2029d2f096bd9
       vertices: []
       indices: 
       edges: []
@@ -142,10 +147,10 @@ TextureImporter:
       name: Capa 7_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 23
-        height: 23
+        x: 32
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,7 +158,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14eb9397733a9a243940b59f59f3911f
+      spriteID: 9bad2f4b2256af844ab38edb70360ef7
       vertices: []
       indices: 
       edges: []
@@ -162,10 +167,10 @@ TextureImporter:
       name: Capa 7_3
       rect:
         serializedVersion: 2
-        x: 23
-        y: 0
-        width: 23
-        height: 23
+        x: 0
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,7 +178,107 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e4c76b67377056488d53f2c461d9c1c
+      spriteID: 0eb9d4514329bd641a2602d074a27108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capa 7_4
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eb81cf53ad50b643b9941ffe5c26b43
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capa 7_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c81a597b89987a4b8c436c09d9244dc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capa 7_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 127816f374300364ea6500473e700136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capa 7_7
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63635015c46ec7147a946501b89f6b0f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capa 7_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8b967c4be5b30143b09631501646ca0
       vertices: []
       indices: 
       edges: []
