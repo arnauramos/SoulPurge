@@ -17,6 +17,20 @@ public class WeaponInventoryScript : MonoBehaviour
     // COLORS
     private Color32 DarkBlue = new Color32(0, 24, 91, 255);
     private Color32 LightBlue = new Color32(0, 50, 200, 255);
+
+    // AMMO
+    private TextMeshProUGUI AmmoCounter;
+
+    // PLAYER
+    private GameObject player;
+    private Player playerScript;
+
+    private void Start()
+    {
+        // PLAYER
+        player = GameObject.Find("Player");
+        playerScript = player.GetComponent<Player>();
+    }
     void Update()
     {
         for (int i = 0; i < Slots.Count; i++)
@@ -44,18 +58,27 @@ public class WeaponInventoryScript : MonoBehaviour
                 Spriter.sprite = null;
             }
 
-            // CHANGE BORDER COLOR IF SELECTED
-            // CHANGE BG COLOR IF SELECTED
+            // GET AMMO COUNTER
+            AmmoCounter = Slots[i].transform.Find("AmmoCounter").GetComponent<TextMeshProUGUI>();
+            // CHANGE BG & BORDER COLORS IF SELECTED
             Selected = PlayerManager.Instance.weaponSelected;
             if (i == Selected)
             {
                 Border.color = Color.cyan;
                 BG.color = LightBlue;
+                // SHOW & UPDATE AMMO COUNTER
+                AmmoCounter.enabled = true;
+                if (!PlayerManager.Instance.reloading)
+                {
+                    AmmoCounter.text = playerScript.Rounds.ToString() + "/ "+ PlayerManager.Instance.totalAmmo.ToString();
+                }
             }
             else
             {
                 Border.color = Color.white;
                 BG.color = DarkBlue;
+                // HIDE AMMO COUNTER
+                AmmoCounter.enabled = false;
             }
 
         }

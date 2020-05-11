@@ -36,11 +36,11 @@ public class HUDScript : MonoBehaviour
     public GameObject KeysUI;
     public TextMeshProUGUI KeysText;
 
-    // AMMO
-    public GameObject RoundsCounter;
-    private TextMeshProUGUI RoundsText;
-    public GameObject TotalAmmoCounter;
-    private TextMeshProUGUI TotalAmmoText;
+    //// AMMO
+    //public GameObject RoundsCounter;
+    //private TextMeshProUGUI RoundsText;
+    //public GameObject TotalAmmoCounter;
+    //private TextMeshProUGUI TotalAmmoText;
 
     // PLAYER
     private GameObject player;
@@ -61,9 +61,9 @@ public class HUDScript : MonoBehaviour
         // SOULS
         SoulsText = SoulsCounter.GetComponent<TextMeshProUGUI>();
 
-        // AMMO
-        RoundsText = RoundsCounter.GetComponent<TextMeshProUGUI>();
-        TotalAmmoText = TotalAmmoCounter.GetComponent<TextMeshProUGUI>();
+        //// AMMO
+        //RoundsText = RoundsCounter.GetComponent<TextMeshProUGUI>();
+        //TotalAmmoText = TotalAmmoCounter.GetComponent<TextMeshProUGUI>();
 
         // PLAYER
         player = GameObject.Find("Player");
@@ -78,7 +78,7 @@ public class HUDScript : MonoBehaviour
         Souls();
         Money();
         Keys();
-        Ammo();
+        //Ammo();
         HostileHUD();
     }
     private void Stamina() {
@@ -119,14 +119,14 @@ public class HUDScript : MonoBehaviour
             KeysUI.SetActive(false);
         }
     }
-    private void Ammo()
-    {
-        if (!PlayerManager.Instance.reloading)
-        {
-            RoundsText.text = playerScript.Rounds.ToString();
-            TotalAmmoText.text = PlayerManager.Instance.totalAmmo.ToString();
-        }
-    }
+    //private void Ammo()
+    //{
+    //    if (!PlayerManager.Instance.reloading)
+    //    {
+    //        RoundsText.text = playerScript.Rounds.ToString();
+    //        TotalAmmoText.text = PlayerManager.Instance.totalAmmo.ToString();
+    //    }
+    //}
     private void HostileHUD()
     {
         if (thisScene.scene == ThisScene.Scene.HOSTILEZONE)
