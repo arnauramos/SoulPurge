@@ -51,7 +51,11 @@ public class SpawnerManager : MonoBehaviour
 
 	private void Update()
 	{
-		if (!PlayerSceneManager.Instance.ZoneIsHostile)
+        if (PlayerSceneManager.Instance.ActualIndexScene == 0)
+        {
+            return;
+        }
+        if (!PlayerSceneManager.Instance.ZoneIsHostile)
 		{
             reset();
 		}

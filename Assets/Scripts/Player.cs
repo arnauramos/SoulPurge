@@ -232,7 +232,7 @@ public class Player : MonoBehaviour
         }
         if (weaponUsing.Rounds <= 0 && PlayerManager.Instance.totalAmmo <= 0) { PlayerManager.Instance.totalAmmo = 0; return; }
 
-        if ((Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Return)) && PlayerManager.Instance.totalAmmo >= 0 && weaponUsing.Rounds < weaponUsing.MaxRounds)
+        if ((Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Return)) && PlayerManager.Instance.totalAmmo > 0 && weaponUsing.Rounds < weaponUsing.MaxRounds)
 		{
 			Debug.Log("Reloading: Manual;");
 			PlayerManager.Instance.addTotalAmmo(weaponUsing.Rounds);
