@@ -17,6 +17,12 @@ public class SoundManager : MonoBehaviour
         EnemyDamage,
         EnemyDie,
         PlayerDie,
+        Steps,
+        WoodenSteps,
+        KeyPickup,
+        SoulPickup1, 
+        SoulPickup2, 
+        SoulPickup3, 
     }
     public List<AudioClip> clips;
 
@@ -37,33 +43,11 @@ public class SoundManager : MonoBehaviour
         GameObject soundGO = new GameObject("Sound");
         AudioSource audioSource = soundGO.AddComponent<AudioSource>();
         audioSource.outputAudioMixerGroup = mixer;
-        switch (sound)
+        clip = clips[(int)sound];
+        if (clip != null)
         {
-            case Sounds.Shooting:
-                clip = clips[(int)Sounds.Shooting];
-                break;
-            case Sounds.Reloading:
-                clip = clips[(int)Sounds.Reloading];
-                break;
-            case Sounds.EnemyShooting:
-                clip = clips[(int)Sounds.EnemyShooting];
-                break;
-            case Sounds.PlayerDamage:
-                clip = clips[(int)Sounds.PlayerDamage];
-                break;
-            case Sounds.EnemyDamage:
-                clip = clips[(int)Sounds.EnemyDamage];
-                break;
-            case Sounds.EnemyDie:
-                clip = clips[(int)Sounds.EnemyDie];
-                break;
-            case Sounds.PlayerDie:
-                clip = clips[(int)Sounds.PlayerDie];
-                break;
-            default:
-                break;
+            audioSource.PlayOneShot(clip);
+            Destroy(soundGO, clip.length);
         }
-        audioSource.PlayOneShot(clip);
-        Destroy(soundGO, clip.length);
     }
 }

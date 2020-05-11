@@ -54,6 +54,10 @@ public class Player : MonoBehaviour
     // VARIABLES FOR DIALOGUE
     private DialogueScript dialoguescript;
 
+    // VARIABLES FOR SOUNDS
+    private float nextStep = 0f;
+    private bool insideHouse = false;
+
 	void Start()
 	{
 		rb2d = GetComponent<Rigidbody2D>();
@@ -193,9 +197,30 @@ public class Player : MonoBehaviour
 			animator.SetBool("Moving", false);
 		}
 		rb2d.AddForce(Movement * PlayerManager.Instance.speed * PlayerManager.Instance.speedBoost * fixedDelta, ForceMode2D.Impulse);
-		animator.SetBool("Moving", true);
+        animator.SetBool("Moving", true);
         DataManager.Instance.TrackDistance(transform.position);
-	}
+
+        // STEP SOUNDS
+        if (Movement.y >= 0.5f || Movement.x >= 0.5f || Movement.y <= -0.5f || Movement.x <= -0.5f)
+        {  
+            if (nextStep < 0.5f / PlayerManager.Instance.speed / PlayerManager.Instance.speedBoost)
+            {
+                nextStep += Time.fixedDeltaTime;
+            }
+            else
+            {
+                if (insideHouse)
+                {
+                    SoundManager.Instance.PlaySound(SoundManager.Sounds.WoodenSteps);
+                }
+                else
+                {
+                    SoundManager.Instance.PlaySound(SoundManager.Sounds.Steps);
+                }
+                nextStep = 0;
+            }
+        }
+    }
 	void PlayerAim()
 	{
         if (PlayerManager.Instance.playerDisabled)
@@ -475,8 +500,29 @@ public class Player : MonoBehaviour
 			EnviromentManager.Instance.manageDoor(collision.gameObject);
 		}
 	}
-	// PICK UP OBJECTS 
-	private void OnTriggerStay2D(Collider2D collision)
+
+    // RANDOM SOUL PICKUP SOUND
+    private void PlaySoulPickup()
+    {
+        int soulPickupSound = UnityEngine.Random.Range(0, 3);
+        switch (soulPickupSound)
+        {
+            case 1:
+                SoundManager.Instance.PlaySound(SoundManager.Sounds.SoulPickup1);
+                break;
+            case 2:
+                SoundManager.Instance.PlaySound(SoundManager.Sounds.SoulPickup2);
+                break;
+            case 3:
+                SoundManager.Instance.PlaySound(SoundManager.Sounds.SoulPickup3);
+                break;
+            default:
+                break;
+        }
+    }
+
+    // PICK UP OBJECTS 
+    private void OnTriggerStay2D(Collider2D collision)
 	{
         // PICK UP USABLE
 		if (collision.gameObject.tag == "Usable") 
@@ -497,13 +543,15 @@ public class Player : MonoBehaviour
 		if (collision.gameObject.tag == "Key_Object")
 		{
             PlayerManager.Instance.keys++;
-			Destroy(collision.gameObject);
+            SoundManager.Instance.PlaySound(SoundManager.Sounds.KeyPickup);
+            Destroy(collision.gameObject);
 		}
         // PICK UP SOUL
 		if (collision.gameObject.tag == "Soul" && PickSoul == true)
 		{
 			Destroy(collision.gameObject);
-			PlayerManager.Instance.addSouls(1);
+            PlaySoulPickup();
+            PlayerManager.Instance.addSouls(1);
 		}
 
 		//USE PRIORITY SETTING
@@ -538,6 +586,7 @@ public class Player : MonoBehaviour
 		if (collision.gameObject.tag == "Inside")
 		{
 			EnviromentManager.Instance.openRoof();
+            insideHouse = true;
 		}
 	}
 	private void OnTriggerExit2D(Collider2D collision)
@@ -545,6 +594,7 @@ public class Player : MonoBehaviour
 		if (collision.gameObject.tag == "Inside")
 		{
 			EnviromentManager.Instance.closeRoof();
-		}
-	}
+            insideHouse = false;
+        }
+    }
 }
