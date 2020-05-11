@@ -318,8 +318,8 @@ public class Player : MonoBehaviour
             return;
         }
 
-
         float MouseInput = Input.GetAxis("Mouse ScrollWheel");
+        int oldWeapon = weaponUsingINT;
         // SCROLLWHEEL UP
         if (MouseInput > 0f)
         {
@@ -339,8 +339,13 @@ public class Player : MonoBehaviour
                     weaponUsingINT = 0;
                 }
             }
-            PlayerManager.Instance.weaponSelected = weaponUsingINT;
+            if (weaponUsingINT != oldWeapon)
+            {
+                SoundManager.Instance.PlaySound(SoundManager.Sounds.SwapWeapon);
+                PlayerManager.Instance.weaponSelected = weaponUsingINT;
+            }
         }
+
         // SCROLLWHEEL DOWN
         if (MouseInput < 0f)
         {
@@ -360,7 +365,11 @@ public class Player : MonoBehaviour
                     weaponUsingINT = PlayerManager.Instance.PlayerGunList.Capacity - 1;
                 }
             }
-            PlayerManager.Instance.weaponSelected = weaponUsingINT;
+            if (weaponUsingINT != oldWeapon)
+            {
+                SoundManager.Instance.PlaySound(SoundManager.Sounds.SwapWeapon);
+                PlayerManager.Instance.weaponSelected = weaponUsingINT;
+            }
         }
 
         //string InputKey = Input.inputString;

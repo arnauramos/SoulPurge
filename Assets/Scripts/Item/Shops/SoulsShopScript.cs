@@ -78,6 +78,7 @@ public class SoulsShopScript : MonoBehaviour
                 // SELL
                 InteractionManager.Instance.SoulsExchange(SoulsAmmount, SoulsPrice);
                 // SOLD
+                SoundManager.Instance.PlaySound(SoundManager.Sounds.Shop);
                 StopAllCoroutines();
                 StartCoroutine(saySold());
             }

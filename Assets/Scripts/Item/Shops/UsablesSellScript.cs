@@ -65,6 +65,7 @@ public class UsablesSellScript : MonoBehaviour
             if (Ammounts[i] <= PlayerManager.Instance.PlayerUsableList[i].ammount)
             {
                 // SAY SOLD
+                SoundManager.Instance.PlaySound(SoundManager.Sounds.Shop);
                 StopAllCoroutines();
                 StartCoroutine(saySold(i));
                 // REMOVE ITEM

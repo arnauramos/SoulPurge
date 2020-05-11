@@ -23,6 +23,8 @@ public class SoundManager : MonoBehaviour
         SoulPickup1, 
         SoulPickup2, 
         SoulPickup3, 
+        Shop,
+        SwapWeapon
     }
     public List<AudioClip> clips;
 

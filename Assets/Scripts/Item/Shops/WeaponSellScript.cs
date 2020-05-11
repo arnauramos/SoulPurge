@@ -73,6 +73,7 @@ public class WeaponSellScript : MonoBehaviour
         if (PlayerManager.Instance.PlayerGunList[i] != null)
         {
             // SAY SOLD
+            SoundManager.Instance.PlaySound(SoundManager.Sounds.Shop);
             StopAllCoroutines();
             StartCoroutine(saySold(i));
             // REMOVE ITEM
