@@ -21,6 +21,8 @@ public class ItemInventoryScript : MonoBehaviour
     // COLORS
     private Color32 DarkYellow = new Color32(91, 81, 0, 255);
     private Color32 LightYellow = new Color32(188, 169, 0, 255);
+    private bool colorChanged = false;
+    private float colorStop = 0f;
 
     // Update is called once per frame
     void Update()
@@ -57,11 +59,21 @@ public class ItemInventoryScript : MonoBehaviour
                 Spriter.sprite = null;
             }
 
-            // CHANGE BORDER COLOR IF SELECTED
-            // CHANGE BG COLOR IF SELECTED
+            // CHANGE BG & BORDER COLORS IF SELECTED
             Selected = PlayerManager.Instance.usableSelected;
             if (i == Selected)
             {
+                if (colorChanged)
+                {
+                    colorStop += Time.deltaTime;
+                    if (colorStop >= 0.15f)
+                    {
+                        colorChanged = false;
+                        PlayerManager.Instance.usableSelected = -1;
+                        colorStop = 0f;
+                    }
+                }
+                colorChanged = true;
                 Border.color = Color.yellow;
                 BG.color = LightYellow;
             }
