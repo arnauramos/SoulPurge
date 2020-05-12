@@ -198,6 +198,7 @@ MonoBehaviour:
   dmgCounter: 0
   firePoint: {fileID: 1925108884}
   weaponGraphicsObject: {fileID: 9036098868648592568}
+  weaponUsingINT: 0
   weaponUsing: {fileID: 0}
   Rounds: 0
   reloading: 0
