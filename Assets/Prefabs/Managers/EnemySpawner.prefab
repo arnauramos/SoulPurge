@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cbe169cbc1d3d34d87615d7b36dc24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  START: 0
+  STOP: 0
   MapTopLeftLimit: {x: 0, y: 0}
   MapBotRightLimit: {x: 0, y: 0}
   CameraTopLeftLimit: {x: 0, y: 0}
@@ -54,5 +54,8 @@ MonoBehaviour:
   AuxEnemyShooter: {fileID: 7501921725930840567, guid: 4994d63c2fcc21f47b44019675d71597,
     type: 3}
   ActualRound: 0
-  EnemyTypePerRound: []
-  HostileZoneWaves: {fileID: 0}
+  TotalEnemies: 0
+  HostileZoneWaves: {fileID: 11400000, guid: eb79ea98550497a4491bfaee58ffd3d0, type: 2}
+  Counter: 0
+  waveCounter: 0
+  FirstTime: 0
