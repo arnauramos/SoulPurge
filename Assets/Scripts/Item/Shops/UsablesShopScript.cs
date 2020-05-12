@@ -112,6 +112,7 @@ public class UsablesShopScript : MonoBehaviour
                 if (Bought)
                 {
                     // DECREASE MONEY
+                    SoundManager.Instance.PlaySound(SoundManager.Sounds.Shop);
                     PlayerManager.Instance.money -= Prices[i];
                     DataManager.Instance.MoneySpent += Prices[i];
                     StopAllCoroutines();

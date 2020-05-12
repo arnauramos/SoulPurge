@@ -399,7 +399,7 @@ public class PlayerManager : MonoBehaviour
 		totalAmmo -= value;
 	}
 
-	//RESET (work in progress)
+	//RESET
 	public void UseResistance(float seconds, float value)
 	{
         if (!resistanceActive)

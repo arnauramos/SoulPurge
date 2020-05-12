@@ -65,6 +65,7 @@ public class UsablesSellScript : MonoBehaviour
             if (Ammounts[i] <= PlayerManager.Instance.PlayerUsableList[i].ammount)
             {
                 // SAY SOLD
+                SoundManager.Instance.PlaySound(SoundManager.Sounds.Shop);
                 StopAllCoroutines();
                 StartCoroutine(saySold(i));
                 // REMOVE ITEM
@@ -122,7 +123,7 @@ public class UsablesSellScript : MonoBehaviour
                 }
                 Ammount.text = Ammounts[i].ToString();
                 // PRICE = ITEM PRICE * AMMOUNT SELECTED
-                Prices[i] = ItemsList[i].price * Ammounts[i];
+                Prices[i] = (int)(ItemsList[i].price * Ammounts[i] * 0.95f);
                 Price.text = Prices[i].ToString();
                 // SPRITE = ITEM SPRITE
                 Spriter.sprite = ItemsList[i].sprite;

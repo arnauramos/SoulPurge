@@ -82,6 +82,7 @@ public class WeaponsShopScript : MonoBehaviour
             {
                 case 0:
                     // BOUGHT
+                    SoundManager.Instance.PlaySound(SoundManager.Sounds.Shop);
                     PlayerManager.Instance.money -= WeaponsList[i].price;
                     DataManager.Instance.MoneySpent += WeaponsList[i].price;
                     StopAllCoroutines();

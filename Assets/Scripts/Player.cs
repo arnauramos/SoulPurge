@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
 	public Transform firePoint;
     public GameObject weaponGraphicsObject;
     private SpriteRenderer weaponGraphics;
+    public int weaponUsingINT;
 	public Gun weaponUsing;
 	private int AuxRounds;
 	public int Rounds;
@@ -53,6 +54,10 @@ public class Player : MonoBehaviour
     // VARIABLES FOR DIALOGUE
     private DialogueScript dialoguescript;
 
+    // VARIABLES FOR SOUNDS
+    private float nextStep = 0f;
+    private bool insideHouse = false;
+
 	void Start()
 	{
 		rb2d = GetComponent<Rigidbody2D>();
@@ -66,8 +71,9 @@ public class Player : MonoBehaviour
 		//	SET WEAPON USING VARIABLES
 		Rounds = AuxRounds;
         reloading = false;
+        weaponUsingINT = PlayerManager.Instance.weaponSelected;
 
-		PlayerSceneManager.Instance.isSceneHostile();
+        PlayerSceneManager.Instance.isSceneHostile();
 	}
 
 	private void Update()
@@ -122,8 +128,6 @@ public class Player : MonoBehaviour
 		{
 			OffSetSprint = true;
 		}
-
-		UseItem();
 
 		PlayerManager.Instance.reloading = reloading;
         PlayerManager.Instance.usePriority = false;
@@ -193,9 +197,30 @@ public class Player : MonoBehaviour
 			animator.SetBool("Moving", false);
 		}
 		rb2d.AddForce(Movement * PlayerManager.Instance.speed * PlayerManager.Instance.speedBoost * fixedDelta, ForceMode2D.Impulse);
-		animator.SetBool("Moving", true);
+        animator.SetBool("Moving", true);
         DataManager.Instance.TrackDistance(transform.position);
-	}
+
+        // STEP SOUNDS
+        if (Movement.y >= 0.5f || Movement.x >= 0.5f || Movement.y <= -0.5f || Movement.x <= -0.5f)
+        {  
+            if (nextStep < 0.5f / PlayerManager.Instance.speed / PlayerManager.Instance.speedBoost)
+            {
+                nextStep += Time.fixedDeltaTime;
+            }
+            else
+            {
+                if (insideHouse)
+                {
+                    SoundManager.Instance.PlaySound(SoundManager.Sounds.WoodenSteps);
+                }
+                else
+                {
+                    SoundManager.Instance.PlaySound(SoundManager.Sounds.Steps);
+                }
+                nextStep = 0;
+            }
+        }
+    }
 	void PlayerAim()
 	{
         if (PlayerManager.Instance.playerDisabled)
@@ -232,7 +257,7 @@ public class Player : MonoBehaviour
         }
         if (weaponUsing.Rounds <= 0 && PlayerManager.Instance.totalAmmo <= 0) { PlayerManager.Instance.totalAmmo = 0; return; }
 
-        if ((Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Return)) && PlayerManager.Instance.totalAmmo >= 0 && weaponUsing.Rounds < weaponUsing.MaxRounds)
+        if ((Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Return)) && PlayerManager.Instance.totalAmmo > 0 && weaponUsing.Rounds < weaponUsing.MaxRounds)
 		{
 			Debug.Log("Reloading: Manual;");
 			PlayerManager.Instance.addTotalAmmo(weaponUsing.Rounds);
@@ -278,33 +303,101 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        //float MouseInput = Input.GetAxis("Mouse ScrollWheel");
-        string InputKey = Input.inputString;
-		if (InputKey == "1" || InputKey == "2" || InputKey == "3" ||InputKey == "4")
-		{
-		    if (PlayerManager.Instance.PlayerGunList[int.Parse(InputKey) - 1] == null) return;
-		
-			Debug.Log("Gun Swap to: " + InputKey);
-			switch (InputKey)
-			{
-				case "1":
-					PlayerManager.Instance.weaponSelected = 0;
-					break;
-				case "2":
-					PlayerManager.Instance.weaponSelected = 1;
-					break;
-				case "3":
-					PlayerManager.Instance.weaponSelected = 2;
-					break;
-				case "4":
-					PlayerManager.Instance.weaponSelected = 3;
-					break;
-				default:
-					break;
-			}
-		}
-		else return;
-	}
+
+        // CHECK IF PLAYER HAS ANY WEAPON
+        bool weaponFound = false;
+        for (int i = 0; i < PlayerManager.Instance.PlayerGunList.Capacity; i++)
+        {
+            if (PlayerManager.Instance.PlayerGunList[i] != null)
+            {
+                weaponFound = true;
+            }
+        }
+        if (!weaponFound)
+        {
+            return;
+        }
+
+        float MouseInput = Input.GetAxis("Mouse ScrollWheel");
+        int oldWeapon = weaponUsingINT;
+        // SCROLLWHEEL UP
+        if (MouseInput > 0f)
+        {
+            if (weaponUsingINT >= PlayerManager.Instance.PlayerGunList.Capacity - 1)
+            {
+                weaponUsingINT = 0;
+            }
+            else
+            {
+                weaponUsingINT++;
+            }
+            while (PlayerManager.Instance.PlayerGunList[weaponUsingINT] == null)
+            {
+                weaponUsingINT++;
+                if (weaponUsingINT > PlayerManager.Instance.PlayerGunList.Capacity - 1)
+                {
+                    weaponUsingINT = 0;
+                }
+            }
+            if (weaponUsingINT != oldWeapon)
+            {
+                SoundManager.Instance.PlaySound(SoundManager.Sounds.SwapWeapon);
+                PlayerManager.Instance.weaponSelected = weaponUsingINT;
+            }
+        }
+
+        // SCROLLWHEEL DOWN
+        if (MouseInput < 0f)
+        {
+            if (weaponUsingINT <= 0)
+            {
+                weaponUsingINT = PlayerManager.Instance.PlayerGunList.Capacity - 1;
+            }
+            else
+            {
+                weaponUsingINT--;
+            }
+            while (PlayerManager.Instance.PlayerGunList[weaponUsingINT] == null)
+            {
+                weaponUsingINT--;
+                if (weaponUsingINT < 0)
+                {
+                    weaponUsingINT = PlayerManager.Instance.PlayerGunList.Capacity - 1;
+                }
+            }
+            if (weaponUsingINT != oldWeapon)
+            {
+                SoundManager.Instance.PlaySound(SoundManager.Sounds.SwapWeapon);
+                PlayerManager.Instance.weaponSelected = weaponUsingINT;
+            }
+        }
+
+        //string InputKey = Input.inputString;
+        //if (InputKey == "1" || InputKey == "2" || InputKey == "3" ||InputKey == "4")
+        //{
+        //    if (PlayerManager.Instance.PlayerGunList[int.Parse(InputKey) - 1] == null) return;
+
+        //	Debug.Log("Gun Swap to: " + InputKey);
+        //	switch (InputKey)
+        //	{
+        //		case "1":
+        //			PlayerManager.Instance.weaponSelected = 0;
+        //			break;
+        //		case "2":
+        //			PlayerManager.Instance.weaponSelected = 1;
+        //			break;
+        //		case "3":
+        //			PlayerManager.Instance.weaponSelected = 2;
+        //			break;
+        //		case "4":
+        //			PlayerManager.Instance.weaponSelected = 3;
+        //			break;
+        //		default:
+        //			break;
+        //	}
+        //}
+        //else return;
+    }
 	void ItemsSwap()
 	{
         if (PlayerManager.Instance.playerDisabled)
@@ -312,27 +405,32 @@ public class Player : MonoBehaviour
             return;
         }
         string InputKey = Input.inputString;
-		if (InputKey == "5" || InputKey == "6" || InputKey == "7" || InputKey == "8" || InputKey == "9")
+		if (InputKey == "1" || InputKey == "2" || InputKey == "3" || InputKey == "4" || InputKey == "5")
 		{
-			if (PlayerManager.Instance.PlayerUsableList[int.Parse(InputKey) - 5] == null) return;
+			if (PlayerManager.Instance.PlayerUsableList[int.Parse(InputKey) - 1] == null) return;
 
 			Debug.Log("Item Slot Swap to: " + InputKey);
 			switch (InputKey)
 			{
-				case "5":
+				case "1":
 					PlayerManager.Instance.usableSelected = 0;
+                    UseItem();
 					break;
-				case "6":
+				case "2":
 					PlayerManager.Instance.usableSelected = 1;
-					break;
-				case "7":
+                    UseItem();
+                    break;
+				case "3":
 					PlayerManager.Instance.usableSelected = 2;
+                    UseItem();
 					break;
-				case "8":
+				case "4":
 					PlayerManager.Instance.usableSelected = 3;
+                    UseItem();
 					break;
-				case "9":
+				case "5":
 					PlayerManager.Instance.usableSelected = 4;
+                    UseItem();
 					break;
 				default:
 					break;
@@ -346,8 +444,9 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        if (Input.GetKeyDown(KeyCode.E) && PlayerManager.Instance.usePriority == false)
+        if (PlayerManager.Instance.usePriority == false)
 		{
+            itemUsing = PlayerManager.Instance.PlayerUsableList[PlayerManager.Instance.usableSelected];
             if (itemUsing == null)
             {
                 return;
@@ -410,8 +509,29 @@ public class Player : MonoBehaviour
 			EnviromentManager.Instance.manageDoor(collision.gameObject);
 		}
 	}
-	// PICK UP OBJECTS 
-	private void OnTriggerStay2D(Collider2D collision)
+
+    // RANDOM SOUL PICKUP SOUND
+    private void PlaySoulPickup()
+    {
+        int soulPickupSound = UnityEngine.Random.Range(0, 3);
+        switch (soulPickupSound)
+        {
+            case 1:
+                SoundManager.Instance.PlaySound(SoundManager.Sounds.SoulPickup1);
+                break;
+            case 2:
+                SoundManager.Instance.PlaySound(SoundManager.Sounds.SoulPickup2);
+                break;
+            case 3:
+                SoundManager.Instance.PlaySound(SoundManager.Sounds.SoulPickup3);
+                break;
+            default:
+                break;
+        }
+    }
+
+    // PICK UP OBJECTS 
+    private void OnTriggerStay2D(Collider2D collision)
 	{
         // PICK UP USABLE
 		if (collision.gameObject.tag == "Usable") 
@@ -432,13 +552,15 @@ public class Player : MonoBehaviour
 		if (collision.gameObject.tag == "Key_Object")
 		{
             PlayerManager.Instance.keys++;
-			Destroy(collision.gameObject);
+            SoundManager.Instance.PlaySound(SoundManager.Sounds.KeyPickup);
+            Destroy(collision.gameObject);
 		}
         // PICK UP SOUL
 		if (collision.gameObject.tag == "Soul" && PickSoul == true)
 		{
 			Destroy(collision.gameObject);
-			PlayerManager.Instance.addSouls(1);
+            PlaySoulPickup();
+            PlayerManager.Instance.addSouls(1);
 		}
 
 		//USE PRIORITY SETTING
@@ -473,6 +595,7 @@ public class Player : MonoBehaviour
 		if (collision.gameObject.tag == "Inside")
 		{
 			EnviromentManager.Instance.openRoof();
+            insideHouse = true;
 		}
 	}
 	private void OnTriggerExit2D(Collider2D collision)
@@ -480,6 +603,7 @@ public class Player : MonoBehaviour
 		if (collision.gameObject.tag == "Inside")
 		{
 			EnviromentManager.Instance.closeRoof();
-		}
-	}
+            insideHouse = false;
+        }
+    }
 }
