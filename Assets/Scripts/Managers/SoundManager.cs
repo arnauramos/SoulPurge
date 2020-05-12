@@ -24,7 +24,13 @@ public class SoundManager : MonoBehaviour
         SoulPickup2, 
         SoulPickup3, 
         Shop,
-        SwapWeapon
+        SwapWeapon,
+        Door,
+        ItemPickup,
+        UseUpgrade,
+        UsePotion,
+        UseKit,
+        UseAmmo
     }
     public List<AudioClip> clips;
 

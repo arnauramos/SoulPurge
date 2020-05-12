@@ -8,5 +8,6 @@ public class ExtraStamina : Usable
     {
         if (!CheckItem()) return;
         PlayerManager.Instance.addExtraStamina(value);
+        SoundManager.Instance.PlaySound(SoundManager.Sounds.UseUpgrade);
     }
 }

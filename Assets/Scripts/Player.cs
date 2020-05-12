@@ -546,6 +546,7 @@ public class Player : MonoBehaviour
                 } 
             }
             PlayerManager.Instance.addUsableById(id, 1);
+            SoundManager.Instance.PlaySound(SoundManager.Sounds.ItemPickup);
             Destroy(collision.gameObject);
 		}
         // PICK UP KEY

@@ -8,5 +8,6 @@ public class Potion : Usable
     {
         if (!CheckItem()) return;
         PlayerManager.Instance.addHealth(value);
+        SoundManager.Instance.PlaySound(SoundManager.Sounds.UsePotion);
     }
 }

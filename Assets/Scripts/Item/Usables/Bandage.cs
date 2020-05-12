@@ -8,5 +8,6 @@ public class Bandage : Usable
     {
         if (!CheckItem()) return;
         PlayerManager.Instance.addHealth(value);
+        SoundManager.Instance.PlaySound(SoundManager.Sounds.UseKit);
     }
 }

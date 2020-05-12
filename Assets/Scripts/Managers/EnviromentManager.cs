@@ -33,9 +33,9 @@ public class EnviromentManager : MonoBehaviour
 		{
 			closeDoor(doorTransform);
 		}
-	}
+    }
 
-	public void openDoor(Transform door)
+    public void openDoor(Transform door)
 	{
         if (Input.GetKeyDown(KeyCode.E) || PlayerManager.Instance.speed == PlayerManager.Instance.maxSpeed)
         {
@@ -45,8 +45,10 @@ public class EnviromentManager : MonoBehaviour
 			Vector3 aPos = new Vector3(door.position.x - dX, door.position.y + dY, door.position.z);
 			door.eulerAngles = Vector3.forward * 90;
 			door.position = aPos;
-		}
-	}
+
+            SoundManager.Instance.PlaySound(SoundManager.Sounds.Door);
+        }
+    }
 	public void closeDoor(Transform door)
 	{
 		if (Input.GetKeyDown(KeyCode.E) || PlayerManager.Instance.speed == PlayerManager.Instance.sprint)
@@ -57,8 +59,10 @@ public class EnviromentManager : MonoBehaviour
 			Vector3 aPos = new Vector3(door.position.x + dX, door.position.y - dY, door.position.z);
 			door.eulerAngles = Vector3.forward * 0;
 			door.position = aPos;
-		}
-	}
+
+            SoundManager.Instance.PlaySound(SoundManager.Sounds.Door);
+        }
+    }
 
 	public void openRoof()
 	{
