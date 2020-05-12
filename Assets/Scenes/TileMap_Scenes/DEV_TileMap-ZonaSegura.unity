@@ -1694,11 +1694,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid-ZonaSegura
       objectReference: {fileID: 0}
-    - target: {fileID: 4813014506038605682, guid: 06e31d6841f9f04429e3107645b2523c,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4813014506038605683, guid: 06e31d6841f9f04429e3107645b2523c,
         type: 3}
       propertyPath: m_LocalPosition.x
