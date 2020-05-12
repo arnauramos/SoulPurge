@@ -360,26 +360,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3682683155392211556, guid: a5e8f6f790b123140ba0a300ee3420d0,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: -2.19603
-      objectReference: {fileID: 0}
-    - target: {fileID: 3682683155392211556, guid: a5e8f6f790b123140ba0a300ee3420d0,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 5.06206
-      objectReference: {fileID: 0}
-    - target: {fileID: 3682683155392211556, guid: a5e8f6f790b123140ba0a300ee3420d0,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 0.1098021
-      objectReference: {fileID: 0}
-    - target: {fileID: 3682683155392211556, guid: a5e8f6f790b123140ba0a300ee3420d0,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1.9939735
-      objectReference: {fileID: 0}
     - target: {fileID: 6535600128617621738, guid: a5e8f6f790b123140ba0a300ee3420d0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -439,31 +419,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Map_Sequeleton-ZonaSegura
-      objectReference: {fileID: 0}
-    - target: {fileID: 6535600128705097693, guid: a5e8f6f790b123140ba0a300ee3420d0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7441823271132944781, guid: a5e8f6f790b123140ba0a300ee3420d0,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: 2.342432
-      objectReference: {fileID: 0}
-    - target: {fileID: 7441823271132944781, guid: a5e8f6f790b123140ba0a300ee3420d0,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 5.354864
-      objectReference: {fileID: 0}
-    - target: {fileID: 7441823271132944781, guid: a5e8f6f790b123140ba0a300ee3420d0,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 0.10540965
-      objectReference: {fileID: 0}
-    - target: {fileID: 7441823271132944781, guid: a5e8f6f790b123140ba0a300ee3420d0,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1.9851897
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5e8f6f790b123140ba0a300ee3420d0, type: 3}
@@ -1734,15 +1689,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4813014504851477054, guid: 06e31d6841f9f04429e3107645b2523c,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2
-      objectReference: {fileID: 0}
     - target: {fileID: 4813014506038605681, guid: 06e31d6841f9f04429e3107645b2523c,
         type: 3}
       propertyPath: m_Name
       value: Grid-ZonaSegura
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813014506038605682, guid: 06e31d6841f9f04429e3107645b2523c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4813014506038605683, guid: 06e31d6841f9f04429e3107645b2523c,
         type: 3}
@@ -1798,11 +1753,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4813014506191274331, guid: 06e31d6841f9f04429e3107645b2523c,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06e31d6841f9f04429e3107645b2523c, type: 3}
