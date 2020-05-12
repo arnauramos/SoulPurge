@@ -8,5 +8,6 @@ public class RegenerationBoost : Usable
     {
         if (!CheckItem()) return;
         PlayerManager.Instance.UseStaminaRegeneration(duration, value);
+        SoundManager.Instance.PlaySound(SoundManager.Sounds.UseUpgrade);
     }
 }

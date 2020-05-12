@@ -8,5 +8,6 @@ public class ResistanceBoost : Usable
     {
         if (!CheckItem()) return;
         PlayerManager.Instance.UseResistance(duration, value);
+        SoundManager.Instance.PlaySound(SoundManager.Sounds.UseUpgrade);
     }
 }

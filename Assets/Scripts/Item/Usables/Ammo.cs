@@ -8,5 +8,6 @@ public class Ammo : Usable
     {
         if (!CheckItem()) return;
         PlayerManager.Instance.addTotalAmmo((int)value);
+        SoundManager.Instance.PlaySound(SoundManager.Sounds.UseAmmo);
     }
 }

@@ -8,5 +8,6 @@ public class ShootingBoost : Usable
     {
         if (!CheckItem()) return;
         PlayerManager.Instance.UseShootingBoost(duration, value);
+        SoundManager.Instance.PlaySound(SoundManager.Sounds.UseUpgrade);
     }
 }

@@ -8,5 +8,6 @@ public class SpeedBoost : Usable
     {
         if (!CheckItem()) return;
         PlayerManager.Instance.UseSpeedBoost(duration, value);
+        SoundManager.Instance.PlaySound(SoundManager.Sounds.UseUpgrade);
     }
 }
