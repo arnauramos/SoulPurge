@@ -37,6 +37,11 @@ public class EnemyShooter : MonoBehaviour
     public float LookRange = 6f;
     public float StopRange = 2f;
 
+    // BULLET PUSH
+    private Vector3 pushDirection;
+    private bool hit = false;
+    private float hitTimer = 0f;
+
     // VARIABLES FOR IDLE MOVEMENT
     private Vector3 Idle = new Vector3(150, 150, 1);
     private float lastDirectionChangeTime = 0f;
@@ -80,6 +85,18 @@ public class EnemyShooter : MonoBehaviour
     private void FixedUpdate()
     {
         fixedDelta = Time.fixedDeltaTime * 1000;
+
+        if (hit)
+        {
+            hitTimer += Time.fixedDeltaTime;
+            rb2d.AddForce(pushDirection * Speed * 2 * Time.fixedDeltaTime, ForceMode2D.Impulse);
+            if (hitTimer >= 0.035f)
+            {
+                hitTimer = 0f;
+                hit = false;
+            }
+            return;
+        }
 
         // GET DISTANCE TO PLAYER
         Direction.x = Player.transform.position.x - transform.position.x;
@@ -154,6 +171,8 @@ public class EnemyShooter : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet" && collision.gameObject.GetComponent<Bullet>().PlayerShoot)
         {
+            hit = true;
+            pushDirection = collision.transform.up;
             health -= PlayerManager.Instance.PlayerGunList[PlayerManager.Instance.weaponSelected].Damage;
             SoundManager.Instance.PlaySound(SoundManager.Sounds.EnemyDamage);
             return;
