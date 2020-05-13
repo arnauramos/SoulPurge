@@ -569,6 +569,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1671843272653755291, guid: 758d1748a7e78934499300895e915dd1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.19999981
+      objectReference: {fileID: 0}
     - target: {fileID: 1787610880363465956, guid: 758d1748a7e78934499300895e915dd1,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -939,6 +944,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5066625117384447100, guid: 758d1748a7e78934499300895e915dd1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.10000038
+      objectReference: {fileID: 0}
     - target: {fileID: 5742209169906952876, guid: 758d1748a7e78934499300895e915dd1,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -1282,6 +1292,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 77866227990569163, guid: 4d0c739e253d4e74b83f0ee740a84d70,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2730900608952511331, guid: 4d0c739e253d4e74b83f0ee740a84d70,
         type: 3}
       propertyPath: m_Name
@@ -1341,6 +1356,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672093731565207299, guid: 4d0c739e253d4e74b83f0ee740a84d70,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672093731565207299, guid: 4d0c739e253d4e74b83f0ee740a84d70,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d0c739e253d4e74b83f0ee740a84d70, type: 3}
