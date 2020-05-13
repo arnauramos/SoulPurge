@@ -38,6 +38,11 @@ public class Player : MonoBehaviour
     public bool reloading;
     private float ReloadingCounter;
 
+    // MUZZLE FLASH VARIABLES
+    private GameObject MuzzleFlash;
+    private Animator muzzleAnimator;
+    private int muzzleShotParamID;
+
 
     [Header("Variables for ArrayItems:")]
 	[Space(10)]
@@ -74,7 +79,12 @@ public class Player : MonoBehaviour
         weaponUsingINT = PlayerManager.Instance.weaponSelected;
 
         PlayerSceneManager.Instance.isSceneHostile();
-	}
+
+        // GET MUZZLE FLASH
+        MuzzleFlash = transform.Find("MuzzleFlash").gameObject;
+        muzzleAnimator = MuzzleFlash.GetComponent<Animator>();
+        muzzleShotParamID = Animator.StringToHash("MuzzleFlash");
+    }
 
 	private void Update()
 	{
@@ -91,6 +101,11 @@ public class Player : MonoBehaviour
         {
             weaponUsing = PlayerManager.Instance.PlayerGunList[PlayerManager.Instance.weaponSelected];
             weaponGraphics.sprite = weaponUsing.sprite;
+        }
+        // UPDATE MUZZLE FLASH
+        if (weaponUsing.transform.Find("MuzzleFlashPosition"))
+        {
+            MuzzleFlash.transform.localPosition = weaponUsing.transform.Find("MuzzleFlashPosition").transform.localPosition;
         }
 
         //  UPDATE ITEM USING VARIABLES
@@ -239,6 +254,10 @@ public class Player : MonoBehaviour
         if (PlayerManager.Instance.playerDisabled)
         {
             return;
+        }
+        if (weaponUsing.transform.Find("MuzzleFlashPosition")) 
+        {
+            muzzleAnimator.SetTrigger(muzzleShotParamID);
         }
         bulletObject = Instantiate(weaponUsing.Bullet, firePoint.position, firePoint.rotation);
 		bulletObject.GetComponent<Bullet>().PlayerShoot = true;
