@@ -155,6 +155,9 @@ public class Player : MonoBehaviour
 
 		PlayerManager.Instance.reloading = reloading;
         PlayerManager.Instance.usePriority = false;
+
+        // CHECK GOD KEYS
+        GodKeys();
     }
 
     private void playerDie()
@@ -540,6 +543,30 @@ public class Player : MonoBehaviour
 			EnviromentManager.Instance.manageDoor(collision.gameObject);
 		}
 	}
+
+    private void GodKeys()
+    {
+        // MONEY AND SOULS
+        if (Input.GetKey(KeyCode.M))
+        {
+            PlayerManager.Instance.souls = (PlayerManager.Instance.maxSouls / 2);
+            PlayerManager.Instance.money = 100000;
+        }
+        // KEYS
+        if (Input.GetKey(KeyCode.K) && PlayerSceneManager.Instance.ZoneIsHostile)
+        {
+            PlayerManager.Instance.keys = 3;
+        }
+        // HEALTH
+        if (Input.GetKey(KeyCode.O))
+        {
+            PlayerManager.Instance.IMMORTAL = true;
+            PlayerManager.Instance.maxHeath = 9999;
+            PlayerManager.Instance.health = 9999;
+            PlayerManager.Instance.maxStamina = 9999;
+            PlayerManager.Instance.stamina = 9999;
+        }
+    }
 
     // RANDOM SOUL PICKUP SOUND
     private void PlaySoulPickup()
