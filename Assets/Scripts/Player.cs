@@ -64,6 +64,9 @@ public class Player : MonoBehaviour
     private float nextStep = 0f;
     private bool insideHouse = false;
 
+    // VARIABLES FOR PARTICLES
+    public ParticleSystem soulParticles;
+
 	void Start()
 	{
 		rb2d = GetComponent<Rigidbody2D>();
@@ -576,8 +579,11 @@ public class Player : MonoBehaviour
         // PICK UP SOUL
 		if (collision.gameObject.tag == "Soul" && PickSoul == true)
 		{
-			Destroy(collision.gameObject);
+            // INSTANTIATE PARTICLES
+            Instantiate(soulParticles, collision.transform.position, collision.transform.rotation);
+
             PlaySoulPickup();
+            Destroy(collision.gameObject);
             PlayerManager.Instance.addSouls(1);
 		}
 
