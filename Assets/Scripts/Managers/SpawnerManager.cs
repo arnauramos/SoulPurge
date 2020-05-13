@@ -32,6 +32,7 @@ public class SpawnerManager : MonoBehaviour
 
 	public float Counter;
 	public float waveCounter;
+    public float waveTimer;
 	public bool FirstTime;
 
 	void Start()
@@ -123,7 +124,7 @@ public class SpawnerManager : MonoBehaviour
 
 	public void Spawner()
 	{
-		if (RoundSpawnComplete || !PlayerSceneManager.Instance.ZoneIsHostile) return;
+		if (!PlayerSceneManager.Instance.ZoneIsHostile) return;
 
 		if (FirstTime)
 		{
@@ -135,6 +136,12 @@ public class SpawnerManager : MonoBehaviour
 			}
 			return;
 		}
+
+        if (RoundSpawnComplete)
+        {
+            waveTimer += Time.fixedDeltaTime;
+            return;
+        }
 
 		// Enemy Spawn
 		int EnemiesToSpawn = HostileZoneWaves.EnemyTypePerRound[ActualRound].x;
@@ -160,14 +167,15 @@ public class SpawnerManager : MonoBehaviour
 
 		TotalEnemies = MeleeEnemies + RangedEnemies;
 
-		if ((MeleeEnemies == 0 && RangedEnemies == 0) && PlayerSceneManager.Instance.ZoneIsHostile && !FirstTime)
+		if (((MeleeEnemies == 0 && RangedEnemies == 0) || (waveTimer >= 30f)) && PlayerSceneManager.Instance.ZoneIsHostile && !FirstTime)
 		{
 			if (Counter >= 200f)
 			{
-				ActualRound++;
-				RoundSpawnComplete = false;
-				Counter = 0;
-			}
+                waveTimer = 0;
+                ActualRound++;
+                RoundSpawnComplete = false;
+                Counter = 0;
+            }
 			Counter +=1f;
 		}
 	}
@@ -178,5 +186,6 @@ public class SpawnerManager : MonoBehaviour
         ActualRound = 0;
         Counter = 0;
         FirstTime = true;
+        waveTimer = 0;
     }
 }
