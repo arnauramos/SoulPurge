@@ -604,6 +604,7 @@ public class Player : MonoBehaviour
         // SOULS EXCHANGE
 		if (collision.gameObject.tag == "SoulsExchange" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)
 		{
+            feetAnimator.SetBool(walkingParamID, false);
             InteractionManager.Instance.SoulsShop(collision.gameObject);
             //InteractionManager.Instance.SoulsExchange(PlayerManager.Instance.souls);
         }
@@ -611,18 +612,21 @@ public class Player : MonoBehaviour
         // USABLES SHOP
         if (collision.gameObject.tag == "UsablesShop" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)
         {
+            feetAnimator.SetBool(walkingParamID, false);
             InteractionManager.Instance.UsablesShop(collision.gameObject);
         }
 
         // WEAPONS SHOP
         if (collision.gameObject.tag == "WeaponsShop" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)
         {
+            feetAnimator.SetBool(walkingParamID, false);
             InteractionManager.Instance.WeaponsShop(collision.gameObject);
         }
 
         // PERSON
         if (collision.gameObject.tag == "Person" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)
         {
+            feetAnimator.SetBool(walkingParamID, false);
             dialoguescript = collision.gameObject.GetComponent<DialogueScript>();
             dialoguescript.playDialogue();
         }
