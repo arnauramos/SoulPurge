@@ -76,7 +76,7 @@ MonoBehaviour:
   usableSelected: 0
   tutorialDone: 0
   resistance: 0
-  staminaRegeneration: 0.2
+  staminaRegeneration: 0.6
   speedBoost: 1
   shootingBoost: 1
   resistanceActive: 0
