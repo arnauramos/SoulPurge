@@ -162,7 +162,7 @@ public class EnemyShooter : MonoBehaviour
     {
         bulletObject = Instantiate(weaponUsing.Bullet, firePoint.position, firePoint.rotation);
         rb2dBullet = bulletObject.GetComponent<Rigidbody2D>();
-        rb2dBullet.AddForce(firePoint.up * weaponUsing.BulletSpeed, ForceMode2D.Impulse);
+        rb2dBullet.AddForce(firePoint.up * (weaponUsing.BulletSpeed * 0.7f), ForceMode2D.Impulse);
         SoundManager.Instance.PlaySound(SoundManager.Sounds.EnemyShooting);
         Destroy(bulletObject, weaponUsing.Range * 2);
     }
