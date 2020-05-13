@@ -498,7 +498,7 @@ public class PlayerManager : MonoBehaviour
     private void resetBoosts()
     {
         resistance = 0;
-        staminaRegeneration = 0.2f;
+        staminaRegeneration = 0.6f;
         speedBoost = 1f;
         shootingBoost = 1f;
 
