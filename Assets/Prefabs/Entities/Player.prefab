@@ -324,6 +324,8 @@ MonoBehaviour:
   reloading: 0
   itemUsing: {fileID: 0}
   Graphics: {fileID: 1188422421136174798}
+  soulParticles: {fileID: 3173387744384512351, guid: 935d41b7b3f33234abbccaca82d0a535,
+    type: 3}
 --- !u!1 &5924951259623994950
 GameObject:
   m_ObjectHideFlags: 0
