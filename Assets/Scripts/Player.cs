@@ -55,7 +55,10 @@ public class Player : MonoBehaviour
     [Header("Variables for Animations:")]
     [Space(10)]
     public GameObject Graphics;
-	private Animator animator;
+    public GameObject Feet;
+    private Animator animator;
+    private Animator feetAnimator;
+    private int walkingParamID;
 
     // VARIABLES FOR DIALOGUE
     private DialogueScript dialoguescript;
@@ -74,10 +77,13 @@ public class Player : MonoBehaviour
 
 		// GET ANIMATOR COMPONENT
 		animator = Graphics.GetComponent<Animator>();
+		feetAnimator = Feet.GetComponent<Animator>();
+        walkingParamID = Animator.StringToHash("Walking");
 
         weaponGraphics = weaponGraphicsObject.GetComponent<SpriteRenderer>();
-		//	SET WEAPON USING VARIABLES
-		Rounds = AuxRounds;
+
+        //	SET WEAPON USING VARIABLES
+        Rounds = AuxRounds;
         reloading = false;
         weaponUsingINT = PlayerManager.Instance.weaponSelected;
 
@@ -212,13 +218,14 @@ public class Player : MonoBehaviour
 		if (rb2d.velocity.x > PlayerManager.Instance.speed || rb2d.velocity.x < PlayerManager.Instance.speed)
 		{
 			rb2d.velocity = Vector2.zero;
-		}
+        }
 		rb2d.AddForce(Movement * PlayerManager.Instance.speed * PlayerManager.Instance.speedBoost * fixedDelta, ForceMode2D.Impulse);
         DataManager.Instance.TrackDistance(transform.position);
 
         // STEP SOUNDS
         if (Movement.y >= 0.5f || Movement.x >= 0.5f || Movement.y <= -0.5f || Movement.x <= -0.5f)
-        {  
+        {
+            feetAnimator.SetBool(walkingParamID, true);
             if (nextStep < 0.5f / PlayerManager.Instance.speed / PlayerManager.Instance.speedBoost)
             {
                 nextStep += Time.fixedDeltaTime;
@@ -235,6 +242,10 @@ public class Player : MonoBehaviour
                 }
                 nextStep = 0;
             }
+        }
+        else
+        {
+            feetAnimator.SetBool(walkingParamID, false);
         }
     }
 	void PlayerAim()
