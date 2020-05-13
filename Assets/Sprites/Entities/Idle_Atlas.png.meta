@@ -1,15 +1,10 @@
 fileFormatVersion: 2
-guid: bf51332ff70f39b46af6480b806fc8f6
+guid: e835dd947757b1443b35565bd05e08ab
 TextureImporter:
   fileIDToRecycleName:
-    21300000: d6b5LPp - Imgur_0
-    21300002: d6b5LPp - Imgur_1
-    21300004: d6b5LPp - Imgur_2
-    21300006: d6b5LPp - Imgur_3
-    21300008: MuzzleFlash_0
-    21300010: MuzzleFlash_1
-    21300012: MuzzleFlash_2
-    21300014: MuzzleFlash_3
+    21300000: Idle_Atlas_0
+    21300002: Idle_Atlas_1
+    21300004: Idle_Atlas_3
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -103,53 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MuzzleFlash_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 200
-        width: 400
-        height: 200
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aa7e7934f689ae04c8dd07ff0806afd1
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MuzzleFlash_1
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 200
-        width: 400
-        height: 200
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cf7ebd30d99e4cc4e81aab0e55bc3eeb
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MuzzleFlash_2
+      name: Idle_Atlas_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 400
-        height: 200
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,19 +112,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c917a3f126a8d6548beedcaad1b82d45
+      spriteID: 14b1a88837950a941884434e545e3bc9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MuzzleFlash_3
+      name: Idle_Atlas_1
       rect:
         serializedVersion: 2
-        x: 400
+        x: 64
         y: 0
-        width: 400
-        height: 200
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,7 +132,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c627861933bb52147863695bb145239a
+      spriteID: 75f2af84137aa104eb5d64bf377b27fd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Atlas_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 540ca48dea9b2b34b8b832a76d6d99f2
       vertices: []
       indices: 
       edges: []
@@ -185,7 +160,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 97dd400e00305284ca7f5f688b818ee6
+    spriteID: f756608f5a8c86f4fba289b67e962274
     vertices: []
     indices: 
     edges: []
