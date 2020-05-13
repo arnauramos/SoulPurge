@@ -14,7 +14,7 @@ public class DialogueScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) && dialogueFinished)
+        if (Input.GetKeyDown(KeyCode.Space) && dialogueFinished)
         {
             closeDialogue();
         }
