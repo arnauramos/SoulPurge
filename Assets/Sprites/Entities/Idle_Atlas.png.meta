@@ -5,6 +5,7 @@ TextureImporter:
     21300000: Idle_Atlas_0
     21300002: Idle_Atlas_1
     21300004: Idle_Atlas_3
+    21300006: Idle_Atlas_2
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -112,7 +113,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14b1a88837950a941884434e545e3bc9
+      spriteID: b22e8c6c24d78714a98b67aeaf21a7eb
       vertices: []
       indices: 
       edges: []
@@ -132,16 +133,16 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75f2af84137aa104eb5d64bf377b27fd
+      spriteID: 066c71d9b9ce2054daa96bb428cdeacc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_Atlas_3
+      name: Idle_Atlas_2
       rect:
         serializedVersion: 2
-        x: 192
+        x: 128
         y: 0
         width: 64
         height: 64
@@ -152,7 +153,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 540ca48dea9b2b34b8b832a76d6d99f2
+      spriteID: e3b0d2b8d9a201d489ddd03fe99c249e
       vertices: []
       indices: 
       edges: []
