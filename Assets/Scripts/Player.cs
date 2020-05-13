@@ -52,9 +52,10 @@ public class Player : MonoBehaviour
 	[Space(10)]
 	private bool PickSoul = true;
 
-	//VARIABLES FOR ANIMATIONS
+    [Header("Variables for Animations:")]
+    [Space(10)]
+    public GameObject Graphics;
 	private Animator animator;
-	private int moveParamID;
 
     // VARIABLES FOR DIALOGUE
     private DialogueScript dialoguescript;
@@ -68,9 +69,8 @@ public class Player : MonoBehaviour
 		rb2d = GetComponent<Rigidbody2D>();
 		Movement = Vector2.zero;
 
-		// GET ANIMATOR COMPONENTS
-		animator = GetComponent<Animator>();
-		moveParamID = Animator.StringToHash("Moving");
+		// GET ANIMATOR COMPONENT
+		animator = Graphics.GetComponent<Animator>();
 
         weaponGraphics = weaponGraphicsObject.GetComponent<SpriteRenderer>();
 		//	SET WEAPON USING VARIABLES
@@ -209,10 +209,8 @@ public class Player : MonoBehaviour
 		if (rb2d.velocity.x > PlayerManager.Instance.speed || rb2d.velocity.x < PlayerManager.Instance.speed)
 		{
 			rb2d.velocity = Vector2.zero;
-			animator.SetBool("Moving", false);
 		}
 		rb2d.AddForce(Movement * PlayerManager.Instance.speed * PlayerManager.Instance.speedBoost * fixedDelta, ForceMode2D.Impulse);
-        animator.SetBool("Moving", true);
         DataManager.Instance.TrackDistance(transform.position);
 
         // STEP SOUNDS
