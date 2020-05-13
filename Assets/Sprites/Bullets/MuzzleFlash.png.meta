@@ -6,6 +6,10 @@ TextureImporter:
     21300002: d6b5LPp - Imgur_1
     21300004: d6b5LPp - Imgur_2
     21300006: d6b5LPp - Imgur_3
+    21300008: MuzzleFlash_0
+    21300010: MuzzleFlash_1
+    21300012: MuzzleFlash_2
+    21300014: MuzzleFlash_3
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -99,7 +103,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: d6b5LPp - Imgur_0
+      name: MuzzleFlash_0
       rect:
         serializedVersion: 2
         x: 0
@@ -113,13 +117,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41fc5d2d0dd8c404680789924c583852
+      spriteID: aa7e7934f689ae04c8dd07ff0806afd1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: d6b5LPp - Imgur_1
+      name: MuzzleFlash_1
       rect:
         serializedVersion: 2
         x: 400
@@ -133,13 +137,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2bcf2172d8a920d4484fa38583156223
+      spriteID: cf7ebd30d99e4cc4e81aab0e55bc3eeb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: d6b5LPp - Imgur_2
+      name: MuzzleFlash_2
       rect:
         serializedVersion: 2
         x: 0
@@ -153,13 +157,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2adf3374e5faf624fbc6571276fda73c
+      spriteID: c917a3f126a8d6548beedcaad1b82d45
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: d6b5LPp - Imgur_3
+      name: MuzzleFlash_3
       rect:
         serializedVersion: 2
         x: 400
@@ -173,7 +177,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78f882455e5f8dc4fb91195f815abecd
+      spriteID: c627861933bb52147863695bb145239a
       vertices: []
       indices: 
       edges: []
