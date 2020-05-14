@@ -181,7 +181,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.15
+  m_Radius: 0.23
 --- !u!114 &7501921725930840567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
   firePoint: {fileID: 208393849}
   Speed: 750
   Direction: {x: 0, y: 0}
-  LookRange: 3
+  LookRange: 2000
   StopRange: 2
   Soul: {fileID: 1848012475432859064, guid: 6091511e0f025104d80bbd40fda042cd, type: 3}
 --- !u!1 &2428528595052404134

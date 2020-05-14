@@ -510,7 +510,7 @@ public class Player : MonoBehaviour
 		if (collision.gameObject.tag == "Bullet" && !collision.gameObject.GetComponent<Bullet>().PlayerShoot)
 		{
 			Destroy(collision.gameObject);
-            float gunDmg = ItemsManager.Instance.GunsList[0].Damage;
+            float gunDmg = ItemsManager.Instance.GunsList[0].Damage * 0.6f;
             PlayerManager.Instance.substrHealth(gunDmg - (gunDmg * PlayerManager.Instance.resistance));
             if (PlayerManager.Instance.health <= 0) SoundManager.Instance.PlaySound(SoundManager.Sounds.PlayerDie);
             SoundManager.Instance.PlaySound(SoundManager.Sounds.PlayerDamage);

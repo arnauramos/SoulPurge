@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rb2d;
     private float rbx, rby;
     private float angle;
-    public float LookRange = 6f;
+    public float LookRange = 2000f;
 
     // BULLET PUSH
     private Vector3 pushDirection;
@@ -91,14 +91,14 @@ public class Enemy : MonoBehaviour
         // MOOVING / IDLE
         if (Direction.x < LookRange && Direction.x > -LookRange && Direction.y < LookRange && Direction.y > -LookRange)
         {
-            LookRange = 8f;
+            LookRange = 2000f;
             //AreaOfVision.transform.localScale = LookingPlayer;
             //AOVsRenderer.color = red;
             Movement();
         }
         else
         {
-            LookRange = 6f;
+            LookRange = 2000f;
             //AreaOfVision.transform.localScale = Idle;
             //AOVsRenderer.color = blue;
             IdleMovement();
