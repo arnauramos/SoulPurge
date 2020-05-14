@@ -12,7 +12,7 @@ public class DropSouls : MonoBehaviour
         {
             RandX = Random.Range(-0.15f, 0.15f);
             RandY = Random.Range(-0.15f, 0.15f);
-            Instantiate(_soul, new Vector3(_enemy.transform.position.x + RandX, _enemy.transform.position.y + RandY, -5), _enemy.transform.rotation);
+            Instantiate(_soul, new Vector3(_enemy.transform.position.x + RandX, _enemy.transform.position.y + RandY, -1.8f), _enemy.transform.rotation);
         }
     }
 }

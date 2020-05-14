@@ -34,6 +34,7 @@ public class SpawnerManager : MonoBehaviour
 	public float waveCounter;
     public float waveTimer;
 	public bool FirstTime;
+	public int EnemiesRest = 2;
 
 	void Start()
 	{
@@ -137,7 +138,7 @@ public class SpawnerManager : MonoBehaviour
 			return;
 		}
 
-        if (TotalEnemies <= 2 && !FirstTime)
+        if (TotalEnemies <= EnemiesRest + (waveCounter % 2) && !FirstTime)
         {
             waveTimer += Time.fixedDeltaTime;
         }
