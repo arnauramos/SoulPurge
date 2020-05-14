@@ -34,7 +34,7 @@ public class SpawnerManager : MonoBehaviour
 	public float waveCounter;
     public float waveTimer;
 	public bool FirstTime;
-	public int EnemiesRest = 2;
+	public float EnemiesRest = 2;
 
 	void Start()
 	{
@@ -138,7 +138,7 @@ public class SpawnerManager : MonoBehaviour
 			return;
 		}
 
-        if (TotalEnemies <= EnemiesRest + (waveCounter % 2) && !FirstTime)
+        if (TotalEnemies <= EnemiesRest && !FirstTime)
         {
             waveTimer += Time.fixedDeltaTime;
         }
@@ -194,7 +194,8 @@ public class SpawnerManager : MonoBehaviour
 			{
                 waveTimer = 0;
                 ActualRound++;
-                RoundSpawnComplete = false;
+				EnemiesRest += ActualRound % 2;
+				RoundSpawnComplete = false;
                 Counter = 0;
             }
 			Counter +=1f;
