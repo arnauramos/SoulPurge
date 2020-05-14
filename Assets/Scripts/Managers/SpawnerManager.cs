@@ -144,15 +144,34 @@ public class SpawnerManager : MonoBehaviour
 
 		if (RoundSpawnComplete) return;
 
-		// Enemy Spawn
-		int EnemiesToSpawn = HostileZoneWaves.EnemyTypePerRound[ActualRound].x;
-		for (int m = 0; m < EnemiesToSpawn; m++)
+        // Enemy Spawn
+        int RoundsLength = HostileZoneWaves.EnemyTypePerRound.Length;
+        int EnemiesToSpawn = 0;
+
+        if (ActualRound >= RoundsLength)
+        {
+            EnemiesToSpawn = HostileZoneWaves.EnemyTypePerRound[RoundsLength - 1].x;
+        }
+        else
+        {
+            EnemiesToSpawn = HostileZoneWaves.EnemyTypePerRound[ActualRound].x;
+        }
+        for (int m = 0; m < EnemiesToSpawn; m++)
 		{
 			NetPosition = CheckRawPosition();
 			Instantiate(AuxEnemy, NetPosition, Quaternion.identity);
 		}
-		EnemiesToSpawn = HostileZoneWaves.EnemyTypePerRound[ActualRound].y;
-		for (int r = 0; r < EnemiesToSpawn; r++)
+
+        // Enemy Shooter Spawn
+        if (ActualRound >= RoundsLength)
+        {
+            EnemiesToSpawn = HostileZoneWaves.EnemyTypePerRound[RoundsLength - 1].y;
+        }
+        else
+        {
+            EnemiesToSpawn = HostileZoneWaves.EnemyTypePerRound[ActualRound].y;
+        }
+        for (int r = 0; r < EnemiesToSpawn; r++)
 		{
 			NetPosition = CheckRawPosition();
 			Instantiate(AuxEnemyShooter, NetPosition, Quaternion.identity);
