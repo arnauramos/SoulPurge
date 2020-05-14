@@ -1266,21 +1266,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Person (7)
       objectReference: {fileID: 0}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: dialogue
-      value: Purger good, demons bad!
-      objectReference: {fileID: 0}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: TextBox
-      value: 
-      objectReference: {fileID: 1268803040}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: Text
-      value: 
-      objectReference: {fileID: 1268803042}
     - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1346,6 +1331,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: dialogue
+      value: Don't forget to sell your souls and upgrade your equipment!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: TextBox
+      value: 
+      objectReference: {fileID: 1268803040}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: Text
+      value: 
+      objectReference: {fileID: 1268803042}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcf78b71bbc13e444add3ec6994f4b8f, type: 3}
 --- !u!4 &1332438355 stripped
@@ -1510,22 +1510,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Person (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: dialogue
-      value: It's amazing how we're all working together to keep this place up and
-        safe!
-      objectReference: {fileID: 0}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: TextBox
-      value: 
-      objectReference: {fileID: 1268803040}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: Text
-      value: 
-      objectReference: {fileID: 1268803042}
     - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1581,6 +1565,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: dialogue
+      value: It's amazing how we're all working together to keep this place up and
+        safe!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: TextBox
+      value: 
+      objectReference: {fileID: 1268803040}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: Text
+      value: 
+      objectReference: {fileID: 1268803042}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcf78b71bbc13e444add3ec6994f4b8f, type: 3}
 --- !u!4 &1817040452 stripped
@@ -1634,21 +1634,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Person (5)
       objectReference: {fileID: 0}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: dialogue
-      value: I like going to the shops just to see what's available
-      objectReference: {fileID: 0}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: TextBox
-      value: 
-      objectReference: {fileID: 1268803040}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: Text
-      value: 
-      objectReference: {fileID: 1268803042}
     - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1714,6 +1699,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: dialogue
+      value: I like going to the shops just to see what's available
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: TextBox
+      value: 
+      objectReference: {fileID: 1268803040}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: Text
+      value: 
+      objectReference: {fileID: 1268803042}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcf78b71bbc13e444add3ec6994f4b8f, type: 3}
 --- !u!4 &2032194205 stripped
@@ -1734,21 +1734,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Person (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: dialogue
-      value: This is the only safe place... maybe in the entire world
-      objectReference: {fileID: 0}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: TextBox
-      value: 
-      objectReference: {fileID: 1268803040}
-    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
-        type: 3}
-      propertyPath: Text
-      value: 
-      objectReference: {fileID: 1268803042}
     - target: {fileID: 8045875326941038482, guid: dcf78b71bbc13e444add3ec6994f4b8f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1804,6 +1789,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -20.861
       objectReference: {fileID: 0}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: dialogue
+      value: This is the only safe place... maybe in the entire world
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: TextBox
+      value: 
+      objectReference: {fileID: 1268803040}
+    - target: {fileID: 7239981030104206631, guid: dcf78b71bbc13e444add3ec6994f4b8f,
+        type: 3}
+      propertyPath: Text
+      value: 
+      objectReference: {fileID: 1268803042}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcf78b71bbc13e444add3ec6994f4b8f, type: 3}
 --- !u!4 &2074900969 stripped
