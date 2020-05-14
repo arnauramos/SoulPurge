@@ -38,6 +38,9 @@ public class Player : MonoBehaviour
     public bool reloading;
     private float ReloadingCounter;
 
+    private bool hideAxe = false;
+    private float axeTimer = 0f;
+
     // MUZZLE FLASH VARIABLES
     private GameObject MuzzleFlash;
     private Animator muzzleAnimator;
@@ -109,7 +112,24 @@ public class Player : MonoBehaviour
         else
         {
             weaponUsing = PlayerManager.Instance.PlayerGunList[PlayerManager.Instance.weaponSelected];
-            weaponGraphics.sprite = weaponUsing.sprite;
+            if (hideAxe)
+            {
+                axeTimer += Time.deltaTime;
+            }
+            if (weaponUsing.name == ("Axe") && hideAxe)
+            {
+                weaponGraphics.sprite = null;
+                if (axeTimer >= 0.6f)
+                {
+                    weaponGraphics.sprite = weaponUsing.sprite;
+                    axeTimer = 0f;
+                    hideAxe = false;
+                }        
+            }
+            else
+            {
+                weaponGraphics.sprite = weaponUsing.sprite;
+            }
         }
         // UPDATE MUZZLE FLASH
         if (weaponUsing.transform.Find("MuzzleFlashPosition"))
@@ -282,6 +302,10 @@ public class Player : MonoBehaviour
         Destroy(bulletObject, weaponUsing.Range);
 		weaponUsing.Rounds--;
         DataManager.Instance.BulletsShot += 1;
+        if (weaponUsing.name == "Axe")
+        {
+            hideAxe = true;
+        }
 	}
 	void Reloading()
 	{
