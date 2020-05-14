@@ -2414,8 +2414,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 376.8, y: -164.99992}
-  m_SizeDelta: {x: 716.1, y: 1410.1}
+  m_AnchoredPosition: {x: 376.8, y: -402.00003}
+  m_SizeDelta: {x: 716.1, y: 1884.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1032700300
 MonoBehaviour:
@@ -2485,7 +2485,29 @@ MonoBehaviour:
 
     Original_Sound
 
-'
+    monte32
+
+    Notarget
+
+    BarkersPinhead
+
+    Kneedless
+
+    LittleRobotSoundFactory
+
+    duckduckpony
+
+    steinhyrningur
+
+    SpliceSound
+
+    niamhd00145229
+
+    DrMinky
+
+    KeshaFilm
+
+    suntemple'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2554,12 +2576,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1032700300}
-    characterCount: 260
+    characterCount: 408
     spriteCount: 0
-    spaceCount: 44
-    wordCount: 31
+    spaceCount: 55
+    wordCount: 43
     linkCount: 0
-    lineCount: 33
+    lineCount: 45
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -3376,8 +3398,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -235, y: -165}
-  m_SizeDelta: {x: 470, y: 1410.1}
+  m_AnchoredPosition: {x: -235, y: -402}
+  m_SizeDelta: {x: 470, y: 1884.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1272890332
 MonoBehaviour:
@@ -3399,29 +3421,29 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Programmers
+  m_text: 'PROGRAMMERS
 
 
 
 
-    Artists
+    ARTISTS
 
 
 
 
-    Game Designers
-
-
-
-
-
-    Level Designers
+    GAME DESIGNERS
 
 
 
 
 
-    Music:
+    LEVEL DESIGNERS
+
+
+
+
+
+    MUSIC
 
     The Coal Mine
 
@@ -3434,7 +3456,7 @@ MonoBehaviour:
 
 
 
-    Sound Effects
+    SFX
 
 
     PlayerDamage
@@ -3447,6 +3469,29 @@ MonoBehaviour:
 
     EnemyDying
 
+    Steps
+
+    WoodSteps
+
+    KeyPickup
+
+    SoulPickup
+
+    Shop
+
+    SwapWeapon
+
+    Door
+
+    ItemPickup
+
+    UseAmmo
+
+    UseKit
+
+    UsePotion
+
+    UseUpgrade
 
 
 
@@ -3497,7 +3542,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 224
+  m_firstOverflowCharacterIndex: 328
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -3521,12 +3566,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1272890332}
-    characterCount: 228
+    characterCount: 332
     spriteCount: 0
-    spaceCount: 53
-    wordCount: 30
+    spaceCount: 64
+    wordCount: 42
     linkCount: 0
-    lineCount: 38
+    lineCount: 49
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -4943,8 +4988,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 795.9868, y: -467.99225}
-  m_SizeDelta: {x: 254.7, y: 84.1}
+  m_AnchoredPosition: {x: 761, y: -452.1}
+  m_SizeDelta: {x: 351.1, y: 116}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1695432243
 MonoBehaviour:
