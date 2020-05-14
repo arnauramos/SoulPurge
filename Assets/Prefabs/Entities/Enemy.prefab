@@ -270,6 +270,7 @@ MonoBehaviour:
   Direction: {x: 0, y: 0}
   LookRange: 2000
   Soul: {fileID: 1848012475432859064, guid: 6091511e0f025104d80bbd40fda042cd, type: 3}
+  Feet: {fileID: 1141146710389101566}
 --- !u!95 &299858437431192554
 Animator:
   serializedVersion: 3

@@ -50,6 +50,12 @@ public class EnemyShooter : MonoBehaviour
 
     private DropSouls DropingSoul;
     public GameObject Soul;
+
+    // VARIABLES FOR ANIMATIONS
+    public GameObject Feet;
+    private Animator feetAnimator;
+    private int walkingParamID;
+
     void Start()
     {
    
@@ -70,6 +76,11 @@ public class EnemyShooter : MonoBehaviour
         DropingSoul = gameObject.AddComponent<DropSouls>();
 
         bulletObject = weaponUsing.Bullet;
+
+        // GET ANIMATOR COMPONENTS
+        feetAnimator = Feet.GetComponent<Animator>();
+        walkingParamID = Animator.StringToHash("Walking");
+
     }
 
     private void Update()
@@ -127,8 +138,20 @@ public class EnemyShooter : MonoBehaviour
             //AOVsRenderer.color = blue;
             IdleMovement();
         }
-    }
 
+        CheckMovement();
+    }
+    private void CheckMovement()
+    {
+        if (rb2d.velocity.y >= 0.5f || rb2d.velocity.x >= 0.5f || rb2d.velocity.y <= -0.5f || rb2d.velocity.x <= -0.5f)
+        {
+            feetAnimator.SetBool(walkingParamID, true);
+        }
+        else
+        {
+            feetAnimator.SetBool(walkingParamID, false);
+        }
+    }
     void Movement()
     {
         // LOOK AT PLAYER

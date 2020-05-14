@@ -304,6 +304,7 @@ MonoBehaviour:
   LookRange: 2000
   StopRange: 2
   Soul: {fileID: 1848012475432859064, guid: 6091511e0f025104d80bbd40fda042cd, type: 3}
+  Feet: {fileID: 2348040253142371339}
 --- !u!1 &2428528595052404134
 GameObject:
   m_ObjectHideFlags: 0

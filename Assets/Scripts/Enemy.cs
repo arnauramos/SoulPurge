@@ -41,13 +41,16 @@ public class Enemy : MonoBehaviour
     private DropSouls DropingSoul;
     public GameObject Soul;
 
-
+    // VARIABLES FOR ANIMATIONS
+    public GameObject Feet;
+    private Animator feetAnimator;
+    private int walkingParamID;
 
     //private Component ArrTest;
     //private MonoBehaviour Test;
 
     //private GameObject Gol;
-          
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -58,6 +61,10 @@ public class Enemy : MonoBehaviour
         NewIdleMovement();
 
         DropingSoul = gameObject.AddComponent<DropSouls>();
+
+        // GET ANIMATOR COMPONENTS
+        feetAnimator = Feet.GetComponent<Animator>();
+        walkingParamID = Animator.StringToHash("Walking");
     }
 
     private void Update()
@@ -110,8 +117,20 @@ public class Enemy : MonoBehaviour
             lastDirectionChangeTime = Time.time;
             NewIdleMovement();
         }
-    }
 
+        CheckMovement();
+    }
+    private void CheckMovement()
+    {
+        if (rb2d.velocity.y >= 0.5f || rb2d.velocity.x >= 0.5f || rb2d.velocity.y <= -0.5f || rb2d.velocity.x <= -0.5f)
+        {
+            feetAnimator.SetBool(walkingParamID, true);
+        }
+        else
+        {
+            feetAnimator.SetBool(walkingParamID, false);
+        }
+    }
     void Movement()
     {
         // ROTATE LOOKING AT PLAYER
