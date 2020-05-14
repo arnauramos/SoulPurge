@@ -112,7 +112,9 @@ public class EnemyShooter : MonoBehaviour
 
             // SHOOTING
             Counter = Time.time * fixedDelta;
-            if (Counter >= initialBulletTime)
+            Direction.x = Mathf.Abs(Direction.x);
+            Direction.y = Mathf.Abs(Direction.y);
+            if (Counter >= initialBulletTime && (Direction.x <= 10.8f && Direction.y <= 3.8f))
             {
                 Shooting();
                 initialBulletTime = Counter + weaponUsing.FireRate * AttackRate;
