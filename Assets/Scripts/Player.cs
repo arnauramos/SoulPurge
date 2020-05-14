@@ -249,6 +249,7 @@ public class Player : MonoBehaviour
         if (Movement.y >= 0.5f || Movement.x >= 0.5f || Movement.y <= -0.5f || Movement.x <= -0.5f)
         {
             feetAnimator.SetBool(walkingParamID, true);
+            animator.SetBool(walkingParamID, true);
             if (nextStep < 0.5f / PlayerManager.Instance.speed / PlayerManager.Instance.speedBoost)
             {
                 nextStep += Time.fixedDeltaTime;
@@ -269,6 +270,7 @@ public class Player : MonoBehaviour
         else
         {
             feetAnimator.SetBool(walkingParamID, false);
+            animator.SetBool(walkingParamID, false);
         }
     }
 	void PlayerAim()
@@ -502,17 +504,14 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        if (PlayerManager.Instance.usePriority == false)
-		{
-            itemUsing = PlayerManager.Instance.PlayerUsableList[PlayerManager.Instance.usableSelected];
-            if (itemUsing == null)
-            {
-                return;
-            }
-			if (itemUsing.ammount <= 0) { Debug.Log("Cantidad: " + itemUsing.ammount); return; }
-			itemUsing.Use();
-			Debug.Log("Ha sido usado el item: " + itemUsing.itemName + ". En la posición: " + PlayerManager.Instance.usableSelected + " del array");
-		}
+        itemUsing = PlayerManager.Instance.PlayerUsableList[PlayerManager.Instance.usableSelected];
+        if (itemUsing == null)
+        {
+            return;
+        }
+		if (itemUsing.ammount <= 0) { Debug.Log("Cantidad: " + itemUsing.ammount); return; }
+		itemUsing.Use();
+		Debug.Log("Ha sido usado el item: " + itemUsing.itemName + ". En la posición: " + PlayerManager.Instance.usableSelected + " del array");
 	}
 
 	private void OnCollisionStay2D(Collision2D collision)
@@ -598,13 +597,13 @@ public class Player : MonoBehaviour
         int soulPickupSound = UnityEngine.Random.Range(0, 3);
         switch (soulPickupSound)
         {
-            case 1:
+            case 0:
                 SoundManager.Instance.PlaySound(SoundManager.Sounds.SoulPickup1);
                 break;
-            case 2:
+            case 1:
                 SoundManager.Instance.PlaySound(SoundManager.Sounds.SoulPickup2);
                 break;
-            case 3:
+            case 2:
                 SoundManager.Instance.PlaySound(SoundManager.Sounds.SoulPickup3);
                 break;
             default:
@@ -656,6 +655,7 @@ public class Player : MonoBehaviour
 		if (collision.gameObject.tag == "SoulsExchange" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)
 		{
             feetAnimator.SetBool(walkingParamID, false);
+            animator.SetBool(walkingParamID, false);
             InteractionManager.Instance.SoulsShop(collision.gameObject);
             //InteractionManager.Instance.SoulsExchange(PlayerManager.Instance.souls);
         }
@@ -664,6 +664,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "UsablesShop" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)
         {
             feetAnimator.SetBool(walkingParamID, false);
+            animator.SetBool(walkingParamID, false);
             InteractionManager.Instance.UsablesShop(collision.gameObject);
         }
 
@@ -671,6 +672,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "WeaponsShop" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)
         {
             feetAnimator.SetBool(walkingParamID, false);
+            animator.SetBool(walkingParamID, false);
             InteractionManager.Instance.WeaponsShop(collision.gameObject);
         }
 
@@ -678,6 +680,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Person" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)
         {
             feetAnimator.SetBool(walkingParamID, false);
+            animator.SetBool(walkingParamID, false);
             dialoguescript = collision.gameObject.GetComponent<DialogueScript>();
             dialoguescript.playDialogue();
         }
