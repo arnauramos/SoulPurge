@@ -249,6 +249,7 @@ public class Player : MonoBehaviour
         if (Movement.y >= 0.5f || Movement.x >= 0.5f || Movement.y <= -0.5f || Movement.x <= -0.5f)
         {
             feetAnimator.SetBool(walkingParamID, true);
+            animator.SetBool(walkingParamID, true);
             if (nextStep < 0.5f / PlayerManager.Instance.speed / PlayerManager.Instance.speedBoost)
             {
                 nextStep += Time.fixedDeltaTime;
@@ -269,6 +270,7 @@ public class Player : MonoBehaviour
         else
         {
             feetAnimator.SetBool(walkingParamID, false);
+            animator.SetBool(walkingParamID, false);
         }
     }
 	void PlayerAim()
@@ -653,6 +655,7 @@ public class Player : MonoBehaviour
 		if (collision.gameObject.tag == "SoulsExchange" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)
 		{
             feetAnimator.SetBool(walkingParamID, false);
+            animator.SetBool(walkingParamID, false);
             InteractionManager.Instance.SoulsShop(collision.gameObject);
             //InteractionManager.Instance.SoulsExchange(PlayerManager.Instance.souls);
         }
@@ -661,6 +664,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "UsablesShop" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)
         {
             feetAnimator.SetBool(walkingParamID, false);
+            animator.SetBool(walkingParamID, false);
             InteractionManager.Instance.UsablesShop(collision.gameObject);
         }
 
@@ -668,6 +672,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "WeaponsShop" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)
         {
             feetAnimator.SetBool(walkingParamID, false);
+            animator.SetBool(walkingParamID, false);
             InteractionManager.Instance.WeaponsShop(collision.gameObject);
         }
 
@@ -675,6 +680,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Person" && Input.GetKey(KeyCode.E) && PlayerManager.Instance.usePriority == true)
         {
             feetAnimator.SetBool(walkingParamID, false);
+            animator.SetBool(walkingParamID, false);
             dialoguescript = collision.gameObject.GetComponent<DialogueScript>();
             dialoguescript.playDialogue();
         }
