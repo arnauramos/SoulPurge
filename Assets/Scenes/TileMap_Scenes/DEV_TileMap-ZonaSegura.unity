@@ -1292,11 +1292,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 77866227990569163, guid: 4d0c739e253d4e74b83f0ee740a84d70,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2730900608952511331, guid: 4d0c739e253d4e74b83f0ee740a84d70,
         type: 3}
       propertyPath: m_Name
@@ -1315,7 +1310,7 @@ PrefabInstance:
     - target: {fileID: 2730900608952511332, guid: 4d0c739e253d4e74b83f0ee740a84d70,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 2730900608952511332, guid: 4d0c739e253d4e74b83f0ee740a84d70,
         type: 3}
@@ -1356,16 +1351,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 5672093731565207299, guid: 4d0c739e253d4e74b83f0ee740a84d70,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5672093731565207299, guid: 4d0c739e253d4e74b83f0ee740a84d70,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d0c739e253d4e74b83f0ee740a84d70, type: 3}
@@ -1824,6 +1809,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376271590606396097, guid: 06e31d6841f9f04429e3107645b2523c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187395889582586265, guid: 06e31d6841f9f04429e3107645b2523c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06e31d6841f9f04429e3107645b2523c, type: 3}
