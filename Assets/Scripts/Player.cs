@@ -597,13 +597,13 @@ public class Player : MonoBehaviour
         int soulPickupSound = UnityEngine.Random.Range(0, 3);
         switch (soulPickupSound)
         {
-            case 1:
+            case 0:
                 SoundManager.Instance.PlaySound(SoundManager.Sounds.SoulPickup1);
                 break;
-            case 2:
+            case 1:
                 SoundManager.Instance.PlaySound(SoundManager.Sounds.SoulPickup2);
                 break;
-            case 3:
+            case 2:
                 SoundManager.Instance.PlaySound(SoundManager.Sounds.SoulPickup3);
                 break;
             default:
