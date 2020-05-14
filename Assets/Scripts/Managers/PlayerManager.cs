@@ -342,21 +342,6 @@ public class PlayerManager : MonoBehaviour
         {
             PlayerUsableList[i] = null;
         }
-        // update inventory
-        if (PlayerUsableList[i] == null)
-        {
-            for (int x = 0; x < PlayerUsableList.Capacity; x++)
-            {
-                if (PlayerUsableList[x] != null)
-                {
-                    usableSelected = x;
-                }
-            }
-            if (usableSelected == i)
-            {
-                usableSelected = -1;
-            }
-        }
         return 0;
     }
 

@@ -34,31 +34,6 @@ public class ItemInventoryScript : MonoBehaviour
             BG = Slots[i].transform.GetChild(0).GetComponent<Image>();
             Spriter = Slots[i].transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
 
-            if (PlayerManager.Instance.PlayerUsableList[i] == null || PlayerManager.Instance.PlayerUsableList[i].ammount <= 0)
-            {
-                auxSprite = null;
-                auxAmmount = 0;
-                Border.color = Color.white;
-                BG.color = DarkYellow;
-                Spriter.sprite = null;
-                SlotsAmmounts[i].text = "0";
-                SlotsAmmounts[i].enabled = false;
-                continue;
-            }
-            // GETTING DATA
-            auxSprite = PlayerManager.Instance.PlayerUsableList[i].sprite;
-            auxAmmount = PlayerManager.Instance.PlayerUsableList[i].ammount;
-
-            // RENDERING INVENTORY SPRITES
-            if (auxSprite != null && auxAmmount > 0)
-            {
-                Spriter.sprite = auxSprite;
-            }
-            else
-            {
-                Spriter.sprite = null;
-            }
-
             // CHANGE BG & BORDER COLORS IF SELECTED
             Selected = PlayerManager.Instance.usableSelected;
             if (i == Selected)
@@ -81,6 +56,30 @@ public class ItemInventoryScript : MonoBehaviour
             {
                 Border.color = Color.white;
                 BG.color = DarkYellow;
+            }
+
+            if (PlayerManager.Instance.PlayerUsableList[i] == null || PlayerManager.Instance.PlayerUsableList[i].ammount <= 0)
+            {
+                auxSprite = null;
+                auxAmmount = 0;
+                Spriter.sprite = null;
+                SlotsAmmounts[i].text = "0";
+                SlotsAmmounts[i].enabled = false;
+                continue;
+            }
+
+            // GETTING DATA
+            auxSprite = PlayerManager.Instance.PlayerUsableList[i].sprite;
+            auxAmmount = PlayerManager.Instance.PlayerUsableList[i].ammount;
+
+            // RENDERING INVENTORY SPRITES
+            if (auxSprite != null && auxAmmount > 0)
+            {
+                Spriter.sprite = auxSprite;
+            }
+            else
+            {
+                Spriter.sprite = null;
             }
 
             // CHANGE SLOTS AMMOUNTS
