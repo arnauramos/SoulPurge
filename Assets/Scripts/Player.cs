@@ -502,17 +502,14 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        if (PlayerManager.Instance.usePriority == false)
-		{
-            itemUsing = PlayerManager.Instance.PlayerUsableList[PlayerManager.Instance.usableSelected];
-            if (itemUsing == null)
-            {
-                return;
-            }
-			if (itemUsing.ammount <= 0) { Debug.Log("Cantidad: " + itemUsing.ammount); return; }
-			itemUsing.Use();
-			Debug.Log("Ha sido usado el item: " + itemUsing.itemName + ". En la posición: " + PlayerManager.Instance.usableSelected + " del array");
-		}
+        itemUsing = PlayerManager.Instance.PlayerUsableList[PlayerManager.Instance.usableSelected];
+        if (itemUsing == null)
+        {
+            return;
+        }
+		if (itemUsing.ammount <= 0) { Debug.Log("Cantidad: " + itemUsing.ammount); return; }
+		itemUsing.Use();
+		Debug.Log("Ha sido usado el item: " + itemUsing.itemName + ". En la posición: " + PlayerManager.Instance.usableSelected + " del array");
 	}
 
 	private void OnCollisionStay2D(Collision2D collision)

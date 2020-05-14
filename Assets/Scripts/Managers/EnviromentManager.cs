@@ -51,7 +51,7 @@ public class EnviromentManager : MonoBehaviour
     }
 	public void closeDoor(Transform door)
 	{
-		if (Input.GetKeyDown(KeyCode.E) || PlayerManager.Instance.speed >= PlayerManager.Instance.sprint)
+		if (Input.GetKeyDown(KeyCode.E))
 		{
 			float dX = door.localScale.x * 2.75f;
 			float dY = door.localScale.y * 9f;
