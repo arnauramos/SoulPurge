@@ -34,7 +34,7 @@ public class EnemyShooter : MonoBehaviour
     private GameObject Player;
     private float rbx, rby;
     private float angle;
-    public float LookRange = 6f;
+    public float LookRange = 2000f;
     public float StopRange = 2f;
 
     // BULLET PUSH
@@ -105,7 +105,7 @@ public class EnemyShooter : MonoBehaviour
         // MOOVING / IDLE 
         if (Direction.x < LookRange && Direction.x > -LookRange && Direction.y < LookRange && Direction.y > -LookRange)
         {
-            LookRange = 8f;
+            LookRange = 2000f;
             //AreaOfVision.transform.localScale = LookingPlayer;
             //AOVsRenderer.color = red;
             Movement();
@@ -120,7 +120,7 @@ public class EnemyShooter : MonoBehaviour
         }
         else
         {
-            LookRange = 6f;
+            LookRange = 2000f;
             //AreaOfVision.transform.localScale = Idle;
             //AOVsRenderer.color = blue;
             IdleMovement();
