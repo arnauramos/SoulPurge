@@ -125,7 +125,7 @@ public class SpawnerManager : MonoBehaviour
 
 	public void Spawner()
 	{
-		if (!PlayerSceneManager.Instance.ZoneIsHostile) return;
+		if (!PlayerSceneManager.Instance.ZoneIsHostile || STOP) return;
 
 		if (FirstTime)
 		{
@@ -183,6 +183,8 @@ public class SpawnerManager : MonoBehaviour
 
 	public void EnemyChecker()
 	{
+		if (STOP) return;
+
 		int MeleeEnemies = GameObject.FindObjectsOfType<Enemy>().Length;
 		int RangedEnemies = GameObject.FindObjectsOfType<EnemyShooter>().Length;
 
