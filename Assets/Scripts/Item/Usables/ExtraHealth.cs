@@ -8,6 +8,7 @@ public class ExtraHealth : Usable
     {
         if (!CheckItem()) return;
         PlayerManager.Instance.addExtraHealth(value);
+        PlayerManager.Instance.addHealth(value);
         SoundManager.Instance.PlaySound(SoundManager.Sounds.UseUpgrade);
     }
 }
