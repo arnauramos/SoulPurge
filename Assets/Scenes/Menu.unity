@@ -2665,13 +2665,13 @@ MonoBehaviour:
 
     Alex Barra
 
+    Arnau Ramos
 
 
 
     Alex Barra
 
     Arnau Ramos
-
 
 
 
@@ -2796,12 +2796,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1032700300}
-    characterCount: 408
+    characterCount: 418
     spriteCount: 0
     spaceCount: 55
-    wordCount: 43
+    wordCount: 45
     linkCount: 0
-    lineCount: 45
+    lineCount: 44
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -3656,7 +3656,6 @@ MonoBehaviour:
 
 
 
-
     LEVEL DESIGNERS
 
 
@@ -3762,7 +3761,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 328
+  m_firstOverflowCharacterIndex: 317
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -3786,12 +3785,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1272890332}
-    characterCount: 332
+    characterCount: 320
     spriteCount: 0
-    spaceCount: 64
-    wordCount: 42
+    spaceCount: 62
+    wordCount: 41
     linkCount: 0
-    lineCount: 49
+    lineCount: 48
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -4011,7 +4010,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
