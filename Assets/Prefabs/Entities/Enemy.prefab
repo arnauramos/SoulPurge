@@ -270,6 +270,7 @@ MonoBehaviour:
   Direction: {x: 0, y: 0}
   LookRange: 2000
   Soul: {fileID: 1848012475432859064, guid: 6091511e0f025104d80bbd40fda042cd, type: 3}
+  Graphic: {fileID: 2428528595052404134}
   Feet: {fileID: 1141146710389101566}
 --- !u!95 &299858437431192554
 Animator:
@@ -281,7 +282,7 @@ Animator:
   m_GameObject: {fileID: 2428528593272821112}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2381287eec936b141a46a2dd58dc23d9, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

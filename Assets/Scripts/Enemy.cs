@@ -42,7 +42,10 @@ public class Enemy : MonoBehaviour
     public GameObject Soul;
 
     // VARIABLES FOR ANIMATIONS
+    public GameObject Graphic;
     public GameObject Feet;
+    private SpriteRenderer GraphicSprite;
+    private SpriteRenderer FeetSprite;
     private Animator feetAnimator;
     private int walkingParamID;
 
@@ -65,6 +68,12 @@ public class Enemy : MonoBehaviour
         // GET ANIMATOR COMPONENTS
         feetAnimator = Feet.GetComponent<Animator>();
         walkingParamID = Animator.StringToHash("Walking");
+
+        GraphicSprite = Graphic.GetComponent<SpriteRenderer>();
+        FeetSprite = Feet.GetComponent<SpriteRenderer>();
+
+        //CHANGE COLOR
+        ChangeColor();
     }
 
     private void Update()
@@ -119,6 +128,55 @@ public class Enemy : MonoBehaviour
         }
 
         CheckMovement();
+    }
+    void ChangeColor()
+    {
+        // SET COLORS
+        // RED: 127 - 255 & >= GREEN
+        // GREEN: 0 - 255
+        // BLUE: GREEN
+        int green = Random.Range(0, 256);
+        int blue = green;
+        int red;
+        do
+        {
+            red = Random.Range(127, 256);
+        } while (red < green);
+
+        // APPLY COLORS
+        Color32 newColor = new Color32((byte)red, (byte)green, (byte)blue, 255);
+        GraphicSprite.color = newColor;
+        FeetSprite.color = newColor;
+
+        // CHANGE STATS
+        //> RED == < HP > SPEED
+        //< RED == > HP < SPEED
+        //> GREEN == > ATTACK RATE
+        //< GREEN == < ATTACK RATE
+
+        // Speed: max 520 min -260 (2020 to 1240)
+        // Health: min -46 max 91 (241 to 104)
+        if (red >= 191)
+        {
+            Speed += (red - 191) * 8;
+            health -= (red - 191) / 1.4f;
+        }
+        else
+        {
+            Speed -= (191 - red) * 4;
+            health += (191 - red) * 1.4f;
+        }
+
+        // AttackRate: max 3 min - 1.5 (13 to 8.5)
+        if (green >= 127)
+        {
+            AttackRate += (green - 127) / 42;
+        }
+        else
+        {
+            AttackRate += ((green - 127) / 84);
+        }
+
     }
     private void CheckMovement()
     {
