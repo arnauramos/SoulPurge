@@ -22,10 +22,28 @@ public class UsablesShopScript : MonoBehaviour
 
     void Start()
     {
+        bool GoodItem;
         for (int i = 0; i < Slots.Capacity; i++)
         {
-            // CHOOSE RANDOM ITEM
-            ItemsList[i] = ItemsManager.Instance.GetRandomUsable();
+            do
+            {
+                GoodItem = true;
+                // CHOOSE RANDOM ITEM
+                ItemsList[i] = ItemsManager.Instance.GetRandomUsable();
+                // CHECK SHOP ITEMS
+                for (int x = 0; x < Slots.Capacity; x++)
+                {
+                    if (ItemsList[x] == null)
+                    {
+                        continue;
+                    }
+                    if (ItemsList[i].itemName == ItemsList[x].itemName && i != x)
+                    {
+                        GoodItem = false;
+                    }
+                }
+            } while (!GoodItem);
+
             // GET ITEM SPRITE
             Spriter = Slots[i].transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
             auxSprite = ItemsList[i].sprite;
