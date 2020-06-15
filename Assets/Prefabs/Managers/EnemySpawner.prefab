@@ -55,7 +55,9 @@ MonoBehaviour:
     type: 3}
   ActualRound: 0
   TotalEnemies: 0
-  HostileZoneWaves: {fileID: 11400000, guid: eb79ea98550497a4491bfaee58ffd3d0, type: 2}
+  HostileZoneWaves: {fileID: 11400000, guid: dedf0887499c1f340a86afe1e486982b, type: 2}
   Counter: 0
   waveCounter: 0
+  waveTimer: 0
   FirstTime: 0
+  EnemiesRest: 2

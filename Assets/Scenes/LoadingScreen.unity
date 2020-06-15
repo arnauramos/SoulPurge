@@ -650,6 +650,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5848693773747216444, guid: 90f614f191cc1f24286754e58e31b4e6,
+        type: 3}
+      propertyPath: AllWaves.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5848693773747216444, guid: 90f614f191cc1f24286754e58e31b4e6,
+        type: 3}
+      propertyPath: AllWaves.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: e71fd412010b07c40bc3409f65ad8b1d,
+        type: 2}
+    - target: {fileID: 5848693773747216444, guid: 90f614f191cc1f24286754e58e31b4e6,
+        type: 3}
+      propertyPath: AllWaves.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: dedf0887499c1f340a86afe1e486982b,
+        type: 2}
+    - target: {fileID: 5848693773747216444, guid: 90f614f191cc1f24286754e58e31b4e6,
+        type: 3}
+      propertyPath: AllWaves.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: eb79ea98550497a4491bfaee58ffd3d0,
+        type: 2}
     - target: {fileID: 5848693773747216445, guid: 90f614f191cc1f24286754e58e31b4e6,
         type: 3}
       propertyPath: m_LocalPosition.x

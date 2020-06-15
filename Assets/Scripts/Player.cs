@@ -91,6 +91,7 @@ public class Player : MonoBehaviour
         weaponUsingINT = PlayerManager.Instance.weaponSelected;
 
         PlayerSceneManager.Instance.isSceneHostile();
+        SpawnerManager.Instance.HostileZoneWaves = PlayerManager.Instance.AllWaves[PlayerSceneManager.Instance.WhichZH];
 
         // GET MUZZLE FLASH
         MuzzleFlash = transform.Find("MuzzleFlash").gameObject;

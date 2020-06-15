@@ -10,6 +10,7 @@ public class PlayerSceneManager : MonoBehaviour
 
     public int ActualIndexScene;
     public bool ZoneIsHostile;
+    public int WhichZH;
 
     void Start()
     {
@@ -54,5 +55,25 @@ public class PlayerSceneManager : MonoBehaviour
         string SceneName = SceneManager.GetActiveScene().name;
         if (SceneName == "DEV_TileMap-ZonaHostil" || SceneName == "DEV_TileMap-ZonaHostil-2" || SceneName == "DEV_TileMap-ZonaHostil-3") ZoneIsHostile = true;
         else ZoneIsHostile = false;
+
+        if (ZoneIsHostile)
+        {
+            int SceneLength = SceneName.Length - 1;
+            switch (SceneName[SceneLength])
+            {
+                case '1':
+                    WhichZH = 0;
+                    break;
+                case '2':
+                    WhichZH = 1;
+                    break;
+                case '3':
+                    WhichZH = 2;
+                    break;
+                default:
+                    WhichZH = 0;
+                    break;
+            }
+        }
     }
 }

@@ -83,3 +83,6 @@ MonoBehaviour:
   staminaRegenerationActive: 0
   speedBoostActive: 0
   shootingBoostActive: 0
+  AllWaves:
+  - {fileID: 11400000, guid: eb79ea98550497a4491bfaee58ffd3d0, type: 2}
+  - {fileID: 11400000, guid: e71fd412010b07c40bc3409f65ad8b1d, type: 2}

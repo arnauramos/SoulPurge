@@ -66,7 +66,7 @@ public class PlayerManager : MonoBehaviour
     private float speedBoostValue = 0;
     private float shootingBoostValue = 0;
 
-
+    public EnemyWaves[] AllWaves;
 
 
     void Start()
