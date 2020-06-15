@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: b23e698a23d2860499a7660b47d64795, type: 3}
-  itemName: Axe
-  itemDescription: 
+  itemName: Lumberjack Ax
+  itemDescription: This is no deodorant.
   price: 175
   Bullet: {fileID: 8545840750463579405, guid: 6a5c70a00d910a84b9d1366fdb07aade, type: 3}
   BulletSpeed: {x: 10, y: 10}

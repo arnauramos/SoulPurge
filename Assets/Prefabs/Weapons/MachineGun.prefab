@@ -75,16 +75,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 2fc7614ba748fc2498e60e694086ebc6, type: 3}
-  itemName: Machine Gun
-  itemDescription: This is a machine gun.
+  itemName: M4A1
+  itemDescription: You can kill even Kajumbo with this.
   price: 1000
   Bullet: {fileID: 8545840750463579405, guid: 9f8353e442b040444bdc558cc269d08c, type: 3}
   BulletSpeed: {x: 15, y: 15}
   FirePoint: {x: 0.2, y: 0.2, z: 0}
-  Rounds: 200
-  MaxRounds: 200
-  Range: 1
-  Damage: 5
-  FireRate: 1
+  Rounds: 30
+  MaxRounds: 30
+  Range: 1.5
+  Damage: 30
+  FireRate: 4
   reloadTime: 30
   icon: {fileID: 21300000, guid: d5e3b4123223cf5428e67cd97bf73f9b, type: 3}
