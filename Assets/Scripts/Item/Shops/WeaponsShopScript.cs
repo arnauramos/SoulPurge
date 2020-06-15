@@ -19,10 +19,31 @@ public class WeaponsShopScript : MonoBehaviour
 
     void Start()
     {
+        bool GoodWeapon;
         for (int i = 0; i < Slots.Capacity; i++)
         {
-            // CHOOSE RANDOM WEAPON
-            WeaponsList[i] = ItemsManager.Instance.GetRandomGun();
+            do
+            {
+                GoodWeapon = true;
+                // CHOOSE RANDOM WEAPON
+                WeaponsList[i] = ItemsManager.Instance.GetRandomGun();
+                if (i < ItemsManager.Instance.GunsList.Count)
+                {
+                    // CHECK SHOP WEAPONS
+                    for (int x = 0; x < Slots.Capacity; x++)
+                    {
+                        if (WeaponsList[x] == null)
+                        {
+                            continue;
+                        }
+                        if (WeaponsList[i].itemName == WeaponsList[x].itemName && i != x)
+                        {
+                            GoodWeapon = false;
+                        }
+                    }
+                }
+            } while (!GoodWeapon);
+
             // GET ITEM SPRITE
             Spriter = Slots[i].transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
             auxSprite = WeaponsList[i].icon;
