@@ -154,8 +154,8 @@ public class Enemy : MonoBehaviour
         //> GREEN == > ATTACK RATE
         //< GREEN == < ATTACK RATE
 
-        // Speed: max 520 min -260 (2020 to 1240)
-        // Health: min -46 max 91 (241 to 104)
+        // Speed: max 512 min -256 (2012 to 1244)
+        // Health: min -45 max 90 (240 to 105)
         if (red >= 191)
         {
             Speed += (red - 191) * 8;

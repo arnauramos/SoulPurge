@@ -173,8 +173,8 @@ public class EnemyShooter : MonoBehaviour
         //> RED == < HP > SPEED
         //< RED == > HP < SPEED
 
-        // Speed: max 250 min -130 (900 to 620)
-        // Health: min -25 max 50 (65 to 140)
+        // Speed: max 256 min -128 (906 to 618)
+        // Health: min -25 max 51 (65 to 141)
         if (red >= 191)
         {
             Speed += (red - 191) * 4;
