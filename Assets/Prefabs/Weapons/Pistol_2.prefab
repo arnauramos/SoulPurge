@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: a61fae15df30aac40ae88cfc41bae4c0, type: 3}
-  itemName: Classic Revolver
+  itemName: Revolver
   itemDescription: Are you a Yeeha fan?
   price: 80
   Bullet: {fileID: 8545840750463579405, guid: 9f8353e442b040444bdc558cc269d08c, type: 3}
