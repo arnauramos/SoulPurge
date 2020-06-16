@@ -52,8 +52,11 @@ public class EnemyShooter : MonoBehaviour
     public GameObject Soul;
 
     // VARIABLES FOR ANIMATIONS
+    public GameObject Graphic;
     public GameObject Feet;
     private Animator feetAnimator;
+    private SpriteRenderer GraphicSprite;
+    private SpriteRenderer FeetSprite;
     private int walkingParamID;
 
     void Start()
@@ -81,6 +84,11 @@ public class EnemyShooter : MonoBehaviour
         feetAnimator = Feet.GetComponent<Animator>();
         walkingParamID = Animator.StringToHash("Walking");
 
+        GraphicSprite = Graphic.GetComponent<SpriteRenderer>();
+        FeetSprite = Feet.GetComponent<SpriteRenderer>();
+
+        //CHANGE COLOR
+        ChangeColor();
     }
 
     private void Update()
@@ -141,6 +149,44 @@ public class EnemyShooter : MonoBehaviour
 
         CheckMovement();
     }
+
+    void ChangeColor()
+    {
+        // SET COLORS
+        // RED: 127 - 255 & >= GREEN
+        // GREEN: 0 - 255
+        // BLUE: GREEN
+        int green = Random.Range(0, 256);
+        int blue = green;
+        int red;
+        do
+        {
+            red = Random.Range(127, 256);
+        } while (red < green);
+
+        // APPLY COLORS
+        Color32 newColor = new Color32((byte)red, (byte)green, (byte)blue, 255);
+        GraphicSprite.color = newColor;
+        FeetSprite.color = newColor;
+
+        // CHANGE STATS
+        //> RED == < HP > SPEED
+        //< RED == > HP < SPEED
+
+        // Speed: max 256 min -128 (906 to 618)
+        // Health: min -25 max 51 (65 to 141)
+        if (red >= 191)
+        {
+            Speed += (red - 191) * 4;
+            health -= (red - 191) * 0.4f;
+        }
+        else
+        {
+            Speed -= (191 - red) * 2;
+            health += (191 - red) * 0.8f;
+        }
+    }
+
     private void CheckMovement()
     {
         if (rb2d.velocity.y >= 0.5f || rb2d.velocity.x >= 0.5f || rb2d.velocity.y <= -0.5f || rb2d.velocity.x <= -0.5f)
