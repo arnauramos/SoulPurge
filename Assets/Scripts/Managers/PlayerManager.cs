@@ -464,7 +464,7 @@ public class PlayerManager : MonoBehaviour
         maxSpeed = 1.25f;
         sprint = 2;
         souls = 0;
-        maxSouls = 100;
+        maxSouls = 9999;
         money = 0;
         AuxGO = 0;
         usePriority = false;

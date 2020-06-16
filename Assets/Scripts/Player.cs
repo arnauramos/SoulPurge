@@ -573,7 +573,7 @@ public class Player : MonoBehaviour
         // MONEY AND SOULS
         if (Input.GetKey(KeyCode.M))
         {
-            PlayerManager.Instance.souls = (PlayerManager.Instance.maxSouls / 2);
+            PlayerManager.Instance.souls = 50;
             PlayerManager.Instance.money = 90000;
         }
         // KEYS
