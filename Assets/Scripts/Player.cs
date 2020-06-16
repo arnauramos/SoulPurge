@@ -332,7 +332,7 @@ public class Player : MonoBehaviour
 				weaponUsing.Rounds = AuxRounds;
 				PlayerManager.Instance.substrTotalAmmo(weaponUsing.Rounds);
 			}
-            if (weaponUsing.gameObject.GetComponent<Gun>().itemName != "Axe")
+            if (weaponUsing.name != ("Axe"))
             {
                 SoundManager.Instance.PlaySound(SoundManager.Sounds.Reloading);
             }
@@ -351,7 +351,7 @@ public class Player : MonoBehaviour
                 weaponUsing.Rounds = AuxRounds;
                 PlayerManager.Instance.substrTotalAmmo(weaponUsing.Rounds);
             }
-            if (weaponUsing.gameObject.GetComponent<Gun>().itemName != "Axe")
+            if (weaponUsing.name != ("Axe"))
             {
                 SoundManager.Instance.PlaySound(SoundManager.Sounds.Reloading);
             }
